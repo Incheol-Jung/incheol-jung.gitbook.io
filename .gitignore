@@ -1,6 +1,3 @@
 _site
-_build
-build
 .sass-cache
 .jekyll-metadata
-.DS_Store

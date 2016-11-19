@@ -1,172 +1,30 @@
+---
+layout: null
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>creative art works</title>
-    <description></description>
-    <link>//</link>
-    <atom:link href="//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 19 Oct 2016 17:15:45 +0900</pubDate>
-    <lastBuildDate>Wed, 19 Oct 2016 17:15:45 +0900</lastBuildDate>
-    <generator>Jekyll v3.2.1</generator>
-    
+    <title>{{ site.title | xml_escape }}</title>
+    <description>{{ site.description | xml_escape }}</description>
+    <link>{{ site.url }}{{ site.baseurl }}/</link>
+    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
+    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <generator>Jekyll v{{ jekyll.version }}</generator>
+    {% for post in site.posts limit:10 %}
       <item>
-        <title>Styling code guide</title>
-        <description>&lt;h2 id=&quot;first&quot;&gt;1. first&lt;/h2&gt;
-
-&lt;h2 id=&quot;sub&quot;&gt;1-1. sub&lt;/h2&gt;
-
-&lt;h3 id=&quot;sub--sub&quot;&gt;1-1-1. sub &amp;gt; sub&lt;/h3&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$items&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'.item'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;sub-1&quot;&gt;1-2. sub&lt;/h2&gt;
-
-&lt;p&gt;이렇게 작성하게 됩니다.&lt;br /&gt;
-   하지만?&lt;/p&gt;
-
-&lt;p&gt;그러나?&lt;/p&gt;
-
-&lt;h2 id=&quot;sub-2&quot;&gt;1-3. sub&lt;/h2&gt;
-
-&lt;p&gt;이렇게 작성하게 됩니다.&lt;br /&gt;
-   하지만?
-그러나?&lt;/p&gt;
-
-&lt;h3 id=&quot;sub-3&quot;&gt;1-3-1. sub&lt;/h3&gt;
-
-&lt;p&gt;이렇게 작성하게 됩니다.&lt;br /&gt;
-   하지만?&lt;/p&gt;
-
-&lt;p&gt;그러나?&lt;/p&gt;
-
-&lt;h4 id=&quot;sub-4&quot;&gt;1-3-2. sub&lt;/h4&gt;
-
-&lt;p&gt;이렇게 작성하게 됩니다.&lt;br /&gt;
-   하지만?
-그러나?&lt;/p&gt;
-
-&lt;h5 id=&quot;sub-5&quot;&gt;1-3-2. sub&lt;/h5&gt;
-
-&lt;p&gt;이렇게 작성하게 됩니다.&lt;br /&gt;
-   하지만?
-그러나?&lt;/p&gt;
-
-&lt;h6 id=&quot;sub-6&quot;&gt;1-3-2. sub&lt;/h6&gt;
-
-&lt;p&gt;이렇게 작성하게 됩니다.&lt;br /&gt;
-   하지만?
-그러나?&lt;/p&gt;
-
-&lt;h2 id=&quot;sub-7&quot;&gt;1-4. sub&lt;/h2&gt;
-
-&lt;p&gt;이렇게 작성하게 됩니다.&lt;br /&gt;
-   하지만?
-그러나?&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;second&quot;&gt;2. second&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;third&quot;&gt;3. third&lt;/h1&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$items&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'.item'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;fourth&quot;&gt;4. fourth&lt;/h1&gt;
-
-&lt;h2 id=&quot;fourth-1&quot;&gt;4-1. fourth&lt;/h2&gt;
-
-&lt;h1 id=&quot;fifth&quot;&gt;5. fifth&lt;/h1&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$items&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'.item'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Sun, 16 Oct 2016 00:00:00 +0900</pubDate>
-        <link>//reference/2016/10/16/code-styling-guide.html</link>
-        <guid isPermaLink="true">//reference/2016/10/16/code-styling-guide.html</guid>
-        
-        
-        <category>reference</category>
-        
+        <title>{{ post.title | xml_escape }}</title>
+        <description>{{ post.content | xml_escape }}</description>
+        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
+        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
+        {% for tag in post.tags %}
+        <category>{{ tag | xml_escape }}</category>
+        {% endfor %}
+        {% for cat in post.categories %}
+        <category>{{ cat | xml_escape }}</category>
+        {% endfor %}
       </item>
-    
-      <item>
-        <title>Introduce tech category</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;우리가 할 수 있는 기술적인 부분들.&lt;/h2&gt;
-
-&lt;p&gt;우리가 이미 알고있던 것들을 설명하거나&lt;br /&gt;
-새로운 기술적인 부분들을 이야기하는 곳입니다.&lt;/p&gt;
-</description>
-        <pubDate>Sat, 15 Oct 2016 00:00:00 +0900</pubDate>
-        <link>//tech/2016/10/15/introduce-tech.html</link>
-        <guid isPermaLink="true">//tech/2016/10/15/introduce-tech.html</guid>
-        
-        
-        <category>tech</category>
-        
-      </item>
-    
-      <item>
-        <title>Introduce about category</title>
-        <description>&lt;h2 id=&quot;section&quot;&gt;지킬을 이용해 만들다.&lt;/h2&gt;
-
-&lt;p&gt;이 페이지는 지킬과 깃허브를 이용해 제작되었습니다.
-jekyll-docs&lt;/p&gt;
-
-&lt;h4 id=&quot;jekyll-docshttpjekyllrbcomdocshome&quot;&gt;&lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;jekyll-docs&lt;/a&gt;&lt;/h4&gt;
-
-&lt;h4 id=&quot;jekyll-ghhttpsgithubcomjekylljekyll&quot;&gt;&lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;jekyll-gh&lt;/a&gt;&lt;/h4&gt;
-
-&lt;h4 id=&quot;jekyll-talkhttpstalkjekyllrbcom&quot;&gt;&lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;jekyll-talk&lt;/a&gt;&lt;/h4&gt;
-
-</description>
-        <pubDate>Sat, 15 Oct 2016 00:00:00 +0900</pubDate>
-        <link>//about/2016/10/15/introduce-about.html</link>
-        <guid isPermaLink="true">//about/2016/10/15/introduce-about.html</guid>
-        
-        
-        <category>about</category>
-        
-      </item>
-    
-      <item>
-        <title>Introduce reference category</title>
-        <description>&lt;p&gt;refearance 라는 공간은&lt;br /&gt;
-지속적으로 업데이트 되는 레퍼런스 포스트들을 게시하는 곳입니다.&lt;br /&gt;
-누구나 업데이트를 제안 할 수 있습니다.&lt;br /&gt;
-&lt;br /&gt;
-이 글 또한 변경된 사항에 대해 업데이트 됩니다.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 14 Oct 2016 00:00:00 +0900</pubDate>
-        <link>//reference/2016/10/14/introduce-refearance.html</link>
-        <guid isPermaLink="true">//reference/2016/10/14/introduce-refearance.html</guid>
-        
-        
-        <category>reference</category>
-        
-      </item>
-    
-      <item>
-        <title>Introduce blog</title>
-        <description>&lt;p&gt;개발에 대한 경험과 여러가지 이야기들을 기록하는 공간입니다.&lt;br /&gt;
-가끔 우울하거나 슬플 수 있으니 조심하세요 ! 😬&lt;/p&gt;
-</description>
-        <pubDate>Fri, 14 Oct 2016 00:00:00 +0900</pubDate>
-        <link>//blog/2016/10/14/introduce-blog.html</link>
-        <guid isPermaLink="true">//blog/2016/10/14/introduce-blog.html</guid>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
+    {% endfor %}
   </channel>
 </rss>

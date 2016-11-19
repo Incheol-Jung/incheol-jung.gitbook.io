@@ -1,19 +1,27 @@
+---
+layout: compress
+---
 <!DOCTYPE html>
-<html lang="ko">
-{% include head.html %}
-<body>
-  <div class="layout_wrap">
-	{% include header.html %}
+<html>
 
-	<div class="layout_content" role="main">
-		<div class="measure">
+  {% include head.html %}
 
-		{{ content }}
-		
-		</div>
-	</div>
-
-	{% include footer.html %}
-</div>
-</body>
+  <body>
+   
+     <div class="wrapper">
+      {% include color-bar.html %}
+    {% include header.html %}
+   </div>
+    <div class="page-content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </div>
+   <div class="wrapper">
+    {% include footer.html %}
+   </div>
+   {% if site.analytics %}
+   {% include analytics.html %}
+   {% endif %}
+  </body>
 </html>
