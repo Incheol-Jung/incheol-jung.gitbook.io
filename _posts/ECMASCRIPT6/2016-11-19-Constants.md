@@ -10,9 +10,8 @@ comments: true
 새로운 키워드 & 변수들에 대한 주제로써, 또 하나의 흥미로운 것이 있다. ES6는 constants를 선언하기 위해 const를 소개하고 있다. 
 당신이 const를 사용하여 변수를 사용하게된다면, 그것은 초기화되어질 것이다. 그리고 당신은 후에 어떠한 값도 할당하지 못할 것이다.  
 
- ```javascript
+```javascript
 const poniesInRace = 6;
-
 poniesInRace = 7;
 ```
 
