@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-categories: paracraft
+categories: Chapter 4. Diving into TypeScript
 ---
 
 ## Empty diary template
