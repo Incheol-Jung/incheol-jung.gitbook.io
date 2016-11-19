@@ -14,7 +14,6 @@ comments: true
 const poniesInRace = 6;
 
 poniesInRace = 7;
-
 ```
 
 Let을 사용하여 변수를 선언한다면, constants는 블록 단계에서 오직 정의되어 질것이고 상위에서 선언되어 있지 않을 것이다. 
