@@ -13,13 +13,13 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: FASHIONGO Developers
-email: seungwhanbae@fashiongo.net
+title: Incheol's BLOG
+email: bluesky761@naver.com
 description: 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "/" # the base hostname & protocol for your site
-twitter_username: 
-github_username:  seunghwanbaeF
+twitter_username: jung-inchul
+github_username: jung-inchul
 
 # Build settings
 markdown: kramdown
