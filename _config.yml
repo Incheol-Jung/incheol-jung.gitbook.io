@@ -1,44 +1,34 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
-
 # Site settings
-title: "I'm Vyaasa"
-title-font-size: '4em' # a provision to adjust the size of your title. If it is too long then do resize to a smaller value. By default it will be 4em.
+title: LiXizhi's Personal Website
+email: lixizhi@yeah.net
+description: Xizhi's Ideas & Blogs
+# > # this means to ignore newlines until "baseurl:"
+#   Write an awesome description for your new site here. You can edit this
+#   line in _config.yml. It will appear in your document head meta (for
+#   Google search results) and in your feed.xml site description.
 
-email: your-email@domain.com
-description: > # this means to ignore newlines until "baseurl:"
-  Vyaasa is a minimal Jekyll theme meant for writers. Long text posts will look good with this layout. This is a free theme and can be used for all kinds of Jekyll blogs.
-baseurl: "/vyaasa" # the subpath of your site, e.g. /blog
-url: "http://webjeda.com" # the base hostname & protocol for your site
-
-permalink: :title/
+# baseurl: "" # the subpath of your site, e.g. /blog/
+# url: "http://yourdomain.com" # the base hostname & protocol for your site
+# twitter_username: jekyllrb
+github_username: LiXizhi
+permalink: /:year/:month/:day/:title/
+# this is the url root of the view source link on the footer page.
+viewsourceroot: https://github.com/LiXizhi/LiXizhi.github.io/blob/master/
+# this is the url root of the create page link on the footer page.
+newsourceroot: https://github.com/LiXizhi/LiXizhi.github.io/new/master
+#########################################
+# for duoshuo.com commenting system, uncomment following line if you do not want to include duoshuo.com. 
+#duoshuo_shortname: lixizhi
+#duoshuo_url: "http://lixizhi.github.io"
+# disqus.com commenting system. please note that it is exclusive with duoshuo.com
+disqus_shortname: lixizhi
+disqus_url: "http://lixizhi.github.io"
+#########################################
 
 # Build settings
 markdown: kramdown
-highlight: rouge
-paginate: 5
-paginate_path: /page:num/
 
-
-# Tracker
-analytics: UA-83979019-1
-
-# Comments
-disqus-shortname: webjeda-demo
-
-# Contact form
-# Go to https://getsimpleform.com and get a API token by signing up with your email and enter that here
-api-token:   
-
-#CSS
-sass:
-  style: compressed
-
-
-include: [_pages]
-
-gems: [jekyll-paginate, jekyll-seo-tag]
+# highlight
+# highlighter: pygments
+# highlighter: rouge
+# highlighter: false

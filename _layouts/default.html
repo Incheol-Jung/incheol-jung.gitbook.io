@@ -1,27 +1,28 @@
----
-layout: compress
----
 <!DOCTYPE html>
 <html>
 
   {% include head.html %}
 
+ <!--  <body data-spy="scroll" data-target="#myAffix"> -->
   <body>
-   
-     <div class="wrapper">
-      {% include color-bar.html %}
+
     {% include header.html %}
-   </div>
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
+
+    <div id="main" class="container main">
+      {{ content }}
     </div>
-   <div class="wrapper">
+
+    
+    <div id="top" data-toggle="tooltip" data-placement="left" title="back to top">
+      <a href="javascript:;">
+        <div class="arrow"></div>
+        <div class="stick"></div>
+      </a>
+    </div>
+
     {% include footer.html %}
-   </div>
-   {% if site.analytics %}
-   {% include analytics.html %}
-   {% endif %}
+
+    {% include newpost.html %}
+  
   </body>
 </html>

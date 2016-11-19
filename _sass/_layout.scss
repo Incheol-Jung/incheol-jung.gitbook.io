@@ -1,55 +1,178 @@
 
-   *{
-    -webkit-transition: all 0.2s; /* Safari */
-    -webkit-transition-timing-function: linear; /* Safari */
-    transition: all 0.2s;
-    transition-timing-function: linear;
-      }
+*{
+    font-family: Consolas,'Microsoft YaHei', 'SimHei', sans-serif;
+}
 
 /**
  * Site header
  */
-.site-header {
+/*.site-header {
+    border-top: 5px solid $grey-color-dark;
     border-bottom: 1px solid $grey-color-light;
     min-height: 56px;
-    padding-bottom: 1em;
-}
+
+    // Positioning context for the mobile navigation icon
+    position: relative;
+}*/
 
 .site-title {
-    font-size: $title-font-size;
-    line-height: 2;
+    font-size: 26px;
+    line-height: 56px;
     letter-spacing: -1px;
     margin-bottom: 0;
-    text-align: center;
-    text-shadow: 0 0 1px;
+    float: left;
+
     &,
     &:visited {
-        color: $grey-color;
-    }
-    
-    @include media-query($on-laptop) {
-        font-size: 3em;
-    } 
-    @include media-query($on-palm) {
-            font-size: 2.75em;
+        color: $grey-color-dark;
     }
 }
+
+.site-nav {
+    float: right;
+    line-height: 56px;
+
+    .menu-icon {
+        display: none;
+    }
+
+    .page-link {
+        color: $text-color;
+        line-height: $base-line-height;
+
+        // Gaps between nav items, but not on the first one
+        &:not(:first-child) {
+            margin-left: 20px;
+        }
+    }
+
+    @include media-query($on-palm) {
+        position: absolute;
+        top: 9px;
+        right: 30px;
+        background-color: $background-color;
+        border: 1px solid $grey-color-light;
+        border-radius: 5px;
+        text-align: right;
+
+        .menu-icon {
+            display: block;
+            float: right;
+            width: 36px;
+            height: 26px;
+            line-height: 0;
+            padding-top: 10px;
+            text-align: center;
+
+            > svg {
+                width: 18px;
+                height: 15px;
+
+                path {
+                    fill: $grey-color-dark;
+                }
+            }
+        }
+
+        .trigger {
+            clear: both;
+            display: none;
+        }
+
+        &:hover .trigger {
+            display: block;
+            padding-bottom: 5px;
+        }
+
+        .page-link {
+            display: block;
+            padding: 5px 10px;
+        }
+    }
+}
+
 
 
 /**
  * Site footer
  */
 .site-footer {
+    border-top: 1px solid $grey-color-light;
     padding: $spacing-unit 0;
 }
+
+.footer-heading {
+    font-size: 18px;
+    margin-bottom: $spacing-unit / 2;
+}
+
+.contact-list,
+.social-media-list {
+    list-style: none;
+    margin-left: 0;
+}
+
+.footer-col-wrapper {
+    font-size: 15px;
+    color: $grey-color;
+    margin-left: -$spacing-unit / 2;
+    @extend %clearfix;
+}
+
+.footer-col {
+    float: left;
+    margin-bottom: $spacing-unit / 2;
+    padding-left: $spacing-unit / 2;
+}
+
+.footer-col-1 {
+    width: -webkit-calc(35% - (#{$spacing-unit} / 2));
+    width:         calc(35% - (#{$spacing-unit} / 2));
+}
+
+.footer-col-2 {
+    width: -webkit-calc(20% - (#{$spacing-unit} / 2));
+    width:         calc(20% - (#{$spacing-unit} / 2));
+}
+
+.footer-col-3 {
+    width: -webkit-calc(45% - (#{$spacing-unit} / 2));
+    width:         calc(45% - (#{$spacing-unit} / 2));
+}
+
+@include media-query($on-laptop) {
+    .footer-col-1,
+    .footer-col-2 {
+        width: -webkit-calc(50% - (#{$spacing-unit} / 2));
+        width:         calc(50% - (#{$spacing-unit} / 2));
+    }
+
+    .footer-col-3 {
+        width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+        width:         calc(100% - (#{$spacing-unit} / 2));
+    }
+}
+
+@include media-query($on-palm) {
+    .footer-col {
+        float: none;
+        width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+        width:         calc(100% - (#{$spacing-unit} / 2));
+    }
+}
+
+
 
 /**
  * Page content
  */
-/* .page-content {
+.page-content {
     padding: $spacing-unit 0;
-} */
+}
 
+.page-heading {
+    font-size: 20px;
+}
 
 .post-list {
     margin-left: 0;
@@ -63,11 +186,11 @@
 .post-meta {
     font-size: $small-font-size;
     color: $grey-color;
-    line-height: 0;
 }
 
 .post-link {
-    margin-right: 1em;
+    display: block;
+    font-size: 24px;
 }
 
 
@@ -79,98 +202,40 @@
     margin-bottom: $spacing-unit;
 }
 
+.post-title {
+    font-size: 42px;
+    letter-spacing: -1px;
+    line-height: 1;
 
-.site-nav {
-    text-align: center;
-}
-
-.nav-link {
-    margin-left: 10px;
-    border-radius: 2px;
-    padding: 5px 10px;
-    text-decoration: none;
-    font-family: sans-serif;
-    border: none;
-    &:hover{
-        color: $background-color;
-        background: $brand-color;
-    }
-    
-     @include media-query($on-laptop) {
-            font-size: 0.8em;
-            margin-left: 5px;
-         
-        }
-        
-}
-
-
-//table
-table {
-  margin: 15px 0;
-  border-collapse: collapse;
-  width: 100%;
-  padding: 0; }
-  table tr {
-    border-top: 1px solid $grey-color;
-    background-color: white;
-    margin: 0;
-    padding: 0; }
-    table tr:nth-child(2n) {
-      background-color: #f8f8f8; }
-    table tr th {
-      font-weight: bold;
-      border: 1px solid $grey-color;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr td {
-      border: 1px solid $grey-color;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr th :first-child, table tr td :first-child {
-      margin: 0; }
-    table tr th :last-child, table tr td :last-child {
-      margin: 0; }
-
-
-// Adding 'Contents' headline to the TOC
-#markdown-toc::before {
-    content: "Contents";
-    font-weight: bold;
-}
-
-
-// Using numbers instead of bullets for listing
-#markdown-toc ul {
-    list-style: decimal;
-}
-
-#markdown-toc {
-    border: 1px solid $brand-color;
-    padding: 1.5em;
-    list-style: decimal;
-    display: inline-block;
-}
-
-.video {
-    width: 100%;
-    height: 360px;
     @include media-query($on-laptop) {
-        height: 300px;
+        font-size: 36px;
     }
-    @include media-query($on-palm) {
-        height: 180px;
-    }
-
-    
 }
 
-.post {
-    margin-bottom: 2em;
-}
+.post-content {
+    margin-bottom: $spacing-unit;
 
-.page-content {
-    margin-top: 40px;
+    h2 {
+        font-size: 32px;
+
+        @include media-query($on-laptop) {
+            font-size: 28px;
+        }
+    }
+
+    h3 {
+        font-size: 26px;
+
+        @include media-query($on-laptop) {
+            font-size: 22px;
+        }
+    }
+
+    h4 {
+        font-size: 20px;
+
+        @include media-query($on-laptop) {
+            font-size: 18px;
+        }
+    }
 }
