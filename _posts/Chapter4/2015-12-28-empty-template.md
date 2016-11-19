@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-categories: Chapter 4. Diving into TypeScript
+categories: Chapter4
 ---
 
 ## Empty diary template

@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-categories: Chapter 3. Going further than ES6
+categories: Chapter3
 ---
 
 ## Empty npl tutorial template
