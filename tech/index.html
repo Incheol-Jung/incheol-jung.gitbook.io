@@ -1,9 +1,11 @@
 ---
 layout: default
+title: tech
+navigation_weight: 3
 ---
 
 	<ul class="post_list">
-		{% for post in site.posts %}
+		{% for post in site.categories.tech %}
 		<li class="post_list__item">
 			<span class="meta">
 				{% if post.updated %}

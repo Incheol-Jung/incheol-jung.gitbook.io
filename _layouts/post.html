@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<div class="post_header">
+	<span class="meta">
+		{% if page.updated %}
+		{{ page.updated | date: "%B %-d %Y" }}<span class="modifyed"> - updated</span>
+		{% else %}
+		{{ page.date | date: "%B %-d %Y" }}
+		{% endif %}
+	</span>
+	<h1 class="subject">{{ page.title }}</h1>
+	{% if page.writer %}
+	<span class="meta">
+		{{ page.writer }}
+	</span>
+	{% endif %}
+</div>
+
+<article class="post_content" id="postContent">
+  {{ content }}
+</article>
+
