@@ -38,3 +38,50 @@ HTML 속성은 따옴표, 어포 스트로피, 슬래시, 같음, 공백과 같�
 ```
 
 대괄호 구문을 사용하면 DOM 속성 textContent를 수정할 수 있으며 보간 용으로 사용 된 것처럼 현재 구성 요소 인스턴스의 컨텍스트에서 평가되는 user.name 값을 지정한다. 
+구문 분석기는 대소문자를 인지하기 때문에 정확한 이름을 사용해야한다. 
+DOM 속성은 HTML 속성보다 큰 이점을 가지고 있다. 만약 내가 입력 예제에서 value 속성은 항상 'hello'를 보여주는 반면에
+DOM 의 Value 속성 노드는 브라우저에 의해 동적으로 수정되므로 사용자가 텍스트 필드에 입력 한 내용이 모두 포합된다. <br/><br/>
+
+마지막으로 속성은 부울 값을 가질 수 있지만 일부 속성은 시작 태그에 존재하거나 부재함으로써 속성을 반영 할 수 있다. <br/>
+예를 들어, <option> 태그에 selected 속성이 있다. <br/>
+어떤 값을 지정했는지에 상관없이 옵션이있는 한 옵션을 선택한다. <br/><br/>
+
+```javascript
+<option selected>Rainbow Dash</option>
+<option selected="false">Rainbow Dash</option> <!-- still selected -->
+```
+
+Angular 2 와 같은 속성 접근을 사용하게 되면
+
+```javascript
+<option [selected]="isPonySelected" value="Rainbow Dash">Rainbow Dash</option>
+```
+
+pony는 isPonySelected가 true이면 선택되어 질 것이고 그렇지 않으면 선택되지 않을 것이다. 
+그리고 isPonySelected의 값이 변할 때마다 선택된 속성도 변경될 것이다. <br/>
+
+Angular 1에서는 번거롭지만 많은 것들을 할수 있었다. 예를 들어 이미지를 동적 주소로 바인딩 하는것이 있다. 
+
+```javascript
+<img src="{{pony.avatar.url}}">
+```
+이 구문은 큰 문제가 있다. 브라우져는 src 속성을 읽자마자 이미지를 가져오려고 시도할 것이고 
+실패로 보여질 것이다. 왜냐하면 {{pony.avatar.url}}은 유효한 URL이 아닌 HTTP 요청이기 때문이다. <br/>
+
+그래서 Angular 1에서는 특별한 디렉티브가 있었다. : ng-src
+```javascript
+<img ng-src="{{pony.avatar.url}}">
+```
+
+src 대신 ng-src를 사용하여 문제는 해결하였다. 
+AngularJS가 앱을 컴파일하고 나면 src 속성에 올바른 URL이 추가되어 이미지 다운로드가 시작된다. 
+그러나 이는 두 가지 문제점이 있다. 
+
+- 먼저 개발자로서 ng-src에 제공 할 가치를 알아야 한다. 그것은 'https://gravatar.com'이었습니까? ''https://gravatar.com ''? 'pony.avatar.url'? '{{pony.avatar.url}}'? 문서를 읽는 것 외에는 알 길이 없다. 
+-  Angular 팀은 각 표준 속성에 대한 지침을 작성해야했습니다. 
+그들은 그렇게했고, 우리는 그것들을 배워야했다. 
+그러나 이제는 HTML에 외부 웹 구성 요소가 포함될 수있는 세상에 있다. 
+
+```javascript
+<ns-pony name="Rainbow Dash"></ns-pony>
+```
