@@ -85,3 +85,59 @@ AngularJS가 앱을 컴파일하고 나면 src 속성에 올바른 URL이 추가
 ```javascript
 <ns-pony name="Rainbow Dash"></ns-pony>
 ```
+
+Web Component를 사용하려는 경우 Web Component 개발자가 주의 깊게 처리 한 경우를 제외하고 대부분의 JS 프레임 워크에서 동적 값을 전달하는 쉬운 방법이 없다. 
+자세한 내용은 Web Component 챕터를 읽어보도록 해라. <br/>
+
+Web Component는 브라우져 엘리먼트처럼 동작해야 한다. 
+Web Component들은 Angular 2기반의 속성, 이벤트, 함수 등을 가져야 한다.  
+
+```javascript
+<ns-pony [name]="pony.name"></ns-pony>
+```
+
+그리고 정상적으로 동작한다. 
+Angular는 속성과 요소에 대한 동기화를 유지할것이다. 
+더 이상 지시어를 배울 필요가 없다. 요소를 숨기려면 표준 숨김 속성을 사용할 수 있다. 
+
+```javascript
+<div [hidden]="isHidden">Hidden or not</div>
+```
+
+ishidden이 true일 경우 div는 사라질 것이다. Angular는 숨겨진 속성과 직접 작동하기 때문이다. 
+더 이상 Angular에서 사용된 directives 중의 하나 인 ng-hide와 같은 directive를 사용할 필요가 없다. 
+스타일 속성의 color 속성과 같이 중첩된 속성에 접근할 수도 있다. 
+
+```javascript
+<p [style.color]="foreground">Friendship is Magic</p>
+```
+
+foreground의 속성이 '녹색'으로 변한다고 하면, color도 녹색으로 변할 것이다. <br/>
+따라서 Angular 2는 속성을 사용하고 있다. 어떤 값을 전달할 수 있을까? 
+우리는 이미 보간 속성 property="{{expression}}" 을 이미 보았다. 
+
+```javascript
+<ns-pony name="{{pony.name}}"></ns-pony>
+```
+
+이것은 [property] ="expression"과 동일하다. 
+
+```javascript
+<ns-pony [name]="pony.name"></ns-pony>
+```
+
+'Pony' 글자 뒤에 pony의 이름을 덧 붙이기를 원한다면 당신은 두 가지 옵션이 있다. 
+
+ ```javascript
+<ns-pony name="Pony {{pony.name}}"></ns-pony>
+<ns-pony [name]="'Pony ' + pony.name"></ns-pony>
+```
+
+만약 당신이 동적인 변수를 사용하지 않는다면 property = "value" 와 같이 간단하게 적을 수 있다. 
+
+ ```javascript
+ name="Rainbow Dash"></ns-pony>
+```
+
+이들 모두는 동등하고 구문은 개발자가 구성 요소를 설계하는 방법에 달려 있지 않는다.  
+구성 요소가 값 또는 참조 예를 기대하고 있는지를 알아야하는 AngularJS 1.x의 경우와 같다고 할 수 있다. 
