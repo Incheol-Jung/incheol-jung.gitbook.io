@@ -46,11 +46,11 @@
     <div class="col-sm-3">
         <div class="shadow-corner-curl hidden-xs">
             <div class="categories-list-header">
-                Categories444
+                Categories
             </div>
 
             <a href="javascript:;" class="categories-list-item" cate="All">
-        All2<span class="my-badge"> {{site.posts | 100}}</span>
+        All<span class="my-badge"> {{site.posts | size}}</span>
       </a> {% for category in site.categories %}
             <a href="javascript:;" class="categories-list-item" cate="{{ category | first }}">
           {{ category | first }} <span class="my-badge">{{ category | last | size }}</span>
