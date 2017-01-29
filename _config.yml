@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Site settings
 title: Incheol's Personal Website
 email: bluesky761@naver.com
@@ -32,3 +33,6 @@ markdown: kramdown
 # highlighter: pygments
 # highlighter: rouge
 # highlighter: false
+=======
+theme: jekyll-theme-merlot
+>>>>>>> e7ff2ba3d24728e4fd8544b788faa0ea9d8f3df8
