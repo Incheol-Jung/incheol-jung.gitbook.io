@@ -71,14 +71,14 @@ export class PonyRacerAppComponent {
 ```
 
 기본적으로 Http 서비스는 XMLHttpRequest를 사용하여 AJAX 요청을 처리한다.
-가장 일반적인 HTTP 동사와 일치하는 여러 가지 방법을 제공한다.
+가장 일반적인 HTTP 동사와 일치하는 여러 가지 방법을 제공한다.<br/>
 
-• get
-• post
-• put
-• delete
-• patch
-• head
+• get<br/>
+• post<br/>
+• put<br/>
+• delete<br/>
+• patch<br/>
+• head<br/>
 
 AngularJS 1.x에서 $ http 서비스를 사용했다면 약속에 크게 의존하고 있음을 기억할 것이다.
 그러나 Angular 2에서는 이러한 모든 메서드가 Observable 객체를 반환한다.<br/>
