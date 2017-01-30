@@ -147,7 +147,7 @@ export class PonyRacerAppComponent {
 }
 ```
 
-!! 한가지 주의할 점은 selector의 명확한 네이밍 규칙은 존재하지 않는다는 것이다. 
+> 한가지 주의할 점은 selector의 명확한 네이밍 규칙은 존재하지 않는다는 것이다. 
 그러나 만약 다른 프로그래머에게 당신의 component를 설명한다고 한다면 namespace-component를 사용하기를 권장한다. 
 왜냐하면 selecotr는 유일해야하고 태그를 좀 더 명확하게 사용하기 위한 간단한 팁이라고 할수 있다. <br/><br/>
 
