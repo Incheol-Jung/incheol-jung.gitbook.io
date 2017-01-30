@@ -121,10 +121,10 @@
 
     });
 
-    $(window).scroll(function() {
-        var viewportTop = $(window).scrollTop();
+    $window.scroll(function() {
+        var viewportTop = $window.scrollTop();
         if (viewportTop) {
-            var viewportBottom = viewportTop + $(window).height();
+            var viewportBottom = viewportTop + $window.height();
             var footerTop = $('#footer').offset().top;
             if ((footerTop <= viewportBottom) && (footerTop >= viewportTop)) {
                 // footer is visible: static above footer
