@@ -1,0 +1,1107 @@
+---
+layout:     reference
+title:      Forms
+date:       2017-01-22 00:00:00
+updated:    2017-01-22 00:00:00
+categories: reference
+summary:    Forms
+---
+
+
+## Forms, dear forms
+
+폼은 항상 Angular에서 더 가공 되어왔다. 이것은 1.x에서 가장 많이 사용 된 기능 중 하나이며 거의 모든 앱에 형태가 있기 때문에 많은 개발자들의 마음을 사로 잡았다.<br/>
+
+폼은 어려웠다 : 사용자의 입력을 검증하고, 오류를 표시하고, 필드를 필요로하는지 여부를 결정하거나, 다른 필드에 따라 일부 필드 변경 등에 대응해야한다. 
+또한 이러한 양식을 테스트 해야 한다. AngularJS 1.x의 단위 테스트로는 불가능 했다. 
+엔드 - 투 - 엔드 (end-to-end) 테스트만으로는 실현 가능성이 낮았다.<br/><br/>
+
+Angular 2에서는 양식에 동일한주의가 적용되었으며 프레임 워크는 양식을 작성하는 좋은 방법을 제공한다. 사실 그것은 여러 가지 방법을 제공한다.<br/>
+
+템플릿의 지시문만 사용하여 양식을 작성할 수 있다. 이는 "템플릿 중심" 방식이다.
+우리의 경험에 비추어 볼 때, 당신이 단순한 폼을 가지고 있을 때, 많은 검증이 없이 빛난다.<br/>
+
+다른 방법은 구성 요소에 폼에 대한 설명을 작성한 다음 지시문을 사용하여 폼을 템플릿의 inputs / textareas / choose에 바인드하는 "코드 중심"방식이다. 
+좀 더 자세한 정보 뿐 아니라 특히 사용자 정의 유효성 검사 추가 또는 동적 양식 생성을 원할 경우 더욱 강력하다.<br/>
+
+동일한 사용 사례를 두 번 반복하고 각 방법을 사용하여 차이점을 살펴 보도록 하자.<br/>
+
+우리는 우리의 멋진 PonyRacer 앱에 새로운 사용자를 등록 할 수 있도록 간단한 양식을 작성하려고 한다.
+각 유스 케이스마다 기본 구성 요소가 필요하다. 다음과 같이 시작해 보자.<br/>
+
+```javascript
+import { Component } from '@angular/core';
+@Component({
+  selector: 'ns-register',
+  template: `
+  <h2>Sign up</h2>
+  <form></form>
+  `
+})
+export class RegisterFormComponent {
+}
+```
+
+멋진 것은 없다 : 폼을 포함하는 간단한 템플릿을 가진 컴포넌트는 다음 몇 분 안에 사용자 이름과 암호를 등록 할 수있는 양식을 작성한다.<br/>
+
+두 가지 방법 모두 Angular는 양식의 표현을 만든다.<br/>
+
+"템플릿 중심" 방식에서는 꽤 자동적이다. 템플릿에 적절한 지시문을 추가 하기만 하면 프레임 워크가 양식 표현 작성을 담당한다.
+"코드 중심" 방식에서는 이 폼 표현을 수동으로 작성한 다음 지시문을 사용하여 양식 표현을 입력에 바인드 한다.<br/>
+
+폼 뒤에서 입력 필드 나 선택 필드와 같은 폼 필드는 FormControlin Angular 2로 표현된다. 
+이것은 폼의 가장 작은 부분이며 필드의 상태와 그 값을 캡슐화 한다.
+
+FormControl에는, 다음의 몇개의 속성이 있다.<br/>
+
+• valid : 해당 필드가 유효하고 해당 필드에 적용되는 요구 사항 및 유효성 검사.<br/>
+• errors : 필드 오류가있는 객체.<br/>
+• dirty : 사용자가 값을 수정할 때까지 false.<br/>
+• pristine : 수정하기 이전.<br/>
+• touched : 사용자가 입력 할 때까지 false.<br/>
+• untouched : 입력하기 전까지 상태.<br/>
+• value : 필드의 값.<br/>
+• valueChanges : 필드에 변화가 있을 때마다 관찰 되는 관찰 가능 함수<br/>
+
+또한 컨트롤에 특정 오류가 있는지 확인하는 hasError()와 같은 몇 가지 메서드를 제공한다.<br/>
+
+```javascript
+const password = new FormControl();
+console.log(password.dirty); // false until the user enters a value
+console.log(password.value); // null until the user enters a value
+console.log(password.hasError('required')); // false
+```
+
+생성자에 인수를 전달할 수 있으며 이 인수는 값이 된다.
+
+```javascript
+const password = new FormControl('Cédric');
+console.log(password.value); // logs "Cédric"
+```
+
+이러한 컨트롤은 FormGroup에 그룹화하여 양식의 일부를 나타내고 전용 유효성 검사 규칙을 가질 수 있다. 양식 자체가 그룹이다.
+
+FormGroup은 FormControl과 동일한 속성을 갖지만 몇 가지 차이점이 있다.<br/>
+
+• valid : 모든 필드가 유효하면 그룹의 유효성.
+• errors : 그룹 오류가있는 객체이거나 그룹이 유효한 경우 null이다. 각 오류는 키이고, value는 이 오류의 영향을 받는 모든 컨트롤이 들어있는 배열이다.
+• dirty : 컨트롤 중 하나가 더러워 질 때까지 false.
+• pristine : dirty의 반대.
+• touched : 컨트롤 중 하나가 터치 될 때까지 false.
+• untouched : touched의 반대.
+• value : 그룹의 값. 더 정확하게 말하자면, 키 / 값이 컨트롤과 그 값.
+• valueChanges : 그룹에 변화가있을 때마다 관찰되는 관찰 가능<br/>
+
+hasError()와 같은 FormControl과 동일한 메소드를 제공한다. 또한 get() 메서드를 사용하여 그룹에서 컨트롤을 검색한다.
+
+다음과 같이 만들 수 있다.
+
+```javascript
+const form = new FormGroup({
+  username: new FormControl('Cédric'),
+  password: new FormControl()
+});
+console.log(form.dirty); // logs false until the user enters a value
+console.log(form.value); // logs Object {username: "Cédric", password: null}
+console.log(form.get('username')); // logs the Control
+```
+
+
+**************************************************************************************************
+
+
+## Template-driven
+
+이 메서드를 사용하여 폼 에서 많은 지시문을 사용하고 프레임 워크에서 필요한 FormControl 및 FormGroup 인스턴스를 만들도록 하자. 
+예를 들어, NgForm 지시문은 양식 요소를 강력한 Angular 2 버전으로 변형한다. Bruce Wayne과 Batman의 차이점이라고 생각하면 된다.<br/>
+
+필요한 지시문은 모두 FormsModule 모듈에 포함 되어 있으므로 루트 모듈에서 가져와야 한다.<br/>
+
+```javascript
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+@NgModule({
+  imports: [BrowserModule, FormsModule],
+  declarations: [PonyRacerAppComponent],
+  bootstrap: [PonyRacerAppComponent]
+})
+export class AppModule {
+}
+```
+
+FormsModule에는 "템플릿 중심"방식에 대한 지시문이 포함되어 있다. 우리는 나중에 "코드 중심"방식에 필요한 동일한 모듈 @ Angular / Forms에 ReactiveFormsModule이라는 또 다른 모듈이 있음을 보게 될 것이다.
+
+```javascript
+import { Component } from '@angular/core';
+@Component({
+  selector: 'ns-register',
+  template: `
+  <h2>Sign up</h2>
+  <form (ngSubmit)="register()">
+   <button type="submit">Register</button>
+  </form>
+  `
+})
+export class RegisterFormComponent {
+  register() {
+   // we will have to handle the submission
+  }
+}
+```
+
+단추를 추가하고 양식 태그에 ngSubmit에 대한 이벤트 처리기를 정의 하였다. ngSubmit 이벤트는 제출이 트리거 될 때 NgForm 지시문에 의해 생성된다. 
+나중에 구현 될 컨트롤러의 register () 메서드를 호출한다.
+마지막으로 템플릿이 빠르게 커질 수 있으므로 templateUrl을 사용하여 전용 파일에 템플릿을 추출해 보도록 하자.
+
+```javascript
+import { Component } from '@angular/core';
+@Component({
+  selector: 'ns-register',
+  templateUrl: 'register-form.component.html'
+})
+export class RegisterFormComponent {
+  register() {
+   // we will have to handle the submission
+  }
+}
+```
+
+"템플릿 중심"방식에서는 AngularJS 1.x와 매우 흡사하다. 템플릿에 많은 요소가 있고 구성 요소에는 많지 않다.<br/>
+
+가장 간단한 형식에서는 ngModel 지정 문을 양식 템플리트에 추가하면 된다. NgModel 지시문은 사용자를 위해 FormControl을 만들고 양식은 자동으로 FormGroup을 만든다. 입력에 이름을 지정해야 한다.
+이 이름은 프레임 워크에서 FormGroup을 만드는 데 사용된다.
+
+```javascript
+<h2>Sign up</h2>
+<form (ngSubmit)="register()">
+  <div>
+   <label>Username</label><input name="username" ngModel>
+  </div>
+  <div>
+   <label>Password</label><input type="password" name="password" ngModel>
+  </div>
+  <button type="submit">Register</button>
+</form>
+```
+
+이제 우리는 제출을 위해 무언가를 하고 사용자 이름과 암호를 알아야 한다. 이를 달성하기 위해 로컬 변수를 정의하고 이 변수에 의해 생성 된 NgForm 객체를 할당 할 수 있다.
+템플릿 장에서 이들을 기억하는가? 여기서는 폼을 참조하는 변수 userForm을 정의 할 것이다. 
+form 디렉티브는 FormGroup 클래스와 동일한 메소드가 있는 NgForm 지시문 인스턴스를 내보내므로 그렇게 할 수 있다. 
+고급 지시문을 작성하는 방법을 연구 할 때 내보내기 부분이 더 자세히 표시된다.
+
+```javascript
+<h2>Sign up</h2>
+<!-- we use a local variable #userForm -->
+<!-- and give its value to the register method -->
+<form (ngSubmit)="register(userForm.value)" #userForm="ngForm">
+  <div>
+   <label>Username</label><input name="username" ngModel>
+  </div>
+  <div>
+   <label>Password</label><input type="password" name="password" ngModel>
+  </div>
+  <button type="submit">Register</button>
+</form>
+```
+
+우리의 register 메소드는 이제 Form 값을 인수로 사용하여 호출한다.
+
+```javascript
+import { Component } from '@angular/core';
+@Component({
+  selector: 'ns-register',
+  templateUrl: 'register.component.html'
+})
+export class RegisterFormComponent {
+  register(user) {
+   console.log(user);
+  }
+}
+```
+
+이것은 단방향 데이터 바인딩 일뿐 이다. 필드를 업데이트하면 모델이 업데이트 되지만 모델을 업데이트해도 필드 값은 업데이트되지 않는다. 
+하지만 ngModel은 생각보다 강력하다.
+
+- Two-way data-binding
+AngularJS 1.x를 사용하거나 기사에 대한 기사를 읽었다면 입력 값을 표시하는 유명한 예제와 사용자가 입력을 수정할 때마다 업데이트되는 표현식 및 필드를 자동으로 표시해야 한다. 
+모델이 변경되면 업데이트 된다.
+
+```javascript
+<!-- AngularJS 1.x code example -->
+<input type="text" ng-model="username">
+<p>{{username}}</p>
+```
+
+Angular 2와 비슷한 작업을 할 수 있습니다.
+양식에서 채울 내용의 모델을 정의하여 시작한다. 우리는 이것을 Userclass에서 정의할 것이다. 
+
+```javascript
+class User {
+  username: string;
+  password: string;
+}
+```
+
+RegisterFormComponent에는 User 유형의 필드 사용자가 있어야 한다.
+
+```javascript
+import { Component } from '@angular/core';
+class User {
+  username: string;
+  password: string;
+}
+@Component({
+  selector: 'ns-register',
+  templateUrl: 'register-form.component.html',
+})
+export class RegisterFormComponent {
+  user = new User();
+  register() {
+   console.log(this.user);
+  }
+}
+```
+
+예제에서 볼 수 있듯이 register () 메서드는 이제 사용자 객체를 직접 로깅 한다.
+우리는 우리 양식의 입력을 추가 할 준비가 되었다. 우리는 우리가 입력 한 모델을 우리가 정의한 모델에 연결 해야 한다.
+이를 위해 ngModel 지시문을 사용한다.
+
+```html
+<h2>Sign up</h2>
+<form (ngSubmit)="register()">
+  <div>
+   <label>Username</label><input name="username" [(ngModel)]="user.username">
+  </div>
+  <div>
+   <label>Password</label><input type="password" name="password" [(ngModel)]= "user.password">
+  </div>
+  <button type="submit">Register</button>
+</form>
+```
+
+```html
+<input name="username" [ngModel]="user.username" (ngModelChange)="user.username = $event ">
+```
+
+NgModel 지시문은 입력이 변경 될 때마다 관련 모델 user.username을 업데이트하므로 [ngModel] = "user.username" 부분이 된다. 
+그리고 ngModel이라는 출력에서 이벤트를 내 보내고 모델이 업데이트 될 때마다 변경 된다. <br/>
+
+긴 형식을 작성하는 대신 새 구문 [()]을 사용할 수 있다. 
+나처럼, 그것이 [()]인지 아니면 []인지 기억하기가 어렵다면 간단한 팁이 있다. 
+그것은 바나나 상자이다! : [] , 내부에는 서로 마주하는 두 개의 바나나가 있다 ().
+
+이제는 입력 할 때마다 모델이 업데이트 될것이다. 모델에서 모델이 업데이트 되면 필드에서 자동으로 올바른 값을 표시 된다.
+
+
+```html
+<h2>Sign up</h2>
+<form (ngSubmit)="register()">
+  <div>
+   <label>Username</label><input name="username" [(ngModel)]="user.username">
+   <small>{{ user.username }} is an awesome username!</small>
+  </div>
+  <div>
+   <label>Password</label><input type="password" name="password" [(ngModel)]=
+"user.password">
+  </div>
+  <button type="submit">Register</button>
+</form>
+```
+
+위의 예를 시도하면 양방향 데이터 바인딩이 작동하는 것을 볼 수 있다. 그리고 우리의 형식도 마찬가지 이다 : 우리는 그것을 제출할 수 있고, 컴포넌트는 사용자 객체를 기록 할 것이다!
+
+
+
+**************************************************************************************************
+
+## Fake dependencies
+
+테스트 모듈에 대한 종속성을 선언 할 수있는 다른 용도를 가지고 있다. 실제 서비스 대신 가짜 서비스를 종속 서비스로 선언하는 것은 너무 많은 수고를 들이지 않고도 할 수 있다.
+이 예에서는 내 RaceService가 로컬 스토리지를 사용하여 레이스를 저장하고 키 'race'를 가지고 있다고 하자. 
+당신의 동료는 우리의 RaceService가 사용하는 JSON 직렬화 등을 취급 LocalStorageService라는 서비스를 개발하였다. list ()함수는 다음과 같다.
+
+```javascript
+@Injectable()
+export class RaceService {
+  constructor(private localStorage: LocalStorageService) {
+  }
+  list() {
+   return this.localStorage.get('races');
+  }
+}
+```
+
+이제 우리는 LocalStorageService 서비스를 테스트하고 싶지 않는다. RaceService를 테스트하고 싶다.
+의존성 주입 시스템을 활용하여 위조 된 LocalStorageService를 제공함으로써 쉽게 수행 할 수 있다.
+
+```javascript
+class FakeLocalStorage {
+  get(key) {
+   return [{ name: 'Lyon' }, { name: 'London' }];
+  }
+}
+```
+
+provide를 사용하여 RaceService를 테스트로 할 수 있다. 
+
+```javascript
+import { TestBed } from '@angular/core/testing';
+describe('RaceService', () => {
+  beforeEach(() => TestBed.configureTestingModule({
+   providers: [
+   { provide: LocalStorageService, useClass: FakeLocalStorage },
+   RaceService
+   ]
+  }));
+  it('should return 2 races from localStorage', () => {
+   const service = TestBed.get(RaceService);
+   const races = service.list();
+   expect(races.length).toBe(2);
+  });
+});
+```
+
+하지만 이 테스트에 완전히 만족하지는 않는다. 가짜 서비스를 만드는 것은 지루하고 재스민은 서비스를 감지하고 구현을 가짜로 대체하는 것을 도울 수 있습니다. 
+또한 get () 메서드가 올바른 키인 'race'와 함께 호출되었는지 확인할 수 있다.
+
+```javascript
+import { TestBed } from '@angular/core/testing';
+describe('RaceService', () => {
+  const localStorage = jasmine.createSpyObj('LocalStorageService', ['get']);
+  beforeEach(() => TestBed.configureTestingModule({
+   providers: [
+   { provide: LocalStorageService, useValue: localStorage },
+   RaceService
+   ]
+  }));
+  it('should return 2 races from localStorage', () => {
+   localStorage.get.and.returnValue([{ name: 'Lyon' }, { name: 'London' }]);
+   const service = TestBed.get(RaceService);
+   const races = service.list();
+   expect(races.length).toBe(2);
+   expect(localStorage.get).toHaveBeenCalledWith('races');
+  });
+});
+```
+
+
+**************************************************************************************************
+
+## Code-driven
+
+AngularJS 1.x에서는 주로 템플릿에 양식을 작성해야 했다. Angular 2는 명령형이 아니라 템플릿을 사용하지 않고 프로그래밍 방식으로 양식을 작성할 수 있게 한다.<br/>
+이제 코드에서 직접 양식을 처리 할 수 있다. 더 장황하지만 더 강력하다.
+구성 요소 코드에서 양식을 작성하기 위해 FormControl 및 FormGroup에 대해 설명한 추상화를 사용한다.<br/>
+
+이러한 기본 요소를 사용하여 구성 요소에 양식을 작성할 수 있다. 
+그러나 새로운 FormControl() 또는 새 FormGroup()을 작성하는 대신 우리가 삽입 할 수있는 도우미 클래스 인 FormBuilder를 사용할 것이다.
+
+```javascript
+import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+@Component({
+  selector: 'ns-register',
+  templateUrl: 'register-form.component.html'
+})
+export class RegisterFormComponent {
+  constructor(fb: FormBuilder) {
+   // we will have to build the form
+  }
+  register() {
+   // we will have to handle the submission
+  }
+}
+```
+
+FormBuilder는 헬퍼 클래스이며 컨트롤과 그룹을 만드는 몇 가지 메소드가 있다. 
+간단히 시작하고 두 개의 컨트롤, 사용자 이름과 암호로 작은 폼을 만든다.
+
+```javascript
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+@Component({
+  selector: 'ns-register',
+  templateUrl: 'register-form.component.html'
+})
+export class RegisterFormComponent {
+  userForm: FormGroup;
+  constructor(fb: FormBuilder) {
+   this.userForm = fb.group({
+   username: '',
+   password: ''
+   });
+  }
+  register() {
+   // we will have to handle the submission
+  }
+}
+```
+
+우리는 두 개의 컨트롤이있는 form을 만들었다. 각 컨트롤은 값 ''으로 생성된다는 것을 알 수 있다. 
+FormBuilder 헬퍼 메서드 control()를 이 문자열을 매개 변수로 사용하는 것과 동일하다.
+새 FormControl('') 생성자를 호출하는 것과 같다. 문자열은 양식에 표시 할 초기 값을 나타 낸다. 
+여기서는 비어있어 입력이 비어있게 된다. 그러나 예를 들어 기존 엔티티를 편집하려는 경우 여기서도 가치를 얻을 수 있다. 
+도우미 메서드는 다른 특정 특성을 가질 수도 있다.<br/>
+
+우리는 register 메소드를 구현해야 한다. 앞서 보았 듯이 FormGroup 객체에는 value 속성이 있으므로 단순히
+
+```javascript
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+@Component({
+  selector: 'ns-register',
+  templateUrl: 'register-form.component.html'
+})
+export class RegisterFormComponent {
+  userForm: FormGroup;
+  constructor(fb: FormBuilder) {
+   this.userForm = fb.group({
+   username: fb.control(''),
+   password: fb.control('')
+   });
+  }
+  register() {
+   console.log(this.userForm.value);
+  }
+}
+```
+
+이제 템플릿에서 일부 작업을 수행해야 한다. 우리는 "템플릿 중심" 양식에서 본 지시문 이외의 지시어를 사용하려고 한다. 
+이러한 지시문은 사용자가 루트 모듈에서 가져와야 하는 ReactiveFormsModule에 있다. 
+그것들의 이름은 "template-driven"폼의 경우처럼 form 대신 시작된다.
+
+formGroup 지시문 덕분에 양식을 userForm 객체에 바인딩 해야 한다. 각 입력 필드는 formControlName 지시문 덕분에 컨트롤에 바인딩 된다.
+
+```javascript
+<h2>Sign up</h2>
+<form (ngSubmit)="register()" [formGroup]="userForm">
+  <div>
+   <label>Username</label><input formControlName="username">
+  </div>
+  <div>
+   <label>Password</label><input type="password" formControlName="password">
+  </div>
+  <button type="submit">Register</button>
+</form>
+```
+
+우리는 구성 요소의 속성 인 userForm 객체를 formGroup에 바인딩 하려고 하므로 괄호 표기법 [formGroup] = "userForm"을 사용한다. 
+각 입력은 바인딩 된 컨트롤을 나타내는 문자열 리터럴을 사용하여 formControlName 지시문을 수신한다. 
+존재하지 않는 이름을 지정하면 오류가 발생 한다.
+값을 전달할 때 (그리고 표현식이 아닌 경우) formControlName을 []로 묶지 않는다.<br/>
+
+제출 버튼을 클릭하면 사용자 이름과 선택한 비밀번호가 포함 된 객체가 기록된다!
+필요한 경우 setValue()를 사용하여 컴포넌트에서 FormControl의 값을 업데이트 할 수 있다.<br/>
+
+```javascript
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+@Component({
+  selector: 'ns-register',
+  templateUrl: 'register-form.component.html',
+})
+export class RegisterFormComponent {
+  usernameCtrl: FormControl;
+  passwordCtrl: FormControl;
+  userForm: FormGroup;
+  constructor(fb: FormBuilder) {
+   this.usernameCtrl = fb.control('');
+   this.passwordCtrl = fb.control('');
+   this.userForm = fb.group({
+   username: this.usernameCtrl,
+   password: this.passwordCtrl
+   });
+  }
+  reset() {
+   this.usernameCtrl.setValue('');
+   this.passwordCtrl.setValue('');
+  }
+  register() {
+   console.log(this.userForm.value);
+  }
+}
+```
+
+
+**************************************************************************************************
+
+## Adding some validation
+
+
+일반적으로 유효성 검사는 양식 작성의 큰 부분이다. 일부 필드는 필수이고 일부는 서로 의존하고 일부는 특정 형식이어야 하며 일부는 X보다 크거나 작은 값을 가져서는 안된다.
+기본 유효성 검사 규칙을 추가하여 된다고 가정해 보자. 
+
+- In a code-friven form
+모든 필드가 필수임을 지정하기 위해 우리는 Validator를 사용할 것이다. 
+validator는 에러의 맵을 돌려 주는지, 에러를 검출하지 않았던 경우는 null를 돌려준다.<br/>
+
+프레임 워크는 몇 가지 유효성 검사기를 제공한다. <br/>
+
+• Validators.required - 값이 비어 있지 않아야 한다. <br/>
+• Validators.minLength (n) - 입력 한 값의 문자 수가 n 자 이하이어야 한다.<br/>
+• Validators.maxLength (n) - 입력 된 값의 문자 수는 최대 n 자 이상이어야 한다.<br/>
+• Validators.pattern (p) : 값이 정규 표현식 p와 일치해야 한다.<br/>
+
+유효성 검사기는 Validators.compose()를 사용하여 구성 가능하며 FormControl 또는 FormGroup에 적용 할 수 있다. 
+여기서는 모든 필드를 필수로 지정하기 위해 각 컨트롤에 필요한 유효성 검사기를 추가하고 사용자 이름이 최소 3 자 이상이어야 한다.
+
+```javascript
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+@Component({
+  selector: 'ns-register',
+  templateUrl: 'register-form.component.html',
+})
+export class RegisterFormComponent {
+  userForm: FormGroup;
+  constructor(fb: FormBuilder) {
+   this.userForm = fb.group({
+   username: fb.control('', Validators.compose([Validators.required, Validators
+.minLength(3)])),
+   password: fb.control('', Validators.required)
+   });
+  }
+  register() {
+   console.log(this.userForm.value);
+  }
+}
+```
+
+- In a template-driven form
+
+템플릿 중심 양식에 필수 입력란을 추가하는 것도 매우 간단하다. 
+필요한 속성을 입력에 추가하기 만하면 된다. 
+required는 제공된 지시문이며 유효성 검사기를 이 필드에 자동으로 추가한다. 
+minlength와 maxlength와 같은 의미이다.
+
+```javascript
+<h2>Sign up</h2>
+<form (ngSubmit)="register(userForm.value)" #userForm="ngForm">
+  <div>
+   <label>Username</label><input name="username" ngModel required minlength="3">
+  </div>
+  <div>
+   <label>Password</label><input type="password" name="password" ngModel required>
+  </div>
+  <button type="submit">Register</button>
+</form>
+```
+
+
+
+**************************************************************************************************
+
+## Errors and submission
+
+물론 사용자가 오류가 남아있는 동안 양식을 제출할 수 없어야하며 오류가 완벽하게 표시 되어야 한다.<br/>
+예제를 사용하면 필드가 필요한 경우에도 양식을 제출할 수 있다.
+아마도 우리가 그것에 대해 뭔가 할 수 있을까?<br/>
+
+disabled 속성을 사용하여 버튼을 쉽게 비활성화 할 수 있다는 것을 알고 있지만 현재 양식의 상태를 반영하는 표현식을 제공해야 한다.
+
+- Errors and submission in a code-driven form
+
+FormGroup 유형의 userForm 필드를 우리 구성 요소에 추가했다. 이 필드는 양식 및 필드 상태 및 오류에 대한 완전한 뷰를 제공한다.
+예를 들어 양식이 유효하지 않은 경우 양식 제출을 사용 중지 할 수 있다.
+
+```html
+<h2>Sign up</h2>
+<form (ngSubmit)="register()" [formGroup]="userForm">
+  <div>
+   <label>Username</label><input formControlName="username">
+  </div>
+  <div>
+   <label>Password</label><input type="password" formControlName="password">
+  </div>
+  <button type="submit" [disabled]="!userForm.valid">Register</button>
+</form>
+```
+
+마지막 줄에서 볼 수 있듯이 disabled를 userForm의 유효한 속성에 연결하기 만하면 된다.<br/>
+이제 모든 컨트롤이 유효 할 때만 제출할 수 있다. 사용자가 양식을 제출할 수 없는 이유를 이해하도록 돕기 위해 오류 메시지를 표시해야 한다.
+
+```html
+<h2>Sign up</h2>
+<form (ngSubmit)="register()" [formGroup]="userForm">
+  <div>
+   <label>Username</label><input formControlName="username">
+   <div *ngIf="userForm.get('username').hasError('required')">Username is required</div>
+   <div *ngIf="userForm.get('username').hasError('minlength')">Username should be 3
+characters min</div>
+  </div>
+  <div>
+   <label>Password</label><input type="password" formControlName="password">
+   <div *ngIf="userForm.get('password').hasError('required')">Password is required</div>
+  </div>
+  <button type="submit" [disabled]="!userForm.valid">Register</button>
+</form>
+```
+
+필드가 비어 있으면 오류가 표시되고 값이 있으면 오류가 사라진다.
+그러나 양식이 표시되면 바로 표시된다. 사용자가 값을 변경할 때까지 숨길 수 있을까?
+
+```html
+<h2>Sign up</h2>
+<form (ngSubmit)="register()" [formGroup]="userForm">
+  <div>
+   <label>Username</label><input formControlName="username">
+   <div *ngIf="userForm.get('username').dirty &&
+userForm.get('username').hasError('required')">
+   Username is required
+   </div>
+   <div *ngIf="userForm.get('username').dirty &&
+userForm.get('username').hasError('minlength')">
+   Username should be 3 characters min
+   </div>
+  </div>
+  <div>
+   <label>Password</label><input type="password" formControlName="password">
+   <div *ngIf="userForm.get('password').dirty &&
+userForm.get('password').hasError('required')">
+   Password is required
+   </div>
+  </div>
+  <button type="submit" [disabled]="!userForm.valid">Register</button>
+</form>
+```
+
+그러나 구성 요소의 각 컨트롤에 대한 참조를 만들 수 있다.
+
+```javascript
+@Component({
+  selector: 'ns-register',
+  templateUrl: 'register-form.component.html'
+})
+export class RegisterFormComponent {
+  userForm: FormGroup;
+  usernameCtrl: FormControl;
+  passwordCtrl: FormControl;
+  constructor(fb: FormBuilder) {
+   this.usernameCtrl = fb.control('', Validators.required);
+   this.passwordCtrl = fb.control('', Validators.required);
+   this.userForm = fb.group({
+   username: this.usernameCtrl,
+   password: this.passwordCtrl
+   });
+  }
+  register() {
+   console.log(this.userForm.value);
+  }
+}
+```
+
+```html
+<h2>Sign up</h2>
+<form (ngSubmit)="register()" [formGroup]="userForm">
+  <div>
+   <label>Username</label><input formControlName="username">
+   <div *ngIf="usernameCtrl.dirty && usernameCtrl.hasError('required')">Username is
+required</div>
+   <div *ngIf="usernameCtrl.dirty && usernameCtrl.hasError('minlength')">Username should
+be 3 characters min</div>
+  </div>
+  <div>
+   <label>Password</label><input type="password" formControlName="password">
+   <div *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('required')">Password is
+required</div>
+  </div>
+  <button type="submit" [disabled]="!userForm.valid">Register</button>
+</form>
+```
+
+- Errors and submission in a template-driven form
+
+템플릿 중심 양식에서는 FormGroup을 참조하는 구성 요소에 필드가 없지만 서식 지시문에서 내 보낸 NgForm 객체를 참조하여 템플릿의 로컬 변수를 이미 선언 하였다.
+다시 한번,이 변수는 폼의 상태를 알 수 있고 컨트롤에 액세스 할 수 있게 한다.
+
+```html
+<h2>Sign up</h2>
+<form (ngSubmit)="register(userForm.value)" #userForm="ngForm">
+  <div>
+   <label>Username</label><input name="username" ngModel required>
+  </div>
+  <div>
+   <label>Password</label><input type="password" name="password" ngModel required>
+  </div>
+  <button type="submit" [disabled]="!userForm.valid">Register</button>
+</form>
+```
+
+이제 각 필드의 오류를 표시해야 한다.
+form 지시문과 마찬가지로 각 컨트롤은 FormControl 객체를 내 보낸다. 
+따라서 오류에 액세스하는 로컬 변수를 만들 수 있다.
+
+```html
+<h2>Sign up</h2>
+<form (ngSubmit)="register(userForm.value)" #userForm="ngForm">
+  <div>
+   <label>Username</label><input name="username" ngModel required #username="ngModel">
+   <div *ngIf="username.control.dirty && username.control.hasError('required')">Username
+is required</div>
+  </div>
+  <div>
+   <label>Password</label><input type="password" name="password" ngModel required
+#password="ngModel">
+   <div *ngIf="password.control.dirty && password.control.hasError('required')">Password
+is required</div>
+  </div>
+  <button type="submit" [disabled]="!userForm.valid">Register</button>
+</form>
+```
+
+**************************************************************************************************
+
+
+## Add some style
+
+양식을 만드는 방식에 관계없이 Angular 2는 또 다른 멋진 작업을 수행한다.
+각 필드 (및 양식)에 CSS 클래스를 자동으로 추가 및 제거하여 시각적 스타일을 추가 할 수 있다.
+
+예를 들어, 필드는 발리 데이터 중 하나가 실패하면 ng-invalid 클래스를 가지며, 모든 valid 데이터가 성공하면 ng-valid 데이터를 가진다. 
+즉, 유효성 검사에 실패한 필드 주위에 멋진 빨강 테두리와 같은 스타일을 쉽게 추가 할 수 있다.
+
+```html
+<style>
+  input.ng-invalid {
+   border: 3px red solid;
+  }
+</style>
+<h2>Sign up</h2>
+<form (ngSubmit)="register(userForm.value)" #userForm="ngForm">
+  <div>
+   <label>Username</label><input name="username" ngModel required>
+  </div>
+  <div>
+   <label>Password</label><input type="password" name="password" ngModel required>
+  </div>
+  <button type="submit" [disabled]="!userForm.valid">Register</button>
+</form>
+```
+
+또 다른 유용한 CSS 클래스는 ng-dirty이며 사용자가 값을 변경 한 경우 표시된다. 
+그 반대는 ng-pristine이며, 사용자가 결코 값을 변경하지 않으면 나타난다. 
+나는 일반적으로 사용자가 값을 한 번 이상 변경 한 경우에만 빨간색 테두리를 표시한다.
+
+```html
+<style>
+  input.ng-invalid.ng-dirty {
+   border: 3px red solid;
+  }
+</style>
+<h2>Sign up</h2>
+<form (ngSubmit)="register(userForm.value)" #userForm="ngForm">
+  <div>
+   <label>Username</label><input name="username" ngModel required>
+  </div>
+  <div>
+   <label>Password</label><input type="password" name="password" ngModel required>
+  </div>
+  <button type="submit" [disabled]="!userForm.valid">Register</button>
+</form>
+```
+
+마지막으로 마지막 CSS 클래스 인 ng-touch가 있다. 사용자가 필드에 적어도 한 번 이상 들어가고 나가면 (심지어 값을 변경하지 않았더라도) 나타난다. 그 반대는 아무런 변화가 없다.
+양식을 처음으로 표시 할 때 필드에는 대개 CSS 클래스 ng-pristine ng-untouched ng-invalid가 있다.
+그런 다음 사용자가 입력하고 필드를 떠날 때 ng-pristine ng-touched ng-invalid로 전환된다.
+사용자가 값을 변경하면 여전히 유효하지 않은 값으로 값이 변경되고 ng-dirty가 ng-invalid로 설정 된다.
+마지막으로 값이 유효한 경우는 ng-dirty ng-touch ng-valid로 변환 될것이다. 
+
+
+**************************************************************************************************
+
+## Creating a custom validator
+
+포니 레이스는 중독성 게임이므로 18 세 이상인 경우에만 등록 할 수 있다. 
+사용자가 실수로 실수하지 않았음을 확인하기 위해 비밀번호를 두 번 입력해야 한다.<br/>
+어떻게 해야 할까? 우리는 사용자 정의 유효성 검사기를 만든다.<br/>
+이렇게 하려면 FormControl을 사용하고 값을 테스트하고 오류가 있는 객체를 반환하거나 유효성 검사가 통과되면 null을 반환하는 메서드를 만들어야 한다.
+
+```javascript
+const isOldEnough = (control: FormControl) => {
+  // control is a date input, so we can build the Date from the value
+  const birthDatePlus18 = new Date(control.value);
+  birthDatePlus18.setFullYear(birthDatePlus18.getFullYear() + 18);
+  return birthDatePlus18 < new Date() ? null : { tooYoung: true };
+};
+```
+
+검증 방법은 매우 쉽다. 우리는 컨트롤의 가치를 취하고, 날짜를 만들고, 18 번째 생일이 전에 있는지 확인하고, 그렇지 않은 경우 'tooYoung'키를 사용하여 오류를 반환 한다.
+이제 이 유효성 검사기를 포함해야 한다.
+
+- Using a validator in a code-driven form
+
+FormBuilder를 사용하여이 유효성 검사기를 사용하여 폼에 새 컨트롤을 추가해야 한다.
+
+```javascript
+import { Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+@Component({
+  selector: 'ns-register',
+  templateUrl: 'register-form.component.html'
+})
+export class RegisterFormComponent {
+  usernameCtrl: FormControl;
+  passwordCtrl: FormControl;
+  birthdateCtrl: FormControl;
+  userForm: FormGroup;
+  static isOldEnough(control: FormControl) {
+   // control is a date input, so we can build the Date from the value
+   const birthDatePlus18 = new Date(control.value);
+   birthDatePlus18.setFullYear(birthDatePlus18.getFullYear() + 18);
+   return birthDatePlus18 < new Date() ? null : { tooYoung: true };
+  }
+  constructor(fb: FormBuilder) {
+   this.usernameCtrl = fb.control('', Validators.required);
+   this.passwordCtrl = fb.control('', Validators.required);
+   this.birthdateCtrl = fb.control('', Validators.compose([Validators.required,
+RegisterFormComponent.isOldEnough]));
+   this.userForm = fb.group({
+   username: this.usernameCtrl,
+   password: this.passwordCtrl,
+   birthdate: this.birthdateCtrl
+   });
+  }
+  register() {
+   console.log(this.userForm.value);
+  }
+}
+```
+
+보시다시피, 우리는 두 개의 유효성 검사기를 사용하여 새로운 제어 생년월일을 추가하였다. 첫 번째 유효성 검사기가 필요하며 다른 클래스는 isOldEnough 클래스의 정적 메서드 이다.
+물론 이 메소드는 원할 경우 다른 클래스에 있을 수 있다. (예 : 정적 메소드)
+
+필드를 추가하고 양식에 오류를 표시하는 것을 잊지 말 것!!!
+
+```html
+<h2>Sign up</h2>
+<form (ngSubmit)="register()" [formGroup]="userForm">
+  <div>
+   <label>Username</label><input formControlName="username">
+   <div *ngIf="usernameCtrl.dirty && usernameCtrl.hasError('required')">Username is
+required</div>
+  </div>
+  <div>
+   <label>Password</label><input type="password" formControlName="password">
+   <div *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('required')">Password is
+required</div>
+  </div>
+  <div>
+   <label>Birth date</label><input type="date" formControlName="birthdate">
+   <div *ngIf="birthdateCtrl.dirty">
+   <div *ngIf="birthdateCtrl.hasError('required')">Birth date is required</div>
+   <div *ngIf="birthdateCtrl.hasError('tooYoung')">You're way too young to be betting
+on pony races</div>
+   </div>
+  </div>
+  <button type="submit" [disabled]="!userForm.valid">Register</button>
+</form>
+```
+
+- Using a validator in a template-driven form
+
+템플릿 기반 폼에 사용자 정의 유효성 검사기를 추가하려면 ... 템플릿에 추가해야 한다.
+이렇게 하려면 입력에 적용 할 사용자 지정 지시문을 작성해야 하지만 정직하게는 "코드 기반" 양식을 사용하면 더 쉽다.
+또는 두 세계의 장점을 결합 할 수 있다.
+
+- Combining template-based and code-based approaches for validation
+
+사용자 정의 유효성 검사를 제외하고 "템플릿 기반"으로 모든 작업을 수행 할 수 있습니다! 우리는 보기에 이런 식으로 끝날 것이다.
+
+```html
+<label>Username</label><input name="username" [formControl]="usernameCtrl" [(ngModel)]=
+"user.username" required>
+<div class="error" *ngIf="usernameCtrl.dirty && usernameCtrl.hasError('notAllowed')"
+>Username is not allowed</div>
+```
+
+```javascript
+usernameCtrl = new FormControl('', RegisterFormComponent.usernameValidator);
+static usernameValidator(control: FormControl) {
+  return control.value !== 'admin' ? null : { notAllowed: true };
+}
+```
+
+이것은 정말 좋은 절충안 이다.<br/>
+
+• 모든 양식을 코드 기반으로 만들 필요는 없다.<br/>
+• 필수 및 usernameAllowed 유효성 검사기를 직접 구성 할 필요가 없습니다. Angular가 사용자를 대신 한다.<br/>
+• 순수한 코드 중심 접근 방식이 아닌 양방향 바인딩이 여전히 있다.<br/>
+
+이는 간단한 사안과 양방향 바인딩을 위한 템플릿 기반 접근 방식과 맞춤 검증이 필요한 경우 코드 기반 접근 방식을 결합하는 것이다.
+
+**************************************************************************************************
+
+## Grouping fields
+
+지금까지 우리는 하나의 그룹, 즉 완벽한 형태를 가졌다. 그러나 그룹 내에서 그룹을 선언 할 수 있다. 
+이는 주소와 같은 필드 그룹을 검증하거나 앞의 예의 경우와 같이 암호 및 확인이 일치하는지 확인하려는 경우 매우 유용하다.<br/>
+해결책은 코드 주도형을 사용하는 것이다 (앞에서 보았 듯이 원할 경우 템플릿 기반 양식과 결합 할 수 있다).<br/>
+먼저 새로운 필드 인 passwordForm을 만들고 두 필드를 userForm 그룹에 추가 한다.
+
+```javascript
+import { Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+@Component({
+  selector: 'ns-register',
+  templateUrl: 'register-form.component.html'
+})
+export class RegisterFormComponent {
+  passwordForm: FormGroup;
+  userForm: FormGroup;
+  usernameCtrl: FormControl;
+  passwordCtrl: FormControl;
+  confirmCtrl: FormControl;
+  static passwordMatch(control: FormGroup) {
+   const password = control.controls['password'].value;
+   const confirm = control.controls['confirm'].value;
+   return password === confirm ? null : { matchingError: true };
+  }
+  constructor(fb: FormBuilder) {
+   this.usernameCtrl = fb.control('', Validators.required);
+   this.passwordCtrl = fb.control('', Validators.required);
+   this.confirmCtrl = fb.control('', Validators.required);
+   this.passwordForm = fb.group(
+   { password: this.passwordCtrl, confirm: this.confirmCtrl },
+   { validator: RegisterFormComponent.passwordMatch }
+   );
+   this.userForm = fb.group({ username: this.usernameCtrl, passwordForm: this
+.passwordForm });
+  }
+  register() {
+   console.log(this.userForm.value);
+  }
+}
+```
+
+
+보시다시피, 필드 중 하나가 변경 될 때마다 호출되는 validModifier 그룹에 passwordMatch를 추가했다.<br/>
+formGroupName 지시어를 사용하여 새 양식을 반영하도록 템플릿을 업데이트 하자.
+
+```html
+<h2>Sign up</h2>
+<form (ngSubmit)="register()" [formGroup]="userForm">
+  <div>
+   <label>Username</label><input formControlName="username">
+   <div *ngIf="usernameCtrl.dirty && usernameCtrl.hasError('required')">Username is
+required</div>
+  </div>
+  <div formGroupName="passwordForm">
+   <div>
+   <label>Password</label><input type="password" formControlName="password">
+   <div *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('required')">Password is
+required</div>
+   </div>
+   <div>
+   <label>Confirm password</label><input type="password" formControlName="confirm">
+   <div *ngIf="confirmCtrl.dirty && confirmCtrl.hasError('required')">Confirm your
+password</div>
+   </div>
+   <div *ngIf="passwordForm.dirty && passwordForm.hasError('matchingError')">Your
+password does not match</div>
+  </div>
+  <button type="submit" [disabled]="!userForm.valid">Register</button>
+</form>
+```
+
+**************************************************************************************************
+
+## Reacting on changes
+
+코드 중심 양식을 사용할 때 마지막으로 유용한 기능 : 관찰 가능한 valueChanges를 사용하여 값 변경에 쉽게 대응할 수 있다. 
+리 액티브 프로그래밍 FTW! 예를 들어 비밀번호를 원한다고 가정 해보자.
+필드를 사용하여 강도 표시기를 표시한다. 우리는 암호 값이 변경 될 때마다 길이를 계산하려고 한다.
+
+```javascript
+import { Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
+@Component({
+  selector: 'ns-register',
+  templateUrl: 'register-form.component.html'
+})
+export class RegisterFormComponent {
+  userForm: FormGroup;
+  usernameCtrl: FormControl;
+  passwordCtrl: FormControl;
+  passwordStrength: number = 0;
+  constructor(fb: FormBuilder) {
+   this.usernameCtrl = fb.control('', Validators.required);
+   this.passwordCtrl = fb.control('', Validators.required);
+   this.userForm = fb.group({
+   username: this.usernameCtrl,
+   password: this.passwordCtrl
+   });
+   // we subscribe to every password change
+   this.passwordCtrl.valueChanges
+   // only recompute when the user stops typing for 400ms
+   .debounceTime(400)
+   // only recompute if the new value is different than the last
+   .distinctUntilChanged()
+   .subscribe(newValue => this.passwordStrength = newValue.length);
+  }
+  register() {
+   console.log(this.userForm.value);
+  }
+}
+```
+
+이제 구성 요소 인스턴스에 passwordStrength 필드가있어서 사용자에게 표시 할 수 있습니다.
+
+```html
+<h2>Sign up</h2>
+<form (ngSubmit)="register()" [formGroup]="userForm">
+  <div>
+   <label>Username</label><input formControlName="username">
+   <div *ngIf="usernameCtrl.dirty && usernameCtrl.hasError('required')">Username is
+required</div>
+  </div>
+  <div>
+   <label>Password</label><input type="password" formControlName="password">
+   <div>Strength: {{passwordStrength}}</div>
+   <div *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('required')">Password is
+required</div>
+  </div>
+  <button type="submit" [disabled]="!userForm.valid">Register</button>
+</form>
+```
+
+우리는 RxJS 운영자를 활용하여 몇 가지 유용한 기능을 추가하고 있습니다.
+
+• distinctTime (400)함수는 사용자가 400ms 동안 타이핑을 멈 추면 값을 방출된다. 
+따라서 사용자가 입력 한 모든 값에 대해 암호 길이를 계산하지 않아도 된다. 
+컴퓨팅에 오랜 시간이 걸리거나 HTTP 요청이 시작되면 정말 흥미로운 일이다.<br/>
+
+• distinctUntilChanged ()는 입력 된 새 값이 마지막 값과 다른 경우에만 값을 내보낸다.
+사용자가 'password'를 입력하면 타이핑이 중지된다고 상상해 보아라. 우리는 길이를 계산합니다. 
+그런 다음 새로운 글자를 입력하고 빨리 제거한다 (400ms 전). distinctTimewill의 다음 이벤트는 다시 '암호'입니다. 
+암호 길이를 다시 계산하는 것은 의미가 없습니다! 이 연산자는 값을 방출하지 않으며 우리에게 다시 계산을 저장한다.
+
+RxJS는 당신을 위해 수 많은 작업을 수행 할 수 있다. 우리가 방금 한 두 줄로 코딩 한 것을 상상해보아라. 
+또한 Http 서비스는 관측 가능 기능을 사용하기 때문에 HTTP 작업과 쉽게 결합 할 수 있다.
+
+
+
+**************************************************************************************************
+
+## Summary
+
+Angular 2 폼을 만드는 두 가지 방법을 제공한다. :
+
+• 하나는 템플릿에서 모든 설정을 한다. 하지만 당신이 본대로, 그것은 검증을 위한 사용자 지정 지시문을 필요로 하고 테스트하는 것은 어려울 것이다.
+양식은 예를 들어 하나 또는 여러 필드가 양방향 데이터 바인딩을 제공합니다.
+
+• 하나는 구성 요소에서 거의 모든 설정을 한다. 이 방법은 필요에 따라 여러 수준의 그룹을 사용하여 검증 및 테스트 설정을 쉽게 할 수 있다. 
+그것은 복잡한 양식을 구축하기 위한 선택의 무기이다. 그룹이나 필드의 변경에도 반응 할 수 있다.
+
+• "템플릿 기반"양식의 간결함과 타당성을 검증하기위한 「코드 중심 '폼의 중복을 양립시키기
+
+이것은 아마도 가장 실용적인 방법이다 : 템플릿 기반과 양방향 바인딩을 마음에 들면 폼 그룹과 폼 컨트롤에 대한 액세스가 필요할 때 즉시 (사용자 지정 유효성 검사와 반응적인 동작을 추가하는 등) 구성 요소 내부의 필요성을 판단하고 적절한 지침을 사용하여 input과 div를 바인딩 한다.
+
+**************************************************************************************************
+
+## Reference URL
+- [BEM introduction](http://getbem.com/introduction/)
+- [BEMIT(BEM을 기반으로 확장변형 시킨 네이밍 컨벤션)](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/)
+- [SMACSS](https://smacss.com/)
