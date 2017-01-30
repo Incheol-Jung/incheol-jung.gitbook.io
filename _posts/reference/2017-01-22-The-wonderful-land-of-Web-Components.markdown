@@ -23,10 +23,10 @@ navigation_weight: 3
 여전히 이것은 흥미로운 이슈이다.<br/>
 
  새로운 표준은 4가지 규격에 정의되어있다. <br/>
- - Custom elemts
- - Shadow DOM
- - Template
- - HTML Imports
+ - Custom elemts<br/>
+ - Shadow DOM<br/>
+ - Template<br/>
+ - HTML Imports<br/><br/>
 
 앞으로의 샘플들을 가장 잘 동작하기 위해서는 최신 버젼의 크롬이나 파이어폭스를 이용하라. 
 
@@ -149,7 +149,7 @@ document.body.appendChild(new PonyComponent());
 
 이것은 마지막 사양이다. HTML import는 HTML 안에 HTML을 가져오는것을 허용한다. 
 <link rel="import" href="ns-pony.html"> 와 같은 형태이다. 
-ns-pony.html 파일은 필요한 모든것을 담을 수 있다. <br/><br/>
+ns-pony.html 파일은 필요한 모든것을 담을 수 있다. <br/>
 
 만약 누군가 우리의 훌륭한 컴포넌트를 사용하길 원한다면 그들은 단지 HTML import 해서 사용하기만 하면 된다.  
 
@@ -161,7 +161,7 @@ ns-pony.html 파일은 필요한 모든것을 담을 수 있다. <br/><br/>
 
 
 웹 컴포넌트가 모든 브라우져에서 지원하지 않기 때문에 polyfill을 당신의 앱에 포함하면 정상적으로 동작할 것이다. 
-polyfill은 web-component.js로 불리어져 있고 google, mozila, microsoft등 공동으로 노력하고 있는 결과물이라는 점은 주목할 만한 가치가 있다. <br/><br/>
+polyfill은 web-component.js로 불리어져 있고 google, mozila, microsoft등 공동으로 노력하고 있는 결과물이라는 점은 주목할 만한 가치가 있다. <br/>
 
 주목할 만한 기능을 확인해보도록 하자. 
 - Polymerfrom google
@@ -217,6 +217,8 @@ polymer는 커스텀 컴포넌트를 빌드하는데에도 도움을 준다.
 
 지금까지 당신에게 말한 웹 컴포넌트에 대한 설명은 매우 짧게 요약한 것이다. 그러나 웹 컴포넌트에 대한 컨셉은 명확하게 설명하였다. 
 그리고 구글 팀은 Angular 2 컴포넌트에 따라서 웹 컴포넌트 사용을 매우 쉽게 사용하기 위해 Angular 2를 디자인 했다는 것을 이해할 수 있을 것이다. 
+
+
 
 
 **************************************************************************************************
