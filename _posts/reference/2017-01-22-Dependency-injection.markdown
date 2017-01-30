@@ -460,10 +460,9 @@ export class RaceService {
 **************************************************************************************************
 
 
-**************************************************************************************************
-
-
 ## Reference URL
-- [BEM introduction](http://getbem.com/introduction/)
-- [BEMIT(BEM을 기반으로 확장변형 시킨 네이밍 컨벤션)](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/)
-- [SMACSS](https://smacss.com/)
+
+- [Become a NINJA with Angular 2](https://books.ninja-squad.com/public/samples/Become_a_ninja_with_Angular2_sample.pdf)
+- [Learn Angular 2](http://learnangular2.com/)
+- [Angular 2 Component](https://www.tutorialspoint.com/angular2/)
+- [An Introduction to Angular 2](http://angular-tips.com/blog/2015/05/an-introduction-to-angular-2/)
