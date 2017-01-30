@@ -53,7 +53,7 @@ export class PonyComponent {
 Native 옵션을 사용하는 경우 Angular 2에 브라우저의 그림자 DOM을 사용하여 캡슐화를 처리하도록 지시한다. 그림자 DOM은 다소 새로운 웹 구성 요소 사양의 일부이다.
 이 스펙은 완벽하게 캡슐화 된 특수 DOM에 요소를 작성할 수 있게 한다. 이 전략을 사용하여 생성 된 DOM을 브라우저의 검사기로 확인할 수 있다. 
 
-```javascript
+```html
 <ns-pony>
   #shadow-root (open)
    <style>.red {color: red}</style>
@@ -97,14 +97,14 @@ inspector에 Chrome이 표시 할 # shadow-root (열려 있음)를 확인할 수
 
 빨간색 클래스 선택자는 .red [_ngcontent-dvb-3] 재사용 때문에 클래스 red와 특성 _ngcontent-dvb-3을 모두 가진 요소에만 적용된다.
 이 특성은 우리의 div에 자동으로 추가 되었기 때문에 완벽하게 작동한다. 
-<ns-pony> 요소는 부모에 대해 생성 된 고유 식별자 인 _ngcontent-dvb-2와 그 부모에 대해 생성 된 _nghost-dvb-3 이것은 호스트 요소 자체의 고유 식별자 이다. 
+ns-pony 요소는 부모에 대해 생성 된 고유 식별자 인 _ngcontent-dvb-2와 그 부모에 대해 생성 된 _nghost-dvb-3 이것은 호스트 요소 자체의 고유 식별자 이다. 
 바로 살펴 같이 호스트 요소에 적용되는 스타일을 추가 할 수 있다.
 
-- None strategy <br/><br/>
+### None strategy <br/><br/>
 
 이 전략은 캡슐화를 수행하지 않지만 스타일은 적용 된다. (에뮬레이트 전략 등) 페이지 상단에 인라인되만 다시 작성되지 않는다. 그런 다음 아이들은 "정상적인" 스타일처럼 행동한다.<br/>
 
-- Styling the host <br/><br/>
+### Styling the host <br/><br/>
 
 특별한 CSS 셀렉터가 호스트 요소 만 스타일링 할 수 있다. 그것은 host라고 부르며 웹 컴포넌트 명세에서 착안한 것이다.
 
@@ -124,10 +124,9 @@ inspector에 Chrome이 표시 할 # shadow-root (열려 있음)를 확인할 수
 **************************************************************************************************
 
 
-**************************************************************************************************
-
-
 ## Reference URL
-- [BEM introduction](http://getbem.com/introduction/)
-- [BEMIT(BEM을 기반으로 확장변형 시킨 네이밍 컨벤션)](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/)
-- [SMACSS](https://smacss.com/)
+
+- [Become a NINJA with Angular 2](https://books.ninja-squad.com/public/samples/Become_a_ninja_with_Angular2_sample.pdf)
+- [Learn Angular 2](http://learnangular2.com/)
+- [Angular 2 Component](https://www.tutorialspoint.com/angular2/)
+- [An Introduction to Angular 2](http://angular-tips.com/blog/2015/05/an-introduction-to-angular-2/)
