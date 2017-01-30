@@ -303,9 +303,7 @@ export class FromNowPipe implements PipeTransform {
 Now 함수의 Moment.js를 사용하여 날짜 이후 얼마나 많은 시간이 경과했는지 표시한다.
 원하는 경우 NPM을 사용하여 Moment.js를 설치할 수 있다.
 
-```javascript
-npm install moment
-```
+
 
 SystemJS 구성에 추가하여라.
 
@@ -319,9 +317,7 @@ map: {
 
 TypeScript를 사용할 때 인터페이스도 필요하다.
 
-```javascript
-typings install --save --ambient moment-node
-```
+
 
 ```javascript
 import { PipeTransform, Pipe } from '@angular/core';
