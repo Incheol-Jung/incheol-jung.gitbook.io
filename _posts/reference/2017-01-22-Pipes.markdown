@@ -50,35 +50,6 @@ JsonPipe는 개발 응용 프로그램에서는 별로 유용하지 않지만 �
 <p>{{ ponies | slice:0:2 | json }}</p>
 ```
 
-우리는 슬라이스 파이프로 돌아갈 것이지만 슬라이스 파이프를 연결 한 다음 json을 연결하는 것을 볼 수 있다.
-"{{}}"보간 표현식이나 속성 표현식에서는 사용할 수 있지만 이벤트 문에서는 사용할 수 없다.
-
-```html
-<p [textContent]="ponies | json"></p>
-```
-
-의존성 삽입을 통해 코드에서 사용할 수도 있다.
-
-```javascript
-import { Component } from '@angular/core';
-// you need to import the pipe you want to use
-import { JsonPipe } from '@angular/common';
-@Component({
-  selector: 'ns-ponies',
-  template: `<p>{{poniesAsJson}}</p>`
-})
-export class PoniesComponent {
-  ponies: Array<any> = [{ name: 'Rainbow Dash' }, { name: 'Pinkie Pie' }];
-  poniesAsJson: string;
-  // inject the Pipe you want
-  constructor(jsonPipe: JsonPipe) {
-   // and then call the transform method on it
-   this.poniesAsJson = jsonPipe.transform(this.ponies);
-  }
-}
-```
-
-
 
 
 **************************************************************************************************
