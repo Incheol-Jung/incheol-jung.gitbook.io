@@ -1,30 +1,35 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-	<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-	
-	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-	<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
-	
-	<!-- <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}"> -->
-    
-    <link rel="stylesheet" type="text/css" href="{{"/static/css/bootstrap.min.css" | prepend: site.baseurl }}">
-    <link rel="stylesheet" type="text/css" href="{{ "/static/css/index.css" | prepend: site.baseurl }}">
-	<script type="text/javascript" src="{{ "/static/js/jquery-1.11.1.min.js" | prepend:site.baseurl }}"></script>
-	<script type="text/javascript" src="{{ "/static/js/bootstrap.min.js" | prepend:site.baseurl }}"></script>
-    <link rel="stylesheet" type="text/css" href="/static/css/monokai_sublime.min.css">
-	<script type="text/javascript" src="/static/js/highlight.min.js"></script>
+	<title>{% if page.title %}{{ page.title | strip_html }} &#8211; {% endif %}{{ site.title | strip_html }}</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="description" content="{% if page.meta_description %}{{ page.meta_description | xml_escape }}{% elsif page.summary %}{{ page.summary | xml_escape }}{% else %}{{ site.description | xml_escape }}{% endif %}">
 
-    <!--
-    <link rel="stylesheet" type="text/css" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
-	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script type="text/javascript" src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="http://apps.bdimg.com/libs/highlight.js/8.4/styles/monokai_sublime.min.css">
-	<script type="text/javascript" src="http://apps.bdimg.com/libs/highlight.js/8.4/highlight.min.js"></script>
-    -->
-    
-	<script type="text/javascript" src="{{"/static/js/index.js" | prepend:site.baseurl}}"></script>
-	<script>hljs.initHighlightingOnLoad();</script>
+	<!-- Open Graph -->
+	<meta property="og:locale" content="{{ site.text.og_locale }}">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="{% if page.title %}{{ page.title | xml_escape }}{% else %}{{ site.title | xml_escape }}{% endif %}">
+	<meta property="og:description" content="{% if page.description %}{{ page.description | xml_escape }}{% else %}{{ site.description | xml_escape }}{% endif %}">
+	<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+	<meta property="og:site_name" content="{{ site.title | xml_escape }}">
+
+
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="/resource/css/style.css">
+
+	<!-- Icons -->
+	<link rel="apple-touch-icon" sizes="57x57" href="/resource/images/favicon/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/resource/images/favicon/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/resource/images/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/resource/images/favicon/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/resource/images/favicon/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/resource/images/favicon/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/resource/images/favicon/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/resource/images/favicon/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/resource/images/favicon/apple-touch-icon-180x180.png">
+	<link rel="icon" type="image/png" href="/resource/images/favicon/favicon-192x192.png" sizes="192x192">
+	<link rel="icon" type="image/png" href="/resource/images/favicon/favicon-160x160.png" sizes="160x160">
+	<link rel="icon" type="image/png" href="/resource/images/favicon/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/resource/images/favicon/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/resource/images/favicon/favicon-32x32.png" sizes="32x32">
 </head>

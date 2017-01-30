@@ -1,0 +1,12 @@
+<nav class="global_nav">
+	<ul class="global_nav__list">
+	{% assign navigation_pages = site.html_pages | sort: 'navigation_weight' %}
+	{% for p in navigation_pages %}
+		{% if p.navigation_weight %}
+		{% assign pagecategory = page.url | split: '/' %}
+		<li class="global_nav__item{% if p.title == pagecategory[1] %} is-active {% endif %}"><a href="{{ p.url }}">{{ p.title }}</a></li>
+		{% endif %}
+	{% endfor %}
+	</ul>
+<br>
+</nav>

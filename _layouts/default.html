@@ -1,28 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
+{% include head.html %}
+<body>
+  <div class="layout_wrap">
+	{% include header.html %}
 
-  {% include head.html %}
+	<div class="layout_content" role="main">
+		<div class="measure">
 
- <!--  <body data-spy="scroll" data-target="#myAffix"> -->
-  <body>
+		{{ content }}
+		
+		</div>
+	</div>
 
-    {% include header.html %}
-
-    <div id="main" class="container main">
-      {{ content }}
-    </div>
-
-    
-    <div id="top" data-toggle="tooltip" data-placement="left" title="back to top">
-      <a href="javascript:;">
-        <div class="arrow"></div>
-        <div class="stick"></div>
-      </a>
-    </div>
-
-    {% include footer.html %}
-
-    {% include newpost.html %}
-  
-  </body>
+	{% include footer.html %}
+</div>
+</body>
 </html>

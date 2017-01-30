@@ -1,4 +1,8 @@
-# LiXizhi's Personal Website
+# FashionGo developer site
 
-Runing on Github + Jekyll theme by [Gaohaoyang](https://github.com/Gaohaoyang/gaohaoyang.github.io)**
+FashionGo Developer Blog&amp;Reference<br>
+
+In ready.<br>
+
+url: [https://fashiongo.github.io](https://fashiongo.github.io)<br>
 

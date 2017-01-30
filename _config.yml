@@ -1,38 +1,32 @@
-<<<<<<< HEAD
-# Site settings
-title: Incheol's Personal Website
-email: bluesky761@naver.com
-description: Incheol's Ideas & Blogs
-# > # this means to ignore newlines until "baseurl:"
-#   Write an awesome description for your new site here. You can edit this
-#   line in _config.yml. It will appear in your document head meta (for
-#   Google search results) and in your feed.xml site description.
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing these this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
 
-# baseurl: "" # the subpath of your site, e.g. /blog/
-# url: "http://yourdomain.com" # the base hostname & protocol for your site
-# twitter_username: jekyllrb
-github_username: Jung-inchul
-permalink: /:year/:month/:day/:title/
-# this is the url root of the view source link on the footer page.
-viewsourceroot: https://github.com/Jung-inchul/Jung-inchul.github.io
-# this is the url root of the create page link on the footer page.
-newsourceroot: https://github.com/Jung-inchul/Jung-inchul.github.io
-#########################################
-# for duoshuo.com commenting system, uncomment following line if you do not want to include duoshuo.com. 
-#duoshuo_shortname: lixizhi
-#duoshuo_url: "http://lixizhi.github.io"
-# disqus.com commenting system. please note that it is exclusive with duoshuo.com
-disqus_shortname: Jung-inchul
-disqus_url: "https://jung-inchul.github.io/"
-#########################################
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: Incheol
+email: bluesky761@naver.com
+description: 
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "/" # the base hostname & protocol for your site
+twitter_username: 
+github_username:  Jung-Inchul
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
 
-# highlight
-# highlighter: pygments
-# highlighter: rouge
-# highlighter: false
-=======
-theme: jekyll-theme-merlot
->>>>>>> e7ff2ba3d24728e4fd8544b788faa0ea9d8f3df8
+destination:  ./build
+sass:
+    sass_dir: resource/_css
+safe: true
+gems: [jekyll-paginate]
