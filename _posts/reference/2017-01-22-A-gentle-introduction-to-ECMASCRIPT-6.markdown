@@ -1,10 +1,10 @@
 ---
 layout:     reference
-title:      Building Components and directives
+title:      A gentle introduction to ECMASCRIPT 6
 date:       2017-01-22 00:00:00
 updated:    2017-01-22 00:00:00
 categories: reference
-summary:    Building Components and directives
+summary:    A gentle introduction to ECMASCRIPT 6
 ---
 
 
