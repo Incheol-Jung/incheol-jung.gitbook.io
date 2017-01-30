@@ -5,7 +5,7 @@ navigation_weight: 2
 ---
 
 	<ul class="post_list">
-		{% assign navigation_pages = site.categories.reference %}
+		{% assign navigation_pages = site.categories.reference | sort: 'navigation_weight' %}
 		{% for post in navigation_pages %}
 		<li class="post_list__item">
 			<span class="meta">
