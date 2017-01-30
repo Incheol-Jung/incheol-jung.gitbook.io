@@ -1,11 +1,11 @@
 ---
 layout:     reference
-title:      A gentle introduction to ECMASCRIPT 6
+title:      CHAPTER 1. A gentle introduction to ECMASCRIPT 6
 date:       2017-01-22 00:00:00
 updated:    2017-01-22 00:00:00
 categories: reference
 summary:    A gentle introduction to ECMASCRIPT 6
-navigation_weight: 17
+navigation_weight: 1
 ---
 
 
