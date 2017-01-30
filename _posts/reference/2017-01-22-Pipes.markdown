@@ -166,13 +166,6 @@ export class PoniesComponent {
 <!-- will display 'ninja squad' -->
 ```
 
-이 파이프는 숫자의 서식을 지정할 수 있다.
-{integerDigits} {minFractionDigits} - {maxFractionDigits} 형식의 문자열 하나가 필요하지만 모든 부분은 선택 사항 이다. 
-각 부분은 다음을 나타낸다.
-• 정수 부분에 원하는 수의 개수
-• 소수 부분에서 원하는 숫자의 수
-• 소수 부분에서 원하는 숫자의 수
-파이프가 없는 것부터 시작하는 몇 가지 예이다.
 
 ```html
 <p>{{ 12345 }}</p>
@@ -303,15 +296,25 @@ export class FromNowPipe implements PipeTransform {
 Now 함수의 Moment.js를 사용하여 날짜 이후 얼마나 많은 시간이 경과했는지 표시한다.
 원하는 경우 NPM을 사용하여 Moment.js를 설치할 수 있다.
 
-
+```javascript
+npm install moment
+```
 
 SystemJS 구성에 추가하여라.
 
-
+```javascript
+map: {
+  '@angular': 'node_modules/@angular',
+  'rxjs': 'node_modules/rxjs',
+  'moment': 'node_modules/moment/moment'
+}
+```
 
 TypeScript를 사용할 때 인터페이스도 필요하다.
 
-
+```javascript
+typings install --save --ambient moment-node
+```
 
 ```javascript
 import { PipeTransform, Pipe } from '@angular/core';
