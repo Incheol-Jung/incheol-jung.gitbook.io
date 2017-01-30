@@ -319,7 +319,7 @@ angular.module(10, []); // the module name should be a string
 // Argument of type 'number' is not assignable to parameter of type 'string'.
 ```
 
-/// <reference path="angular.d.ts" /> 는 TS에 의해 특별하게 선언된 주석으로 컴파일러에게 인터페이스 angular.d.ts를 찾으라는 것을 의미한다. 
+"reference path="angular.d.ts" 는 TS에 의해 특별하게 선언된 주석으로 컴파일러에게 인터페이스 angular.d.ts를 찾으라는 것을 의미한다. 
 이제 당신이 AngularJS 함수를 잘못 사용하였다면 동적으로 실행될 필요 없이 컴파일러는 알려줄 것이고 당신은 해당 영역을 고칠수 있다. 
 컴파일러는 node_modules 폴더에 종속물로 패키지 되어 있을 경우에는 인터페이스를 자동으로 발견할수 있다. 
 점점 더 많은 프로젝트 들이 해당 방식을 채택하고 있으며 Angular 2 또한 그렇다. 
@@ -408,7 +408,8 @@ class HomeComponent {
 
 나는 decorator의 가공되지 않은 개념을 소개하길 원한다. 우리는 모든 decorator를 책 전체에서 살펴볼 것이다. 
 TypeScript 대신에 Babel과 함께 사용할 수 있다는 점을 지적해야 한다.
-모든 Angular 2 decorator를 지원하는 플러그인도 있다. : angular2-annotations
+모든 Angular 2 decorator를 지원하는 플러그인도 있다. : angular2-annotations<br/>
+
 Babel은 클래스 속성도 지원하지만 TypeScript에서 제공하는 유형 시스템은 지원하지 않는다. 
 당신은 Babel을 사용할수 있고 "ES6+"로 작성하여라. 그러나 당신은 유형들을 사용할수 없을것이고 그들은 의존성 주입에 매우 유용하게 사용될 것이다. 
 예를 들면, 완전히 가능하지만 유형을 대체하기 위해 더 많은 decorator를 추가해야 한다. 
