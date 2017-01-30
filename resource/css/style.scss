@@ -310,12 +310,6 @@ blockquote {
     background-size: 29px 29px;
 }
 
-#back-to-top.static {
-    position: static;
-    float: right;
-    margin-top: 51px; /* 51px = 100(content-footer-spacing) - 29(self height) - 20(bottom) */
-    margin-right: 30px;
-}
 
 #back-to-top {
 	width: 36px;
@@ -323,11 +317,6 @@ blockquote {
 	right: 20px;
 	background-image: url(../images/mo/icon_uarrow.png);
 	background-size: 36px 36px;
-}
-
-#back-to-top.static {
-	margin-top: 44px; /* 51px = 100(content-footer-spacing) - 36(self height) - 20(bottom) */
-	margin-right: 20px;
 }
 
 #back-to-top {
