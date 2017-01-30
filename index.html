@@ -3,6 +3,8 @@ layout: default
 ---
 
 <ul id="post-list">
-	{% include item.html %}
+	{% for post in paginator.site.posts  %}
+        {% include item.html %}
+    {% endfor %}
 </ul>
 {% include pagination.html %}
