@@ -1,11 +1,11 @@
 ---
 layout:     reference
-title:      This is the end
+title:      CHAPTER 17. This is the end
 date:       2017-01-22 00:00:00
 updated:    2017-01-22 00:00:00
 categories: reference
 summary:    This is the end
-navigation_weight: 15
+navigation_weight: 17
 ---
 
 

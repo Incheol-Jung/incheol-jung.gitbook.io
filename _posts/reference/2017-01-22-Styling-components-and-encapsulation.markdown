@@ -1,11 +1,11 @@
 ---
 layout:     reference
-title:      Styling components and encapsulation
+title:      CHAPTER 10. Styling components and encapsulation
 date:       2017-01-22 00:00:00
 updated:    2017-01-22 00:00:00
 categories: reference
 summary:    Styling components and encapsulation
-navigation_weight: 11
+navigation_weight: 10
 ---
 
 

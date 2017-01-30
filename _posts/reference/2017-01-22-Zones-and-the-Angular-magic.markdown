@@ -1,6 +1,6 @@
 ---
 layout:     reference
-title:      Zones and the Angular magic
+title:      CHAPTER 16. Zones and the Angular magic
 date:       2017-01-22 00:00:00
 updated:    2017-01-22 00:00:00
 categories: reference
