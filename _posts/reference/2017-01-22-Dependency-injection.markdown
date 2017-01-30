@@ -454,7 +454,7 @@ export class RaceService {
 }
 ```
 
-** TypeScript없이 예제에서 데코레이터를 작동 시키려면 babel을 decorator와 함께 사용해야하고 angle2-annotations 플러그인을 사용해야 한다.
+> TypeScript 없이 예제에서 데코레이터를 작동 시키려면 babel을 decorator와 함께 사용해야하고 angle2-annotations 플러그인을 사용해야 한다.
 
 
 **************************************************************************************************
