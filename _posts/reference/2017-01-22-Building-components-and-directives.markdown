@@ -489,11 +489,11 @@ export class ProvidersDirective {
 Component는 지시문과 실제로 다르지 않다. 단지 두 개의 선택적 속성이 있으며 관련 뷰가 있어야 한다. 지시어와 비교하여 많은 새로운 속성을 가져 오지는 않는다.
 
 
-### View providers<br/><br/>
+### View providers
 
 우리는 공급자를 사용하여 특정한 주입을 할 수 있는 것을 확인하였다. viewProviders는 매우 유사하나 provider들은 현재 컴포넌트에 허용되지 자식 컴포넌트에는 유용하지 않는다. 
 
-### Template / Template URL<br/><br/>
+### Template / Template URL
 
 우리는 공급자를 사용하여 특정한 주입을 할 수 있는 것을 확인하였다. viewProviders는 매우 유사하나 provider들은 현재 컴포넌트에 허용되지 자식 컴포넌트에는 유용하지 않는다. 
 @Component의 주요 기능은 템플릿을 갖는 반면 지시문에는 템플릿이 없는 것이 차이 이다. 
@@ -534,7 +534,7 @@ export class ModuleIdPonyComponent {
 더 나은 점은 : Web-Pack을 사용하고 있다면, 약간의 설정 (이미 Angular-Cli를 사용하고 있다면 가능합니다.)으로 module.id를 제거하고 직접 상대 경로를 사용할 수도 있다. 
 Webpack은 완전한 URL을 알아낼 수 있다.<br/><br/>
 
-### Styles / Styles URL<br/><br/>
+### Styles / Styles URL
 
 구성 요소의 스타일을 지정할 수도 있다. 실제로 분리 된 구성 요소를 계획하는 경우 특히 유용하다. styles 또는 styleUrl을 사용하여 이를 지정할 수 있다.<br/>
 
@@ -552,7 +552,7 @@ export class StyledPonyComponent {
 }
 ```
 
-### Declarations<br/><br/>
+### Declarations
 
 @NgModule의 선언에서 사용하고 있는 모든 지시문과 구성 요소를 선언해야 한다는 것을 기억해라. 
 그렇게 하지 않으면 템플릿에서 구성 요소가 선택 되지 않으며 이유를 파악하는 데 많은 시간을 낭비 한다.<br/>
