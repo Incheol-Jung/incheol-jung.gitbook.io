@@ -19,10 +19,10 @@ navigation_weight: 10
 구성 요소에서 정의하는 스타일 (styles 속성을 사용하거나 styleUrls를 가지는 컴퍼넌트의 전용 CSS 파일)이 구성 요소의 범위 내에서 적용된다. 
 이 스타일 캡슐화라고 한다. 어떻게 이것을 달성할 수 있을까?<br/>
 
-그것은 당신이 어떤 스타일을 쓰는 것으로 시작한다. 그런 다음 구성 요소 데코레이터의 속성 캡슐화에 대해 선택한 전략에 따라 다르다. 이 속성은 세 가지 다른 값을 가질 수 있다.
-• ViewEncapsulation.Emulated는 기본 설정이다.
-• ViewEncapsulation.Native는 그림자 캡슐에 의존하는 것을 의미 한다.  
-• ViewEncapsulation.None은 캡슐화를 원하지 않는다는 것을 의미 한다.
+그것은 당신이 어떤 스타일을 쓰는 것으로 시작한다. 그런 다음 구성 요소 데코레이터의 속성 캡슐화에 대해 선택한 전략에 따라 다르다. 이 속성은 세 가지 다른 값을 가질 수 있다.<br/>
+• ViewEncapsulation.Emulated는 기본 설정이다.<br/>
+• ViewEncapsulation.Native는 그림자 캡슐에 의존하는 것을 의미 한다.<br/>
+• ViewEncapsulation.None은 캡슐화를 원하지 않는다는 것을 의미 한다.<br/>
 
 각각의 가치는 물론 다른 행동을 유도하므로 살펴 보자. 당신이 잘 알고있는 구성 요소, 즉 PonyComponent을 사용한다. 
 이것은 구성 요소의 정말 간단한 버전에서 div에 조랑말의 이름을 표시 할뿐 이다. 이 예에서는 div에 CSS 클래스 red를 추가한다.
