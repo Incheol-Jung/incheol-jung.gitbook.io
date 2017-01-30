@@ -1,36 +1,39 @@
-<div class="pagination clearfix mb1 mt4">
-  {% if site %}
+<ul id="pagination" role="navigation">
+    {% if site %}
         {% if site.total_pages <= 5 %}
             {% assign first = 1 %}
             {% assign last = site.total_pages %}
         {% else %}
-        {% assign first = site.page | minus: 2 %}
-        {% if first < 1 %}
-            {% assign first = 1 %}
+            {% assign first = site.page | minus: 2 %}
+            {% if first < 1 %}
+                {% assign first = 1 %}
+            {% endif %}
+            {% assign last = first | plus: 4 %}
+            {% if last > site.total_pages %}
+                {% assign last = site.total_pages %}
+            {% endif %}
         {% endif %}
-        {% assign last = first | plus: 4 %}
-        {% if last > site.total_pages %}
-            {% assign last = site.total_pages %}
+        {% if site.previous_page %}
+            <li id="page-prev"><a href="{{ site.baseurl }}{{ site.previous_page_path }}"><span class="sr-only">Previous Page</span></a>
+            </li>
+        {% else %}
+            <li id="page-prev" class="disabled"><span class="sr-only">No Previous Page</span></li>
+        {% endif %}
+        {% for p in (first..last) %}
+            {% if p == site.page %}
+                <li class="page-number active">{{ p }}</li>
+                {% elsif p == 1 %}
+                <li class="page-number"><a href="{{ site.baseurl }}/">{{ p }}</a></li>
+            {% else %}
+                <li class="page-number"><a
+                            href="{{ site.baseurl }}{{ site.paginate_path | replace: ':num', p }}">{{ p }}</a></li>
+            {% endif %}
+        {% endfor %}
+        {% if site.next_page %}
+            <li id="page-next"><a href="{{ site.baseurl }}{{ site.next_page_path }}"><span class="sr-only">Next Page</span></a>
+            </li>
+        {% else %}
+            <li id="page-next" class="disabled"><span class="sr-only">No Next Page</span></li>
         {% endif %}
     {% endif %}
-  <div class="left">
-    {% if site.previous_page %}
-      {% if site.page == 2 %}
-        <a class="pagination-item" href="{{ site.baseurl }}/">{{ site.text.pagination.newer }}</a>
-      {% else %}
-        <a class="pagination-item" href="{{ site.previous_page_path }}">{{ site.text.pagination.newer }}</a>
-      {% endif %}
-    {% else %}
-      <span class="pagination-item disabled">{{ site.text.pagination.newer }}</span>
-    {% endif %}
-  </div>
-  <div class="right">
-    {% if site.next_page %}
-      <a class="pagination-item" href="{{ site.next_page_path }}">{{ site.text.pagination.older }}</a>
-    {% else %}
-      <span class="pagination-item disabled">{{ site.text.pagination.older }}</span>
-    {% endif %}
-  </div>
-  <div class="pagination-meta">Page {{ site.page }} of {{ site.total_pages }}</div>
-  {% endif %}
-</div>
+</ul>
