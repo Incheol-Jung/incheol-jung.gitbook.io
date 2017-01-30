@@ -30,5 +30,4 @@ sass:
     sass_dir: resource/_css
 safe: true
 gems: 
-    - jekyll-paginate
     - jekyll-angular
