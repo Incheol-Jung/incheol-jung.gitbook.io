@@ -90,7 +90,7 @@ Angular 2는 동일한 원칙을 기반으로하지만 다른 방식으로 구�
 
 Angular 팀은 문제의 첫 번째 부분 인 변경 감지를 트리거하기 위해 Zone.js라는 작은 사이드 프로젝트를 구축했다. 이 프로젝트는 영역이 다른 프로젝트에서 유용 할 수있는 도구이기 때문에 Angular에 묶여 있지 않는다. 영역은 전혀 새로운 개념이 아니다. Dart 언어 (다른 Google 프로젝트)에 이미 상당 부분 존재한다. 그것들은 또한 Node.js (현재 버려진)의 Domains 또는 java의 ThreadLocals와 유사하다.<br/>
 
-- Zones
+### Zones
 영역은 실행 컨텍스트이다. 이 컨텍스트는 실행할 코드를 수신했으며 이 코드는 동기식 또는 비동기식이 될 수 있다. 영역은 몇 가지 이점을 제공한다.<br/>
 
 • 실행하기 전후에 실행될 수있는 후크<br/>
@@ -216,7 +216,7 @@ angularZone.run(() => {
 
 영역은 표준화 과정에 있으므로 공식적인 ECMAScript 사양의 일부가 될 수 있다. 다른 흥미로운 정보 인 zone.js의 현재 구현은 WTF에 대한 정보도 제공한다. (이 문맥에서 Web Tracing Framework). 이 라이브러리를 사용하면 개발 모드에서 응용 프로그램을 프로파일링하고 응용 프로그램 및 프레임 워크 코드의 모든 부분에서 소요 된 시간을 정확히 알 수 있다. 요컨대 필요한 경우 성능을 분석하고 문제를 해결할 수있는 충분한 정보이다. <br/><br/>
 
-- Change detection in Angular 2 <br/>
+### Change detection in Angular 2 <br/>
 
 문제의 두 번째 부분은 변경 감지 자체이다. 시작 시점 및 방법을 파악하는 것이 하나의 방법이지만 작동 원리를 아는 것도 중요하다.<br/>
 우선 Angular 애플리케이션은 구성 요소의 트리라는 것을 기억해야 한다. 변경 감지가 시작되면 프레임 워크는 트리의 모든 구성 요소를 거쳐 상태가 변경되었는지, 새 상태가 해당보기에 영향을 주는지 확인한다. 이 경우 변경 사항의 영향을 받는 구성 요소의 DOM 부분이 업데이트 된다.<br/>
@@ -267,9 +267,12 @@ Google 팀은 처음부터 AngularJS 1.x, Angular 2 및 Polymer and React를 다
 
 **************************************************************************************************
 
-**************************************************************************************************
+
+
 
 ## Reference URL
-- [BEM introduction](http://getbem.com/introduction/)
-- [BEMIT(BEM을 기반으로 확장변형 시킨 네이밍 컨벤션)](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/)
-- [SMACSS](https://smacss.com/)
+
+- [Become a NINJA with Angular 2](https://books.ninja-squad.com/public/samples/Become_a_ninja_with_Angular2_sample.pdf)
+- [Learn Angular 2](http://learnangular2.com/)
+- [Angular 2 Component](https://www.tutorialspoint.com/angular2/)
+- [An Introduction to Angular 2](http://angular-tips.com/blog/2015/05/an-introduction-to-angular-2/)
