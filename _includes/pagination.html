@@ -4,15 +4,15 @@
             {% assign first = 1 %}
             {% assign last = site.total_pages %}
         {% else %}
-            {% assign first = site.page | minus: 2 %}
-            {% if first < 1 %}
-                {% assign first = 1 %}
-            {% endif %}
-            {% assign last = first | plus: 4 %}
-            {% if last > site.total_pages %}
-                {% assign last = site.total_pages %}
-            {% endif %}
+        {% assign first = site.page | minus: 2 %}
+        {% if first < 1 %}
+            {% assign first = 1 %}
         {% endif %}
+        {% assign last = first | plus: 4 %}
+        {% if last > site.total_pages %}
+            {% assign last = site.total_pages %}
+        {% endif %}
+    {% endif %}
   <div class="left">
     {% if site.previous_page %}
       {% if site.page == 2 %}
