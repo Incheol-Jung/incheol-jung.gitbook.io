@@ -5,8 +5,8 @@ navigation_weight: 2
 ---
 
 	<ul class="post_list">
-		{% assign navigation_pages = site.html_pages | sort: 'navigation_weight' %}
-		{% for post in navigation_pages.categories.reference %}
+		{% assign navigation_pages = navigation_pages.categories.reference | sort: 'navigation_weight' %}
+		{% for post in navigation_pages %}
 		<li class="post_list__item">
 			<span class="meta">
 				{% if post.updated %}
