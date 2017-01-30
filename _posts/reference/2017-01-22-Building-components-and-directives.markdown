@@ -564,6 +564,8 @@ export class StyledPonyComponent {
 
 **************************************************************************************************
 
+
+
 ## Reference URL
 
 - [Become a NINJA with Angular 2](https://books.ninja-squad.com/public/samples/Become_a_ninja_with_Angular2_sample.pdf)

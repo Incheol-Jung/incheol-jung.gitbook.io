@@ -170,7 +170,7 @@ polyfill은 web-component.js로 불리어져 있고 google, mozila, microsoft등
 디테일하게는 설명하지 않을것이다. 그러나 당신은 이미 polymer component를 쉽게 사용하고 있을것이다.
 당신의 앱안에 있는 구글 맵을 살펴보도록 하자. 
 
-```javascript
+```html
 <!-- Polyfill Web Components support for older browsers -->
 <script src="webcomponents.js"></script>
 <!-- Import element -->
@@ -184,7 +184,7 @@ polyfill은 web-component.js로 불리어져 있고 google, mozila, microsoft등
 polymer안에는 매우 다양한 구성요소가 있다.  https://customelements.io 해당 사이트에서 살펴볼 수 있다.<br/>
 polymer는 커스텀 컴포넌트를 빌드하는데에도 도움을 준다.  
 
-```javascript
+```html
 <dom-module id="ns-pony">
   <template>
    <h1>[[name]]</h1>
@@ -200,7 +200,7 @@ polymer는 커스텀 컴포넌트를 빌드하는데에도 도움을 준다.
 </dom-module>
 ```
 
-```javascript
+```html
 <!-- Polyfill Web Components support for older browsers -->
 <script src="webcomponents.js"></script>
 <!-- Polymer -->
@@ -217,6 +217,7 @@ polymer는 커스텀 컴포넌트를 빌드하는데에도 도움을 준다.
 
 지금까지 당신에게 말한 웹 컴포넌트에 대한 설명은 매우 짧게 요약한 것이다. 그러나 웹 컴포넌트에 대한 컨셉은 명확하게 설명하였다. 
 그리고 구글 팀은 Angular 2 컴포넌트에 따라서 웹 컴포넌트 사용을 매우 쉽게 사용하기 위해 Angular 2를 디자인 했다는 것을 이해할 수 있을 것이다. 
+
 
 **************************************************************************************************
 
