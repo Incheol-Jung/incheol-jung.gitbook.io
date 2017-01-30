@@ -336,8 +336,8 @@ foreground의 속성이 '녹색'으로 변한다고 하면, color도 녹색으�
 'Pony' 글자 뒤에 pony의 이름을 덧 붙이기를 원한다면 당신은 두 가지 옵션이 있다. 
 
 ```html
-{% raw %}<ns-pony name="Pony {{pony.name}}"></ns-pony>
-<ns-pony [name]="'Pony ' + pony.name"></ns-pony>{% endraw %}
+{% raw %}<ns-pony name="Pony {{pony.name}}"></ns-pony>{% endraw %}
+<ns-pony [name]="'Pony ' + pony.name"></ns-pony>
 ```
 
 만약 당신이 동적인 변수를 사용하지 않는다면 property = "value" 와 같이 간단하게 적을 수 있다. 
