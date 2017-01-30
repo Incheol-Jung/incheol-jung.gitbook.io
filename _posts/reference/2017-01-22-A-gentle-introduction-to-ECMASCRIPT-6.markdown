@@ -253,8 +253,8 @@ const { pony } = randomPonyInRace();
 ## Default parameters and values
 
 자바스크립트의 특징 중 하나는 개발자가 파라미터의 개수를 아무렇게나 사용하여 함수를 실행하여도 허용한다는 것이었다 : <br/>
--	만약 당신이 파라미터의 개수보다 더 많은 파라미터를 넘긴다면, 나머지 파라미터 들은 무시되어 질 것이다. ( 당신은 특별한 변수들과 함께 사용할 수 있을 것이다. )
--	만약 당신이 파라미터의 개수보다 더 적은 파라미터를 넘긴다면, 부족한 파라미터들은 undefined로 할당될 것이다.
+-	만약 당신이 파라미터의 개수보다 더 많은 파라미터를 넘긴다면, 나머지 파라미터 들은 무시되어 질 것이다. ( 당신은 특별한 변수들과 함께 사용할 수 있을 것이다. )<br/>
+-	만약 당신이 파라미터의 개수보다 더 적은 파라미터를 넘긴다면, 부족한 파라미터들은 undefined로 할당될 것이다.<br/>
 두 번째 경우는 우리에게 가장 관련 있는 경우이다. 파라미터가 선택적일 경우에 우리는 주로 적은 파라미터들을 넘긴다. <br/><br/>
 
 ```javascript
@@ -267,7 +267,7 @@ function getPonies(size, page){
 ```
 
 선택적인 파라미터들은 주로 기본 값들을 가지고 있다. OR 기호는 만약 왼쪽의 변수가 undefined일 경우에 기호의 오른쪽 변수를 넘길 것이다. 만약 파라미터가 정확하게 공급되지 않는 다면 해당 경우에는 
-0,false,””이 될 것이다. 이 속임수를 사용하여 getPoines 함수는 다음과 같이 호출될 것이다. <br/><br/>
+0,false,””이 될 것이다. 이 속임수를 사용하여 getPoines 함수는 다음과 같이 호출될 것이다. <br/>
 
 
 ```javascript
@@ -276,7 +276,7 @@ getPonies(); // same as getPonies(10, 1);
 getPonies(15); // same as getPonies(15, 1);
 ```
 
-이것은 정확하게 동작하겠지만 함수 body를 읽지 않은 상태에서 기본 값을 가지고 있는 선택적인 변수들은 명백하지는 않을 것이다. ES6는 기본 파라미터를 가질 수 있는 더 유용한 방법을 소개한다. <br/><br/>
+이것은 정확하게 동작하겠지만 함수 body를 읽지 않은 상태에서 기본 값을 가지고 있는 선택적인 변수들은 명백하지는 않을 것이다. ES6는 기본 파라미터를 가질 수 있는 더 유용한 방법을 소개한다. <br/>
 
 ```javascript
 function getPonies(size = 10, page = 1){
@@ -461,7 +461,7 @@ console.log(pony.speed()); // 20, as Pony overrides the parent method
 ```
 
 보시다시피, super라는 키워드는 기본 클래스의 함수를 호출하는 것을 허용한다. 
-Super 키워드는 constructor안에서 사용될수있다. 기본 클래스 constructor 함수를 호출하는 것으로. 
+Super 키워드는 기본 클래스 constructor 함수를 호출하는 것으로 constructor안에서 사용될수있다. 
   
 ```javascript
 class Animal {
