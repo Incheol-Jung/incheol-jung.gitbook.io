@@ -418,15 +418,14 @@ Babel은 클래스 속성도 지원하지만 TypeScript에서 제공하는 유�
 만약 당신이 싫다면, decorator는 Babel또는 Traceur 를 사용한 ES6 또는 심지어 ES5로 전환하는 것이 그리 어렵지 않을 것이다. 
 (솔직히 ES5로는 angular 2 앱이 안좋은 코드를 가지고 있다.)
 
-**************************************************************************************************
-
 
 
 **************************************************************************************************
-
 
 
 ## Reference URL
-- [BEM introduction](http://getbem.com/introduction/)
-- [BEMIT(BEM을 기반으로 확장변형 시킨 네이밍 컨벤션)](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/)
-- [SMACSS](https://smacss.com/)
+
+- [Become a NINJA with Angular 2](https://books.ninja-squad.com/public/samples/Become_a_ninja_with_Angular2_sample.pdf)
+- [Learn Angular 2](http://learnangular2.com/)
+- [Angular 2 Component](https://www.tutorialspoint.com/angular2/)
+- [An Introduction to Angular 2](http://angular-tips.com/blog/2015/05/an-introduction-to-angular-2/)
