@@ -27,14 +27,14 @@ JsonPipe는 개발 응용 프로그램에서는 별로 유용하지 않지만 �
 당신은 다음과 같은 것을 시도 할 수 있다.
 
 ```html
-<p>&#123;&#123; ponies &#125; &#125; </p>
+<p>{% raw %}{{ ponies }}{% endraw %}</p>
 ```
  
 운이 좋으면 [object object]가 표시 될 것이다.
 하지만 JsonPipe는 우리를 구하기 위해 여기에 있고 어떤 식 으로든 HTML에서 사용할 수 있다.
 
 ```html
-<p>&#123;&#123; ponies | json &#125;&#125;</p>
+<p>{{ ponies | json }}</p>
 ```
 
 그리고 그것은 개체의 JSON 표현을 표시한다. 
@@ -47,11 +47,11 @@ JsonPipe는 개발 응용 프로그램에서는 별로 유용하지 않지만 �
 표현식이 평가되고 결과가 파이프를 통과할것이다. 여러 파이프를 차례로 연결할 수 있다.
 
 ```html
-<p>&#123;&#123; ponies | slice:0:2 | json &#125;&#125;</p>
+<p>{{ ponies | slice:0:2 | json }}</p>
 ```
 
 우리는 슬라이스 파이프로 돌아갈 것이지만 슬라이스 파이프를 연결 한 다음 json을 연결하는 것을 볼 수 있다.
-"&#123;&#123;&#125;&#125;"보간 표현식이나 속성 표현식에서는 사용할 수 있지만 이벤트 문에서는 사용할 수 없다.
+"{{}}"보간 표현식이나 속성 표현식에서는 사용할 수 있지만 이벤트 문에서는 사용할 수 없다.
 
 ```html
 <p [textContent]="ponies | json"></p>
@@ -65,7 +65,7 @@ import { Component } from '@angular/core';
 import { JsonPipe } from '@angular/common';
 @Component({
   selector: 'ns-ponies',
-  template: `<p>&#123;&#123;poniesAsJson&#125;&#125;</p>`
+  template: `<p>{{poniesAsJson}}</p>`
 })
 export class PoniesComponent {
   ponies: Array<any> = [{ name: 'Rainbow Dash' }, { name: 'Pinkie Pie' }];
@@ -82,35 +82,35 @@ export class PoniesComponent {
 이것은 모든 파이프에서 동일하므로 보간법을 사용하여 HTML 예제를 보도록 하자.
 
 ```html
-<p>&#123;&#123; ponies | slice:0:2 | json &#125;&#125;</p>
+<p>{{ ponies | slice:0:2 | json }}</p>
 ```
 
 이 예제는 조랑말 목록의 처음 두 요소를 표시한다.
 slice는 배열과 문자열로 작동하므로 문자열을 자를 수도 있다.
 
 ```html
-<p>&#123;&#123; 'Ninja Squad' | slice:0:5 &#125;&#125;</p>
+<p>{{ 'Ninja Squad' | slice:0:5 }}</p>
 ```
 
 'Ninja'만 표시될 것이다.
 슬라이스 파이프에 하나의 인덱스 n만을 줄 수 있으며 n에서 끝까지 요소를 가져올것이다.
 
 ```html
-<p>&#123;&#123; 'Ninja Squad' | slice:3 &#125;&#125;</p>
+<p>{{ 'Ninja Squad' | slice:3 }}</p>
 <!-- will display 'ja Squad' -->
 ```
 
 음수를 지정하면 뒤에서 부터 자를 것이다. 
 
 ```html
-<p>&#123;&#123; 'Ninja Squad' | slice:-5 &#125;&#125;</p>
+<p>{{ 'Ninja Squad' | slice:-5 }}</p>
 <!-- will display 'Squad' -->
 ```
 
 우리가 보았 듯이, 파이프에게 종료 인덱스를 줄 수 있다 :이 인덱스까지 요소를 가져옵니다. 이 인덱스가 음수이면 인덱스까지 요소를 취하지만 끝에서부터 시작한다.
 
 ```html
-<p>&#123;&#123; 'Ninja Squad' | slice:2:-2 &#125;&#125;</p>
+<p>{{ 'Ninja Squad' | slice:2:-2 }}</p>
 <!-- will display 'nja Squ' -->
 ```
 
@@ -120,7 +120,7 @@ slice는 배열과 문자열로 작동하므로 문자열을 자를 수도 있�
 import { Component } from '@angular/core';
 @Component({
   selector: 'ns-ponies',
-  template: `<div *ngFor="let pony of ponies | slice:0:2">&#123;&#123;pony.name&#125;&#125;</div>`
+  template: `<div *ngFor="let pony of ponies | slice:0:2">{{pony.name}}</div>`
 })
 export class PoniesComponent {
   ponies: Array<any> = [
@@ -138,7 +138,7 @@ export class PoniesComponent {
 import { Component } from '@angular/core';
 @Component({
   selector: 'ns-ponies',
-  template: `<div *ngFor="let pony of ponies | slice:0:size">&#123;&#123;pony.name&#125;&#125;</div>`
+  template: `<div *ngFor="let pony of ponies | slice:0:size">{{pony.name}}</div>`
 })
 export class PoniesComponent {
   size: number = 2;
@@ -155,14 +155,14 @@ export class PoniesComponent {
 이 파이프의 이름이 충분히 명확 해지면서이 파이프는 문자열을 대문자로 변환 한다.
 
 ```html
-<p>&#123;&#123; 'Ninja Squad' | uppercase &#125;&#125;</p>
+<p>{{ 'Ninja Squad' | uppercase }}</p>
 <!-- will display 'NINJA SQUAD' -->
 ```
 
 이 파이프의 이름이 충분히 명확 해지면서이 파이프는 문자열을 소문자로 변환 한다.
 
 ```html
-<p>&#123;&#123; 'Ninja Squad' | lowercase &#125;&#125;</p>
+<p>{{ 'Ninja Squad' | lowercase }}</p>
 <!-- will display 'ninja squad' -->
 ```
 
@@ -175,37 +175,37 @@ export class PoniesComponent {
 파이프가 없는 것부터 시작하는 몇 가지 예이다.
 
 ```html
-<p>&#123;&#123; 12345 &#125;&#125;</p>
+<p>{{ 12345 }}</p>
 <!-- will display '12345' -->
 ```
 
 숫자 파이프를 사용하면 숫자가 필요하지 않은 경우에도 정수 부분이 그룹화 된다.
 
 ```html
-<p>&#123;&#123; 12345 | number &#125;&#125;</p>
+<p>{{ 12345 | number }}</p>
 <!-- will display '12,345' -->
 ```
 
 integerDigits 매개 변수는 필요한 경우 정수 부분을 0으로 왼쪽에 채워 준다.
 
 ```html
-<p>&#123;&#123; 12345 | number:'6.' &#125;&#125;</p>
+<p>{{ 12345 | number:'6.' }}</p>
 <!-- will display '012,345' -->
 ```
 
 minFractionDigits는 소수 부분의 최소 크기이므로 도달 할 때까지 오른쪽에 0을 채워 준다.
 
 ```html
-<p>&#123;&#123; 12345 | number:'.2' &#125;&#125;</p>
+<p>{{ 12345 | number:'.2' }}</p>
 <!-- will display '12,345.00' -->
 ```
 
 maxFractionDigits는 소수 부분의 최대 크기이다. 그것을 원한다면 minFractionDigits를 0으로 지정해야 한다. 숫자가 그 보다 소수 이상이면 반올림된다.
 
 ```html
-<p>&#123;&#123; 12345.13 | number:'.1-1' &#125;&#125;</p>
+<p>{{ 12345.13 | number:'.1-1' }}</p>
 <!-- will display '12,345.1' -->
-<p>&#123;&#123; 12345.16 | number:'.1-1' &#125;&#125;</p>
+<p>{{ 12345.16 | number:'.1-1' }}</p>
 <!-- will display '12,345.2' -->
 ```
 
@@ -215,9 +215,9 @@ maxFractionDigits는 소수 부분의 최대 크기이다. 그것을 원한다�
 숫자와 동일한 원칙에 따라 백분율은 백분율을 표시 할 수 있다.
 
 ```html
-<p>&#123;&#123; 0.8 | percent &#125;&#125;</p>
+<p>{{ 0.8 | percent }}</p>
 <!-- will display '80%' -->
-<p>&#123;&#123; 0.8 | percent:'.3' &#125;&#125;</p>
+<p>{{ 0.8 | percent:'.3' }}</p>
 <!-- will display '80.000%' -->
 ```
 
@@ -228,11 +228,11 @@ maxFractionDigits는 소수 부분의 최대 크기이다. 그것을 원한다�
 • 선택적으로 number와 동일한 구문을 사용하여 금액을 형식화하는 문자열
 
 ```html
-<p>&#123;&#123; 10.6 | currency:'EUR' &#125;&#125;</p>
+<p>{{ 10.6 | currency:'EUR' }}</p>
 <!-- will display 'EUR10.60' -->
-<p>&#123;&#123; 10.6 | currency:'USD':true &#125;&#125;</p>
+<p>{{ 10.6 | currency:'USD':true }}</p>
 <!-- will display '$10.60' -->
-<p>&#123;&#123; 10.6 | currency:'USD':true:'.3' &#125;&#125;</p>
+<p>{{ 10.6 | currency:'USD':true:'.3' }}</p>
 <!-- will display '$10.600' -->
 ```
 
@@ -240,18 +240,18 @@ maxFractionDigits는 소수 부분의 최대 크기이다. 그것을 원한다�
 지정된 형식은 'dd / MM / yyyy', 'MM-yy'또는 'short', 'longDate'등과 같이 미리 정의 된 기호 이름 중 하나 일 수 있다.
 
 ```html
-<p>&#123;&#123; birthday | date:'dd/MM/yyyy' &#125;&#125;</p>
+<p>{{ birthday | date:'dd/MM/yyyy' }}</p>
 <!-- will display '16/07/1986' -->
-<p>&#123;&#123; birthday | date:'longDate' &#125;&#125;</p>
+<p>{{ birthday | date:'longDate' }}</p>
 <!-- will display 'July 16, 1986' -->
 ```
 
 물론 날짜의 시간 부분을 표시 할 수도 있다. 
 
 ```html
-<p>&#123;&#123; birthday | date:'HH:mm' &#125;&#125;</p>
+<p>{{ birthday | date:'HH:mm' }}</p>
 <!-- will display '15:30' -->
-<p>&#123;&#123; birthday | date:'shortTime' &#125;&#125;</p>
+<p>{{ birthday | date:'shortTime' }}</p>
 <!-- will display '3:30 PM' -->
 ```
 
@@ -266,7 +266,7 @@ Promise가 무엇인지 이제는 알고 있어야 한다. 그렇지 않으면 E
 import { Component } from '@angular/core';
 @Component({
   selector: 'ns-greeting',
-  template: `<div>&#123;&#123; asyncGreeting | async &#125;&#125;</div>`
+  template: `<div>{{ asyncGreeting | async }}</div>`
 })
 export class GreetingComponent {
   asyncGreeting = new Promise(resolve => {

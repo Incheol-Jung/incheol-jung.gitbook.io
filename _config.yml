@@ -32,3 +32,4 @@ safe: true
 gems: 
     - jekyll-paginate
     - jekyll-angular
+    - jekyll-gist
