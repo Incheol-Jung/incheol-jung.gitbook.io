@@ -577,7 +577,6 @@ export class PonyRacerAppComponent {
 
 구성 요소에 newRaceAvailable이라는 사용자 지정 이벤트가 있고이 이벤트가 발생하면 PonyRacerAppComponentis의 onNewRace () 메서드가 호출되었음을 쉽게 알 수 있다. <br/>
 Angular는 요소와 해당 요소의 이벤트를 수신하므로 거품이 발생하는 이벤트에 반응한다. 템플릿을 고려해보도록 하자. 
-3
 
 
 ```html
