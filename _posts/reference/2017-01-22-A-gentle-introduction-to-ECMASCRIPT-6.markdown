@@ -440,7 +440,7 @@ console.log(pony.speed()); // 10, as Pony overrides the parent method
  
 Animal은 기본 클래스이고, Pony는 파생된 클래스이다. 보시다시피, 파생된 클래스는 기본 클래스의 함수를 가지고 있다. 이것은 다시 재정의할 수 있다. 
  
- ```javascript
+```javascript
 class Animal {
     speed(){
         return 10;
