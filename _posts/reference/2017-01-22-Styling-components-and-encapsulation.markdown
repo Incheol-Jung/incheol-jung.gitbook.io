@@ -100,11 +100,11 @@ inspector에 Chrome이 표시 할 # shadow-root (열려 있음)를 확인할 수
 ns-pony 요소는 부모에 대해 생성 된 고유 식별자 인 _ngcontent-dvb-2와 그 부모에 대해 생성 된 _nghost-dvb-3 이것은 호스트 요소 자체의 고유 식별자 이다. 
 바로 살펴 같이 호스트 요소에 적용되는 스타일을 추가 할 수 있다.
 
-### None strategy <br/><br/>
+### None strategy
 
 이 전략은 캡슐화를 수행하지 않지만 스타일은 적용 된다. (에뮬레이트 전략 등) 페이지 상단에 인라인되만 다시 작성되지 않는다. 그런 다음 아이들은 "정상적인" 스타일처럼 행동한다.<br/>
 
-### Styling the host <br/><br/>
+### Styling the host
 
 특별한 CSS 셀렉터가 호스트 요소 만 스타일링 할 수 있다. 그것은 host라고 부르며 웹 컴포넌트 명세에서 착안한 것이다.
 
