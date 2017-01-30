@@ -84,13 +84,13 @@ console.log(password.value); // logs "Cédric"
 
 FormGroup은 FormControl과 동일한 속성을 갖지만 몇 가지 차이점이 있다.<br/>
 
-• valid : 모든 필드가 유효하면 그룹의 유효성.
-• errors : 그룹 오류가있는 객체이거나 그룹이 유효한 경우 null이다. 각 오류는 키이고, value는 이 오류의 영향을 받는 모든 컨트롤이 들어있는 배열이다.
-• dirty : 컨트롤 중 하나가 더러워 질 때까지 false.
-• pristine : dirty의 반대.
-• touched : 컨트롤 중 하나가 터치 될 때까지 false.
-• untouched : touched의 반대.
-• value : 그룹의 값. 더 정확하게 말하자면, 키 / 값이 컨트롤과 그 값.
+• valid : 모든 필드가 유효하면 그룹의 유효성.<br/>
+• errors : 그룹 오류가있는 객체이거나 그룹이 유효한 경우 null이다. 각 오류는 키이고, value는 이 오류의 영향을 받는 모든 컨트롤이 들어있는 배열이다.<br/>
+• dirty : 컨트롤 중 하나가 더러워 질 때까지 false.<br/>
+• pristine : dirty의 반대.<br/>
+• touched : 컨트롤 중 하나가 터치 될 때까지 false.<br/>
+• untouched : touched의 반대.<br/>
+• value : 그룹의 값. 더 정확하게 말하자면, 키 / 값이 컨트롤과 그 값.<br/>
 • valueChanges : 그룹에 변화가있을 때마다 관찰되는 관찰 가능<br/>
 
 hasError()와 같은 FormControl과 동일한 메소드를 제공한다. 또한 get() 메서드를 사용하여 그룹에서 컨트롤을 검색한다.
@@ -173,7 +173,7 @@ export class RegisterFormComponent {
 가장 간단한 형식에서는 ngModel 지정 문을 양식 템플리트에 추가하면 된다. NgModel 지시문은 사용자를 위해 FormControl을 만들고 양식은 자동으로 FormGroup을 만든다. 입력에 이름을 지정해야 한다.
 이 이름은 프레임 워크에서 FormGroup을 만드는 데 사용된다.
 
-```javascript
+```html
 <h2>Sign up</h2>
 <form (ngSubmit)="register()">
   <div>
