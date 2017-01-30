@@ -330,7 +330,7 @@ foreground의 속성이 '녹색'으로 변한다고 하면, color도 녹색으�
 이것은 [property] ="expression"과 동일하다. 
 
 ```html
-{% raw %}<ns-pony [name]="pony.name"></ns-pony>{% endraw %}
+<ns-pony [name]="pony.name"></ns-pony>
 ```
 
 'Pony' 글자 뒤에 pony의 이름을 덧 붙이기를 원한다면 당신은 두 가지 옵션이 있다. 
