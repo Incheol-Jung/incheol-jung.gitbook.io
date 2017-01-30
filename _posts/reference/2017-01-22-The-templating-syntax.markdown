@@ -324,9 +324,7 @@ foreground의 속성이 '녹색'으로 변한다고 하면, color도 녹색으�
 우리는 이미 보간 속성 property="{{expression}}" 을 이미 보았다. 
 
 ```html
-{% raw %}
-<ns-pony name="{{pony.name}}"></ns-pony>
-{% endraw %}
+{% raw %} 2<ns-pony name="{{pony.name}}"></ns-pony> {% endraw %}
 ```
 
 이것은 [property] ="expression"과 동일하다. 
