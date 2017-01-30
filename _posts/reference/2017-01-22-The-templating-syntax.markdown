@@ -343,7 +343,7 @@ foreground의 속성이 '녹색'으로 변한다고 하면, color도 녹색으�
 만약 당신이 동적인 변수를 사용하지 않는다면 property = "value" 와 같이 간단하게 적을 수 있다. 
 
 ```html
-<ns-pony name="Rainbow Dash"></ns-pony>{% endraw %}
+<ns-pony name="Rainbow Dash"></ns-pony>
 ```
 
 이들 모두는 동등하고 구문은 개발자가 구성 요소를 설계하는 방법에 달려 있지 않는다.  
