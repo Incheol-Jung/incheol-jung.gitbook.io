@@ -4,7 +4,7 @@ title:      Building Components and directives
 date:       2017-01-22 00:00:00
 updated:    2017-01-22 00:00:00
 categories: reference
-summary:    부정확한 클래스 네이밍 작업, 통일되지 않은 스타일 선언을 방지하여 효율적인 코드 관리와 재사용성을 높이기 위한 레퍼런스 입니다.
+summary:    Building Components and directives
 ---
 
 
