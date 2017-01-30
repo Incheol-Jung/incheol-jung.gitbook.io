@@ -1,11 +1,11 @@
 ---
 layout:     reference
-title:      The wonderful land of Web Components
+title:      CHAPTER 3. The wonderful land of Web Components
 date:       2017-01-22 00:00:00
 updated:    2017-01-22 00:00:00
 categories: reference
 summary:    The wonderful land of Web Components
-navigation_weight: 14
+navigation_weight: 3
 ---
 
 

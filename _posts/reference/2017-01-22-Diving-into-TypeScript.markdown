@@ -1,11 +1,11 @@
 ---
 layout:     reference
-title:      Diving into TypeScript
+title:      CHAPTER 2. Diving into TypeScript
 date:       2017-01-22 00:00:00
 updated:    2017-01-22 00:00:00
 categories: reference
 summary:    Diving into TypeScript
-navigation_weight: 3
+navigation_weight: 2
 ---
 
 

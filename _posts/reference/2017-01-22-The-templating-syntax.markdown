@@ -1,11 +1,11 @@
 ---
 layout:     reference
-title:      The templating syntax
+title:      CHAPTER 5. The templating syntax
 date:       2017-01-22 00:00:00
 updated:    2017-01-22 00:00:00
 categories: reference
 summary:    The templating syntax
-navigation_weight: 13
+navigation_weight: 5
 ---
 
 

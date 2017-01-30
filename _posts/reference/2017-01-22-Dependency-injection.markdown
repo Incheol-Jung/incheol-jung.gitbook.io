@@ -1,11 +1,11 @@
 ---
 layout:     reference
-title:      Dependency injection
+title:      CHAPTER 6. Dependency injection
 date:       2017-01-22 00:00:00
 updated:    2017-01-22 00:00:00
 categories: reference
 summary:    Dependency injection
-navigation_weight: 2
+navigation_weight: 6
 ---
 
 
