@@ -566,10 +566,7 @@ Angular 구성 요소 또는 웹 구성 요소에서 가져올것이다. 나중�
 ```javascript
 @Component({
   selector: 'ponyracer-app',
-  template: `
-   <h1>PonyRacer</h1>
-   <ns-races (newRaceAvailable)="onNewRace()"></ns-races>
-  `
+  template: '<h1>PonyRacer</h1> <ns-races (newRaceAvailable)="onNewRace()"></ns-races>'
 })
 export class PonyRacerAppComponent {
   onNewRace() {
