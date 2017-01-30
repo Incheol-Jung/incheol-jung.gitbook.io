@@ -44,7 +44,7 @@ end-to-end 테스트도 만들 수 있다. 그 목적은 실제 인스턴스를 
 이를 위해 우리는 몇 가지 도구에 의존 할 것이다. 먼저 테스트를 작성하는 라이브러리가 필요하다.
 가장 인기 있는 것 (가장 인기가 없다면) 중 하나가 Jasmine이므로, 우리는 그것을 사용할 것이다!<br/>
 
-- Jasmine and Karma<br/><br/>
+### Jasmine and Karma
 
 Jasmine은 테스트를 선언 할 수있는 몇 가지 방법을 제공한다.<br/>
 
@@ -135,7 +135,7 @@ TypeScript 컴파일러가 코드와 테스트를 모니터링하고 다른 출�
 
 이제 우리는 JavaScript로 단위 테스트를 작성하는 방법을 알고 있다. mix에 Angular 2를 추가합시다.
 
-- Using dependency injection<br/><br/>
+### Using dependency injection
 
 RaceService와 같은 간단한 서비스로 Angular 2 애플리케이션이 있고 하드 코드 된 레이스 목록을 반환하는 메소드가 있다고 가정 해보자.
 
@@ -548,7 +548,10 @@ $ ('h1')은 요소 (by.css ( 'h1'))를 쓸 경우에 해당하는 단축키 이�
 **************************************************************************************************
 
 
+
 ## Reference URL
-- [BEM introduction](http://getbem.com/introduction/)
-- [BEMIT(BEM을 기반으로 확장변형 시킨 네이밍 컨벤션)](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/)
-- [SMACSS](https://smacss.com/)
+
+- [Become a NINJA with Angular 2](https://books.ninja-squad.com/public/samples/Become_a_ninja_with_Angular2_sample.pdf)
+- [Learn Angular 2](http://learnangular2.com/)
+- [Angular 2 Component](https://www.tutorialspoint.com/angular2/)
+- [An Introduction to Angular 2](http://angular-tips.com/blog/2015/05/an-introduction-to-angular-2/)
