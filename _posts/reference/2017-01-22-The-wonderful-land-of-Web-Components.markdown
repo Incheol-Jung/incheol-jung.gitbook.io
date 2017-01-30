@@ -4,7 +4,7 @@ title:      The wonderful land of Web Components
 date:       2017-01-22 00:00:00
 updated:    2017-01-22 00:00:00
 categories: reference
-summary:    Diving into TypeScript
+summary:    The wonderful land of Web Components
 ---
 
 
