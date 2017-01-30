@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      '"DEVIEW 2017 Angular2 vs React" Review'
+title:      '"DEVIEW 2016 Angular2 vs React" Review'
 writer:     Incheol Jung
 date:       2017-01-30 00:00:00
 categories: blog
