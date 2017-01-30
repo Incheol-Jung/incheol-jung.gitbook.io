@@ -78,35 +78,6 @@ export class PoniesComponent {
 }
 ```
 
-그러나 조심 해야한다 : 파이프는 @NgModule (또는 @Component)의 provider에 추가되어야 한다.
-이것은 모든 파이프에서 동일하므로 보간법을 사용하여 HTML 예제를 보도록 하자.
-
-```html
-<p>{{ ponies | slice:0:2 | json }}</p>
-```
-
-이 예제는 조랑말 목록의 처음 두 요소를 표시한다.
-slice는 배열과 문자열로 작동하므로 문자열을 자를 수도 있다.
-
-```html
-<p>{{ 'Ninja Squad' | slice:0:5 }}</p>
-```
-
-'Ninja'만 표시될 것이다.
-슬라이스 파이프에 하나의 인덱스 n만을 줄 수 있으며 n에서 끝까지 요소를 가져올것이다.
-
-```html
-<p>{{ 'Ninja Squad' | slice:3 }}</p>
-<!-- will display 'ja Squad' -->
-```
-
-음수를 지정하면 뒤에서 부터 자를 것이다. 
-
-```html
-<p>{{ 'Ninja Squad' | slice:-5 }}</p>
-<!-- will display 'Squad' -->
-```
-
 
 
 
