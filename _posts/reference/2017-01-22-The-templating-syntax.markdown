@@ -30,7 +30,7 @@ Angular가 <ponyracer-app> 태그를 찾을 때마다 활성화되는 PonyRacerA
 PonyRacerAppComponent는 numberofUsers 라는 변수를 가지고 있다. 
 템플릿은 <h2> 태그안에 값을 보여주는 표현식인 이중괄호를 사용하여 보여지고 있다. 
 
-```javascript
+```html
 <ponyracer-app>
   <h1>PonyRacer</h1>
   <h2>146 users</h2>
@@ -64,7 +64,7 @@ export class PonyRacerAppComponent {
 
 보시다시피, 우리는 객체의 속성에 접근하는 것과 같이 좀 더 복잡한 표현식을 삽입 할 수 있다. 
 
-```javascript
+```html
 <ponyracer-app>
   <h1>PonyRacer</h1>
   <h2>Welcome Cédric</h2>
@@ -199,7 +199,7 @@ export class RacesComponent {
 
 이제 reces 컴포넌트는 우리의 브라우져에 이렇게 보일 것이다. 
 
-```javascript
+```html
 <ponyracer-app>
   <h1>PonyRacer</h1>
   <ns-races>
@@ -234,7 +234,7 @@ HTML 속성은 따옴표, 어포 스트로피, 슬래시, 같음, 공백과 같�
 사용자 이름을 표시하기 위한 보간법은 다음과 같다. 
 
 ```html
-<p>{{user.name}}</p>
+{% raw %}<p>{{user.name}}</p>{% endraw %}
 ```
 
 다음은 간단한 구문이다. 
@@ -269,7 +269,7 @@ pony는 isPonySelected가 true이면 선택되어 질 것이고 그렇지 않으
 Angular 1에서는 번거롭지만 많은 것들을 할수 있었다. 예를 들어 이미지를 동적 주소로 바인딩 하는것이 있다. 
 
 ```html
-<img src="{{pony.avatar.url}}">
+{% raw %}<img src="{{pony.avatar.url}}">{% endraw %}
 ```
 이 구문은 큰 문제가 있다. 브라우져는 src 속성을 읽자마자 이미지를 가져오려고 시도할 것이고 
 실패로 보여질 것이다. 왜냐하면 {{pony.avatar.url}}은 유효한 URL이 아닌 HTTP 요청이기 때문이다. <br/>
@@ -277,7 +277,7 @@ Angular 1에서는 번거롭지만 많은 것들을 할수 있었다. 예를 들
 그래서 Angular 1에서는 특별한 디렉티브가 있었다. : ng-src
 
 ```html
-<img ng-src="{{pony.avatar.url}}">
+{% raw %}<img ng-src="{{pony.avatar.url}}">{% endraw %}
 ```
 
 src 대신 ng-src를 사용하여 문제는 해결하였다. 
@@ -324,34 +324,34 @@ foreground의 속성이 '녹색'으로 변한다고 하면, color도 녹색으�
 우리는 이미 보간 속성 property="{{expression}}" 을 이미 보았다. 
 
 ```html
-{% raw %} 2<ns-pony name="{{pony.name}}"></ns-pony> {% endraw %}
+{% raw %}<ns-pony name="{{pony.name}}"></ns-pony> {% endraw %}
 ```
 
 이것은 [property] ="expression"과 동일하다. 
 
 ```html
-<ns-pony [name]="pony.name"></ns-pony>
+{% raw %}<ns-pony [name]="pony.name"></ns-pony>{% endraw %}
 ```
 
 'Pony' 글자 뒤에 pony의 이름을 덧 붙이기를 원한다면 당신은 두 가지 옵션이 있다. 
 
  ```html
-<ns-pony name="Pony {{pony.name}}"></ns-pony>
-<ns-pony [name]="'Pony ' + pony.name"></ns-pony>
+{% raw %}<ns-pony name="Pony {{pony.name}}"></ns-pony>
+<ns-pony [name]="'Pony ' + pony.name"></ns-pony>{% endraw %}
 ```
 
 만약 당신이 동적인 변수를 사용하지 않는다면 property = "value" 와 같이 간단하게 적을 수 있다. 
 
  ```html
-<ns-pony name="Rainbow Dash"></ns-pony>
+<ns-pony name="Rainbow Dash"></ns-pony>{% endraw %}
 ```
 
 이들 모두는 동등하고 구문은 개발자가 구성 요소를 설계하는 방법에 달려 있지 않는다.  
 구성 요소가 값 또는 참조 예를 기대하고 있는지를 알아야하는 AngularJS 1.x의 경우와 같다고 할 수 있다. 
 
  ```html
-<ns-pony name="{{pony.fullName()}}"></ns-pony>
-<ns-pony [name]="pony.fullName()"></ns-pony>
+{% raw %}<ns-pony name="{{pony.fullName()}}"></ns-pony>
+<ns-pony [name]="pony.fullName()"></ns-pony>{% endraw %}
 ```
 
 
@@ -392,7 +392,7 @@ export class RacesComponent {
 
 만약 당신의 브라우져에서 시도하려면, 당신은 처음에 이러한 구조를 확인할 것이다. 
 
-```javascript
+```html
 <ponyracer-app>
   <h1>PonyRacer</h1>
   <ns-races>
@@ -438,7 +438,7 @@ export class PonyRacerAppComponent {
 <ns-races> 구성 요소에 newRaceAvailable이라는 사용자 지정 이벤트가 있고이 이벤트가 발생하면 PonyRacerAppComponentis의 onNewRace () 메서드가 호출되었음을 쉽게 알 수 있다. <br/>
 Angular는 요소와 해당 요소의 이벤트를 수신하므로 거품이 발생하는 이벤트에 반응한다. 템플릿을 고려해보도록 하자. 
 
-```javascript
+```html
 <div (click)="onButtonClick()">
   <button>Click me!</button>
 </div>
@@ -448,7 +448,7 @@ Angular는 요소와 해당 요소의 이벤트를 수신하므로 거품이 발
 왜냐하면 이벤트가 거품을 내뿜기 때문이다.<br/>
 그리고 당신은라는 메서드에서 이벤트에 액세스 할 수 있다. 단지 $ event를 당신의 메소드에 넘겨 주면된다. 
 
-```javascript
+```html
 <div (click)="onButtonClick($event)">
   <button>Click me!</button>
 </div>
@@ -474,18 +474,18 @@ onButtonClick(event) {
 
 또 하나의 특징은 키보드 이벤트를 보다 쉽게 처리할 수 있다는 것이다. 
 
-```javascript
+```html
 <textarea (keydown.space)="onSpacePress()">Press space!</textarea>
 ```
 
 spacekey를 누를 때마다 onSpacePress () 메소드가 호출있고 (keydown.alt.space) 등의 커스터마이징된 콤보를 할 수 있다.<br/>
 이 부분을 결론 짓기 위해 나는 다음과 같이 큰 차이가 있음을 지적하고자 한다.
 
-```javascript
+```html
 <component [property]="doSomething()"></component>
 ```
 
-```javascript
+```html
 <component (event)="doSomething()"></component>
 ```
 
@@ -510,7 +510,7 @@ ng-click, ng-keyup, ng-mousemove 등 ... Angular 2에서 이것을 더욱 기억
 우리 RacesComponent로 돌아가서, 이제 클릭했을 때 레이스를 표시 할 버튼이 필요하다.<br/>
 상호작용은 다음과 같이 작성할 것이다.
 
-```javascript
+```html
 <button (click)="onButtonClick()">Click me!</button>
 ```
 
@@ -535,7 +535,7 @@ export class RacesComponent {
 
 만약 당신의 브라우져에서 시도하려면, 당신은 처음에 이러한 구조를 확인할 것이다. 
 
-```javascript
+```html
 <ponyracer-app>
   <h1>PonyRacer</h1>
   <ns-races>
@@ -549,7 +549,7 @@ export class RacesComponent {
 클릭한 이후에 '0 races'는 '2 races'로 변할 것이다. <br/>
 명령문은 함수 호출이 될 수도 있지만 실행 가능한 명령문 또는 실행 가능한 명령문의 연속일 수도 있다. 
 
-```javascript
+```html
 <button (click)="firstName = 'Cédric'; lastName = 'Exbrayat'">
   Click to change name to Cédric Exbrayat
 </button>
@@ -581,7 +581,7 @@ export class PonyRacerAppComponent {
 <ns-races> 구성 요소에 newRaceAvailable이라는 사용자 지정 이벤트가 있고이 이벤트가 발생하면 PonyRacerAppComponentis의 onNewRace () 메서드가 호출되었음을 쉽게 알 수 있다. <br/>
 Angular는 요소와 해당 요소의 이벤트를 수신하므로 거품이 발생하는 이벤트에 반응한다. 템플릿을 고려해보도록 하자. 
 
-```javascript
+```html
 <div (click)="onButtonClick()">
   <button>Click me!</button>
 </div>
@@ -591,7 +591,7 @@ Angular는 요소와 해당 요소의 이벤트를 수신하므로 거품이 발
 왜냐하면 이벤트가 거품을 내뿜기 때문이다.<br/>
 그리고 당신은라는 메서드에서 이벤트에 액세스 할 수 있다. 단지 $ event를 당신의 메소드에 넘겨 주면된다. 
 
-```javascript
+```html
 <div (click)="onButtonClick($event)">
   <button>Click me!</button>
 </div>
@@ -617,18 +617,18 @@ onButtonClick(event) {
 
 또 하나의 특징은 키보드 이벤트를 보다 쉽게 처리할 수 있다는 것이다. 
 
-```javascript
+```html
 <textarea (keydown.space)="onSpacePress()">Press space!</textarea>
 ```
 
 spacekey를 누를 때마다 onSpacePress () 메소드가 호출있고 (keydown.alt.space) 등의 커스터마이징된 콤보를 할 수 있다.<br/>
 이 부분을 결론 짓기 위해 나는 다음과 같이 큰 차이가 있음을 지적하고자 한다.
 
-```javascript
+```html
 <component [property]="doSomething()"></component>
 ```
 
-```javascript
+```html
 <component (event)="doSomething()"></component>
 ```
 
@@ -648,9 +648,9 @@ Angular가 변수를 찾기 위해 구성 요소 인스턴스를 볼 것이라�
 
 입력 값을 표시한다고 가정해 보자. 
 
-```javascript
-<input type="text" #name>
-{{ name.value }}
+```html
+{% raw %}<input type="text" #name>
+{{ name.value }}{% endraw %}
 ```
 
 #syntax를 사용하여 DOM 개체 인 HTMLInputElement를 참조하는 로컬 변수 이름을 만든다.
@@ -664,14 +664,14 @@ value 속성을 가지므로 이 속성을 보간 된 표현식에 표시 할 �
 
 focus () 메소드는 DOM API의 표준 부분이며이를 활용할 수 있고 지역 변수를 사용하면 Angular 2를 쉽게 접근 할 수 있다.
 
-```javascript
+```html
 <input type="text" #name>
 <button (click)="name.focus()">Focus the input</button>
 ```
 
 또한 사용자 정의 구성 요소 (응용 프로그램에서 작성한 구성 요소, 다른 프로젝트에서 가져온 구성 요소 또는 실제 웹 구성 요소)와 함께 사용할 수도 있다.
 
-```javascript
+```html
 <google-youtube #player></google-youtube>
 <button (click)="player.play()">Play!</button>
 ```
@@ -695,7 +695,7 @@ Angular 2의 "적절한 방법"은 각 레이스를 표시하는 또 다른 구�
 Angular의 지시문은 실제로 구성 요소와 비슷하지만 템플릿이 없다. 요소에 비헤이비어를 추가하는 데 사용된다.
 Angular 2에서 제공하는 구조 지시문은 HTML 사양의 표준 태그 인 template 요소를 사용한다. 
 
-```javascript
+```html
 <template>
   <div>Races list</div>
 </template>
@@ -710,7 +710,7 @@ Angular 2에서 제공하는 구조 지시문은 HTML 사양의 표준 태그 �
 
 조건이 일치하는 경우에만 템플릿을 사용하길 원한다면 ngIf를 사용하면 된다. 
 
-```javascript
+```html
 <template [ngIf]="races.length > 0">
   <div><h2>Races</h2></div>
 </template>
@@ -718,7 +718,7 @@ Angular 2에서 제공하는 구조 지시문은 HTML 사양의 표준 태그 �
 
 여기서 템플릿은 race가 적어도 하나의 요소를 가지고있을 때, 즉 race가 있다면 인스턴스화 될 것이다. 이 구문은 약간 길기 때문에 짧은 버전으로 보여주었다.
 
-```javascript
+```html
 <div *ngIf="races.length > 0"><h2>Races</h2></div>
 ```
 
@@ -761,7 +761,7 @@ export class RacesComponent {
 
 이제 우리 컬렉션에는 항목 당 하나의 li 태그가있는 멋진 목록이 있다. 
 
-```javascript
+```html
 <ul>
   <li>London</li>
   <li>Lyon</li>
@@ -770,16 +770,16 @@ export class RacesComponent {
 
 NgFor가 microsyntax라고 하는 특정 구문을 사용하고 있다. 
 
-```javascript
+```html
 <ul>
   <li *ngFor="let race of races">{{race.name}}</li>
 </ul>
 ```
 
-```javascript
+```html
 <ul>
   <template ngFor let-race [ngForOf]="races">
-   <li>{{race.name}}</li>
+   {% raw %}<li>{{race.name}}</li>{% endraw %}
   </template>
 </ul>
 ```
@@ -792,23 +792,23 @@ NgFor가 microsyntax라고 하는 특정 구문을 사용하고 있다.
 
 그러나 이 모든 것을 기억하는 것보다는 짧은 형식으로 사용하는 게 더 효과적이다. 
 
-```javascript
+```html
 <ul>
-  <li *ngFor="let race of races">{{race.name}}</li>
+  {% raw %}<li *ngFor="let race of races">{{race.name}}</li>{% endraw %}
 </ul>
 ```
 
 현재 요소의 색인에 바인드 된 다른 지역 변수를 선언 할 수 있다. 
 
-```javascript
+```html
 <ul>
-  <li *ngFor="let race of races; let i=index">{{i}} - {{race.name}}</li>
+  {% raw %}<li *ngFor="let race of races; let i=index">{{i}} - {{race.name}}</li>{% endraw %}
 </ul>
 ```
 
 지역 변수 i는 0에서 시작하여 현재 요소의 인덱스를 받는다.
 
-```javascript
+```html
 <ul>
   <li>0 - London</li>
   <li>1 - Lyon</li>
@@ -825,7 +825,7 @@ NgFor가 microsyntax라고 하는 특정 구문을 사용하고 있다.
 
 이름에서 짐작할 수 있듯이 지시문은 조건에 따라 다른 템플릿을 전환 할 수있게 해준다. 
 
-```javascript
+```html
 <div [ngSwitch]="messageCount">
   <p *ngSwitchCase="0">You have no message</p>
   <p *ngSwitchCase="1">You have a message</p>
@@ -848,14 +848,14 @@ NgFor가 microsyntax라고 하는 특정 구문을 사용하고 있다.
 
 우리는 이미 우리가 요소의 스타일에 따라 행동 할 수 있음을 보았다.
 
-```javascript
+```html
 <p [style.color]="foreground">Friendship is Magic</p>
 ```
 
 동시에 여러 스타일을 설정해야하는 경우 ngStyle 지시문을 사용할 수 있습니다.
 
-```javascript
-<div [ngStyle]="{fontWeight: fontWeight, color: color}">I've got style</div>
+```html
+{% raw %}<div [ngStyle]="{fontWeight: fontWeight, color: color}">I've got style</div>{% endraw %}
 ```
 
 지시문은 키가 스타일을 설정할 객체를 기대한다. 키는 camelCase (fontWeight) 또는 대시 ( 'font-weight') 중 하나 일 수 있다.
@@ -865,14 +865,14 @@ NgFor가 microsyntax라고 하는 특정 구문을 사용하고 있다.
 같은 문맥으로 클래스 지시어를 사용하면 요소를 동적으로 클래스에 추가하거나 제거 할 수 있다.
 스타일은 속성 바인딩을 사용하여 하나의 클래스를 설정할 수 있다.
 
-```javascript
+```html
 <div [class.awesome-div]="isAnAwesomeDiv()">I've got style</div>
 ```
 
 또는 여러 항목을 동시에 설정하려는 경우 ngClass를 사용할 수 있다. 
 
-```javascript
-<div [ngClass]="{'awesome-div': isAnAwesomeDiv(), 'colored-div': isAColoredDiv()}">I've got style</div>
+```html
+{% raw %} <div [ngClass]="{'awesome-div': isAnAwesomeDiv(), 'colored-div': isAColoredDiv()}">I've got style</div>{% endraw %}
 ```
 
 **************************************************************************************************
@@ -884,34 +884,34 @@ NgFor가 microsyntax라고 하는 특정 구문을 사용하고 있다.
 
 속성 바인딩을 선언하려는 경우 다음을 수행 할 수 있다.
 
-```javascript
+```html
 <ns-pony [name]="pony.name"></ns-pony>
 ```
 
 또는 정규 구문을 사용하여 표현할 수 있다. 
 
-```javascript
+```html
 <ns-pony bind-name="pony.name"></ns-pony>
 ```
 
 이벤트 할당도 마찬가지 이다. 
 
-```javascript
+```html
 <button (click)="onButtonClick()">Click me!</button>
 ```
 
 또는 정규 구문을 사용하여 표현할 수 있다. 
 
-```javascript
+```html
 <button on-click="onButtonClick()">Click me!</button>
 ```
 
-```javascript
+```html
 <input type="text" ref-name>
 <button on-click="name.focus()">Focus the input</button>
 ```
 
-```javascript
+```html
 <input type="text" #name>
 <button (click)="name.focus()">Focus the input</button>
 ```
