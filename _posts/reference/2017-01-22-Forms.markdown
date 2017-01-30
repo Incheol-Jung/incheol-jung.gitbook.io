@@ -224,7 +224,8 @@ export class RegisterFormComponent {
 이것은 단방향 데이터 바인딩 일뿐 이다. 필드를 업데이트하면 모델이 업데이트 되지만 모델을 업데이트해도 필드 값은 업데이트되지 않는다. 
 하지만 ngModel은 생각보다 강력하다.
 
-- Two-way data-binding
+### Two-way data-binding
+
 AngularJS 1.x를 사용하거나 기사에 대한 기사를 읽었다면 입력 값을 표시하는 유명한 예제와 사용자가 입력을 수정할 때마다 업데이트되는 표현식 및 필드를 자동으로 표시해야 한다. 
 모델이 변경되면 업데이트 된다.
 
@@ -533,7 +534,7 @@ export class RegisterFormComponent {
 일반적으로 유효성 검사는 양식 작성의 큰 부분이다. 일부 필드는 필수이고 일부는 서로 의존하고 일부는 특정 형식이어야 하며 일부는 X보다 크거나 작은 값을 가져서는 안된다.
 기본 유효성 검사 규칙을 추가하여 된다고 가정해 보자. 
 
-- In a code-friven form
+### In a code-friven form
 모든 필드가 필수임을 지정하기 위해 우리는 Validator를 사용할 것이다. 
 validator는 에러의 맵을 돌려 주는지, 에러를 검출하지 않았던 경우는 null를 돌려준다.<br/>
 
@@ -569,7 +570,7 @@ export class RegisterFormComponent {
 }
 ```
 
-- In a template-driven form
+### In a template-driven form
 
 템플릿 중심 양식에 필수 입력란을 추가하는 것도 매우 간단하다. 
 필요한 속성을 입력에 추가하기 만하면 된다. 
@@ -601,7 +602,7 @@ minlength와 maxlength와 같은 의미이다.
 
 disabled 속성을 사용하여 버튼을 쉽게 비활성화 할 수 있다는 것을 알고 있지만 현재 양식의 상태를 반영하는 표현식을 제공해야 한다.
 
-- Errors and submission in a code-driven form
+### Errors and submission in a code-driven form
 
 FormGroup 유형의 userForm 필드를 우리 구성 요소에 추가했다. 이 필드는 양식 및 필드 상태 및 오류에 대한 완전한 뷰를 제공한다.
 예를 들어 양식이 유효하지 않은 경우 양식 제출을 사용 중지 할 수 있다.
@@ -711,7 +712,7 @@ required</div>
 </form>
 ```
 
-- Errors and submission in a template-driven form
+### Errors and submission in a template-driven form
 
 템플릿 중심 양식에서는 FormGroup을 참조하는 구성 요소에 필드가 없지만 서식 지시문에서 내 보낸 NgForm 객체를 참조하여 템플릿의 로컬 변수를 이미 선언 하였다.
 다시 한번,이 변수는 폼의 상태를 알 수 있고 컨트롤에 액세스 할 수 있게 한다.
@@ -830,7 +831,7 @@ const isOldEnough = (control: FormControl) => {
 검증 방법은 매우 쉽다. 우리는 컨트롤의 가치를 취하고, 날짜를 만들고, 18 번째 생일이 전에 있는지 확인하고, 그렇지 않은 경우 'tooYoung'키를 사용하여 오류를 반환 한다.
 이제 이 유효성 검사기를 포함해야 한다.
 
-- Using a validator in a code-driven form
+### Using a validator in a code-driven form
 
 FormBuilder를 사용하여이 유효성 검사기를 사용하여 폼에 새 컨트롤을 추가해야 한다.
 
@@ -899,13 +900,13 @@ on pony races</div>
 </form>
 ```
 
-- Using a validator in a template-driven form
+### Using a validator in a template-driven form
 
 템플릿 기반 폼에 사용자 정의 유효성 검사기를 추가하려면 ... 템플릿에 추가해야 한다.
 이렇게 하려면 입력에 적용 할 사용자 지정 지시문을 작성해야 하지만 정직하게는 "코드 기반" 양식을 사용하면 더 쉽다.
 또는 두 세계의 장점을 결합 할 수 있다.
 
-- Combining template-based and code-based approaches for validation
+### Combining template-based and code-based approaches for validation
 
 사용자 정의 유효성 검사를 제외하고 "템플릿 기반"으로 모든 작업을 수행 할 수 있습니다! 우리는 보기에 이런 식으로 끝날 것이다.
 
@@ -1102,7 +1103,10 @@ Angular 2 폼을 만드는 두 가지 방법을 제공한다. :
 
 **************************************************************************************************
 
+
 ## Reference URL
-- [BEM introduction](http://getbem.com/introduction/)
-- [BEMIT(BEM을 기반으로 확장변형 시킨 네이밍 컨벤션)](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/)
-- [SMACSS](https://smacss.com/)
+
+- [Become a NINJA with Angular 2](https://books.ninja-squad.com/public/samples/Become_a_ninja_with_Angular2_sample.pdf)
+- [Learn Angular 2](http://learnangular2.com/)
+- [Angular 2 Component](https://www.tutorialspoint.com/angular2/)
+- [An Introduction to Angular 2](http://angular-tips.com/blog/2015/05/an-introduction-to-angular-2/)
