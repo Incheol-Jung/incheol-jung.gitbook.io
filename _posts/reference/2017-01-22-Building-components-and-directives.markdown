@@ -29,7 +29,7 @@ Component는 지시문과 실제로 다르지 않다. 단지 두 개의 선택�
 
 지시어에는 템플릿에서 활성화 할 위치를 프레임 워크에 알려주는 CSS 선택자가 있어야 한다.
 
-- Selectors<br/><br/>
+### Selectors<br/><br/>
 
 셀렉터는 다양한 유형이 될 수 있다.
 • 요소 : 대개 구성 요소의 경우처럼 바닥 글 : footer.<br/>
@@ -94,7 +94,7 @@ export class ComplexSelectorDirective {
 자손, 형제, ids, 와일드 카드 및 의사 (예 : not 이외)와 같은 CSS 선택기는 지원되지 않습니다.
 속성 선택자를 bind-, on-, let- 또는 ref-로 시작하면 안된다. : 파서에 따라서 다른 의미를 가진다. 왜냐하면 표준 템플릿 구문의 일부 이기 때문이다.
 
-- Inputs<br/><br/>
+### Inputs<br/><br/>
 
 데이터 바인딩은 일반적으로 구성 요소 또는 지시문을 만드는 작업의 큰 부분일 것이다. 
 상위 구성 요소에서 하위 요소 중 하나에 데이터를 전달할 때마다 속성 바인딩을 사용한다.
@@ -264,7 +264,7 @@ export class PoniesComponent {
 }
 ```
 
-- Outputs<br/><br/>
+### Outputs<br/><br/>
 
 최근 예제로 돌아가서 조랑말을 클릭하여 선택하고 상위 구성 요소에 알리고 싶다고 합시다. 이를 위해 맞춤 이벤트를 사용할 수 있다.<br/>
 이것은 중요하다. Angular 2에서는 데이터가 속성을 통해 구성 요소로 유입되고 이벤트를 통해 구성 요소 밖으로 이동할 수 있다.<br/>
@@ -355,7 +355,7 @@ export class SelectablePonyWithDecoratorComponent {
 }
 ```
 
-- Lifecycle<br/><br/>
+### Lifecycle<br/><br/>
 
 당신의 지시자가 그 삶의 특정 순간에 반응하는 것을 바랄지도 모른다. 고급 옵션으로 매번 사용하지 않기 때문에 나는 빨리 넘길 것이다.
 그러나 구성 요소의 입력이 생성자에서 아직 평가하지 않은 경우 상당한 시간을 절약 할 수 있다.<br/>
@@ -465,7 +465,7 @@ export class OnDestroyDirective implements OnDestroy {
 }
 ```
 
-- Providers<br/><br/>
+### Providers<br/><br/>
 
 Dependency Injection 장의 공급자에 관해 이미 이야기 한적이 있다. 이 속성은 현재 지시어와 그 자식에 주사 할 수있는 서비스를 선언 할 수있게 한다.
 
