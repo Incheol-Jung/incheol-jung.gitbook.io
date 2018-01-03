@@ -21,8 +21,46 @@ summary:    How to use postman
 내용<br>
 내용
 
-## POSTMAN 특징1?
-### POSTMAN 특징2?
-# POSTMAN 특징3?
+## POSTMAN 특징
+
+### REST API
+
 내용<br>
 내용
+
+### Variables
+
+내용<br>
+내용
+
+### Collections
+
+내용<br>
+내용
+
+### Test scnario
+
+내용<br>
+내용
+
+### Pre-scripts
+
+내용<br>
+내용
+
+### Monitor
+
+내용<br>
+내용
+
+### Work flow
+
+내용<br>
+내용
+
+### Team Library
+
+내용<br>
+내용
+
+Thank you!!!
