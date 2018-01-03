@@ -3,7 +3,7 @@ layout:     post
 title:      '"DEVIEW 2016 Angular2 vs React" Review'
 writer:     Incheol Jung
 date:       2017-01-30 00:00:00
-categories: blog
+categories: tech
 summary:    DEVIEW 2016에서 발표된 재미있는 자료입니다.
 ---
 
