@@ -6,7 +6,23 @@ categories: postman
 summary:    How to use postman
 ---
 
-## 우리가 할 수 있는 기술적인 부분들.
+## POSTMAN이란?
 
-우리가 이미 알고있던 것들을 설명하거나<br>
-새로운 기술적인 부분들을 이야기하는 곳입니다.
+내용<br>
+내용
+
+## POSTMAN을 사용해야 하는 이유?
+
+내용<br>
+내용
+
+## POSTMAN 설치 방법?
+
+내용<br>
+내용
+
+## POSTMAN 특징1?
+### POSTMAN 특징2?
+# POSTMAN 특징3?
+내용<br>
+내용
