@@ -8,7 +8,7 @@ summary:    How to use postman http://ourcstory.tistory.com/6
 
 ## POSTMAN이란?
 
-API 개발을 보다 빠르고 쉽게 구현 할 수 있도록 도와주며, 개발된 API를 ㅔ스트하여 문서화 또는 공유 할 수 있도록 도와 주는 플랫폼<br><br>
+API 개발을 보다 빠르고 쉽게 구현 할 수 있도록 도와주며, 개발된 API를 테스트하여 문서화 또는 공유 할 수 있도록 도와 주는 플랫폼<br><br>
 Postman은 모든 API 개발자를 위해서 다양한 기능을 제공한다. <br>
 변수 및 환경, request 설명, 테스트 및 사전 요청에 필요한 스크립트 작성 등 POSTMAN은 현재 워크 플로우를 더 빠르고 잘 만들 수 있도록 고안되었다.
 
@@ -22,7 +22,7 @@ Authorization이나 Header, Body를 수정하는건 더욱더 제한이 있다.<
 ## POSTMAN 설치
 
 https://www.getpostman.com/ 사이트에서 다운로드 하여 어플리케이션으로 실행할 수 있다.<br>
-단기적으로 사용한다고 하면 굳이 회원가입없이 바로 사용 가능하다. <br>
+단기적으로 사용한다고 하면 굳이 회원가입없이 바로 사용 가능하다. <br><br>
 <img src="/resource/images/post/postman_download.png" style="max-width: 638px;" alt="">
 
 ## POSTMAN 특징
