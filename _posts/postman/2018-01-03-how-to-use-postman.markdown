@@ -16,7 +16,7 @@ summary:    How to use postman
 내용<br>
 내용
 
-## POSTMAN 설치 방법?
+## POSTMAN 설치
 
 내용<br>
 내용
