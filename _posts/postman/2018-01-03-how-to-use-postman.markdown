@@ -53,13 +53,18 @@ POSTMAN에서 사용하는 API는 단순 text로 표현할 수도 있지만 별�
 
 ### - Collections
 
-내용<br>
-내용
+Collection 관리를 통해서 크게는 프로젝트 별로 구분할 수 있고 세부적으로는 프로젝트 내부에서 각 모듈이나 기능 별로 분리할 수 있다. <br>
+back-end와 front-end의 작업이 구분되어 있다면 개발 시작전에 collection 규칙을 협의하여 진행하는 것이 효율적이다. <br><br>
+<img src="/resource/images/post/collection.png" style="max-width: 638px;" alt="">
+유료 서비스를 사용하지 않는다면 팀원 간의 collection 공유는 불가능 하므로 해당 collection을 export/import하여 공유해야 하는 부분이 있다. <br><br>
+<img src="/resource/images/post/collection2.png" style="max-width: 638px;" alt="">
 
 ### - Test scnario
 
-내용<br>
-내용
+POSTMAN으로 단순하게 API가 동작하는지에 대한 테스트를 진행할 수 있지만 좀 더 구체적인 테스트를 진행하기 위해서는 Response Data를 사용하여 테스트 시나리오를 작성할 수 있다. <br>
+예를 들어 Response Data의 address 값의 여부를 테스트 케이스에 넣게 된다면 address 값이 없을 경우에는 API 상태값이 200이더라도 에러라는 테스트 케이스 결과 값을 확인할 수 있다. <br>
+또는 Response Data를 이용하여 전역변수 또는 지역변수의 값을 수정할 수도 있다. <br><br>
+<img src="/resource/images/post/test-scnario.png" style="max-width: 638px;" alt="">
 
 ### - Pre-scripts
 
