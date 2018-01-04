@@ -31,13 +31,15 @@ https://www.getpostman.com/ 사이트에서 다운로드 하여 어플리케이�
 
 POSTMAN은 REST API를 표현할 수 있다. <br>
 #### 그렇다면 REST API란 무엇일까? <br>
-한 문장으로 정의한다면 HTTP URI로 잘 표현된 리소스에 대한 행위를 HTTP Method로 정의한다. 리소스의 내용은 json, xml, yaml등의 다양한 표현 언어로 정의된다. <br>
+한 문장으로 정의한다면 HTTP URI로 잘 표현된 리소스에 대한 행위를 HTTP Method로 정의한다. 리소스의 내용은 json, xml, yaml등의 다양한 표현 언어로 정의된다. <br><br>
 <img src="/resource/images/post/restapi.png" style="max-width: 638px;" alt="">
 
 ### Variables
 
-내용<br>
-내용
+POSTMAN에서 사용하는 API는 단순 text로 표현할 수도 있지만 별도의 변수를 사용하여 표현할 수 있다.<br>
+변수 사용 범위는 URI / Parameter 등 모든 텍스트가 들어가는 부분을 대체할 수 있다. <br>
+변수를 사용하는 이유는 중복적으로 사용하는 text를 하나의 변수로 재사용이 가능할 뿐만 아니라 text가 변경될 경우에 각각의 text를 변경하는 게 아닌 변수 값만 수정한다면 일괄적용될 수 있는 장점이 있다. <br><br>
+<img src="/resource/images/post/variable.png" style="max-width: 638px;" alt="">
 
 ### Interceptor
 
