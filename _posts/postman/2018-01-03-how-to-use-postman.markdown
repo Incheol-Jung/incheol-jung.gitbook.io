@@ -89,5 +89,6 @@ Test scnario의 심화 기능으로 Postman.setNextRequest 함수를 이용하�
 
 Team 내부에서 Collection을 공유하는 기능으로 유료 버전에서만 제공한다. <br>
 무료버전에서 하였던 export/import하는 번거로움을 줄일수 있고 변경된 내용을 실시간으로 확인할 수 있다. <br>
+<img src="/resource/images/post/library.png" style="max-width: 638px;" alt="">
 
 Thank you!!!
