@@ -29,8 +29,10 @@ https://www.getpostman.com/ 사이트에서 다운로드 하여 어플리케이�
 
 ### REST API
 
-내용<br>
-내용
+POSTMAN은 REST API를 표현할 수 있다. <br>
+#### 그렇다면 REST API란 무엇일까? <br>
+한 문장으로 정의한다면 HTTP URI로 잘 표현된 리소스에 대한 행위를 HTTP Method로 정의한다. 리소스의 내용은 json, xml, yaml등의 다양한 표현 언어로 정의된다. <br>
+<img src="/resource/images/post/restapi.png" style="max-width: 638px;" alt="">
 
 ### Variables
 
