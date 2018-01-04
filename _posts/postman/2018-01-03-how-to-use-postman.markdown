@@ -74,17 +74,20 @@ POSTMAN으로 단순하게 API가 동작하는지에 대한 테스트를 진행�
 
 ### - Monitor
 
-내용<br>
-내용
+Project 단위로 사용자가 원하는 주기로 Collection을 실행하여 API의 monitoring이 가능하다. <br>
+monitoring하는 주기 단위 또는 traffic량에 따라서 유료로 제공되고 있다. <br><br>
+<img src="/resource/images/post/monitor.png" style="max-width: 638px;" alt="">
 
 ### - Work flow
 
-내용<br>
-내용
+Test scnario의 심화 기능으로 Postman.setNextRequest 함수를 이용하여 API 순서를 임의로 지정할 수 있다. <br>
+특정 API 호출이후에 테스트할 수 있는 API가 있다면 해당 기능이 유용하게 사용될 것이다. <br>
+한가지 단점은 일반적인 실행으로는 setNextRequest 함수가 실행이 안되고 Runner를 통해서만 실행이 가능하다. <br><br>
+<img src="/resource/images/post/workflow.png" style="max-width: 638px;" alt="">
 
 ### - Team Library
 
-내용<br>
-내용
+Team 내부에서 Collection을 공유하는 기능으로 유료 버전에서만 제공한다. <br>
+무료버전에서 하였던 export/import하는 번거로움을 줄일수 있고 변경된 내용을 실시간으로 확인할 수 있다. <br>
 
 Thank you!!!
