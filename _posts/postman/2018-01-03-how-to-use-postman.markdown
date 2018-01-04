@@ -30,7 +30,7 @@ https://www.getpostman.com/ 사이트에서 다운로드 하여 어플리케이�
 ### - REST API
 
 POSTMAN은 REST API를 표현할 수 있다. <br>
-#### 그렇다면 REST API란 무엇일까? <br>
+#### 그렇다면 REST API란 무엇일까? 
 한 문장으로 정의한다면 HTTP URI로 잘 표현된 리소스에 대한 행위를 HTTP Method로 정의한다. 리소스의 내용은 json, xml, yaml등의 다양한 표현 언어로 정의된다. <br><br>
 <img src="/resource/images/post/restapi.png" style="max-width: 638px;" alt="">
 
@@ -40,6 +40,11 @@ POSTMAN에서 사용하는 API는 단순 text로 표현할 수도 있지만 별�
 변수 사용 범위는 URI / Parameter 등 모든 텍스트가 들어가는 부분을 대체할 수 있다. <br>
 변수를 사용하는 이유는 중복적으로 사용하는 text를 하나의 변수로 재사용이 가능할 뿐만 아니라 text가 변경될 경우에 각각의 text를 변경하는 게 아닌 변수 값만 수정한다면 일괄적용될 수 있는 장점이 있다. <br><br>
 <img src="/resource/images/post/variable.png" style="max-width: 638px;" alt="">
+변수는 크게 전역 변수로 사용할 수 있는 글로벌 환경과 특정 환경에서만 적용되는 지역 환경으로 구분될 수 있다. 
+지역 환경 변수는 특정 환경에서 사용되는 변수로 환경이 변경될 때마다 해당 환경에 정의된 값으로 변경되어진다. 
+<img src="/resource/images/post/variable-local.png" style="max-width: 638px;" alt="">
+글로벌 환경 변수는 특정 환경의 변화와 무관하게 사용되는 전역 변수로 지역 환경 변수가 설정되어 있다고 하더라도 글로벌 변수가 설정되어 있다면 우선순위는 글로벌 환경 변수가 더 높다. 
+<img src="/resource/images/post/variable-global.png" style="max-width: 638px;" alt="">
 
 ### - Interceptor
 
