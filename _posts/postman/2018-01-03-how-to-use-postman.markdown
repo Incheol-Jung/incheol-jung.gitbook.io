@@ -68,8 +68,9 @@ POSTMAN으로 단순하게 API가 동작하는지에 대한 테스트를 진행�
 
 ### - Pre-scripts
 
-내용<br>
-내용
+이전에 설명한 Test scnario는 API 호출 이후 시점에 사용되는 기능이라면, Pre-Scripts의 경우에는 API 호출 이전 시점에 사용되는 기능으로 정의할 수 있다.<br>
+예를 들어 파라미터에 현재 날짜를 전송해주어야 한다면 API를 테스트 진행할 때마다 현재 날짜를 텍스트로 입력해주어야 하는 부분이 있다. 그러나 이 부분을 pre-script를 사용하여 function으로 구현하였다면 자동으로 테스트를 진행한 현재 날짜로 파라미터가 변경될 것이다. <br><br>
+<img src="/resource/images/post/pre-script.png" style="max-width: 638px;" alt="">
 
 ### - Monitor
 
