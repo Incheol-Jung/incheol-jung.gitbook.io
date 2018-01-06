@@ -48,8 +48,9 @@ POSTMAN에서 사용하는 API는 단순 text로 표현할 수도 있지만 별�
 
 ### - Interceptor
 
-내용<br>
-내용
+Interceptor 기능은 Chrome 브라우저를 이용하여 브라우저에서 발생한 Request 히스토리를 Postman History로 동기화를 해주는 기능이다.<br>
+https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo 에서 확장 프로그램을 설치한 뒤 우측 상단에서 Request Capture를 활성화 시키고 Postman Application에서도 활성화시켜주게 되면 동기화가 이루어진다. <br><br>
+<img src="/resource/images/post/postman-interceptor.png" style="max-width: 638px;" alt="">
 
 ### - Collections
 
