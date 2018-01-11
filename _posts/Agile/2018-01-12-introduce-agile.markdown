@@ -6,4 +6,12 @@ categories: Agile
 summary:    Introduce agile.
 ---
 
-introduce agile. 
+### Agile
+
+### Scrum
+
+### Retrospective
+
+### PROS AND CONST
+
+### Improvement
