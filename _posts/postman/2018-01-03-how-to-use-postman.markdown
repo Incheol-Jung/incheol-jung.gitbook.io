@@ -8,16 +8,16 @@ summary:    How to use postman http://ourcstory.tistory.com/6
 
 ## POSTMAN이란?
 
-API 개발을 보다 빠르고 쉽게 구현 할 수 있도록 도와주며, 개발된 API를 테스트하여 문서화 또는 공유 할 수 있도록 도와 주는 플랫폼<br><br>
+API 개발을 보다 빠르고 쉽게 구현 할 수 있도록 도와주며, 개발된 API를 테스트하여 문서화 또는 공유 할 수 있도록 도와 주는 플랫폼이다. <br><br>
 Postman은 모든 API 개발자를 위해서 다양한 기능을 제공한다. <br>
-변수 및 환경, request 설명, 테스트 및 사전 요청에 필요한 스크립트 작성 등 POSTMAN은 현재 워크 플로우를 더 빠르고 잘 만들 수 있도록 고안되었다.
+변수 및 환경, request 설명, 테스트 및 사전 요청에 필요한 스크립트 작성 등 POSTMAN은 현재 워크 플로우를 더  효율적으로 만들 수 있도록 고안되었다.
 
 ## POSTMAN을 사용해야 하는 이유?
 
-URL을 통해서 테스트를 하는것은 한계가 있다. 실제로 개발할때 클라이언트에서 버튼을 만들고, 이벤트를 만들고, 버튼에 이벤트를 등록하고, 버튼을 누르면 해당 이벤트를 실행하고, 이벤트에서는 요청을 하고, 요청을 한 이후에는 응답을 받고, 그 응답을 받은 내용을 화면에 출력하는 등의 작업이 너무 길어지게 된다.  
-Authorization이나 Header, Body를 수정하는건 더욱더 제한이 있다.<br> 
+URL을 통해서 테스트를 하는것은 한계가 있다. 실제로 개발할 경우, 클라이언트에서 버튼을 만들고, 이벤트를 만들고, 버튼에 이벤트를 등록하고, 버튼을 누르면 해당 이벤트를 실행하고, 이벤트에서는 요청을 하고, 요청을 한 이후에는 응답을 받고, 그 응답을 받은 내용을 화면에 출력하는 등의 작업이 너무 길어지게 된다.  
+Authorization이나 Header, Body를 수정하는건 더더욱 제한이 많다.<br> 
 하지만 포스트맨은 해당 작업을 할 수 있도록 인터페이스를 구축해놓은 툴이기 때문에 누구나 쉽게 사용이 가능하다. <br>
-또한 OS에 상관없이 어디에서나 사용이 가능하고, 가벼운 툴이여서 빠르게 사용이 가능하다. 또한 계정을 보유하고 있다면, 내가 요청한 Request 히스토리, 테스트한 환경을 그대로 보유하고 있기 때문에 언제 어디서나 내가 작업했던 환경이 구축된다는 특징이 있다. 
+또한 OS에 상관없이 어디에서나 사용이 가능하고, 가벼운 툴이여서 가용성이 뛰어 나다. 또한 계정을 보유하고 있다면, 내가 요청한 Request 히스토리, 테스트한 환경을 그대로 저장되기 때문에 언제 어디서나 내가 작업했던 환경이 구축된다는 특징이 있다. 
 
 ## POSTMAN 설치
 
@@ -31,14 +31,16 @@ https://www.getpostman.com/ 사이트에서 다운로드 하여 어플리케이�
 
 POSTMAN은 REST API를 표현할 수 있다. <br>
 #### 그렇다면 REST API란 무엇일까? 
-한 문장으로 정의한다면 HTTP URI로 잘 표현된 리소스에 대한 행위를 HTTP Method로 정의한다. 리소스의 내용은 json, xml, yaml등의 다양한 표현 언어로 정의된다. <br><br>
+한 문장으로 정의한다면 HTTP URI로 잘 표현된 리소스에 대한 행위를 HTTP Method로 정의한다. 리소스의 내용은 json, xml, yaml등의 다양한 표현 언어로 정의된다.<br>
+즉, URI를 이용해서 제어할 자원을 명시하고<br>
+HTTP를 이용해서 제어명령을 내린다.<br><br>
 <img src="/resource/images/post/restapi.png" style="max-width: 638px;" alt="">
 
 ### - Variables
 
-POSTMAN에서 사용하는 API는 단순 text로 표현할 수도 있지만 별도의 변수를 사용하여 표현할 수 있다.<br>
-변수 사용 범위는 URI / Parameter 등 모든 텍스트가 들어가는 부분을 대체할 수 있다. <br>
-변수를 사용하는 이유는 중복적으로 사용하는 text를 하나의 변수로 재사용이 가능할 뿐만 아니라 text가 변경될 경우에 각각의 text를 변경하는 게 아닌 변수 값만 수정한다면 일괄적용될 수 있는 장점이 있다. <br><br>
+POSTMAN에서 사용하는 URI, Resource를 단순 text로 표현할 수도 있지만 별도의 변수를 사용하여 표현할 수 있다.<br>
+변수 사용 범위는 모든 텍스트가 들어가는 영역을 대체할 수 있다. <br>
+변수를 사용하는 이유는 중복적으로 사용하는 text를 하나의 변수로 재사용이 가능할 뿐만 아니라 text가 변경될 경우에 각각의 text를 변경하는 게 아닌 변수 값만 수정하게 된다면 일괄적용될 수 있는 장점이 있다. <br><br>
 <img src="/resource/images/post/variable.png" style="max-width: 638px;" alt="">
 변수는 크게 전역 변수로 사용할 수 있는 글로벌 환경과 특정 환경에서만 적용되는 지역 환경으로 구분될 수 있다. 
 지역 환경 변수는 특정 환경에서 사용되는 변수로 환경이 변경될 때마다 해당 환경에 정의된 값으로 변경되어진다. <br><br>
@@ -57,20 +59,20 @@ https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphh
 Collection 관리를 통해서 크게는 프로젝트 별로 구분할 수 있고 세부적으로는 프로젝트 내부에서 각 모듈이나 기능 별로 분리할 수 있다. <br>
 back-end와 front-end의 작업이 구분되어 있다면 개발 시작전에 collection 규칙을 협의하여 진행하는 것이 효율적이다. <br><br>
 <img src="/resource/images/post/collection.png" style="max-width: 638px;" alt="">
-유료 서비스를 사용하지 않는다면 팀원 간의 collection 공유는 불가능 하므로 해당 collection을 export/import하여 공유해야 하는 부분이 있다. <br><br>
+유료 서비스를 사용하지 않는다면 팀원 간의 collection 공유는 불가능 하므로 작업한 collection을 export/import하여 공유해야 하는 부분이 있다. <br><br>
 <img src="/resource/images/post/collection2.png" style="max-width: 638px;" alt="">
 
 ### - Test scnario
 
 POSTMAN으로 단순하게 API가 동작하는지에 대한 테스트를 진행할 수 있지만 좀 더 구체적인 테스트를 진행하기 위해서는 Response Data를 사용하여 테스트 시나리오를 작성할 수 있다. <br>
-예를 들어 Response Data의 address 값의 여부를 테스트 케이스에 넣게 된다면 address 값이 없을 경우에는 API 상태값이 200이더라도 에러라는 테스트 케이스 결과 값을 확인할 수 있다. <br>
-또는 Response Data를 이용하여 전역변수 또는 지역변수의 값을 수정할 수도 있다. <br><br>
+예를 들어 Response Data의 address 값의 여부를 테스트 케이스에 넣게 된다면 address 값이 없을 경우에는 API 상태 결과값이 200이더라도 에러라는 테스트 케이스 결과 값을 확인할 수 있다. <br>
+또는 Response Data를 이용하여 전역변수 또는 지역변수의 값을 설정할 수도 있다. <br><br>
 <img src="/resource/images/post/test-scnario.png" style="max-width: 638px;" alt="">
 
 ### - Pre-scripts
 
-이전에 설명한 Test scnario는 API 호출 이후 시점에 사용되는 기능이라면, Pre-Scripts의 경우에는 API 호출 이전 시점에 사용되는 기능으로 정의할 수 있다.<br>
-예를 들어 파라미터에 현재 날짜를 전송해주어야 한다면 API를 테스트 진행할 때마다 현재 날짜를 텍스트로 입력해주어야 하는 부분이 있다. 그러나 이 부분을 pre-script를 사용하여 function으로 구현하였다면 자동으로 테스트를 진행한 현재 날짜로 파라미터가 변경될 것이다. <br><br>
+이전에 설명한 Test scnario는 API 호출 이후 시점에 사용되는 기능이라면, Pre-Scripts의 경우에는 API 호출 이전 시점에 사용되는 기능으로 구분할 수 있다.<br>
+예를 들어 파라미터에 현재 날짜를 전송해주어야 한다면 테스트 진행할 때마다 현재 날짜를 텍스트로 입력해주어야 하는 번거로움이 있다. 그러나 이 부분을 pre-script를 사용하여 function으로 구현하였다면 자동으로 파라미터가 현재 날짜로 변경될 것이다. <br><br>
 <img src="/resource/images/post/pre-script.png" style="max-width: 638px;" alt="">
 
 ### - Monitor
@@ -89,7 +91,7 @@ Test scnario의 심화 기능으로 Postman.setNextRequest 함수를 이용하�
 ### - Team Library
 
 Team 내부에서 Collection을 공유하는 기능으로 유료 버전에서만 제공한다. <br>
-무료버전에서 하였던 export/import하는 번거로움을 줄일수 있고 변경된 내용을 실시간으로 확인할 수 있다. <br>
+무료버전에서 Collection을 공유하기 위해 export/import하는 번거로움을 줄일수 있고 변경된 내용을 실시간으로 확인할 수 있다. <br><br>
 <img src="/resource/images/post/library.png" style="max-width: 638px;" alt="">
 
 Thank you!!!
