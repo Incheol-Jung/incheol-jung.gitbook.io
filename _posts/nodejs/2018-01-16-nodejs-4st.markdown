@@ -1,0 +1,12 @@
+---
+layout:     post
+title:      "4회차 Node.js 설치 및 제품 업로드 페이지 구현"
+date:       2018-01-11 00:00:00
+categories: nodejs
+summary:    Node.js 강의 후기
+---
+
+## 용어 정리
+
+### GIT 이란?
+ 

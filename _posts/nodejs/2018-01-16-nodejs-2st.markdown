@@ -1,0 +1,12 @@
+---
+layout:     post
+title:      "2회차 JavaScript 기초 및 jQuery"
+date:       2018-01-11 00:00:00
+categories: nodejs
+summary:    Node.js 강의 후기
+---
+
+## 용어 정리
+
+### GIT 이란?
+ 
