@@ -6,7 +6,16 @@ categories: nodejs
 summary:    Node.js 강의 후기
 ---
 
-## 용어 정리
+이제부터 정리할 내용은 학원에서 배웠던 수업 내용을 정리하고 개인적인 의견을 첨부하였다. 
+목차는 수업 목차 순서를 그대로 인용할 예정이다.  
 
-### GIT 이란?
- 
+프로젝트의 최종 구성은 
+서버 : Ubuntu (AWS)
+배포 : Docker
+웹서버 : NGINX
+API 서버 : Node.js
+DB : MongoDB
+로 구성될 예정이다. 
+
+### Node.js 란 무엇인가?
+
