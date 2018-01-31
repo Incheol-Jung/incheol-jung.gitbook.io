@@ -29,3 +29,8 @@ Express.js는 싱글페이지 , 멀티페이지 그리고 하이브리드 웹 �
 
 - Node Package Modules
 - package.json을 활용해 의존성 관리
+
+- npm uninstall
+- npm list
+- nodemon
+- rest API

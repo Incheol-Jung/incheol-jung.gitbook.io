@@ -6,7 +6,41 @@ categories: nodejs
 summary:    Node.js 강의 후기
 ---
 
-## 용어 정리
+### 댓글구현
 
-### GIT 이란?
+1. CommentModel 생성
+2. PostModel의 id값을 받아서 CommentModel의 post_id 필드로 저장
+3. 댓글 작성해도 페이지 변동없도록 ajax적용
+
  
+### Validation Check
+
+웹사이트 데이터 유효성 검증
+이유 : 프론트 단에서 이메일 양식에 맞는지 검증을 통과해도 브라우저에서 js끄고 form 전송시 DB에 저장 전 유효성 체크를 함 / 악의적인 데이터 삽입 방지
+
+### XXS
+
+- Cross Site Scripting 공격
+- 글 등록시 <script>location.href</script> 와 같이 페이지를 이동하게 하거나 매 초마다 목표사이트를 공격하게 하는 스크립트 삽입, 또는 사이트 쿠키를 가로채고 전송
+- script 삽입, iframe삽입, img 
+- 해당 스크립트가 삽입된 페이지를 사용자가 방문시 스크립팅 실행
+
+#### 방어법
+
+- DB에 저장 전 특수문자를 필터링한다.
+- <, >, 을 html 특수문자 코드로 변환한다.
+- 그 밖의 문자열은 지운다.
+- ex)
+- var html = “<script>document</script>”;
+- 변환후
+- html =  &lt; script &gt;…. 
+
+- Nodejs 의 경우 (npm install xss)
+
+```javascript
+var xss = require('xss');
+var html = xss('<script>alert("xss");</script>');
+console.log(html);
+
+// 참조 : https://www.npmjs.com/package/xss
+```

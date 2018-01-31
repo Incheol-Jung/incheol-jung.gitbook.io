@@ -6,7 +6,109 @@ categories: nodejs
 summary:    Node.js 강의 후기
 ---
 
-## 용어 정리
+### mongoose
 
-### GIT 이란?
- 
+- MongoDB ODM( Object Document Model )
+- RDMS 에 ORM이 있다면 MongDB엔 ODM
+- MongoDB엔 스키마가 없기 때문에 스키마를 적용 할수 있게 해준다
+- 즉, 문서를 DB에서 조회할 때 자바스크립트 객체로 바꿔주는 역할
+
+#### 스키마
+
+- 데이터베이스를 구성하는 레코드의 크기, 키(key)의 정의, 레코드와 레코드의 관계, 검색 방법 등을 정의한 것
+- RDMS의 경우 id, userid, point 등의 정의된 필드에 맞게 데이터를 저장 그러나 MongoDB는 insert때마다 넣는 양식을 바꿀수 있음
+
+
+#### 장점
+
+- 하나의 모델을 정해 놓고 재사용이 가능( 다른곳에 사용시 postmodel만 불러오면 된다. )
+- 모델에 저장 시 숫자 또는 허용 문자열을 정할수 있다. ( validator 적용 )
+
+#### 사용법
+
+- mongoose 패키지 import
+- Schema 받아온다
+- var mongoose = require('mongoose');
+- var Schema = mongoose.Schema;
+
+#### mongoose 및 MongoDB접속
+
+```javascript
+var mongoose = require('mongoose');
+var autoIncrement = require('mongoose-auto-increment');
+// mongoose 와 mongoose-auto-increment
+// (insert 시마다 primary 키 값 1씩 증가 ) 
+
+```
+
+```javascript
+var db = mongoose.connection;  //접속
+db.on( 'error' , console.error );  //에러시 로그를 뿌림
+db.once( 'open' , function(){
+    console.log("MongoDB connect");
+});  //접속 성공시 콘솔에 메시지 출력
+```
+
+
+```javascript
+var connect = mongoose.connect('mongodb://127.0.0.1/post');
+//post 라는 DB 및 collection에 생성 , 접속
+
+autoIncrement.initialize(connect;
+//primary Key 자동 증가 플러그인 설정
+```
+
+```javascript
+var PostModel = require('../models/ProductsModel);
+// 해당 모델을 불러온다
+
+```
+
+```javascript
+// save
+var product = new ProductsModel({ // 스키마에서 지정한 필드명에 일치하게 지정
+	name : req.body.name,
+	price : req.body.price,
+	description : req.body.description,
+});
+
+product.save( function(err){ // 그리고 저장한다.
+});
+
+```
+
+```javascript
+// find 검색후 리스트를 받는다. 
+Model.find( {  id : 1000 } , function(err, posts){
+             console.log(posts);
+});
+
+```
+
+```javascript
+// findOne 검색조건과 일치하는 한줄만 받는다.
+Model.findOne( {  id : 1000 } , function(err, post){
+             console.log(post);
+});
+
+```
+
+```javascript
+// update 
+ProductsModel.update( 
+	{ id : req.params.id} , // 조회조건
+	{ $set : query }, // 스키마와 일치하게 작성
+	function(err){} // 콜백함수 작성
+); 
+
+```
+
+```javascript
+// remove 
+ProductsModel.remove(
+     {id : req.params.id}, // 조회조건
+     function(err){ // 콜백함수
+});
+
+
+```
