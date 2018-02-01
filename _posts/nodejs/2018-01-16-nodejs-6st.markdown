@@ -45,3 +45,47 @@ console.log(html);
 
 // 참조 : https://www.npmjs.com/package/xss
 ```
+
+### CSRF
+
+- 사용자가 자신의 의지와는 무관하게 글을 등록, 수정, 삭제 를 서버에 요청
+- 2008년 옥션 해킹에도 사용된 기법
+- 방어법 : 토근 발행 ( 글 작성 전 서버에서 생성한 토큰과 맞는지 확인 )
+
+### multer
+
+- 웹파일  전송방식중 multipart/form-data 방식을 지원해주는 모듈
+  (npm install –save multer)
+
+- 적용순서
+  1. DB에 저장될 필드 수정(PostModel)
+  2. npm install –save multer
+  3. uploads 폴더생성
+  4. router 처리 ( write, edit - post )
+  5. view 처리 ( detail )
+
+```javascript
+
+var upload = multer({ storage: storage });
+multer 셋팅을 저장후
+
+router.post(‘URL', upload.single(‘thumbnail')
+// 라우터에서 적용
+// thumbnail 필드명으로 파일을 받는다.
+
+```
+
+
+```javascript
+
+// 저장 ( routes/admin ) – write (get)
+var product = new ProductsModel({
+name : req.body.name,
+thumbnail : (req.file) ? req.file.filename : "",
+price : req.body.price,
+description : req.body.description,
+});
+
+// 파일업로드시 파일이 존재하면 파일명을 thumbnail 필드에 저장
+
+```
