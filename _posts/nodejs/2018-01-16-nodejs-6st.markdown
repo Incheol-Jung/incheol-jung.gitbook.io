@@ -38,6 +38,7 @@ summary:    Node.js 강의 후기
 - Nodejs 의 경우 (npm install xss)
 
 ```javascript
+
 var xss = require('xss');
 var html = xss('<script>alert("xss");</script>');
 console.log(html);
