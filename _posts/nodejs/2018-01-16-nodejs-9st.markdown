@@ -6,7 +6,33 @@ categories: nodejs
 summary:    Node.js 강의 후기
 ---
 
-## 용어 정리
+### 콜백헬 개선
 
-### GIT 이란?
+- Promise 
+  아래와 같은 callbackhell을 개선하기 위함
+
+```javascript
+
+    asyncfunction(params,function(){
+      asyncfunction(params,function(){
+           asyncfunction(params,function(){
+                 asyncfunction(params,function(){
+                 });
+           });
+      });
+});
+
+```
  
+- ES6 Generator
+
+```javascript
+
+    function* iterFunc(){
+        yeild console.log("첫번째 출력");
+        yeild console.log("두번째 출력");
+        yeild console.log("세번째 출력");
+        yeild console.log("네번째 출력");
+    }
+
+```
