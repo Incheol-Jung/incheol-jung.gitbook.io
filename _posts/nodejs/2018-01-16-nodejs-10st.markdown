@@ -6,7 +6,37 @@ categories: nodejs
 summary:    Node.js 강의 후기
 ---
 
-## 용어 정리
-
-### GIT 이란?
+### Payment Gateway
  
+#### 아임포트 장점
+
+- javascript api 제공
+- 사용하기 편리
+
+#### 연동 가이드
+
+http://www.iamport.kr/getstarted
+
+#### 파라미터
+
+https://github.com/iamport/iamport-manual/blob/master/%EC%9D%B8%EC%A6%9D%EA%B2%B0%EC%A0%9C/README.md
+
+
+#### API Document
+
+https://api.iamport.kr/
+
+#### 실습 : 이니시스 PG연결
+
+http://www.iamport.kr/
+
+#### 회원가입
+
+https://admin.iamport.kr/users/login
+
+
+### ngrok
+
+- 현재 내 피씨에 도메인을 연결해서 외부( 스마트폰 )에서 접근가능하게함
+
+- 다운로드 (https://ngrok.com/)

@@ -1,0 +1,30 @@
+---
+layout: default
+title: JAVA
+navigation_weight: 7
+---
+
+	<ul class="post_list">
+		{% assign posts = site.categories.java | sort: 'navigation_weight' %}
+		{% for post in posts %}
+		<li class="post_list__item">
+			<span class="meta">
+				{% if post.updated %}
+				{{ post.updated | date: "%B %-d %Y" }}<span class="modifyed"> - updated</span>
+				{% else %}
+				{{ post.date | date: "%B %-d %Y" }}
+				{% endif %}
+			</span>
+			<a class="subject" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+			{% if post.summary %}
+			<p class="summery">
+				{{ post.summary }}
+			</p>
+			{% else %}
+			<p class="summery">
+				{{ post.excerpt }}
+			</p>
+			{% endif %}
+		</li>
+		{% endfor %}
+ 	</ul>

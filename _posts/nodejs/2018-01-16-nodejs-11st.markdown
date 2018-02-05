@@ -6,7 +6,19 @@ categories: nodejs
 summary:    Node.js 강의 후기
 ---
 
-## 용어 정리
+### 주소록 연동
 
-### GIT 이란?
- 
+- 참고 URL : http://postcode.map.daum.net/guide
+
+- 방식
+
+1. 팝업방식
+2. iframe방식
+3. 지도와 함께보여주는 방식
+
+### 결제내역 
+
+- 관리자만 접근 가능하게 부여 (미들웨어에 적용)
+- 각 라우팅에 적용
+
+

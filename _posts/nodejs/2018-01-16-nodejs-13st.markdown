@@ -6,7 +6,23 @@ categories: nodejs
 summary:    Node.js 강의 후기
 ---
 
-## 용어 정리
+### AWS란?
 
-### GIT 이란?
- 
+- 클라우드 호스팅
+- 서버호스팅이 아닌 필요에 따라 cpu core및 용량 인스턴스의 크기를 올릴수 있음
+- 시간단위로 요금책정
+
+#### AWS EC2 생성
+
+#### SSH 접속
+
+#### AWS 서버 기본 환경 설정
+
+- 설치순서
+1. Node.js 설치
+2. pm2 설치 ( 터미널 종료해도 실행)
+3. Express 설치 연습
+4. MongoDB 설치
+5. nginx 설치 (NGINX를 앞에 두고, 밖에서는 포트로 사이트 접속이 안되고, 사용자가 REQUEST시 NGINX가 보여줌 = Reverse proxy = 포트가 노출되지 않음 )
+
+
