@@ -6,7 +6,7 @@ categories: java
 summary:    java environment setting
 ---
 
-1. JAVA SDK 설치
+### 1. JAVA SDK 설치
 - Link URK : http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 
 - 사용하는 PC의 OS에 따라서 다운로드 후 설치(JDK)
 - 설치후에는 환경변수 설정 (PATH)
@@ -23,7 +23,7 @@ JRE(Java Runtime Environment) : 컴파일된 자바 프로그램을 실행시킬
 JDK(Java Development Kit) : JRE + 개발에 필요한 도구(자바 컴파일러, 프로파일러, 문서생성기 등)
 * JVM(Java Virtual Machine) : 자바 소스코드로부터 만들어지는 자바 바이너리 파일(.class)을 실행할 수 있다.  
 
-2. Tomcat 설치
+### 2. Tomcat 설치
 - Link URL : https://tomcat.apache.org/download-80.cgi
 - 개념 : Apache software 재단에서 만든 JAVA Servlet & JSP 기술 구현을 위한 Open Source
 - 다운로드 후에 server 설정을 위해 별도의 공간에 저장한다.(폴더 경로는 숙지하고 있어야 함)
@@ -34,14 +34,14 @@ Tomcat : 웹Server와 웹Container의 결합으로, 다양한 기능을 Containe
 
 * 그렇다면 WAS만 쓰면 되지 어째서 웹서버를 따로 쓰느냐는 의문이 생길 수 있다. 그 이유는 목적이 다르기 때문이다. 웹 서버는 정적인 데이터를 처리하는 서버이다. 이미지나 단순 html파일과 같은 리소스를 제공하는 서버는 웹 서버를 통하면 WAS를 이용하는 것보다 빠르고 안정적이다(왜? 다른 글 소스로 써볼까?) WAS는 동적인 데이터를 처리하는 서버이다. DB와 연결되어 데이터를 주고 받거나 프로그램으로 데이터 조작이 필요한 경우에는 WAS를 활용 해야 한다.
 
-3. Maven 설치
+### 3. Maven 설치
 - Link URL : https://maven.apache.org/download.cgi
 - 다운로드 후에 **** 위해 별도의 공간에 저장한다.(폴더 경로는 숙지하고 있어야 함)
 - 환경변수 설정할 것!! ( PATH & JAVA_HOME) !!!! "/bin"경로는 제외할 것
 - 개념 : 라이브 관리 및 프로젝트 빌드(ant와 같은 기능) 기능
 
-4. STS(Spring Tool Suite) 설치
+### 4. STS(Spring Tool Suite) 설치
 - 개념 : Spring에서 제공하는 Spring Framework 개발 도구로 Eclipse를 커스터마이징 툴
 
-5. Github 연동
+### 5. Github 연동
 - 
