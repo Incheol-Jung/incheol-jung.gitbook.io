@@ -1,0 +1,12 @@
+13.5 선발 투수
+Starters는 응용 프로그램에 포함 할 수있는 편리한 종속성 설명자 집합입니다. 샘플 코드를 통해 사 용하고 종속성 설명자의 복사 - 붙여 넣기 작업을 수행하지 않고도 필요한 모든 Spring 및 관련 기술을 원스탑으로 얻을 수 있습니다. 예를 들어, 데이터베이스 액세스를 위해 Spring과 JPA를 사용하려면 spring-boot-starter-data-jpa프로젝트에 종속성을 포함시킵니다 .
+
+시동기에는 프로젝트를 신속하게 가동하고 일관성 있고 지원되는 관리 전이 의존성 세트로 필요한 많은 의존성이 있습니다.
+
+" 자신 만의 스타터 만들기 "섹션 에서 설명한 것처럼 제 3 자 스타터는 spring-boot공식 스프링 부트 아티팩트 용으로 예약되어 있으므로 시작하지 않아야 합니다. 오히려 일반적으로 타사 스타터는 프로젝트 이름으로 시작합니다. 예를 들어 호출 된 타사 시작 프로젝트 thirdpartyproject가 일반적으로 이름이 지정 thirdpartyproject-spring-boot-starter됩니다.
+ref url : https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-custom-starter
+
+* starters 모음집
+ref url :https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-starter
+
+
