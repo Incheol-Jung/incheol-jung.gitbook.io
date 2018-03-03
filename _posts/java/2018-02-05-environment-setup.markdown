@@ -44,4 +44,8 @@ Tomcat : 웹Server와 웹Container의 결합으로, 다양한 기능을 Containe
 - 개념 : Spring에서 제공하는 Spring Framework 개발 도구로 Eclipse를 커스터마이징 툴
 
 ### 5. Github 연동
-- 
+- 상단에 window 탭에서 'Show View' 메뉴를 클릭하게 되면 하단에 'Others'를 선택하면 된다. Git 폴더를 클릭하게 되면 Git과 관련된 메뉴들이 보이며 우리가 사용할만한 메뉴는 'Git Repository', 'Git Staging'이 있다. 
+- 'Git Repository'탭을 확인해보면 오른쪽 하단에 활성화되며(개인적으로 차이가 있음/보통 Servers tab과 같은 영역에서 추가 됨)
+- 기존의 Repository를 가져오려면 Clone을 선택하고 'Clone URI'클 선택하여 repository주소와 관련된 정보를 입력해주면 import된것을 확인할 수 있다. 
+- 여기서 중요한 점은 clone되었다고 해서 sts에 import된것은 아니고 local에만 import된 것이므로 해당 프로젝트에서 오른쪽 클릭하게 되면 'Import maven project'를 클릭하여 자신의 workspace폴더에 import되어 사용할 수 있다. 
+
