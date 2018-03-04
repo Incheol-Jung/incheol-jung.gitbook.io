@@ -21,4 +21,31 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 @Value주석은 핵심 컨테이너 기능이며, 형태 보증 된 구성 속성과 동일한 기능을 제공하지 않습니다. 다음 표는 @ConfigurationProperties및에서 지원되는 기능을 요약합니다 @Value.
 
 
-27.1.7 Custom Favicon -- end
+27.2 The “Spring WebFlux Framework”
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-webflux
+
+31.1 Supported Cache Providers
+
+1. Generic
+2. JCache (JSR-107) (EhCache 3, Hazelcast, Infinispan, and others)
+3. EhCache 2.x
+4. Hazelcast
+5. Infinispan
+6. Couchbase
+7. Redis
+8. Caffeine
+9. Simple
+
+54.2 Supported monitoring systems
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-metrics-export
+
+
+78.2 Configure Log4j for Logging
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-configure-log4j-for-logging
+
+
+
+
+
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#appendix
+ -- end
