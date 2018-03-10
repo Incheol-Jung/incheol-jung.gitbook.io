@@ -244,7 +244,6 @@ appliation.yml 에 info.ccontactEmail 프로퍼티를 다음과 같이 설정한
 .antMatchers("/shutdown","/metrics") 이렇게 할 수 도 있지만 
 application.yml에서 management.context-path: /mgmt 로 하여 모든 metris 관련된 메소드 권한을 그룹으로 제한할 수 있다. 
 
-
-
-
-
+페이지 268
+개발자 도구가 활성화되면 스프링 부트는 리소스를 변경했을 떄 웹 브라우저를 새로고침하려고 내장 라이브 리로드 서버를 시작한다. 
+spring.devtools.liveload.enabled = true
