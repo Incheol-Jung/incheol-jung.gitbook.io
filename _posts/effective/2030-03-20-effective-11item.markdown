@@ -2,7 +2,7 @@
 layout:     post
 title:      "아이템11 equals를 재정의하려거든 hashCode도 재정의하라"
 date:       2020-03-20 00:00:00
-categories: effective java
+categories: effective
 summary:    Effective Java 3e 아이템 11을 요약한 내용 입니다.
 ---
 

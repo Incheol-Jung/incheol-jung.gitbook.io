@@ -2,7 +2,7 @@
 layout:     post
 title:      "아이템7 다 쓴 객체 참조를 해제하라"
 date:       2020-03-20 00:00:00
-categories: effective java
+categories: effective
 summary:    Effective Java 3e 아이템 7을 요약한 내용 입니다.
 ---
 

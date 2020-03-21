@@ -2,7 +2,7 @@
 layout:     post
 title:      "아이템8 finalizer와 cleaner 사용을 피하라"
 date:       2020-03-20 00:00:00
-categories: effective java
+categories: effective
 summary:    Effective Java 3e 아이템 8을 요약한 내용 입니다.
 ---
 
