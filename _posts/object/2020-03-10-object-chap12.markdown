@@ -1,0 +1,285 @@
+---
+layout:     post
+title:      "12장 다형성"
+date:       2020-03-10 00:00:00
+categories: object
+summary:    12장 다형성
+---
+
+> 오브젝트의 12장을 요약한 내용 입니다.
+
+## Intro
+
+- 상속의 목적은 코드 재사용이 아니다.
+- 상속은 타입 계층을 구조화하기 위해 사용해야 한다.
+- 타입 계층은 객체지향 프로그래밍의 중요한 특성 중 하나인 다형성의 기반을 제공한다.
+- 상속을 이용해 자식 클래스를 추가하려 한다면 스스로에게 다음과 같은 질문을 해보자
+    - 단순히 코드를 재사용하기 위해서인가? → 예, 라고 생각한다면 상속을 사용하지 말아라
+    - 인스턴스들을 동일하게 행동하는 그룹으로 묶기 위해서인가? → 예, 라고 생각한다면 사용해도 된다.
+- 많은 시간이 흐른 지금도 여전히 상속은 다형성을 구현할 수 있는 가장 일반적인 방법이다. 
+하지만 최근의 언어들은 상속 이외에도 다형성을 구현할 수 있는 다양한 방법들을 제공하고 있기 때문에 과거에 비해 상속의 중요성이 많이 낮아졌다고 할 수 있다.
+- 이번 장을 통해서 다형성이 런타임에 메시지를 처리하기에 적합한 메서드를 동적으로 탐색하는 과정을 통해 구현되며 상속이 이런 메서드를 찾기 위한 일종의 탐색 경로를 클래스 계층의 형태로 구현하기 위한 방법이라는 사실을 이해할 것이다.
+
+## 1. 다형성
+
+- 다형성이라는 단어는 ‘많은’을 의미하는 ‘poly’와 ‘형태’를 의미하는 ‘morph’의 합성어로 ‘많은 형태를 가질 수 있는 능력’을 의미한다.
+- 다형성의 분류
+    - 유니버셜 : 타입이 달라도 같은 code를 수행
+        - 매개변수 : 제네릭 프로그래밍과 관련이 높은데 클래스의 인스턴스 변수나 메서드의 매개변수 타입을 임의의 타입으로 선언한 후 사용하는 시점에 구체적인 타입으로 지정하는 방식 ex) List<T>
+        - 포함 : 메시지가 동일 하더라도 수신한 객체의 타입에 따라 실제로 수행되는 행동이 달라 지는 기능 Ex) discountPolicy.calculate()
+    - 임시 : 타입이 다르면 다른 version의 code를 수행
+        - 오버로딩 : 하나의 클래스 안에 동일한 이름의 메서드가 존재하는 경우 ex) plus(int a), plus(double a)
+        - 강제 : 언어가 지원하는 자동적인 타입 변환이나 사용자가 직접 구현한 타입 변환을 이용해 동일한 연산자를 다양한 타입에 사용할 수 있는 방식 ex) ‘+’ 연산자 → 정수형 + 정수형, 문자열 + 정수형
+- 상속의 진정한 목적은 코드 재사용이 아니라 다형성을 위한 **서브타입 계층**을 구축하는 것이다.
+
+## 2. 상속의 양면성
+
+- 객체지향 프로그램을 작성하기 위해서는 항상 데이터와 행동이라는 두 가지 관점을 함께 고려해야 한다.
+- 데이터 관점의 상속 : 상속을 이용하면 부모 클래스에서 정의한 모든 데이터를 자식 클래스의 인스턴스에 자동으로 포함시킬 수 있다.
+- 행동 관점의 상속 : 데이터뿐만 아니라 부모 클래스에서 정의한 일부 메서드 역시 자동으로 자식 클래스에 포함시킬 수 있다.
+- 단순히 데이터와 행동의 관점에서만 바라보면 상속이란 부모 클래스에서 정의한 데이터와 행동을 자식 클래스에서 자동적으로 공유할 수 있는 재사용 매커니즘으로 보일 것이다. 하지만 이 관점은 상속을 오해한 것이다.
+
+## 3. 업캐스팅과 동적 바인딩
+
+### 같은 메시지, 다른 메서드
+
+- 업캐스팅 : 부모 클래스타입으로 선언된 변수에 자식 클래스의 인스턴스를 할당하는 것이 가능하다.
+- 동적 바인딩 : 메시지를 처리할 적절한 메서드를 컴파일 시점이 아니라 실행 시점에 결정한다.
+- 업캐스팅과 동적 메서드 탐색은 코드를 변경하지 않고도 기능을 추가할 수 있게 해주며 이것은 개방-폐쇄 원칙의 의도와도 일치한다.
+
+### 업캐스팅
+
+- 
+
+### 동적바인딩
+
+- 함수 호출과 메시지 전송 사이의 차이는 생각보다 큰데 프로그램 안에 작성된 함수 호출 구문과 실제로 실행되는 코드를 연결하는 언어적인 매커니즘이 완전히 다르기 때문이다.
+- 함수 호출 : 컴파일타임에 결정 (정적 바인딩, 초기 바인딩, 컴파일타임 바인딩)
+- 메시지 전송 : 실행될 메서드를 런타임에 결정 (동적 바인딩, 지연바인딩)
+
+## 4. 동적 메서드 탐색과 다형성
+
+- 동적 메서드 탐색은 self가 가리키는 객체의 클래스에서 시작해서 상속 계층의 역방향으로 이뤄지며 메서드 탐색이 종료되는 순간 self 참조는 자동으로 소멸된다.
+- 동적 메서드 탐색 원리
+    - 자동적인 메시지 위임 : 자식 클래스는 자신이 이해할 수 없는 메시지를 전송받은 경우 상속 계층에 따라 부모 클래스에게 처리를 위임한다.
+    - 동적인 문맥 : 메시지를 수신했을 때 실제로 어떤 메서드를 실행할지를 결정하는 것은 컴파일 시점이 아닌 실행 시점에 이뤄지며, 메서드를 탐색하는 경로는 self 참조를 이용해서 결정한다.
+
+### 자동적인 메시지 위임
+
+- 대부분의 사람들은 하나의 클래스 안에서 같은 이름을 가진 메서드들을 정의하는 것은 메서드 오버로딩으로 생각하고 상속 계층 사이에서 같은 이름을 가진 메서드를 정의하는 것은 메서드 오버로딩으로 생각하지 않는 경향이 있다. 이것은 일부 언어에서 상속 계층 사이의 메서드 오버로딩을 지원하지 않기 때문이다. C++가 가장 대표적이다.
+
+### 동적인 문맥
+
+    public class Lecture {
+    	public String stats() {
+    		return String.format("Title: %s, Evaluation Method: %s", title, getEvaluationMethod());
+    	}
+    
+    	public String getEvaluationMethod() {
+    		return "Pass or Fail";
+    	}
+    }
+
+- getEvaluationMethod 메서드를 호출한다고 표현했지만 사실 이말은 정확하지는 않다.
+- 현재 클래스의 메서드를 호출하는 것이 아니라 현재 객체에게 메시지를 전송하는 것이다.
+- 그렇다면 현재 객체한 무엇인가? 바로 self 참조가 가리키는 객체다. 이 객체는 처음에 stats 메시지를 수신했던 바로 그 객체다.
+
+    public class GradeLecture extends Lecture {
+    	@Override
+    	public String getEvaluationMethod() {
+    		return "Grade";
+    	}
+    }
+
+- GradeLecture 클래스에 stats 메시지를 전송하면 Lecture 클래스의 stats 메서드를 실행하는 중에 self 참조가 가리키는 객체에게 getEvaluationMethod 메시지를 전송하는 구문과 마주치게 된다. 이제 메서드 탐색은 self 참조가 가리키는 객체에서 시작된다ㅏ. 여기서 self 참조가 가리키는 객체는 바로 GradeLecture의 인스턴스다. 따라서 메시지 탐색은 Lecture 클래스를 벗어나 self 참조가 가리키는 GradeLecture에서부터 다시 시작된다.
+- 417, 419 페이지 참조
+
+### 이해할 수 없는 메시지
+
+- 정적 타입 언어에서는 코드를 컴파일할 때 상속 계층 안의 클래스들이 메시지를 이해할 수 있는지 여부를 판단한다.
+- 동적 타입 언어 역시 메시지를 수신한 객체의 클래스부터 부모 클래스의 방향으로 메서드를 탐색한다. 차이점이라면 동적 타입 언어에는 컴파일 단계가 존재하지 않기 때문에 실제로 코드를 실행해보기 전에는 메시지 처리 가능 여부를 판달할 수 없다는 점이다.
+    - 만약 상속 계층 안의 어던 클래스도 메시지를 처리할 수 없다면 메서드 탐색은 다시 한번 최상위 클래스에 이르게 되고 최종적으로 예외 메시지를 던지게 된다.
+    - doesNotUnderstand(스몰토크)나 method_missing(루비) 메시지에 응답할 수 있는 메서드를 구현할 수 있다.
+- 이해할 수 없는 메시지를 처리할 수 있는 동적 타입 언어의 특징은 메타 프로그래밍 영역에서 진가를 발휘한다. 마틴 파울러는 동적 타입 언어의 이러한 특징을 이용해 도메인-특화 언어를 개발하는 방식을 동적 리셉션이라고 부른다.
+
+### self 대 super
+
+- self 참조의 가장 큰 특징은 동적이라는 점이다. self 참조는 메시지를 수신한 객체의 클래스에 따라 메서드 참색을 위한 문맥을 실행 시점에 결정한다.
+- super 참조는 부모 클래스에서부터 메서드 탐색을 시작한다는 의미이다.
+
+## 상속 대 위임
+
+### 위임과 self 참조
+
+- 메서드 탐색 중에는 자식 클래스의 인스턴스와 부모 클래스의 인스턴스가 동일한 self 참조를 공유하는 것으로 봐도 무방하다.
+- 따라서 그림 12.20을 그림 12.21과 같이 바꿀 수 있다. 그리고 상속 계층을 구성하는 객체들 사이에서 self 참조를 공유하기 때문에 개념적으로 각 인스턴스에서 self 참조를 공유하는 self라는 변수를 포함하는 것처럼 표현할 수 있다.  426p참조
+- 426p 참고된다.** 관람객이 스스로 가방 안의 현금과 초대장을 처리하고 판매원이 스스로 매표소의 티켓과 판매 요금을 다루게 한다면 이 모든 문제를 한 번에 해결할 수 있을 것이다. 
+
+## 자율성을 높이자
+
+Theater의 enter 메서드에서 TicketOffice에 접근하는 모든 코드를 TicketSeller 내부로 숨기는 것이다. TicketSeller에 sellTo 메서드를 추가하고 Thater에 있던 로직을 이 메서드로 옮기자
+
+    public class TheaterSeller {
+    	private TicketOffice ticketOffice;
+    
+    	public Theater(TicketOffice ticketOffice) {
+    		this.ticketOffice = ticketOffice;
+    	}
+    
+    	public void sellTo(Audience audience) {
+    		if(audience.getBag().hasInvitation()) {
+    			Ticket ticket = ticketOffice.getTicket();
+    			audience.getBag().getTicket(ticket);
+    		} else {
+    			Ticket ticket = ticketOffice.getTicket();
+    			audience.getBag().minusAmount(ticket.getFee());
+    			ticketOffice.plusAmount(ticket.getFee());
+    			audience.getBag().setTicket(ticket);
+    		}
+    	}
+    }
+
+    public class Theater {
+    	private TicketSeller ticketSeller;
+    
+    	public Theater(TicketSeller ticketSeller) {
+    		this.ticketSeller = ticketSeller;
+    	}
+    
+    	public void enter(Audience audience) {
+    		ticketSeller.sellTo(audience);
+    	}
+    }
+
+이처럼 개념적이나 물리적으로 객체 내부의 세부적인 사항을 감추는 것을 **캡슐화**라고 부른다. 캡슐화를 통해 객체 내부로의 접근을 제한하면 객체와 객체 사이의 결합도를 낮출 수 있기 때문에 설계를 좀 더 쉽게 변경할 수 있게 된다. 
+
+Theater는 오직 TicketSeller의 인터페이스에만 의존한다. TicketSeller가 내부에 TicketOffice 인스턴스를 포함하고 있다는 사실은 구현의 영역에 속한다. 
+
+TicketSeller 다음으로 Audience의 캡슐화를 개선하자
+
+    public class Audience {
+    	private Bag bag;
+    
+    	public Audience(Bag bag) {
+    		this.bag = bag;
+    	}
+    
+    	public Long buy(Ticket ticket) {
+    		if(bag.hasInvitation()) {
+    			bag.getTicket(ticket);
+    			return 0;
+    		} else { 
+    			bag.minusAmount(ticket.getFee());
+    			bag.setTicket(ticket);
+    			return ticket.getFee();
+    		}
+    	}
+    }
+
+    public class TheaterSeller {
+    	private TicketOffice ticketOffice;
+    
+    	public Theater(TicketOffice ticketOffice) {
+    		this.ticketOffice = ticketOffice;
+    	}
+    
+    	public void sellTo(Audience audience) {
+    		iticketOffice.plusAmount(audience.buy(ticket.getFee()));
+    	}
+    }
+
+수정된 Audience와 TicketSeller는 자신이 가지고 있는 소지품을 스스로 관리한다. 따라서 코드를 읽는 사람과의 의사소통이라는 관점에서 이 코드는 확실히 개선된 것으로 보인다. 더 중요한 점은 Audience나 TicketSeller의 내부 구현을 변경하더라도 Theater를 함께 변경할 필요가 없어졌다는 것이다. 따라서 수정된 코드는 변경 용이성의 측면에서도 확실히 개선됐다고 말할 수 있다. 
+
+## 어떻게 한 것인가
+
+**자기 자신의 문제를 스스로 해결하도록 코드를 변경한 것이다.** 우리는 우리의 직관을 따랐고 그 결과로 코드는 변경이 용이하고 이해 가능하도록 수정됐다. 
+
+## 캡슐화와 응집도
+
+핵심은 객체 내부의 상태를 **캡슐화**하고 객체 간에 오직 **메시지**를 통해서만 상호작용 하도록 만드는 것이다. 밀접하게 연관된 작업만을 수행하고 연관성 없는 작업은 다른 객체에게 위임하는 객체를 가리켜 응집도가 높다고 말한다. 자신의 데이터를 스스로 처리하는 자율적인 객체를 만들면 **결합도를 낮출 수 있을 뿐더러 응집도를 높일 수 있다.** 
+
+**외부의 간섭을 최대한 배제하고 메시지를 통해서만 협력하는 자율적인 객체들의 공동체를 만드는 것이 훌륭한 객체지향 설계를 얻을 수 있는 지름길인 것이다.** 
+
+## 절차지향과 객체지향
+
+변경 전 초기 코드를 다시 살펴보자
+
+Theater의 enter 메서드는 **프로세스(Process)**이며 Audience, TicketSeller, Bag, TicketOffice는 **데이터(Data)**이다. 이처럼 프로세스와 데이터를 별도의 모듈에 위치시키는 방식을 절차적 프로그래밍이라고 부른다. 
+
+절차적 프로그래밍은 코드를 읽는 사람과 원활하게 의사소통하지 못한다. 더 큰 문제는 데이터의 변경으로 인한 영향을 지역적으로 고립시키기 어렵다
+
+**변경하기 쉬운 설계는 한 번에 하나의 클래스만 변경할 수 있는 설계다.** 
+
+해결 방법은 자신의 데이터를 스스로 처리하도록 프로세스의 적절한 단계를 Audience와 TicketSeller로 이동시키는 것이다. 이처럼 데이터와 프로세스가 동일한 모듈 내부에 위치하도록 프로그래밍하는 방식을 객체지향 프로그래밍이라고 부른다. 
+
+**훌륭한 객제치향 설계의 핵심은 캡슐화를 이용해 의존성을 적절히 관리함으로써 객체 사이의 결합도를 낮추는 것이다.** 
+
+## 책임의 이동
+
+당신의 코드에서 데이터와 데이터를 사용하는 프로세스가 별도의 객체에 위치하고 있다면 절차적 프로그래밍 방식을 따르고 있을 확률이 높다. 데이터와 데이터를 사용하는 프로세스가 동일한 객체 안에 위치한다면 객체 객체지향 프로그래밍 방식을 따르고 있을 확률이 높다. 
+
+설계를 어렵게 만드는 것은 의존성 이라는 것을 기억하라. **해결 방법은 불필요한 의존성을 제거함으로써 객체 사이의 결합도를 낮추는 것이다.** 
+
+## 더 개선할 수 있다
+
+Audience는 스스로 티켓을 구매하고 가방안의 내용물을 직접 관리한다. 하지만 Bag은 과거의 Audience처럼 스스로 자기 자신을 책임지지 않고 Audience에 의해 끌려다니는 수동적인 존재다. 
+
+Bag을 자율적인 존재로 바꿔보자
+
+    public class Bag {
+    	private Long amount;
+    	private Ticket ticket;
+    	private Invitation invitation;
+    
+    	public Long hold(Ticket ticket) {
+    		if(hasInvitation()) {
+    			setTicket(ticket);
+    			return 0;
+    		} else {
+    			setTicket(ticket);
+    			minusAmount(ticket.getFee());
+    			return ticket.getFee();
+    		}
+    	}
+    
+     ...
+    }
+
+    public class Audience {
+    	public Long buy(Ticket ticket) {
+    		return bag.hold(ticket);
+    	}
+    }
+
+TicketSeller 역시 TicketOffice의 자율권을 침해하였다
+
+    public class TicketOffice {
+    	public void sellTicketTo(Audience audience) {
+    		plusAmount(audience.buy(getTicket()));
+    	}
+    	...
+    }
+
+    public class TicketSeller {
+    	public void sellTo(Audience audience) {
+    		ticketOffice.sellTicketTo(audience));
+    	}
+    }
+
+## 객제치향 설계
+
+### 설계가 왜 필요한가
+
+설계란 코드를 배치하는 것이다. **설계를 구현과 떨어트려서 이야기하는 것은 불가능하다.** 설계는 코드를 작성하는 매 순간 코드를 어떻게 배치할 것인지를 결정하는 과정에서 나온다. 설계는 코드 작성의 일부이며 코드를 작성하지 않고서는 검증할 수 없다. 
+
+### 그렇다면 좋은 설계란 무엇인가?
+
+**좋은 설계란 오늘 요구하는 기능을 온전히 수행하면서 내일의 변경을 매끄럽게 수용할 수 있는 설계다**
+
+개발을 시작하는 시점에 구현에 필요한 모든 요구사항을 수집하는 것은 불가능에 가깝다. 모든 요구사항을 수집할 수 있다고 가정하더라도 개발이 진행되는 동안 요구사항은 바뀔 수밖에 없다. 
+
+> 요구사항 변경은 필연적으로 코드 수정을 초래하고, 코드 수정은 버그가 발생할 가능성을 높인다. 코드 수정을 회피하려는 가장 큰 원인은 **두려움**이다. 그리고 그 두려움은 요구사항 변경으로 인해 버그를 추가할지도 모른다는 **불확실성**에 기인한다.
+
+### 객체지향 설계
+
+객제치향 프로그래밍은 **의존성**을 효율적으로 통제할 수 있는 다양한 방법을 제공함으로써 요구사항 변경에 좀 더 수월하게 대응할 수 있는 가능성을 높여준다. 단순히 데이터와 프로세스를 객체라는 덩어리 안으로 밀어 넣었다고 해서 변경하기 쉬운 설계를 얻을 수 있는 것은 아니다.
