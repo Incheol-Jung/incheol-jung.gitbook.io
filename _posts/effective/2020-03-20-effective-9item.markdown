@@ -33,7 +33,7 @@ summary:    Effective Java 3e 아이템 9을 요약한 내용 입니다.
 예컨대 물리적인 문제가 생긴다면 firstLineOfFile 메서드 안의 readLine 메서드가 예외를 던지고, 같은 이유로 close 메서드도 실패할 것이다. 물론 두 번째 예외 대신 첫 번째 예외를 기록하도록 코드를 수정할수는 있지만, 코드가 너무 지저분해져서 실제로 그렇게까지 하는 경우는 거의 없다. 
 
 이러한 문제들은 자바 7이 투척한 **try-with-resources** 덕에 모두 해결되었다. 이 구조를 사용하려면 해당 자원이 **AutoCloseable** 인터페이스를 구현해야 한다. 
-
+```java
     static void copy(String src, String dst) throws IOException {
     	
     	try ( InputStream in = new FilInputStream(src);
@@ -44,7 +44,7 @@ summary:    Effective Java 3e 아이템 9을 요약한 내용 입니다.
     				out.write(buf, 0, n);
     	}
     } 
-
+```
 try-with-resources 버전이 짧고 읽기 수월할 뿐 아니라 문제를 진단 하기도 훨씬 간편하다. 또한, 자바 7에서 **Throwable**에 추가된 **getSuppressed** 메서드를 이용하면 프로그램 코드에서 가져올 수도 있다. 
 
 > getSuppressed은 구체적으로 어떻게 사용할 수 있을까?
