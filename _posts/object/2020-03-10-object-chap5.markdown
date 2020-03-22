@@ -69,13 +69,13 @@ GRASP은 "General Responsibility Assignment Software Pattern(일반적인 책임
 
 객체는 해당 정보를 제공할 수 있는 다른 객체를 알고 있거나 필요한 정보를 계산해서 제공할 수도 있다. 
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/deb7d8a1-a232-4fde-aa78-15d6a8286ad4/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/deb7d8a1-a232-4fde-aa78-15d6a8286ad4/Untitled.png)
+![https://go.aws/2WGngbv](https://go.aws/2WGngbv)
 
 ## 높은 응집도와 낮은 결합도
 
 그렇다면 이 설계의 대안으로 Movie 대신 Screening이 직접 DiscountCondition과 협력하게 하는 것은 어떨까?
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bb035637-0298-4f70-a28d-54900780347d/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bb035637-0298-4f70-a28d-54900780347d/Untitled.png)
+![https://go.aws/397P4Ik](https://go.aws/397P4Ik)
 
 기능적인 측면에서는 두 가지 중 어떤 방법을 선택하더라도 차이가 없는 것처럼 보인다. 그렇다면 왜 우리는 이 설계 대신 Movie가 DiscountCondition과 협력하는 방법을 선택한 것일까?
 
