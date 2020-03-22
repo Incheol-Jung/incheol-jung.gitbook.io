@@ -49,18 +49,20 @@ summary:    Effective Java 3e 아이템 1을 요약한 내용 입니다.
 일반적으로 공통으로 사용되는 객체는 새로 생성해서 사용하지 않고 공유를 통해 효율적으로 자원을 활용한다. 
 한번 생성된 객체는 두번 생성되지 않고, 풀(Pool)에 의해서 관리 및 사용된다. 
 
-    // Flyweight 패턴 적용 사례
+```java
+// Flyweight 패턴 적용 사례
+
+public class Test{
+    public static void main(String[] args){
+        String s = "hello";
+        String s1 = new String("hello");
+        String s2 = "hello";
     
-    public class Test{
-      public static void main(String[] args){
-          String s = "hello";
-          String s1 = new String("hello");
-          String s2 = "hello";
-     
-          System.out.println("s == s1 ? " + (s == s1));
-          System.out.println("s == s2 ? " + (s == s2));
-       }
+        System.out.println("s == s1 ? " + (s == s1));
+        System.out.println("s == s2 ? " + (s == s2));
     }
+}
+```
 
 > 인스턴스를 통제하는 이유는 무엇일까?
 
