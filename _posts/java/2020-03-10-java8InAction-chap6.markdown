@@ -219,7 +219,7 @@ groupingBy로 넘겨주는 컬렉터의 형식은 제한이 없다.
 
 그럼 위의 코드가 실제로 어떤 과정을 거치는지 확인해보자
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1042bb4e-f5e1-4d9b-9c34-ec79c92a6d84/KakaoTalk_Photo_2020-03-08-11-16-07.jpeg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1042bb4e-f5e1-4d9b-9c34-ec79c92a6d84/KakaoTalk_Photo_2020-03-08-11-16-07.jpeg)
+![https://go.aws/2QyZ6vl](https://go.aws/2QyZ6vl)
 
 - 컬렉터는 점선으로 표시되어 있으며 groupingBy는 가장 바깥쪽에 위치하면서 요리의 종류에 따라 메뉴 스트림을 세 개의 서브스트림으로 그룹화한다.
 - groupingBy 컬렉터는 collectingAndThen 컬렉터를 감싼다. 따라서 두 번째 컬렉터는 그룹화된 세 개의 서브스트림에 적용된다.
