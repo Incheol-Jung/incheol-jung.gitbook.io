@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "아이템1 생성자 대신 정적 책터리 메서드를 고려하라"
+title:      "아이템1 생성자 대신 정적 팩터리 메서드를 고려하라"
 date:       2020-03-10 00:00:00
 categories: effective
 summary:    Effective Java 3e 아이템 1을 요약한 내용 입니다.
