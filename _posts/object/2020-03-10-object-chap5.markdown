@@ -49,7 +49,7 @@ GRASP은 "General Responsibility Assignment Software Pattern(일반적인 책임
 
 설계를 시작하기 전에 도메인에 대한 개략적인 모습을 그려 보는 것이 유용하다.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0d33b36e-1dfe-4464-9097-5c8692fb7679/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0d33b36e-1dfe-4464-9097-5c8692fb7679/Untitled.png)
+![https://www.notion.so/bluesky761/5-8df33ef2900b4782b52342d4a545c29b#86d6e22c13cf4d75be0b3f623b6d0610](https://www.notion.so/bluesky761/5-8df33ef2900b4782b52342d4a545c29b#86d6e22c13cf4d75be0b3f623b6d0610)
 
 중요한 것은 설계를 시작하는 것이지 **도메인 개념들을 완벽하게 정리하는 것이 아니다.** 도메인 개념을 정리하는 데 너무 많은 시간을 들이지 말고 **빠르게 설계와 구현을 진행하라**
 
