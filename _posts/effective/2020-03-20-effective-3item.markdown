@@ -13,13 +13,14 @@ summary:    Effective Java 3e 아이템 3을 요약한 내용 입니다.
 그런데 클래스를 싱글턴으로 만들면 이를 사용하는 클라이언트를 **테스트하기가 어려워질 수 있다.** 
 
 싱글턴을 만드는 방식은 보통 둘 중 하나다. 두 방식 모두 생성자는 **private**으로 감춰두고, 유일한 인스턴스에 접근할 수 있는 수단으로 **public static** 멤버를 하나 마련해둔다. 
-
+```java
     public class Elvis {
     	public static final Elvis INSTANCE = new Elvis();
     	private Elvis() { ... }
     
     	public void leaveThebuilding() { ... }
     }
+```
 
 private 생성자는 **public static final** 필드인 **Elvis.INSTANCE**를 초기화할 때 딱 한 번만 호출된다. 
 
@@ -33,7 +34,7 @@ private 생성자는 **public static final** 필드인 **Elvis.INSTANCE**를 초
 **리플렉션 API란?**
 
 싱글턴을 만드는 두 번째 방법에서는 **정적 팩터리 메서드**를 public static 멤버로 제공한다. 
-
+```java
     public class Elvis {
     	private static final Elvis INSTANCE = new Elvis();
     	private Elvis() { ... }
@@ -41,6 +42,7 @@ private 생성자는 **public static final** 필드인 **Elvis.INSTANCE**를 초
     
     	public void leaveThebuilding() { ... }
     }
+```
 
 Elvis.getInstance는 항상 같은 객체의 참조를 반환하므로 제2의 Elvis 인스턴스란 결코 만들어지지 않는다. 
 
@@ -51,7 +53,7 @@ Elvis.getInstance는 항상 같은 객체의 참조를 반환하므로 제2의 E
 - 정적 팩터리의 메서드 참조를 **공급자**로 사용할 수 있다.
 
 싱글턴을 만드는 세 번째 방법은 원소가 하나인 열거 타입을 선언하는 것이다. 
-
+```java
     private Object readResolve() {
     	return INSTANCE;
     }
@@ -60,6 +62,7 @@ Elvis.getInstance는 항상 같은 객체의 참조를 반환하므로 제2의 E
     	INSTANCE;
     	public void leaveTheBuilding() { ... }
     }
+```
 
 조금 부자연스러워 보일 수는 있으나 대부분 상황에서는 원소가 하나뿐인 열거 타입이 싱글턴을 만드는 가장 좋은 방법이다. 
 

@@ -11,7 +11,7 @@ summary:    Effective Java 3e 아이템 9을 요약한 내용 입니다.
 자원 닫기는 클라이언트가 놓치기 쉬워서 예측할 수 없는 **성능 문제**로 이어지기도 한다. 
 
 전통적으로 자원이 제대로 닫힘을 보장하는 수단으로 **try-finally**가 쓰였다. 예외가 발생하거나 메서드에서 반환되는 경우를 포함해서 말이다. 
-
+```java
     static void copy(String src, String dst) throws IOException {
     	InputStream in = new FilInputStream(src);
     	try {
@@ -28,6 +28,7 @@ summary:    Effective Java 3e 아이템 9을 요약한 내용 입니다.
     		in.close();
     	}
     }
+```
 
 예컨대 물리적인 문제가 생긴다면 firstLineOfFile 메서드 안의 readLine 메서드가 예외를 던지고, 같은 이유로 close 메서드도 실패할 것이다. 물론 두 번째 예외 대신 첫 번째 예외를 기록하도록 코드를 수정할수는 있지만, 코드가 너무 지저분해져서 실제로 그렇게까지 하는 경우는 거의 없다. 
 

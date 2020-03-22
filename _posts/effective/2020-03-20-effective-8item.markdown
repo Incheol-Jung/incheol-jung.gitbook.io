@@ -41,7 +41,7 @@ cleaner와 finalizer를 적절히 활용하는 두 번째 예는 네이티브 �
 성능 저하를 감당할 수 없거나 네이티브 피어가 사용하는 자원을 즉시 회수해야 한다면 앞서 설명한 close 메서드를 사용해야 한다. 
 
 만약 안전망으로 사용하고 싶지 않다면 아래와 같이 코드를 작성 하면 될것이다. 
-
+```java
     public class Adult {
     	public static void main(String[] args) {
     		try (Room myRoom = new Room(7)) {
@@ -49,6 +49,7 @@ cleaner와 finalizer를 적절히 활용하는 두 번째 예는 네이티브 �
     		}
     	}
     }
+```
 
 ## 정리
 

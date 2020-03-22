@@ -19,7 +19,7 @@ summary:    4장 스트림 소개
 # 스트림이란 무엇인가?
 
 스트림은 데이터 컬렉션 반복을 멋지게 처리하는 기능이다. 또한 스트림을 이용하면 멀티 스레드 직접 코드를 구현하지 않아도 데이터를 투명하게 병렬로 처리할 수 있다. 
-
+```java
     List<Dish> lowCaloricDishes = new ArrayList<>();
     for(Dish d: menu) {
     	**if(d.getCalories() < 400) {
@@ -37,23 +37,23 @@ summary:    4장 스트림 소개
     for(Dish d: lowCaloricDishes) {
     	lowCaloricDishesName.add(d.getName());
     }
-
+```
 위 코드에서는 lowCaloricDishes라는 '가비지 변수'가 사용 되었다. 즉, lowCaloricDishes는 컨테이너 역할만 하는 중간 변수다. 자바 8에서는 이러한 세부 구현은 라이브러리 내에서 모두 처리한다. 
-
+```java
     List<String> lowCaloricDishesName = menu.stream()
     																					.filter(d -> d.getCalories() < 400)
     																					.sorted(comparing(Dishes::getCalories))
     																					.map(Dish::getName)
     																					.collect(toList());
-
+```
 stream()을 parallelStream()으로 바꾸면 이 코드를 멀티코어 아키텍처에서 병렬로 실행할 수 있다. 
-
+```java
     List<String> lowCaloricDishesName = menu.parallelStream()
     																					.filter(d -> d.getCalories() < 400)
     																					.sorted(comparing(Dishes::getCalories))
     																					.map(Dish::getName)
     																					.collect(toList());
-
+```
 그렇다면 우리는 궁금증이 생길 수 있다!
 
 - parallelStream을 호출 했을 때 정확히 어떤 일이 일어날까?
@@ -112,7 +112,7 @@ stream()을 parallelStream()으로 바꾸면 이 코드를 멀티코어 아키�
 컬렉션 인터페이스를 사용하려면 사용자가 직접 요소를 반복해야 한다. 
 
 반면 스트림 라이브러리는 내부 반복을 사용한다. 따라서 함수에 어떤 작업을 수행 할 지만 지정하면 모든 것이 알아서 처리된다. 
-
+```java
     List<String> names = new ArrayList<>();
     for(Dish d:menu) {
     	names.add(d.getName());
@@ -121,7 +121,7 @@ stream()을 parallelStream()으로 바꾸면 이 코드를 멀티코어 아키�
     List<String> names = menu.stream()
     													.map(Dish::getName)
     													.collect(toList());
-
+```
 ### 외부 반복보다 내부 반복이 더 좋은 이유는 무엇일까?
 
 스트림 라이브러리의 내부 반복은 데이터 표현과 하드웨어를 활용한 병렬성 구현을 자동으로 선택한다.
@@ -133,17 +133,17 @@ stream()을 parallelStream()으로 바꾸면 이 코드를 멀티코어 아키�
 # 스트림 연산
 
 스트림 인터페이스의 연산을 크게 두 가지(중간 연산, 최종 연산)로 구분할 수 있다. 
-
+```java
     List<String> names = menu.stream()
     													.filter(d -> d.getCalories() > 300) // 중간 연산
     													.map(Dish::getName) // 중간 연산
     													.limit(3) // 중간 연산
     													.collect(toList()); // 최종 연산
-
+```
 - 중간 연산
 
     중간 연산의 중요한 특징은 단말 연산을 스트림 파이프라인에 실행하기 전까지는 아무 연산도 수행하지 않는다. 즉 게으르다(lazy)는 것이다. 
-
+```java
         List<String> names = menu.stream()
         													.filter(d -> {
         																					System.out.println("filtering" + d.getName());
@@ -162,7 +162,7 @@ stream()을 parallelStream()으로 바꾸면 이 코드를 멀티코어 아키�
         mapping beef
         filtering chicken
         mapping chicken
-
+```
     스트림의 게으른 특성 덕분에 몇 가지 최적화 효과를 얻을 수 있었다. 
 
     - 300 칼로리가 넘는 요리는 여러 개지만 오직 처음 3개만 선택되었다. 이는 limit 연산 그리고 쇼트서킷이라 불리는 기법 덕분이다.
@@ -189,7 +189,7 @@ stream()을 parallelStream()으로 바꾸면 이 코드를 멀티코어 아키�
 - filter와 map처럼 스트림을 반환 하면서 다른 연산과 연결될 수 있는 연산을 중간 연산 이라고 한다. 중간 연산을 이용해서 파이프라인을 구성할 수 있지만 중간 연산으로는 어떤 결과도 생성할 수 없다.
 - forEach나 count처럼 스트림 파이프라인을 처리해서 스트림이 아닌 결과를 반환하는 연산을 최종 연산이라고 한다.
 - 스트림의 요소는 요청할 때만 계산된다.
-
+```java
 [예제 코드](https://www.notion.so/e300ef0c11cf4767bf246f64a6cf37c2)    	List<T> result = new ArrayList<>();
     	for(T e: list) {
     		if(p.test(e)) {
@@ -198,56 +198,56 @@ stream()을 parallelStream()으로 바꾸면 이 코드를 멀티코어 아키�
     	}
     	return result;
     }	
-
+```
 이제 바나나, 오렌지, 정수, 문자열 등의 리스트에 필터 메서드를 사용할 수 있다. 
-
+```java
     List<Apple> redApples = filter(inventory, (Apple apple) -> "red".equals(apple.getColor()));
     List<String> evenNumbers = filter(numbers, (Integer i) -> i % 2 == 0);
-
+```
 ## 실전 예제
 
 ### Comparator로 정렬하기
 
 자바 8 List에는 sort 메서드가 포함되어 있다(물론 Collections.sort도 존재한다). 다음과 같은 인터페이스를 갖는 java.util.Comparator 객체를 이용해서 sort의 동작을 파라미터화할 수 있다. 
-
+```java
     // java.util.Comparator
     public interface Comparator<T> {
     	public int compare(T o1, T o2);
     }
-
+```
 Comparator를 구현해서 sort 메서드의 동작을 다양화할 수 있다. 
-
+```java
     inventory.sort(new Comparator<Apple>() {
     	public int compare(Apple a1, Apple a2) {
     		return a1.getWeight().compareTo(a2.getWeight());
     	}
-    });kjh
-
+    });
+```
 실제 정렬 세부사항은 추상화되어 있으므로 신경 쓸 필요가 없다. 람다 표현식을 이용하면 다음처럼 단간하게 코드를 구현할 수 있다. 
-
+```java
     inventory.sort((Apple a1, Apple a2) -> a1.getWeight().compareTo(a2.getWeight()));
-
+```
 ### Runnable로 코드 블록 실행하기
 
 각각의 스레드는 다른 코드를 실행할 수 있다. 자바에서는 Runnable 인터페이스를 이용해서 실행할 코드 블록을 지정할 수 있다. 
-
+```java
     // java.lang.Runnable
     public interface Runnable {
     	public void run();
     }
-
+```
 Runnable을 이용해서 다양한 동작을 스레드로 실행할 수 있다. 
-
+```java
     Thread t = new Tread(new Runnable() {
     	public void run() {
     		System.out.println("Hello world");
     	}
     });
-
+```
 람다 표현식으로는 다음처럼 간경하게 코드를 구현할 수 있다. 
-
+```java
     Thread t = new Thread(() -> System.out.println("Hello world"));
-
+```
 ## 요약
 
 - 동작 파라미터화에서드 메서드 내부적으로 다양한 동작을 수행할 수 있도록 코드를 메서드 인수로 전달한다.

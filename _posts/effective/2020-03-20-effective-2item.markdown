@@ -21,25 +21,26 @@ summary:    Effective Java 3e 아이템 2을 요약한 내용 입니다.
 클라이언트가 실수로 **매개변수의 순서**를 바꿔 건네줘도 컴파일러는 알아채지 못하고, 결국 런타임에 엉뚱한 동작을 하게 된다. 
 
 이번에는 선택 매개변수가 많을 때 활용할 수 있는 두 번째 대안인 **자바빈즈패턴**을 보겠다. 매개변수가 없는 생성자로 객체를 만든 후, **Setter 메서드**들을 호출해 원하는 개매변수의 값을 설정하는 방식이다. 
+```java
+public class NutritionFacts {
+	private int servingSize = -1;
+	private int servings = -1;
+	private int calories = 0;
+	private int fat = 0;
+	private int sodium = 0;
+	private int carbohydrate = 0;
 
-    public class NutritionFacts {
-    	private int servingSize = -1;
-    	private int servings = -1;
-    	private int calories = 0;
-    	private int fat = 0;
-    	private int sodium = 0;
-    	private int carbohydrate = 0;
-    
-    	public NutritionFacts() { }
-    
-    	public void setServingSize(int val) { ... }
-    	public void setServings(int servings) { ... }
-    	public void setCalories(int calories) { ... }
-    	public void setFat(int fat) { ... }
-    	public void setSodium(int sodium) { ... }
-    	public void setCarbohydrate(int carbohydrate) { ... }
-    
-    }
+	public NutritionFacts() { }
+
+	public void setServingSize(int val) { ... }
+	public void setServings(int servings) { ... }
+	public void setCalories(int calories) { ... }
+	public void setFat(int fat) { ... }
+	public void setSodium(int sodium) { ... }
+	public void setCarbohydrate(int carbohydrate) { ... }
+
+}
+```
 
 코드가 길어지긴 했지만 인스턴스를 만들기 쉽고, 그 결과 **더 읽기 쉬운 코드**가 되었다. 
 
@@ -54,55 +55,56 @@ summary:    Effective Java 3e 아이템 2을 요약한 내용 입니다.
 점층적 생성자 패턴의 **안전성**과 자바빈즈 패턴의 **가독성**을 겸비한 빌더 패턴이다. 클라이언트는 필요한 객체를 직접 만드는 대신, 필수 매개변수만으로 생성자(혹은 정적 팩터리)를 호출해 빌더 객체를 얻는다. 
 
 빌더는 생성할 클래스 안에 정적 멤버 클래스로 만들어두는게 보통이다. 
+```java
+public class NutritionFacts {
+	private final int servingSize;
+	private final int servings;
+	private final int calories;
+	private final int fat;
+	private final int sodium;
+	private final int carbohydrate;
 
-    public class NutritionFacts {
-    	private final int servingSize;
-    	private final int servings;
-    	private final int calories;
-    	private final int fat;
-    	private final int sodium;
-    	private final int carbohydrate;
-    
-    	public static class Builder {
-    		// 필수 매개변수
-    		private final int servingSize;
-    		private final int servings;
-    
-    		// 선택 매개변수 - 기본값으로 초기화한다. 
-    		private int calories = 0;
-    		private int fat = 0;
-    		private int sodium = 0;
-    		private int carbohydrate = 0;
-    
-    		public Builder(int servingSize, int servings) {
-    			this.servingSize = servingSize;
-    			this.servings = servings;
-    		}
-    
-    		public Builder calories(int val) { calories = val; return this }
-    		public Builder fat(int val) { fat = val; return this }
-    		public Builder sodium(int val) { sodium = val; return this }
-    		public Builder carbohydrate(int val) { carbohydrate = val; return this }
-    
-    		private NutritionFacts(Builder builder) {
-    			servingSize = builder.servingSize;
-    			servings = builder.servings;
-    			calories = builder.calories;
-    			fat = builder.fat;
-    			sodium = builder.sodium;
-    			carbohydrate = builder.carbohydrate;
-    		}
-    }
+	public static class Builder {
+		// 필수 매개변수
+		private final int servingSize;
+		private final int servings;
+
+		// 선택 매개변수 - 기본값으로 초기화한다. 
+		private int calories = 0;
+		private int fat = 0;
+		private int sodium = 0;
+		private int carbohydrate = 0;
+
+		public Builder(int servingSize, int servings) {
+			this.servingSize = servingSize;
+			this.servings = servings;
+		}
+
+		public Builder calories(int val) { calories = val; return this }
+		public Builder fat(int val) { fat = val; return this }
+		public Builder sodium(int val) { sodium = val; return this }
+		public Builder carbohydrate(int val) { carbohydrate = val; return this }
+
+		private NutritionFacts(Builder builder) {
+			servingSize = builder.servingSize;
+			servings = builder.servings;
+			calories = builder.calories;
+			fat = builder.fat;
+			sodium = builder.sodium;
+			carbohydrate = builder.carbohydrate;
+		}
+}
+```
 
 빌더의 세터 메서드들은 빌더 자신을 반환하기 때문에 연쇄적으로 호출할 수 있다. 
-
-    NutritionFacts cocaCola = new NutritionFacts.Builder(240, 8).
-    																									.calories(100)
-    																									.fat(35)
-    																									.sodium(40)
-    																									.carbohydrate(1)
-    																									.build();
-
+```java
+NutritionFacts cocaCola = new NutritionFacts.Builder(240, 8).
+																									.calories(100)
+																									.fat(35)
+																									.sodium(40)
+																									.carbohydrate(1)
+																									.build();
+```
 이 클라이언트 코드는 쓰기 쉽고, 무엇보다도 읽기 쉽다. 
 
 빌더 패턴은 상당히 **유연하다**. 빌더 하나로 여러 객체를 **순회**하면서 만들 수 있고, 빌더에 넘기는 매개변수에 따라 다른 객체를 만들 수도 있다. 

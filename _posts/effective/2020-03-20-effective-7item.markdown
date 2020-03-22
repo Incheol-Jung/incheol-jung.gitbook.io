@@ -11,7 +11,7 @@ summary:    Effective Java 3e 아이템 7을 요약한 내용 입니다.
 자바처럼 가비지 컬렉터를 갖춘 언어로 넘어오면 프로그래머의 삶이 훨씬 평안해진다. 
 
 그래서 자칫 **메모리 관리에 더 이상 신경 쓰지 않아도 된다고 오해할 수 있는데 절대 사실이 아니다**
-
+```java
     public Class Stack {
     	
     	public Object pop() {
@@ -22,6 +22,7 @@ summary:    Effective Java 3e 아이템 7을 요약한 내용 입니다.
     	...
     
     }
+```
 
 위의 코드는 기본적으로 많이 사용하는 스택 클래스이다. 
 
@@ -34,7 +35,7 @@ summary:    Effective Java 3e 아이템 7을 요약한 내용 입니다.
 JCF 에서 관리되는 리스트의 필드는 수동으로 메모리를 회수해야 할까?
 
 해법은 간단하다. 해당 참조를 다 썼을 때 null 처리(참조 해제)하면 된다. 
-
+```java
     public Object pop() {
     	if (size == 0)
     			throw new EmptyStackException();
@@ -42,6 +43,7 @@ JCF 에서 관리되는 리스트의 필드는 수동으로 메모리를 회수�
     	elements[size] = null; // 다 쓴 참조 해제
     	return result;	
     }
+```
 
 다 쓴 참조를 null 처리하면 다른 이점도 따라온다. 만약 null 처리한 참조를 실수로 사용하려 하면 프로그램은 즉시 **NullPointerException**을 던지며 종료 된다. 
 

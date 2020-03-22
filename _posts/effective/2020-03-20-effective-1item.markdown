@@ -22,13 +22,15 @@ summary:    Effective Java 3e 아이템 1을 요약한 내용 입니다.
 
 생성자에 넘기는 **매개변수**와 **생성자** 자체만으로는 반환될 객체의 특성을 제대로 설명하지 못한다. 반면 정적 팩터리는 **이름**만 잘 지으면 반환될 객체의 특성을 쉽게 묘사할 수 있다. 
 
-    // 값이 소수인 BigInteger를 생성한다. 
-    
-    // 일반 생성자로 생성한 객체
-    BigInteger num = new BigInteger(0, 0, new Random()); 
-    
-    // 정적 팩터리 메서드로 생성한 객체
-    BigInteger num2 = BigInteger.probablePrime(); 
+```java
+// 값이 소수인 BigInteger를 생성한다. 
+
+// 일반 생성자로 생성한 객체
+BigInteger num = new BigInteger(0, 0, new Random()); 
+
+// 정적 팩터리 메서드로 생성한 객체
+BigInteger num2 = BigInteger.probablePrime(); 
+```
 
 하나의 **시그니처**로는 생성자를 하나만 만들 수 있다. 입력 매개변수들의 순서를 다르게 한 생성자를 새로 추가하는 식으로 이 제한을 피해볼 수도 있지만 좋지 않은 발상이다. 
 
@@ -38,9 +40,11 @@ summary:    Effective Java 3e 아이템 1을 요약한 내용 입니다.
 
 대표적인 예로 Boolean.valueOf(boolean) 메서드는 객체를 아예 생성하지 않는다. 따라서 (특히 생성 비용이 큰) 같은 객체가 자주 요청되는 상황이라면 성능을 상당히 끌어올려 준다. 플라이웨이트 패턴도 이와 비슷한 기법이라 할 수 있다. 
 
-    public static Boolean valueOf(boolean b){
-        return b ? Boolean.TRUE : Boolean.FALSE;
-    }
+```java
+public static Boolean valueOf(boolean b){
+    return b ? Boolean.TRUE : Boolean.FALSE;
+}
+```
 
 반복되는 요청에 같은 객체를 반환하는 식으로 정적 팩터리 방식의 클래스는 언제 어느 인스턴스를 살아 있게 할지를 철저히 통제할 수 있다. 이런 클래스를 인스턴스 통제 클래스라 한다. 
 

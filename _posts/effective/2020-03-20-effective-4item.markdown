@@ -15,7 +15,7 @@ summary:    Effective Java 3e 아이템 4을 요약한 내용 입니다.
 **추상 클래스**로 만드는 것으로는 인스턴스화를 막을 수 없다. 
 
 컬파일러가 기본 생성자를 만드는 경우는 오직 명시된 생성자가 없을 때뿐이니 private 생성자를 추가하면 클래스의 인스턴스화를 막을 수 있다. 
-
+```java
     public class UtilityClass {
     	// 기본 생성자가 만들어지는 것을 막는다(인스턴스화 방지용)
     	private UtilityClass() {
@@ -23,6 +23,7 @@ summary:    Effective Java 3e 아이템 4을 요약한 내용 입니다.
     	}
     	... 
     }
+```
 
 명시적 생성자가 private이니 클래스 바깥에서는 접근할 수 없다. 
 

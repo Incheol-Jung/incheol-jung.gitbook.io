@@ -30,7 +30,7 @@ summary:    3장 람다 표현식
 @FunctionalInterface 어노테이션을 붙여 주면 메서드가 2개 이상일 경우 컴파일 단계에서 에러를 발생 시킬 수 있다.
 
 람다 표현식으로 함수형 인터페이스의 추상 메서드 구현을 직접 전달할 수 있으므로 전체 표현식을 함수형 인터페이스의 인스턴스로 취급(기술적으로 함수형 인터페이스를 concreate 구현한 클래스의 인스턴스) 할 수 있다. 
-
+```java
     public interface Predicate<T> {
     	boolean test (T t);
     }
@@ -38,7 +38,7 @@ summary:    3장 람다 표현식
     public interface Callable<T> {
     	V call();
     }
-
+```
 ### 왜 함수형 인터페이스를 인수로 받는 메서드에만 람다 표현식을 사용할 수 있는걸까?
 
 → 15장 16장에서 다시 확인
@@ -68,9 +68,9 @@ java.util.function.Function<T,R> 인터페이스는 제네릭 형식 T를 인수
 람다 표현식의 형식 검사 과정의 재구성
 
 ### 형식 검사
-
+```java
     List<Apple> heavierThan150g = filter(inventory, (Apple a) -> a.getWeight() > 150);
-
+```
 1. 람다가 사용된 콘텍스트는 무엇인가? 우선 filter의 정의를 확인하다. 
 2. 대상 형식은 Predicate<Apple>이다.
 3. Predicate<Apple>인터페이스의 추상 메서드는 무엇인가?
@@ -108,59 +108,59 @@ java.util.function.Function<T,R> 인터페이스는 제네릭 형식 T를 인수
 > 코드전달 → 익명 클래스 사용 → 람다 표현식 사용 → 메서드 레퍼런스 사용
 
 Comparator는 Comparable 키를 추출해서 Comparator 객체로 만드는 Function 함수를 인수로 받는 정적 메서드 comparing을 포함한다.  그러므로 다음처럼 사용할 수 있다. 
-
+```java
     import static java.util.Comparator.comparing;
     inventory.sort(comparing((a) -> a.getWeight()));
-
+```
 메서드 레퍼런스를 이요하면 더 깔끔하게 표현도 가능하다. 
-
+```java
     inventory.sort(comparing(Apple::getWeight));
-
+```
 ## 람다 표현식을 조합할 수 있는 유용한 메서드
 
 ### 역정렬
 
 비교자 구현을 그대로 재사용하여 사과의 무게를 기준으로 역정렬할 수 있다. 
-
+```java
     // 무게를 내림차순으로 정렬
     Inventory.sort(comparing(Apple::getWeight).reserved()); 
-
+```
 ### Comparator 연결
 
  thenComparing은 함수를 인수로 받아 첫 번째 비교자를 이요해서 두 객체가 같다고 판단되면 두 번째 비교자에 객체를 전달한다. 
-
+```java
     // 무게를 내림차순으로 정렬하고 두 사과의 무게가 같으면 국가별로 정렬할것
     inventory.sort(comparing(Apple::getWeight)
     					.recered()
     					.thenComparing(Apple::getContry));
-
+```
 ### Predicate 조합
 
 Predicate 인터페이스는 복잡한 Predicate를 만들 수 있도록 negate, and, or 세 가지 메서드를 제공한다. 
-
+```java
     // 빨간색이면서 무거운(150그램 이상) 사과 또는 그냥 녹색 사과
     Predicate<Apple> redAndHeavyAppleOrGreen = 
     											redApple.and(a -> a.getWeight() > 150)
     															.or(a -> "green".equals(a.getColor()));
-
+```
 ### Function 조합
 
 Function 인터페이스는 andThen, compose 두 가지 디폴트 메서드를 제공한다. 
 
 andThen 메서드는 주어진 함수를 먼저 적용한 결과를 다른 함수의 입력으로 전달하는 함수를 반환한다. 
-
+```java
     Function<Integer, Integer> f = x -> x + 1;
     Function<Integer, Integer> g = x -> x * 2;
     Function<Integer, Integer> h = f.andThen(g);
     int result = h.apply(1); // 4
-
+```
 compose 메서드는 인수로 주어진 함수를 먼저 실행한 다음에 그 결과를 외부 함수의 인수로 제공한다. 
-
+```java
     Function<Integer, Integer> f = x -> x + 1;
     Function<Integer, Integer> g = x -> x * 2;
     Function<Integer, Integer> h = f.compose(g);
     int result = h.compose(1); // 3
-
+```
 ## 요약
 
 - 람다 표현식은 익명 함수의 일종이다. 이름은 없지만 파라미터 리스트, 바디, 반환 형식을 가지며 예외를 던질 수 있다.
@@ -171,7 +171,9 @@ compose 메서드는 인수로 주어진 함수를 먼저 실행한 다음에 �
 - 자바 8은 Predicate<T>와 Function<T,R> 같은 제네릭 함수형 인터페이스와 관련된 박싱 동작을 피할 수 있도록 IntPredicate, IntToLongFunction 등과 같은 기본형 특화 인터페이스도 제공한다.
 - 실행 어라운드 패턴을 람다와 활용하면 유연성과 재사용성을 추가로 얻을 수 있다.
 - 메서드 레퍼런스를 이용하면 기존의 메서드 구현을 재사용하고 직접 전달할 수 있다.
-- Comparator, Predicate, Function 같은 함수형 인터페이스는 람다 표현식을 조합할 수 있는 다양한 디폴트 메서드를 제공한다.    	List<T> result = new ArrayList<>();
+- Comparator, Predicate, Function 같은 함수형 인터페이스는 람다 표현식을 조합할 수 있는 다양한 디폴트 메서드를 제공한다.    	
+```java
+List<T> result = new ArrayList<>();
     	for(T e: list) {
     		if(p.test(e)) {
     			result.add(e);
@@ -179,56 +181,60 @@ compose 메서드는 인수로 주어진 함수를 먼저 실행한 다음에 �
     	}
     	return result;
     }	
+```
 
 이제 바나나, 오렌지, 정수, 문자열 등의 리스트에 필터 메서드를 사용할 수 있다. 
-
+```java
     List<Apple> redApples = filter(inventory, (Apple apple) -> "red".equals(apple.getColor()));
     List<String> evenNumbers = filter(numbers, (Integer i) -> i % 2 == 0);
-
+```
 ## 실전 예제
 
 ### Comparator로 정렬하기
 
 자바 8 List에는 sort 메서드가 포함되어 있다(물론 Collections.sort도 존재한다). 다음과 같은 인터페이스를 갖는 java.util.Comparator 객체를 이용해서 sort의 동작을 파라미터화할 수 있다. 
-
+```java
     // java.util.Comparator
     public interface Comparator<T> {
     	public int compare(T o1, T o2);
     }
+```
 
 Comparator를 구현해서 sort 메서드의 동작을 다양화할 수 있다. 
-
+```java
     inventory.sort(new Comparator<Apple>() {
     	public int compare(Apple a1, Apple a2) {
     		return a1.getWeight().compareTo(a2.getWeight());
     	}
-    });kjh
+    });
+```
 
 실제 정렬 세부사항은 추상화되어 있으므로 신경 쓸 필요가 없다. 람다 표현식을 이용하면 다음처럼 단간하게 코드를 구현할 수 있다. 
-
+```java
     inventory.sort((Apple a1, Apple a2) -> a1.getWeight().compareTo(a2.getWeight()));
-
+```
 ### Runnable로 코드 블록 실행하기
 
 각각의 스레드는 다른 코드를 실행할 수 있다. 자바에서는 Runnable 인터페이스를 이용해서 실행할 코드 블록을 지정할 수 있다. 
-
+```java
     // java.lang.Runnable
     public interface Runnable {
     	public void run();
     }
+```
 
 Runnable을 이용해서 다양한 동작을 스레드로 실행할 수 있다. 
-
+```java
     Thread t = new Tread(new Runnable() {
     	public void run() {
     		System.out.println("Hello world");
     	}
     });
-
+```
 람다 표현식으로는 다음처럼 간경하게 코드를 구현할 수 있다. 
-
+```java
     Thread t = new Thread(() -> System.out.println("Hello world"));
-
+```
 ## 요약
 
 - 동작 파라미터화에서드 메서드 내부적으로 다양한 동작을 수행할 수 있도록 코드를 메서드 인수로 전달한다.

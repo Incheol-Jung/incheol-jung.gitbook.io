@@ -23,9 +23,9 @@ hashCode 재정의를 잘못했을 때 크게 문제가 되는 조항은 **두 �
 > 동등성이랑 동일성은 무엇일까?
 동등성(동치성) : 두 객체가 동일한 정보를 담고 있는지?
 동일성 : 두 객체가 물리적(주소)으로 같은지?
-
+```java
     @Override public int hashCode() { return 42; }
-
+```
 이 코드는 동치인 모든 객체에서 똑같은 **해시코드**를 반환하니 적법하다. 하지만 끔찍하게도 모든 객체에게 똑같은 값만 내어주므로 모든 객체가 해시테이블의 버킷 하나에 담겨 마치 연결 리스트처럼 동작한다. 
 
 **좋은 해시 함수라면 서로 다른 인스턴스에 다른 해시코드를 반환한다.** 
@@ -40,13 +40,14 @@ hashCode 재정의를 잘못했을 때 크게 문제가 되는 조항은 **두 �
 - 이전 단계에서 계산한 해시코드 c로 result를 갱신한다.
     - result = 31 * result + c
 - result를 반환한다.
-
+```java
     @Override public int hashCode() {
     	int result = Short.hashCode(areaCode);
     	result = 31 * Short.hashCode(prefix);
     	result = 31 * Short.hashCode(linenum);
     	return result;
     }
+```
 
 ### 그렇다면 왜 31을 사용했을까?
 
@@ -55,11 +56,11 @@ hashCode 재정의를 잘못했을 때 크게 문제가 되는 조항은 **두 �
 위와 같은 계산식이 번거로울 수 있다. 이를 간편하게 제공하기 위한 방법으로 **Objects** 클래스의 정적 메서드를 제공한다. 
 
 Objects 클래스는 임의의 개수만큼 객체를 받아 해시코드를 계산해주는 정적 메서드인 hash를 제공한다. 
-
+```java
     @Overrider public int hashCode() {
     	return Objects.hash(linenum, prefex, areaCode);
     }
-
+```
 이 메서드를 활용하면 앞서의 요령대로 구현한 코드와 비슷한 수준의 hashCode 함수를 단 한줄로 작성할 수 있다. **하지만 아쉽게도 속도는 더 느리다.** 입력 인수를 담기 위한 배열이 만들어지고, 입력 중 기본 타입이 있다면 **박싱**과 **언박싱**도 거쳐야 하기 때문이다. **그러니 hash 메서드는 성능에 민감하지 않은 상황에서만 사용하자**
 
 클래스가 불변이고 해시코드를 계산하는 비용이 크다면, 매번 새로 계산하기 보다는 **캐싱**하는 방식을 고려해야 한다. 
