@@ -3,7 +3,7 @@ layout: post
 title: "5장 책임 할당하기"
 date: 2020-03-11 00:00:00
 categories: object
-summary: 5장 책임 할당하기
+summary: 오브젝트의 5장을 요약한 내용 입니다.
 ---
 
 > 오브젝트의 5장을 요약한 내용 입니다.

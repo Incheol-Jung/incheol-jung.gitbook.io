@@ -3,7 +3,7 @@ layout: post
 title: "1장 객체, 설계"
 date: 2020-03-10 00:00:00
 categories: object
-summary: 1장 객체, 설계
+summary: 오브젝트의 1장을 요약한 내용 입니다.
 ---
 
 > 오브젝트의 1장을 요약한 내용 입니다.

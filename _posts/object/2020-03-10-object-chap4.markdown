@@ -3,7 +3,7 @@ layout: post
 title: "4장 설계 품질과 트레이드 오프"
 date: 2020-03-11 00:00:00
 categories: object
-summary: 4장 설계 품질과 트레이드 오프
+summary: 오브젝트의 4장을 요약한 내용 입니다.
 ---
 
 > 오브젝트의 4장을 요약한 내용 입니다.
