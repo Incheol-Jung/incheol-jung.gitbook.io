@@ -26,7 +26,7 @@ summary:    7장 병렬 데이터 처리와 성능
 병렬 스트림이란 각각의 스레드에서 처리할 수 있도록 스트림 요소를 여러 청크로 분할한 스트림이다. 따라서 병렬 스트림을 이용하면 모든 멀티코어 프로세서가 각각의 청크를 처리하도록 할당할 수 있다. 
 
 숫자 n을 인수로 받아서 1부터 n까지의 모든 숫자의 합계를 반환하는 메서드를 구현한다고 가정하자
-
+```java
     public static long iterativeSum(long n) {
     	long result = 0;
     	for(long i = 1L; i<n; i++) {
@@ -34,7 +34,7 @@ summary:    7장 병렬 데이터 처리와 성능
     	}
     	ret urn result;
     }
-
+```
 특히 n이 커진다면 이 연산을 병렬로 처리하는 것이 좋을 것이다. 그렇다면 무엇을 고민해야 할까?
 
 - 무엇부터 수정해야 할까?
@@ -46,13 +46,13 @@ summary:    7장 병렬 데이터 처리와 성능
 병렬 스트림을 이용하면 걱정, 근심 없이 모든 문제를 쉽게 해결할 수 있다.
 
 ## 순차 스트림을 병렬 스트림으로 변환하기
-
+```java
     public static long parallelSum(long n) {
     	return Stream.iterate(1L, i => i + 1)
     								.limit(n)
     								.parallel() // 스트림을 병렬 스트림으로 변환
     								.reduce(0L, Long::sum);
-
+```
 내부적으로는 parallel을 호출하면 이후 연산이 병렬로 수행해야 함을 의미하는 불린 플래그가 설정된다. 반대로 sequential로 병렬 스트림을 순차 스트림으로 바꿀 수 있다. 이 두 메서드를 이용해서 어떤 연산을 병렬로 실행하고 어떤 연산을 순차로 실행할지 제어할 수 있다. 
 
 ### 스트림 성능 측정
@@ -60,7 +60,7 @@ summary:    7장 병렬 데이터 처리와 성능
 병렬화를 이용하면 순차나 반복 형식에 비해 성능이 더 좋아질 것이라 추측했다. 
 
 순차 덧셈 함수를 이용해서 천만 개 숫자의 합계에 걸리는 시간을 계산해보자
-
+```java
     // 일반 스트림으로 수행한 결과(sequentialSum)
     System.out.println("Sequential sum done in: " + 
     					measureSumPerf(ParallelStreams::sequentialSum, 10_000_000) + " msecs");
@@ -85,7 +85,7 @@ summary:    7장 병렬 데이터 처리와 성능
     
     // 결과값
     Iterative sum done in: 164 msecs
-
+```
 병렬 버전이 순차 버전보다 느리다는 것을 확인할 수 있다. 그 이유는 무엇일까?
 
 - iterate가 박싱된 객체를 생성하므로 이를 다시 언박싱하는 과정이 필요했다.
@@ -103,7 +103,7 @@ summary:    7장 병렬 데이터 처리와 성능
 - LongStream.rangeClosed는 쉽게 철크로 분할할 수 있는 숫자 범위를 생산한다. 예를 들어 1-20 범위의 숫자를 각각 1-5, 6-10,11-15,16-20 범위의 숫자로 분할할 수 있다.
 
 언박싱과 관련한 오버헤드가 얼마나 될까?
-
+```java
     public static long rangedSum(long n) {
     	return LongStream.rangeClosed(1, n)
     										.reduce(0L, Long::sum);
@@ -111,9 +111,9 @@ summary:    7장 병렬 데이터 처리와 성능
     
     // 결과값
     Ranged sum done in: 17 msecs
-
+```
 다음과 같은 새로운 버전에 병렬 스트림을 적용하면 무슨 일이 일어날까?
-
+```java
     public static long parallelRangedSum(long n) {
     	return LongStream.rangeClosed(1, n)
     										.parallel()
@@ -122,7 +122,7 @@ summary:    7장 병렬 데이터 처리와 성능
     
     // 결과값
     Parallel range sum done in: 1 msecs
-
+```
 드디오 순차 실행보다 빠른 성능을 갖는 병렬 리듀싱을 만들었다. 
 
 하지만 병렬화가 완전 공짜는 아니라는 사실을 기억하자. 병렬화를 이용하려면 스트림을 재귀적으로 분할해야 하고, 각 서브스트림을 서로 다른 스레드의 리듀싱 연산으로 할당하고, 이들 결과를 하나의 값으로 합쳐야 한다. 
@@ -132,7 +132,7 @@ summary:    7장 병렬 데이터 처리와 성능
 ### 병렬 스트림의 올바른 사용법
 
 병렬 스트림을 잘못 사용하면서 발생하는 많은 문제는 공유된 상태를 바꾸는 알고리즘을 사용하기 때문에 일어난다. 
-
+```java
     public static long sideEffectSum(long n) {
     	Accumulator accumulator = new Accumulator();
     	LongStream.rangeClosed(1, n).forEach(accumulator::add);
@@ -143,7 +143,7 @@ summary:    7장 병렬 데이터 처리와 성능
     	public long total = 0;
     	public void add(long value) { total += value; }
     }
-
+```
 코드에 무슨 문제라도 있는가? 위 코드는 본질적으로 순차 실행할 수 있도록 구현되어 있으므로 병렬로 실행하면 참사가 일어난다. 특히 total을 접근할 때마다 (다수의 스레드에서 동시에 데이터에 접근하는) 데이터 레이스 문제가 일어난다. 동기화로 문제를 해결하다보면 결국 병렬화라는 특성이 없어져 버릴 것이다. 
 
 지금까지 병렬 스트림과 병렬 계산에서는 공유된 가변 상태를 피해야 한다는 사실을 확인했다. 
@@ -168,11 +168,11 @@ summary:    7장 병렬 데이터 처리와 성능
 포크/조인 프레임워크는 병렬화 할 수 있는 작업을 재귀적으로 작은 작업으로 분할한 다음에 서브태스크 각각의 결과를 합쳐서 전체 결과를 만들도록 설계되었다. 
 
 스레드 풀을 이용하려면 RecursiveTask<R>의 서브클래스를 만들어야 한다. 여기서 R은 병렬화된 태스크가 생성하는 결과 형식 또는 결과가 없을 때는 RecursiveAction 형식이다. 
-
+```java
     protected abstract R compute();
-
+```
 compute 메서드는 태스크를 서브태스크로 분할하는 로직과 더 이상 분할할 수 없을 때 개별 서브태스크의 결과를 생산할 알고리즘을 정의한다. 
-
+```java
     if(태스크가 충분히 작거나 더 이상 분할할 수 없으면){
     	순차적으로 태스크 계산
     } else {
@@ -181,7 +181,7 @@ compute 메서드는 태스크를 서브태스크로 분할하는 로직과 더 
     	모든 서브태스크의 연산이 완료될 때까지 기다림
     	각 서브태스크의 결과를 합침
     }
-
+```
 이 알고리즘은  분할 후 정복 알고리즘의 병렬화버전이다. 
 
 ### 포크/조인 프레임워크를 제대로 사용하는 방법
@@ -207,69 +207,4 @@ compute 메서드는 태스크를 서브태스크로 분할하는 로직과 더 
 - 병렬 스트림으로 데이터 집합을 병렬 실행할 때 특히 처리해야 할 데이터가 아주 많거나 각 요소를 처리하는 데 오랜 시간이 걸릴 때 성능을 높일 수 있다
 - 가능하면 기본형 특화 스트림을 사용하는 등 올바른 자료구조 선택이 어떤 연산을 병렬로 처리하는 것보다 성능적으로 더 큰 영향을 미칠 수 있다
 - 포크/조인 프레임워크에서는 병렬화할 수 있는 태스크를 작은 태스크로 분할한 다음에 분할된 태스크를 각각의 스레드로 실행하며 서브태스크 각각의 결과를 합쳐서 최종 결과를 생산한다
-- Spliterator는 탐색하려는 데이터를 포함하는 스트림을 어떻게 병렬화할 것인지 정의한다    	List<T> result = new ArrayList<>();
-    	for(T e: list) {
-    		if(p.test(e)) {
-    			result.add(e);
-    		}
-    	}
-    	return result;
-    }	
-
-이제 바나나, 오렌지, 정수, 문자열 등의 리스트에 필터 메서드를 사용할 수 있다. 
-
-    List<Apple> redApples = filter(inventory, (Apple apple) -> "red".equals(apple.getColor()));
-    List<String> evenNumbers = filter(numbers, (Integer i) -> i % 2 == 0);
-
-## 실전 예제
-
-### Comparator로 정렬하기
-
-자바 8 List에는 sort 메서드가 포함되어 있다(물론 Collections.sort도 존재한다). 다음과 같은 인터페이스를 갖는 java.util.Comparator 객체를 이용해서 sort의 동작을 파라미터화할 수 있다. 
-
-    // java.util.Comparator
-    public interface Comparator<T> {
-    	public int compare(T o1, T o2);
-    }
-
-Comparator를 구현해서 sort 메서드의 동작을 다양화할 수 있다. 
-
-    inventory.sort(new Comparator<Apple>() {
-    	public int compare(Apple a1, Apple a2) {
-    		return a1.getWeight().compareTo(a2.getWeight());
-    	}
-    });kjh
-
-실제 정렬 세부사항은 추상화되어 있으므로 신경 쓸 필요가 없다. 람다 표현식을 이용하면 다음처럼 단간하게 코드를 구현할 수 있다. 
-
-    inventory.sort((Apple a1, Apple a2) -> a1.getWeight().compareTo(a2.getWeight()));
-
-### Runnable로 코드 블록 실행하기
-
-각각의 스레드는 다른 코드를 실행할 수 있다. 자바에서는 Runnable 인터페이스를 이용해서 실행할 코드 블록을 지정할 수 있다. 
-
-    // java.lang.Runnable
-    public interface Runnable {
-    	public void run();
-    }
-
-Runnable을 이용해서 다양한 동작을 스레드로 실행할 수 있다. 
-
-    Thread t = new Tread(new Runnable() {
-    	public void run() {
-    		System.out.println("Hello world");
-    	}
-    });
-
-람다 표현식으로는 다음처럼 간경하게 코드를 구현할 수 있다. 
-
-    Thread t = new Thread(() -> System.out.println("Hello world"));
-
-## 요약
-
-- 동작 파라미터화에서드 메서드 내부적으로 다양한 동작을 수행할 수 있도록 코드를 메서드 인수로 전달한다.
-- 동작 파라미터화를 이용하면 변화하는 요구사항에 더 잘 대응할 수 있는 코드를 구현할 수 있으며 나중에 엔지니어링 비용을 줄일 수 있다.
-- 코드 전달 기법을 이용하면 동작을 메서드의 인수로 전달할 수 있다. 하지만 자바 8 이전에는 코드를 지저분하게 구현해야 했다. 익명 클래스로도 어느 정도 코드를 깔끔하게 만들 수 있지만 자바 8에서는 인터페이스를 상속받아 여러 클래스를 구현해야 하는 수고를 없앨 수 있는 방법을 제공한다.
-- 자바 API의 많은 메서드는 정렬, 스레드, GUI 처리 등을 포함한 다양한 동작으로 파라미터화할 수 있다.
-
-#
+- Spliterator는 탐색하려는 데이터를 포함하는 스트림을 어떻게 병렬화할 것인지 정의한다

@@ -27,7 +27,7 @@ Bag 인스턴스의 상태는 현금과 초대장을 함께 보관하거나, 초
 ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/30d422b9-012a-41d6-8896-f52237cc51a5/download.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/30d422b9-012a-41d6-8896-f52237cc51a5/download.png)
 
 소극장을 구현하는 클래스는 Theater다. Therater 클래스가 관함객을 맞이할 수 있도록 enter 메서드를 구현하자. 
-
+```java
     public class Theater {
     	private TicketSeller ticketSeller;
     
@@ -47,7 +47,7 @@ Bag 인스턴스의 상태는 현금과 초대장을 함께 보관하거나, 초
     		}
     	}
     }
-
+```
 - 소극장은 먼저 관람객의 가반 안에 초대장이 들어 있는지 확인한다.
 - 만약 초대장이 들어 있다면 이벤트에 당첨된 관람객이므로 판매원에게서 받은 티켓을 관람객의 가방 안에 넣어준다.
 - 가방안에 초대장이 없다면 티켓을 판매해야 한다.
@@ -105,7 +105,7 @@ Theater의 enter 메서드를 이해하기 위해서는 Audience가 Bag을 가�
 ## 자율성을 높이자
 
 Theater의 enter 메서드에서 TicketOffice에 접근하는 모든 코드를 TicketSeller 내부로 숨기는 것이다. TicketSeller에 sellTo 메서드를 추가하고 Thater에 있던 로직을 이 메서드로 옮기자
-
+```java
     public class TheaterSeller {
     	private TicketOffice ticketOffice;
     
@@ -137,13 +137,13 @@ Theater의 enter 메서드에서 TicketOffice에 접근하는 모든 코드를 T
     		ticketSeller.sellTo(audience);
     	}
     }
-
+```
 이처럼 개념적이나 물리적으로 객체 내부의 세부적인 사항을 감추는 것을 **캡슐화**라고 부른다. 캡슐화를 통해 객체 내부로의 접근을 제한하면 객체와 객체 사이의 결합도를 낮출 수 있기 때문에 설계를 좀 더 쉽게 변경할 수 있게 된다. 
 
 Theater는 오직 TicketSeller의 인터페이스에만 의존한다. TicketSeller가 내부에 TicketOffice 인스턴스를 포함하고 있다는 사실은 구현의 영역에 속한다. 
 
 TicketSeller 다음으로 Audience의 캡슐화를 개선하자
-
+```java
     public class Audience {
     	private Bag bag;
     
@@ -174,7 +174,7 @@ TicketSeller 다음으로 Audience의 캡슐화를 개선하자
     		iticketOffice.plusAmount(audience.buy(ticket.getFee()));
     	}
     }
-
+```
 수정된 Audience와 TicketSeller는 자신이 가지고 있는 소지품을 스스로 관리한다. 따라서 코드를 읽는 사람과의 의사소통이라는 관점에서 이 코드는 확실히 개선된 것으로 보인다. 더 중요한 점은 Audience나 TicketSeller의 내부 구현을 변경하더라도 Theater를 함께 변경할 필요가 없어졌다는 것이다. 따라서 수정된 코드는 변경 용이성의 측면에서도 확실히 개선됐다고 말할 수 있다. 
 
 ## 어떻게 한 것인가
@@ -212,7 +212,7 @@ Theater의 enter 메서드는 **프로세스(Process)**이며 Audience, TicketSe
 Audience는 스스로 티켓을 구매하고 가방안의 내용물을 직접 관리한다. 하지만 Bag은 과거의 Audience처럼 스스로 자기 자신을 책임지지 않고 Audience에 의해 끌려다니는 수동적인 존재다. 
 
 Bag을 자율적인 존재로 바꿔보자
-
+```java
     public class Bag {
     	private Long amount;
     	private Ticket ticket;
@@ -237,9 +237,9 @@ Bag을 자율적인 존재로 바꿔보자
     		return bag.hold(ticket);
     	}
     }
-
+```
 TicketSeller 역시 TicketOffice의 자율권을 침해하였다
-
+```java
     public class TicketOffice {
     	public void sellTicketTo(Audience audience) {
     		plusAmount(audience.buy(getTicket()));
@@ -252,7 +252,7 @@ TicketSeller 역시 TicketOffice의 자율권을 침해하였다
     		ticketOffice.sellTicketTo(audience));
     	}
     }
-
+```
 ## 객제치향 설계
 
 ### 설계가 왜 필요한가
