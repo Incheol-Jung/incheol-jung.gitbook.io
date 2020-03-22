@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "아이템10 equals는 일반 규약을 지켜 재정의하라"
-date:       2020-03-20 00:00:00
+date:       2020-03-10 00:00:00
 categories: effective
 summary:    Effective Java 3e 아이템 10을 요약한 내용 입니다.
 ---

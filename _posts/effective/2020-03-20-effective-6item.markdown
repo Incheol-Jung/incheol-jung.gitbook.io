@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "아이템6 불필요한 객체 생성을 피하라"
-date:       2020-03-20 00:00:00
+date:       2020-03-10 00:00:00
 categories: effective
 summary:    Effective Java 3e 아이템 6을 요약한 내용 입니다.
 ---
