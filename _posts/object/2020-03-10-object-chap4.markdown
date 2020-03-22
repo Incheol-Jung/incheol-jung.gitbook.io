@@ -35,11 +35,11 @@ summary:    4장 설계 품질과 트레이드 오프
 
 응집도 : 모듈에 포함된 내부 요소들이 연관돼 있는 정도를 나타낸다. 변경이 발생할 때 모듈 내부에서 발생하는 변경의 정도로 측정할 수 있다. 
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c2d64167-b636-418d-a961-0a24a183e42b/object-4-2.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c2d64167-b636-418d-a961-0a24a183e42b/object-4-2.png)
+![https://go.aws/3dljB8H](https://go.aws/3dljB8H)
 
 결합도 : 의존성의 정도를 나타내며 다른 모듈에 대해 얼마나 많은 지식을 갖고 있는지를 나타내는 척도다. 한 모듈이 변경되기 위해서 다른 모듈의 변경을 요구하는 정도로 측정할 수 있다. 
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/71b01b60-733b-4dba-a2c5-2b4227d87610/object-4-3-1.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/71b01b60-733b-4dba-a2c5-2b4227d87610/object-4-3-1.png)
+![https://go.aws/2xcN842](https://go.aws/2xcN842)
 
 ### 그렇다면 우리는 질문할 것이다.
 

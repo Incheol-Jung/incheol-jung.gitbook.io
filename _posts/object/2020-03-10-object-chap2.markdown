@@ -25,7 +25,7 @@ summary:    2장 객체지향 프로그래밍
 
 문제를 해결하기 위해 사용자가 프로그램을 사용하는 분야를 **도메인**이라고 부른다. 요구사항과 프로그램을 객체라는 동일한 관점에서 바라볼 수 있기 때문에 도메인을 구성하는 개념들이 프로그램의 객체와 클래스로 매끄럽게 연결될 수 있다. 
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0d33b36e-1dfe-4464-9097-5c8692fb7679/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0d33b36e-1dfe-4464-9097-5c8692fb7679/Untitled.png)
+![https://go.aws/2vGk0lf](https://go.aws/2vGk0lf)
 
 일반적으로 클래스의 이름은 대응되는 도메인 개념의 이름과 동일하거나 적어도 유사하게 지어야 한다. **클래스 사이의 관계도 최대한 도메인 개념 사이에 맺어진 관계와 유사하게 만들어서 프로그램의 구조를 이해하고 예상하기 쉽게 만들어야 한다.** 
 
@@ -52,7 +52,7 @@ Screening의 reserve 메서드는 영화를 예매한 후 예매 정보를 담�
 ```
 영화를 예매하기 위해 Screening, Movie, Reservation 인스턴스들은 서로의 메서드를 호출하며 상호작용한다. 이처럼 시스템의 어떤 기능을 구현하기 위해 객체들 사이에 이뤄지는 상호작용을 협력이라고 부른다
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cf49a680-f598-4350-befa-f6d3c53d1b2f/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cf49a680-f598-4350-befa-f6d3c53d1b2f/Untitled.png)
+![https://go.aws/3adLuO3](https://go.aws/3adLuO3)
 
 # 할인 요금 구하기
 
@@ -104,7 +104,7 @@ Screening의 reserve 메서드는 영화를 예매한 후 예매 정보를 담�
     	boolean isStisfiedBy(Screening screening);
     }
 ```
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3e6542ce-a326-4260-b367-89c774c5fe19/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3e6542ce-a326-4260-b367-89c774c5fe19/Untitled.png)
+
 ```java
     Movie avatar = new Movie("아바타",
     		Duration.ofMinutes(120),
@@ -115,6 +115,9 @@ Screening의 reserve 메서드는 영화를 예매한 후 예매 정보를 담�
     			new PeriodCondition(DayOfWeek.MONDAY, LocalTime.of(10,0), LocalTime.of(11,59)),
     			new PeriodCondition(DayOfWeek.THURSDAY, LocalTime.of(10,0), LocalTime.of(11,59)));
 ```
+
+![https://go.aws/2wsOrvy](https://go.aws/2wsOrvy)
+
 # 상속과 다형성
 
 코드 상에서 Movie는 DiscountPolicy에 의존한다. 코드를 샅샅이 조사해 봐도 Movie가 AmountDiscountPolicy나 PercentDiscountPolicy에 의존하는 곳을 찾을 수는 없다. 그러나 실행 시점에는 Movie의 인스턴스는 AmountDiscountPolicy나 PercentDiscountPolicy의 인스턴스에 의존하게 된다. 

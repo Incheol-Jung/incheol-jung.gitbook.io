@@ -24,7 +24,7 @@ Bag 인스턴스의 상태는 현금과 초대장을 함께 보관하거나, 초
 
 판매원을 구현한 TicketSeller 클래스는 자신이 일하는 매표소(TicketOffice)를 알고 있어야 한다. 
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/30d422b9-012a-41d6-8896-f52237cc51a5/download.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/30d422b9-012a-41d6-8896-f52237cc51a5/download.png)
+![https://go.aws/3dmVQ08](https://go.aws/3dmVQ08)
 
 소극장을 구현하는 클래스는 Theater다. Therater 클래스가 관함객을 맞이할 수 있도록 enter 메서드를 구현하자. 
 ```java

@@ -98,7 +98,7 @@ summary:    3장 역할,책임,협력
 
 역할이 중요한 이유는 역할을 통해 유연하고 재사용 가능한 협력을 얻을 수 있기 때문이다. 
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7e5333c5-3f69-44ab-8b7d-fc0ab8c903f5/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7e5333c5-3f69-44ab-8b7d-fc0ab8c903f5/Untitled.png)
+![https://go.aws/2vGk0lf](https://go.aws/2vGk0lf
 
 ### 객체 대 역할
 
