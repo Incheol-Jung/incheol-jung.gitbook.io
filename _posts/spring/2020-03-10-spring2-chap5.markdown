@@ -16,22 +16,21 @@ summary:    5장 AOP와 LTW
 - AOP는 객체지향 디자인 패턴의 데코레이터 패턴 또는 프록시 패턴을 응용해서 기존 코드에 영향을 주지 않은 채로 부가기능을 타깃 오브젝트에 제공할 수 있는 개체지향 프로그래밍 모델로 출발한다. 여기에 포인트컷이라는 적용 대상 선택 기법과 자동 프록시 생성이라는 적용 기법까지 접목하면 비로소 AOP라고 부를 수 있는 효과적인 부가기능 모듈화가 가능해진다.
 
 ### AOP 인터페이스구현과 aop 네임스페이스의 <aop:advisor>태그를 이용하는 방법
-
+```java
     <aop:config>
     	<aop:advisor advice-ref:"transactionAdvice" pointcut="bean(*Service)" />
     </aop:config>
-
+```
 - <aop:advisor> 태그는 pointcut 애트리뷰트를 이용해 포인트컷 표현식을 직접 선언해주면 어드바이저 빈과 함께 포인트컷 빈도 함께 등록해준다.
 - <aop:config>은 자동 프록시 생성기 빈에 해당하는 설정이라고 생각하면 된다.
 - 포인트컷도 원한다면 <aop:pointcut> 태그로 독립하거나 아예 빈으로 따로 설정할 수도 있다.
 
-## 
-
-    public class TestController impletemet Controller 
-    |}
+```java
+    public class TestController impletemet Controller {} 
     
-    @Controller1₩
+    @Controller1
     public class TestController
+```
 
 ### 임의의 자바 클래스와 aop 네임스페이스의 <aop:aspect>를 이용하는 방법
 
@@ -50,16 +49,16 @@ summary:    5장 AOP와 LTW
 - Client와 Target이라는 두 개의 클래스가 있고, 
 Client는 Target을 DI 받아 사용하는 관계라고 생각해보자.
 - 이때 전제조건은 Client가 Target을 직접 알고 있으면 안 된다는 것이다.
-
+```java
     public class Client {
     	@Autowired Target targe;
     	...
     }
     
     public class Target { ... }
-
+```
 - Client가 사용할 오브젝트를 DI 컨테이너와 설정을 통해 바꿀 수 없기 때문에 Target이라는 구체 클래스를 직접 의존하는 대신 Target이 구현하고 있는 인터페이스를 이용해 의존하도록 만들자.
-
+```java
     public class Client {
     	@Autowired Interface intf;
     	...
@@ -73,7 +72,7 @@ Client는 Target을 DI 받아 사용하는 관계라고 생각해보자.
     	private Interface next;
     	public void setNext(interface next) { this.next = next; }
     }
-
+```
 - Proxy는 Interface 인터페이스를 구현했으므로 Client에 주입 가능하다.
 - DI 설정을 조작해서 Client → Proxy → Target 순서로 의존관계를 맺게 하면 Proxy가 Client와 Target의 호출 과정에 끼어들어서 부가기능을 제공할 수 있게 된다.
 
@@ -101,11 +100,11 @@ Client는 Target을 DI 받아 사용하는 관계라고 생각해보자.
 - 클래스를 이용한 프록시를 적용하는 방법
     - 아무런 인터페이스도 구현하지 않은 타깃 클래스에 AOP 적용
     - 강제로 클래스 프록시를 만들도록 설정
-
+```java
         <aop:config proxy-target-class="true">
         	...
         </aop:config>
-
+```
     # 5.1.2 @AspectJ AOP
 
     - 애스팩트는 그 자체로 애플리케이션의 도메인 로직을 담은 핵심기능은 아니지만, 많은 오브젝트에 걸쳐서 필요한 부가기능을 추상화해놓은 것이다.
@@ -117,11 +116,11 @@ Client는 Target을 DI 받아 사용하는 관계라고 생각해보자.
     - @Aspect 클래스는 기본적으로 @Configuration처럼 자바 코드로 만든 메타정보로 활용된다.
     - 특정 클래스를 애스팩트로 사용하려면 먼저 빈으로 등록해야 한다. <bean> 태그를 써도 좋고, @Component를 붙여서 자동스캔 방식으로 등록해도 된다.
     - 포인트컷 : @Pointcut
-
+```java
         // hello에 해당하는 모든 메소드에 적용
         @Pointcut("execution( * hello(..))") 
         private void all() {} 
-
+```
     - 어드바이스
         - @Before : 메소드 실행 되기 전에 실행
         - @AfterReturning : 타깃 오브젝트의 메소드가 실행을 마친 뒤에 실행
@@ -133,7 +132,7 @@ Client는 Target을 DI 받아 사용하는 관계라고 생각해보자.
     - 스프링에서는 프록시 방식의 AOP를 사용하기 때문에 조인 포인트는 메소드 실행 지점뿐이다. 따라서 포인트컷 설명에서 조인 포인트라고 하면 메소드를 가리킨다고 이해하면 된다.
     - execution() : 접근제한자, 리턴 타입, 타입, 메소드, 파라미터 타입, 예외 타입 조건을 조합해서 메소드 단위까지 선책 가능한 가장 정교한 포인컷을 만들 수 있다.
     - within() : 타입 패턴만을 이용해 조인 포인트 메소드를 선책한다. execution()의 여러 조건 중에서 타입 패턴만을 적용한 것이라고 볼 수 있다.
-
+```java
         @Pointcut(within("com.epril.myproject.dao..*))
         private void daoLayer() {}
         
@@ -142,7 +141,7 @@ Client는 Target을 DI 받아 사용하는 관계라고 생각해보자.
         
         @Pointcut(within("com.epril.myproject.web..*))
         private void webLayer() {}
-
+```
     - this, target : this는 빈 오브젝트의 타입을 확인하고, target은 타깃 오브젝트의 타입과 비교한다.
     - args : 메소드의 파라미터 타입만을 이용해 포인트컷을 설정할 때 사용
 
@@ -174,12 +173,12 @@ Client는 Target을 DI 받아 사용하는 관계라고 생각해보자.
         - 그래서 어디서든지 도메인 오브젝트가 생성되면 자동 DI 작업을 수행해주는 어드바이스를 적용해주는 AOP가 필요하다. 이럴 경우에 AspectJ AOP의 도움이 필요하다.
 
     ### DI 애스펙트
-
+```java
         after(Object bean) returning :
         	beanConstruction(bean) && postConstructionCondition() && inConfigurableBean() {
         		configureBean(bean);
         	}
-
+```
     - 위의 코드는 @Configurable이 붙은 클래스의 생성자가 호출돼서 오브젝트가 만들어질 때를 가리키는 포인트컷이다.
     - DependencyinjectionAspect 애스펙트가 적용되면 @Configurable이 붙은 도메인 오브젝트가 어디서든 생성될 때마다 이 어드바이스가 적용되어 자동 DI  작업이 일어난다. 또, 빈의 초기화 메소드가 정의되어 있다면 실행된다.
 
@@ -203,7 +202,7 @@ Client는 Target을 DI 받아 사용하는 관계라고 생각해보자.
 ## @EnableAspectJAutoProxy
 
 - @EnableAspectJAutoProxy는 @Aspect로 애스팩트를 정의할 수 있게 해주는 @AspectJ AOP 컨테이너 인프라 빈을 등록해준다.
-
+```java
     @Aspect
     public class MyAspect {
     	...
@@ -217,15 +216,16 @@ Client는 Target을 DI 받아 사용하는 관계라고 생각해보자.
     	}
     	...
     }
-
+```
 - 자바 코드를 이용해 MyAspect가 애스팩트로 동작하게 하려면 다음과 같이 @Configuration 클래스에 @EnableAspectJAutoProxy를 붙여주고 MyAspect를 빈으로 등록해주면 된다.
 
 ## @EnableLoadTimeWeaving
 
 - @EnableLoadTimeWeaving은 환경에 맞는 로드타임 위버를 등록해주는 어노테이션이다.
-
+```java
     @Configuration
     @EnableLoadTimeWeaving
     public class Appconfig {
     	...
     }
+```
