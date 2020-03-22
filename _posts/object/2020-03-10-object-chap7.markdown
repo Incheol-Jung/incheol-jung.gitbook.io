@@ -46,7 +46,7 @@ summary:    오브젝트의 7장을 요약한 내용 입니다.
 ```
 하향식 기능 분해 방식으로 설계한 시스템은 메인 함수를 루트로 하는 '트리(tree)'로 표현할 수 있다. 트리에서 각 노드(node)는 시스템을 구성하는 하나의 프로시저를 의미하고 한 노드의 자식 노드는 부모 노드를 구현하는 절차중의 한 단계를 의미한다. 
 
-![https://drive.google.com/uc?id=132O8Fh6PvyFaTHPGrXSsGWkdAotSxA7V](https://drive.google.com/uc?id=132O8Fh6PvyFaTHPGrXSsGWkdAotSxA7V)
+![https://drive.google.com/uc?id=17zSq8QOoq2c-Q3qvt8mFnhP8Af_JpU0E](https://drive.google.com/uc?id=17zSq8QOoq2c-Q3qvt8mFnhP8Af_JpU0E)
 
 ## 하향식 기능 분해의 문제점
 
