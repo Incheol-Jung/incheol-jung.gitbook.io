@@ -64,7 +64,7 @@ noneMatch는 allMatch와 반대 연산을 수행한다.
 ```java
     boolean isHealthy = menu.stream().noneMatch(d -> d.getCalories() > 1000);
 ```
-표현식에서 하나라도 거짓이라는 결과가 나오면 나머지 표현식의 결과와 상관없이 전체 결과도 거짓이 된다. 이러한 상황을 **쇼트서킷**이라고 부른다. 
+표현식에서 하나라도 거짓이라는 결과가 나오면 나머지 표현식의 결과와 상관없이 전체 결과도 거짓이 된다. 이러한 상황을 `쇼트서킷`이라고 부른다. 
 allMatch, noneMatch, findFirst, findAny 등의 연산은 모든 스트림의 요소를 처리하지 않고도 결과를 반환할 수 있다. 또는 원하는 요소를 찾았으면 즉시 결과를 반환할 수 있다. 
 특히 무한한 요소를 가진 스트림을 유한한 크기로 줄일 수 있는 유용한 연산이다. 
 
@@ -74,7 +74,7 @@ findAny 메서드는 현재 스트림에서 임의의 요소를 반환한다.
     														.filter(Dish::isVegetarian)
     														.findAny();
 ```
-**findFirst**와 **findAny**는 언제 사용하나??
+`findFirst`와 `findAny`는 언제 사용하나??
 사용의 차이 유무는 병렬성 때문이다. 병렬 실행에서는 첫 번째 요소를 찾기 어렵다. 따라서 요소의 반환 순서가 상관없다면 병렬 스트림에서는 제약이 적은 findAny를 사용한다. 
 
 # Optional이란?

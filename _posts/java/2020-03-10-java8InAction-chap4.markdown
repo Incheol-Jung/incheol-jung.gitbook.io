@@ -23,7 +23,7 @@ summary: 자바 8 인 액션 4장을 요약한 내용 입니다.
 ```java
     List<Dish> lowCaloricDishes = new ArrayList<>();
     for(Dish d: menu) {
-    	**if(d.getCalories() < 400) {
+    	`if(d.getCalories() < 400) {
     		lowCaloricDishes.add(d);
     	}
     }

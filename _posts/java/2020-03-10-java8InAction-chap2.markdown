@@ -92,7 +92,7 @@ summary:    자바 8 인 액션 2장을 요약한 내용 입니다.
 
 익명 클래스는 말 그대로 이름이 없는 클래스다. 익명 클래스를 이용하면 클래스 선언과 인스턴스화를 동시에 할 수 있다. 즉, 즉석에서 필요한 구현을 만들어서 사용할 수 있다. 
 ```java
-    List<Apple> greenApples = filterApples(inventory, **new AppleGreenColorPredicate() {**
+    List<Apple> greenApples = filterApples(inventory, `new AppleGreenColorPredicate() {`
     	public boolean test(Apple apple) {
     		return "green".equals(apple.getColor());
     	}
