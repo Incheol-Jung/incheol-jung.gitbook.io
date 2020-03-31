@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "아이템6 불필요한 객체 생성을 피하라"
 date:       2020-03-10 00:00:00
 categories: effective

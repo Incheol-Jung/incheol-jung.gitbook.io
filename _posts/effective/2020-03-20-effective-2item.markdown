@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "아이템2 생성자에 매개변수가 많다면 빌더를 고려하라"
 date:       2020-03-10 00:00:00
 categories: effective

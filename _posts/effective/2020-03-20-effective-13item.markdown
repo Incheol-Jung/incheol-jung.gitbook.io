@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "아이템13 clone 재정의는 주의해서 진행해라"
 date:       2020-03-10 00:00:00
 categories: effective

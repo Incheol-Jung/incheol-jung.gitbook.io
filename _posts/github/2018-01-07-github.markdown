@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "GITHUB"
 date:       2018-01-11 00:00:00
 categories: github

@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "5회차 ODM 다뤄보기 및 Ajax 사용"
 date:       2018-01-11 00:00:00
 categories: nodejs

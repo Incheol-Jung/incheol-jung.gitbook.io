@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "1회차 개발환경 설정 및 HTML, CSS"
 date:       2018-01-11 00:00:00
 categories: nodejs

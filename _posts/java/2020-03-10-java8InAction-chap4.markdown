@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: reference
 title: "4장 스트림 소개"
 date: 2020-03-10 00:00:00
 categories: java

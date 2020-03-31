@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "7회차 Passport를 이용한 로그인 및 소셜 로그인 구현"
 date:       2018-01-11 00:00:00
 categories: nodejs

@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "9장 유연한 설계"
 date:       2020-03-10 00:00:00
 categories: object

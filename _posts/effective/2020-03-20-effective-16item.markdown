@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "아이템16 public 클래스에서는 public 필드가 아닌 접근자 메서드를 사용하라"
 date:       2020-03-10 00:00:00
 categories: effective

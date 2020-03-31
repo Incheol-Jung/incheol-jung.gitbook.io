@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "13장 함수형 관점으로 생각하기"
 date:       2020-03-10 00:00:00
 categories: java

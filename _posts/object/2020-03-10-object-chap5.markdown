@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: reference
 title: "5장 책임 할당하기"
 date: 2020-03-11 00:00:00
 categories: object

@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "아이템3 private 생성자나 열거 타입으로 싱글턴임을 보증하라"
 date:       2020-03-10 00:00:00
 categories: effective

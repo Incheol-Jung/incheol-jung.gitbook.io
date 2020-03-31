@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "13회차 AWS 배포 - 내가 만든 소스 배포하기"
 date:       2018-01-11 00:00:00
 categories: nodejs

@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "아이템4 인스턴스화를 막으려거든 private 생성자를 사용하라"
 date:       2020-03-10 00:00:00
 categories: effective

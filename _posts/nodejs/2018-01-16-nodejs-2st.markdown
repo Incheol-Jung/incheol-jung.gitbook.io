@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "2회차 JavaScript 기초 및 jQuery"
 date:       2018-01-11 00:00:00
 categories: nodejs

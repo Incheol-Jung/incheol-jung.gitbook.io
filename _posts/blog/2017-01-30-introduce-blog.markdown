@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      Introduce blog
 date:       2017-01-30 00:00:00
 categories: blog

@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "아이템12 toString을 항상 재정의하라"
 date:       2020-03-10 00:00:00
 categories: effective

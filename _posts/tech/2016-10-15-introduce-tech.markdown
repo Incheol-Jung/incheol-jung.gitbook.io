@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "Introduce tech category"
 date:       2016-10-15 00:00:00
 categories: tech

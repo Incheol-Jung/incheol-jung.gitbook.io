@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "11회차 관리자 페이지"
 date:       2018-01-11 00:00:00
 categories: nodejs

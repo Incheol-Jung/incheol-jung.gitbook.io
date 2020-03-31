@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: reference
 title: "6장 스트림으로 데이터 수집"
 date: 2020-03-10 00:00:00
 categories: java

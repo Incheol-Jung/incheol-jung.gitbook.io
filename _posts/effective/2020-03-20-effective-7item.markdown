@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "아이템7 다 쓴 객체 참조를 해제하라"
 date:       2020-03-10 00:00:00
 categories: effective

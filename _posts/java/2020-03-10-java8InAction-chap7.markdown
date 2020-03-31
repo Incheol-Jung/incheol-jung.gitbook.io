@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "7장 병렬 데이터 처리와 성능"
 date:       2020-03-10 00:00:00
 categories: java

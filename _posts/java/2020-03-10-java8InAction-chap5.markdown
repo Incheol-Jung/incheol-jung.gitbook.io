@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "5장 스트림 활용"
 date:       2020-03-10 00:00:00
 categories: java

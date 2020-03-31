@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "11장 CompletableFuture: 조합할 수 있는 비동기 프로그래밍"
 date:       2020-03-10 00:00:00
 categories: java

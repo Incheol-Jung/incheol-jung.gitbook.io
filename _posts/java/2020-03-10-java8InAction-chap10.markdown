@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "10장 null 대신 Optional"
 date:       2020-03-10 00:00:00
 categories: java

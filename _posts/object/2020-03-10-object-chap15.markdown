@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: reference
 title: "15장 디자인 패턴과 프레임워크"
 date: 2020-03-10 00:00:00
 categories: object

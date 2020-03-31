@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "8장 의존성 관리하기"
 date:       2020-03-10 00:00:00
 categories: object

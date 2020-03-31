@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "14회차 Docker로 배포해보기"
 date:       2018-01-11 00:00:00
 categories: nodejs

@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "아이템17 변경 가능성을 최소화하라"
 date:       2020-03-10 00:00:00
 categories: effective

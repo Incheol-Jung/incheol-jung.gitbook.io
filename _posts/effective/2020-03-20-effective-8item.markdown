@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "아이템8 finalizer와 cleaner 사용을 피하라"
 date:       2020-03-10 00:00:00
 categories: effective

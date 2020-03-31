@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "SPRING MVC"
 date:       2018-02-05 00:00:00
 categories: java

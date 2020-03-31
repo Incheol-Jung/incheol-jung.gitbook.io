@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "9장 디폴트 메서드"
 date:       2020-03-10 00:00:00
 categories: java

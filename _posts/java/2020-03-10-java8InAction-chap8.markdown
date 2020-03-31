@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "8장 리팩토링, 테스팅, 디버깅"
 date:       2020-03-10 00:00:00
 categories: java

@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "2장 동작 파라미터화 코드 전달하기"
 date:       2020-03-10 00:00:00
 categories: java

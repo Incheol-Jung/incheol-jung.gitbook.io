@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "12회차 크롤링으로 다른 웹사이트에서 데이터 가져오기"
 date:       2018-01-11 00:00:00
 categories: nodejs

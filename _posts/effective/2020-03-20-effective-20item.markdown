@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "아이템20 추상 클래스보다는 인터페이스를 우선하라"
 date:       2020-03-10 00:00:00
 categories: effective

@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "9회차 비회원 장바구니 및 회원 장바구니 구현"
 date:       2018-01-11 00:00:00
 categories: nodejs

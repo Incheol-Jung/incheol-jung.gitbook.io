@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "6장 메시지와 인터페이스"
 date:       2020-03-11 00:00:00
 categories: object

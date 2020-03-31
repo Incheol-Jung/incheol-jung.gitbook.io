@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "아이템5 자원을 직접 명시하지 말고 의존 객체 주입을 사용하라"
 date:       2020-03-10 00:00:00
 categories: effective

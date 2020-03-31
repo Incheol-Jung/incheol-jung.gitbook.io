@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "14장 함수형 프로그래밍 기법"
 date:       2020-03-10 00:00:00
 categories: java

@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "아이템19 상속을 고려해 설계하고 문서화하라. 그러지 않았다면 상속을 금지하라"
 date:       2020-03-10 00:00:00
 categories: effective

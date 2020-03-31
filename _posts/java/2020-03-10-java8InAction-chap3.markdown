@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "3장 람다 표현식"
 date:       2020-03-10 00:00:00
 categories: java

@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "6장 테스트 컨텍스트 프레임워크"
 date:       2020-03-10 00:00:00
 categories: spring

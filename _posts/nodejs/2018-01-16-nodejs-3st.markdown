@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "3회차 JavaScript 이해 및 MongoDB"
 date:       2018-01-11 00:00:00
 categories: nodejs

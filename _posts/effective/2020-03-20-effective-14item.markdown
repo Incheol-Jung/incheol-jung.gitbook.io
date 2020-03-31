@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "아이템14 Comparable을 구현할지 고려하라"
 date:       2020-03-10 00:00:00
 categories: effective

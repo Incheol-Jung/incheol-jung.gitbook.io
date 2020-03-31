@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "10회차 결제 프로세스의 이해 및 PG사 연동"
 date:       2018-01-11 00:00:00
 categories: nodejs

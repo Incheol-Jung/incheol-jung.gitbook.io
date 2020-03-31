@@ -1,5 +1,5 @@
 ---
-layout:     post
+layout: reference
 title:      "8회차 Socket.io로 구현하는 채팅 및 Express 익숙해지기"
 date:       2018-01-11 00:00:00
 categories: nodejs
