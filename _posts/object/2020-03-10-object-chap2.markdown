@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: reference
 title: "2장 객체지향 프로그래밍"
 date: 2020-03-10 00:00:00
 categories: object
