@@ -4,6 +4,7 @@ title:      "14장 함수형 프로그래밍 기법"
 date:       2020-03-10 00:00:00
 categories: java
 summary:    자바 8 인 액션 14장을 요약한 내용 입니다.
+navigation_weight: 14
 ---
 
 > 자바 8 인 액션 14장을 요약한 내용 입니다.

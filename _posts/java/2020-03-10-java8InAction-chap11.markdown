@@ -4,6 +4,7 @@ title:      "11장 CompletableFuture: 조합할 수 있는 비동기 프로그�
 date:       2020-03-10 00:00:00
 categories: java
 summary:    자바 8 인 액션 11장을 요약한 내용 입니다.
+navigation_weight: 11
 ---
 
 > 자바 8 인 액션 11장을 요약한 내용 입니다.

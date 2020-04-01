@@ -4,6 +4,7 @@ title:      "아이템16 public 클래스에서는 public 필드가 아닌 접�
 date:       2020-03-10 00:00:00
 categories: effective
 summary:    Effective Java 3e 아이템 16을 요약한 내용 입니다.
+navigation_weight: 16
 ---
 
 > Effective Java 3e 아이템 16를 요약한 내용 입니다.

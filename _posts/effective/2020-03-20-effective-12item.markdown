@@ -4,6 +4,7 @@ title:      "아이템12 toString을 항상 재정의하라"
 date:       2020-03-10 00:00:00
 categories: effective
 summary:    Effective Java 3e 아이템 12을 요약한 내용 입니다.
+navigation_weight: 12
 ---
 
 > Effective Java 3e 아이템 12을 요약한 내용 입니다.

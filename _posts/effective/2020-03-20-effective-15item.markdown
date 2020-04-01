@@ -4,6 +4,7 @@ title:      "아이템15 클래스와 멤버의 접근 권한을 최소화하라
 date:       2020-03-10 00:00:00
 categories: effective
 summary:    Effective Java 3e 아이템 15을 요약한 내용 입니다.
+navigation_weight: 15
 ---
 
 > Effective Java 3e 아이템 15를 요약한 내용 입니다.

@@ -4,6 +4,7 @@ title:      "아이템4 인스턴스화를 막으려거든 private 생성자를 
 date:       2020-03-10 00:00:00
 categories: effective
 summary:    Effective Java 3e 아이템 4을 요약한 내용 입니다.
+navigation_weight: 4
 ---
 
 > Effective Java 3e 아이템 4를 요약한 내용 입니다.

@@ -4,6 +4,7 @@ title:      "아이템18 상속보다는 컴포지션을 사용하라"
 date:       2020-03-10 00:00:00
 categories: effective
 summary:    Effective Java 3e 아이템 18을 요약한 내용 입니다.
+navigation_weight: 18
 ---
 
 > Effective Java 3e 아이템 18를 요약한 내용 입니다.

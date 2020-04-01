@@ -4,6 +4,7 @@ title:      "10장 null 대신 Optional"
 date:       2020-03-10 00:00:00
 categories: java
 summary:    자바 8 인 액션 10장을 요약한 내용 입니다.
+navigation_weight: 10
 ---
 
 > 자바 8 인 액션 10장을 요약한 내용 입니다.

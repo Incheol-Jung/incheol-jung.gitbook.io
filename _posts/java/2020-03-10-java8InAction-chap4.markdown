@@ -4,6 +4,7 @@ title: "4장 스트림 소개"
 date: 2020-03-10 00:00:00
 categories: java
 summary: 자바 8 인 액션 4장을 요약한 내용 입니다.
+navigation_weight: 4
 ---
 
 > 자바 8 인 액션 4장을 요약한 내용 입니다.

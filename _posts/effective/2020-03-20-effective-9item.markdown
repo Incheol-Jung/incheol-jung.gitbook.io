@@ -4,6 +4,7 @@ title:      "아이템9 try-finally보다는 try-with-resources를 사용하라"
 date:       2020-03-10 00:00:00
 categories: effective
 summary:    Effective Java 3e 아이템 9을 요약한 내용 입니다.
+navigation_weight: 9
 ---
 
 > Effective Java 3e 아이템 9를 요약한 내용 입니다.

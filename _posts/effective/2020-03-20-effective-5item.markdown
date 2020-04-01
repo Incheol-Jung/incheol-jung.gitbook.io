@@ -4,6 +4,7 @@ title:      "아이템5 자원을 직접 명시하지 말고 의존 객체 주�
 date:       2020-03-10 00:00:00
 categories: effective
 summary:    Effective Java 3e 아이템 5을 요약한 내용 입니다.
+navigation_weight: 5
 ---
 
 > Effective Java 3e 아이템 5를 요약한 내용 입니다.

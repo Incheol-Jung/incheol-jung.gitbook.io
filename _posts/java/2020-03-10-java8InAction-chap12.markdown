@@ -4,6 +4,7 @@ title:      "12장 새로운 날짜와 시간 API"
 date:       2020-03-10 00:00:00
 categories: java
 summary:    자바 8 인 액션 12장을 요약한 내용 입니다.
+navigation_weight: 12
 ---
 
 > 자바 8 인 액션 12장을 요약한 내용 입니다.

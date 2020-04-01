@@ -4,6 +4,7 @@ title: "6장 스트림으로 데이터 수집"
 date: 2020-03-10 00:00:00
 categories: java
 summary: 자바 8 인 액션 6장을 요약한 내용 입니다.
+navigation_weight: 6
 ---
 
 > 자바 8 인 액션 6장을 요약한 내용 입니다.

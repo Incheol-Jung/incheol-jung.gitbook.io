@@ -4,6 +4,7 @@ title:      "2장 동작 파라미터화 코드 전달하기"
 date:       2020-03-10 00:00:00
 categories: java
 summary:    자바 8 인 액션 2장을 요약한 내용 입니다.
+navigation_weight: 1
 ---
 
 > 자바 8 인 액션 2장을 요약한 내용 입니다.

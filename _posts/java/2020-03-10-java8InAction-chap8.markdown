@@ -4,6 +4,7 @@ title:      "8장 리팩토링, 테스팅, 디버깅"
 date:       2020-03-10 00:00:00
 categories: java
 summary:    자바 8 인 액션 8장을 요약한 내용 입니다.
+navigation_weight: 8
 ---
 
 > 자바 8 인 액션 8장을 요약한 내용 입니다.

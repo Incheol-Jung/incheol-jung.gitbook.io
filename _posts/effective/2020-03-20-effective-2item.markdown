@@ -4,6 +4,7 @@ title:      "아이템2 생성자에 매개변수가 많다면 빌더를 고려�
 date:       2020-03-10 00:00:00
 categories: effective
 summary:    Effective Java 3e 아이템 2을 요약한 내용 입니다.
+navigation_weight: 2
 ---
 
 > Effective Java 3e 아이템 2를 요약한 내용 입니다.

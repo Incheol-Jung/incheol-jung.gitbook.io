@@ -4,6 +4,7 @@ title:      "아이템17 변경 가능성을 최소화하라"
 date:       2020-03-10 00:00:00
 categories: effective
 summary:    Effective Java 3e 아이템 17을 요약한 내용 입니다.
+navigation_weight: 17
 ---
 
 > Effective Java 3e 아이템 17를 요약한 내용 입니다.

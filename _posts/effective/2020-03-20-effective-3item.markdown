@@ -4,6 +4,7 @@ title:      "아이템3 private 생성자나 열거 타입으로 싱글턴임을
 date:       2020-03-10 00:00:00
 categories: effective
 summary:    Effective Java 3e 아이템 3을 요약한 내용 입니다.
+navigation_weight: 3
 ---
 
 > Effective Java 3e 아이템 3를 요약한 내용 입니다.

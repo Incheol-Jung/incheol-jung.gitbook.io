@@ -4,6 +4,7 @@ title:      "5장 스트림 활용"
 date:       2020-03-10 00:00:00
 categories: java
 summary:    자바 8 인 액션 5장을 요약한 내용 입니다.
+navigation_weight: 5
 ---
 
 > 자바 8 인 액션 5장을 요약한 내용 입니다.

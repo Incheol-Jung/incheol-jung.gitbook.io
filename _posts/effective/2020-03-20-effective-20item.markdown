@@ -4,6 +4,7 @@ title:      "아이템20 추상 클래스보다는 인터페이스를 우선하�
 date:       2020-03-10 00:00:00
 categories: effective
 summary:    Effective Java 3e 아이템 20을 요약한 내용 입니다.
+navigation_weight: 20
 ---
 
 > Effective Java 3e 아이템 20를 요약한 내용 입니다.

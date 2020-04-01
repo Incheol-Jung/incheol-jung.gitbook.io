@@ -4,6 +4,7 @@ title:      "아이템19 상속을 고려해 설계하고 문서화하라. 그�
 date:       2020-03-10 00:00:00
 categories: effective
 summary:    Effective Java 3e 아이템 19을 요약한 내용 입니다.
+navigation_weight: 19
 ---
 
 > Effective Java 3e 아이템 19를 요약한 내용 입니다.

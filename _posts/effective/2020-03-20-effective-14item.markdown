@@ -4,6 +4,7 @@ title:      "아이템14 Comparable을 구현할지 고려하라"
 date:       2020-03-10 00:00:00
 categories: effective
 summary:    Effective Java 3e 아이템 14을 요약한 내용 입니다.
+navigation_weight: 14
 ---
 
 > Effective Java 3e 아이템 14를 요약한 내용 입니다.
