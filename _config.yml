@@ -20,7 +20,13 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "/" # the base hostname & protocol for your site
 twitter_username: 
 github_username:  Jung-Inchul
-google_analytics: 'G-17X66FGL75'
+
+# Analytics
+analytics:
+  provider               : "google-gtag" # 구글 어날리틱스 등록 false (default), "google", "google-universal", "custom"
+  google:
+    tracking_id          : "G-17X66FGL75"
+    anonymize_ip         : # true, false (default)
 
 # Build settings
 markdown: kramdown
