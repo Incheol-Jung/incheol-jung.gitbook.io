@@ -4,6 +4,7 @@ title:      "마치며"
 date:       2020-03-10 00:00:00
 categories: object
 summary:    오브젝트의 마지막장을 요약한 내용 입니다.
+navigation_weight: 16
 ---
 
 > 오브젝트 마지막장 요약한 내용 입니다.

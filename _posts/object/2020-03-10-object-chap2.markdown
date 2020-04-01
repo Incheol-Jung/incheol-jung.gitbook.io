@@ -4,6 +4,7 @@ title: "2장 객체지향 프로그래밍"
 date: 2020-03-10 00:00:00
 categories: object
 summary: 오브젝트의 2장을 요약한 내용 입니다.
+navigation_weight: 2
 ---
 
 > 오브젝트의 2장을 요약한 내용 입니다.

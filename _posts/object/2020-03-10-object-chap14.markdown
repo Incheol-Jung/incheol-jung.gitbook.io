@@ -4,6 +4,7 @@ title:      "14장 일관성 있는 협력"
 date:       2020-03-10 00:00:00
 categories: object
 summary:    오브젝트의 14장을 요약한 내용 입니다.
+navigation_weight: 14
 ---
 
 > 오브젝트 14장을 요약한 내용 입니다.

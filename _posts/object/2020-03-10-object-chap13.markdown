@@ -4,6 +4,7 @@ title:      "13장 서브클래싱과 서브타이핑"
 date:       2020-03-10 00:00:00
 categories: object
 summary:    오브젝트의 13장을 요약한 내용 입니다.
+navigation_weight: 13
 ---
 
 > 오브젝트 13장을 요약한 내용 입니다.
@@ -48,37 +49,37 @@ summary:    오브젝트의 13장을 요약한 내용 입니다.
 행동이 호환된다는 것은 무슨 의미일까? 단순히 동일한 메서드를 구현하고 있으면 행동이 호환되는 것일까?
 
 여기서 중요한 것은 행동의 호환 여부를 판단하는 기준은 `클라이언트의 관점`이라는 것이다. 
-
-    public void flyBird(Bird bird) {
-    	// 인자로 전달된 모든 bird는 날 수 있어야 한다. 
-    	bird.fly();
-    }
-
+```java
+public void flyBird(Bird bird) {
+    // 인자로 전달된 모든 bird는 날 수 있어야 한다. 
+    bird.fly();
+}
+```
 하지만 `Bird` 클래스를 상속 받은 `Penguin` 클래스가 있다고 생각해보자. 펭귄은 새 이지만 날수는 없다. 이는 잘못된 잘못된 상속으로 인한 `행동 호환성에 오류`가 발생하는 대표적인 사례이다. 
 
 ### 클라이언트의 기대에 따라 계층 분리하기
 
 문제를 해결할 수 있는 방법은 `클라이언트의 기대`에 맞게 상속 계층을 `분리`하는 것뿐이다. 따라서 날 수 있는 새와 날 수 없는 새를 명확하게 구분할 수 있게 상속 계층을 분리하면 서로 다른 요구사항을 가진 클라이언트를 만족시킬 수 있을 것이다. 
+```java
+public class Bird {
+    ...
+}
 
-    public class Bird {
-    	...
-    }
-    
-    public class FlyingBird extends Bird {
-    	public void fly() { ... }
-    	...
-    }
-    
-    public class Penguin extends Bird {
-    	...
-    }
+public class FlyingBird extends Bird {
+    public void fly() { ... }
+    ...
+}
 
+public class Penguin extends Bird {
+    ...
+}
+```
 이제 flyBird 메서드는 FlyingBird 타입을 이용해 날 수 있는 새만 인자로 전달 될 것이다. 
-
-    public void flyBird(FlyingBird bird) {
-    	bird.fly();
-    }
-
+```java
+public void flyBird(FlyingBird bird) {
+    bird.fly();
+}
+```
 ![https://i.ibb.co/ZfkQKBH/1.png](https://i.ibb.co/ZfkQKBH/1.png)
 
 하나의 클라이언트가 오직 `fly` 메시지만 전송하기를 원한다면 이 클라이언트에게는 `fly` 메시지만 보여야 한다. 다른 클라이언트가 오직 `walk` 메시지만 전송하기를 원한다면 이 클라이언트에게는 `walk` 메시지만 보여야 한다. 

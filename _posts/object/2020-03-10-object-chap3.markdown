@@ -4,6 +4,7 @@ title: "3장 역할,책임,협력"
 date: 2020-03-10 00:00:00
 categories: object
 summary: 오브젝트의 3장을 요약한 내용 입니다.
+navigation_weight: 3
 ---
 
 > 오브젝트의 3장을 요약한 내용 입니다.

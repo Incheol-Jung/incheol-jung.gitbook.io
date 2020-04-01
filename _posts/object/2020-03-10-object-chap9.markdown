@@ -4,6 +4,7 @@ title:      "9장 유연한 설계"
 date:       2020-03-10 00:00:00
 categories: object
 summary:    오브젝트의 9장을 요약한 내용 입니다.
+navigation_weight: 9
 ---
 
 > 오브젝트 9장을 요약한 내용 입니다.

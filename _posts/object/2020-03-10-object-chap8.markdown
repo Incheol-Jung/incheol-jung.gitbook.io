@@ -4,6 +4,7 @@ title:      "8장 의존성 관리하기"
 date:       2020-03-10 00:00:00
 categories: object
 summary:    오브젝트의 8장을 요약한 내용 입니다.
+navigation_weight: 8
 ---
 
 > 오브젝트 7장을 요약한 내용 입니다.

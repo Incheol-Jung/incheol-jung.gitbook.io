@@ -4,6 +4,7 @@ title: "7장 객체 분해"
 date: 2020-03-10 00:00:00
 categories: object
 summary: 오브젝트의 7장을 요약한 내용 입니다.
+navigation_weight: 7
 ---
 
 > 오브젝트 7장을 요약한 내용 입니다.
