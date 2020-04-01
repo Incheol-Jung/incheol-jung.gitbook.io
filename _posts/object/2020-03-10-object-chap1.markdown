@@ -29,25 +29,25 @@ Bag 인스턴스의 상태는 현금과 초대장을 함께 보관하거나, 초
 소극장을 구현하는 클래스는 Theater다. Therater 클래스가 관함객을 맞이할 수 있도록 enter 메서드를 구현하자.
 
 ```java
-    public class Theater {
-    	private TicketSeller ticketSeller;
+public class Theater {
+	private TicketSeller ticketSeller;
 
-    	public Theater(TicketSeller ticketSeller) {
-    		this.ticketSeller = ticketSeller;
-    	}
+	public Theater(TicketSeller ticketSeller) {
+		this.ticketSeller = ticketSeller;
+	}
 
-    	public void enter(Audience audience) {
-    		if(audience.getBag().hasInvitation()) {
-    			Ticket ticket = ticketSeller.getTicketOffice().getTicket();
-    			audience.getBag().getTicket(ticket);
-    		} else {
-    			Ticket ticket = ticketSeller.getTicketOffice().getTicket();
-    			audience.getBag().minusAmount(ticket.getFee());
-    			ticketSeller.getTicketOffice().plusAmount(ticket.getFee());
-    			audience.getBag().setTicket(ticket);
-    		}
-    	}
-    }
+	public void enter(Audience audience) {
+		if(audience.getBag().hasInvitation()) {
+			Ticket ticket = ticketSeller.getTicketOffice().getTicket();
+			audience.getBag().getTicket(ticket);
+		} else {
+			Ticket ticket = ticketSeller.getTicketOffice().getTicket();
+			audience.getBag().minusAmount(ticket.getFee());
+			ticketSeller.getTicketOffice().plusAmount(ticket.getFee());
+			audience.getBag().setTicket(ticket);
+		}
+	}
+}
 ```
 
 - 소극장은 먼저 관람객의 가반 안에 초대장이 들어 있는지 확인한다.
@@ -109,37 +109,37 @@ Theater의 enter 메서드를 이해하기 위해서는 Audience가 Bag을 가�
 Theater의 enter 메서드에서 TicketOffice에 접근하는 모든 코드를 TicketSeller 내부로 숨기는 것이다. TicketSeller에 sellTo 메서드를 추가하고 Thater에 있던 로직을 이 메서드로 옮기자
 
 ```java
-    public class TheaterSeller {
-    	private TicketOffice ticketOffice;
+public class TheaterSeller {
+	private TicketOffice ticketOffice;
 
-    	public Theater(TicketOffice ticketOffice) {
-    		this.ticketOffice = ticketOffice;
-    	}
+	public Theater(TicketOffice ticketOffice) {
+		this.ticketOffice = ticketOffice;
+	}
 
-    	public void sellTo(Audience audience) {
-    		if(audience.getBag().hasInvitation()) {
-    			Ticket ticket = ticketOffice.getTicket();
-    			audience.getBag().getTicket(ticket);
-    		} else {
-    			Ticket ticket = ticketOffice.getTicket();
-    			audience.getBag().minusAmount(ticket.getFee());
-    			ticketOffice.plusAmount(ticket.getFee());
-    			audience.getBag().setTicket(ticket);
-    		}
-    	}
-    }
+	public void sellTo(Audience audience) {
+		if(audience.getBag().hasInvitation()) {
+			Ticket ticket = ticketOffice.getTicket();
+			audience.getBag().getTicket(ticket);
+		} else {
+			Ticket ticket = ticketOffice.getTicket();
+			audience.getBag().minusAmount(ticket.getFee());
+			ticketOffice.plusAmount(ticket.getFee());
+			audience.getBag().setTicket(ticket);
+		}
+	}
+}
 
-    public class Theater {
-    	private TicketSeller ticketSeller;
+public class Theater {
+	private TicketSeller ticketSeller;
 
-    	public Theater(TicketSeller ticketSeller) {
-    		this.ticketSeller = ticketSeller;
-    	}
+	public Theater(TicketSeller ticketSeller) {
+		this.ticketSeller = ticketSeller;
+	}
 
-    	public void enter(Audience audience) {
-    		ticketSeller.sellTo(audience);
-    	}
-    }
+	public void enter(Audience audience) {
+		ticketSeller.sellTo(audience);
+	}
+}
 ```
 
 이처럼 개념적이나 물리적으로 객체 내부의 세부적인 사항을 감추는 것을 `캡슐화`라고 부른다. 캡슐화를 통해 객체 내부로의 접근을 제한하면 객체와 객체 사이의 결합도를 낮출 수 있기 때문에 설계를 좀 더 쉽게 변경할 수 있게 된다.
@@ -149,36 +149,36 @@ Theater는 오직 TicketSeller의 인터페이스에만 의존한다. TicketSell
 TicketSeller 다음으로 Audience의 캡슐화를 개선하자
 
 ```java
-    public class Audience {
-    	private Bag bag;
+public class Audience {
+	private Bag bag;
 
-    	public Audience(Bag bag) {
-    		this.bag = bag;
-    	}
+	public Audience(Bag bag) {
+		this.bag = bag;
+	}
 
-    	public Long buy(Ticket ticket) {
-    		if(bag.hasInvitation()) {
-    			bag.getTicket(ticket);
-    			return 0;
-    		} else {
-    			bag.minusAmount(ticket.getFee());
-    			bag.setTicket(ticket);
-    			return ticket.getFee();
-    		}
-    	}
-    }
+	public Long buy(Ticket ticket) {
+		if(bag.hasInvitation()) {
+			bag.getTicket(ticket);
+			return 0;
+		} else {
+			bag.minusAmount(ticket.getFee());
+			bag.setTicket(ticket);
+			return ticket.getFee();
+		}
+	}
+}
 
-    public class TheaterSeller {
-    	private TicketOffice ticketOffice;
+public class TheaterSeller {
+	private TicketOffice ticketOffice;
 
-    	public Theater(TicketOffice ticketOffice) {
-    		this.ticketOffice = ticketOffice;
-    	}
+	public Theater(TicketOffice ticketOffice) {
+		this.ticketOffice = ticketOffice;
+	}
 
-    	public void sellTo(Audience audience) {
-    		iticketOffice.plusAmount(audience.buy(ticket.getFee()));
-    	}
-    }
+	public void sellTo(Audience audience) {
+		iticketOffice.plusAmount(audience.buy(ticket.getFee()));
+	}
+}
 ```
 
 수정된 Audience와 TicketSeller는 자신이 가지고 있는 소지품을 스스로 관리한다. 따라서 코드를 읽는 사람과의 의사소통이라는 관점에서 이 코드는 확실히 개선된 것으로 보인다. 더 중요한 점은 Audience나 TicketSeller의 내부 구현을 변경하더라도 Theater를 함께 변경할 필요가 없어졌다는 것이다. 따라서 수정된 코드는 변경 용이성의 측면에서도 확실히 개선됐다고 말할 수 있다.
@@ -220,47 +220,47 @@ Audience는 스스로 티켓을 구매하고 가방안의 내용물을 직접 �
 Bag을 자율적인 존재로 바꿔보자
 
 ```java
-    public class Bag {
-    	private Long amount;
-    	private Ticket ticket;
-    	private Invitation invitation;
+public class Bag {
+	private Long amount;
+	private Ticket ticket;
+	private Invitation invitation;
 
-    	public Long hold(Ticket ticket) {
-    		if(hasInvitation()) {
-    			setTicket(ticket);
-    			return 0;
-    		} else {
-    			setTicket(ticket);
-    			minusAmount(ticket.getFee());
-    			return ticket.getFee();
-    		}
-    	}
+	public Long hold(Ticket ticket) {
+		if(hasInvitation()) {
+			setTicket(ticket);
+			return 0;
+		} else {
+			setTicket(ticket);
+			minusAmount(ticket.getFee());
+			return ticket.getFee();
+		}
+	}
 
-     ...
-    }
+	...
+}
 
-    public class Audience {
-    	public Long buy(Ticket ticket) {
-    		return bag.hold(ticket);
-    	}
-    }
+public class Audience {
+	public Long buy(Ticket ticket) {
+		return bag.hold(ticket);
+	}
+}
 ```
 
 TicketSeller 역시 TicketOffice의 자율권을 침해하였다
 
 ```java
-    public class TicketOffice {
-    	public void sellTicketTo(Audience audience) {
-    		plusAmount(audience.buy(getTicket()));
-    	}
-    	...
-    }
+public class TicketOffice {
+	public void sellTicketTo(Audience audience) {
+		plusAmount(audience.buy(getTicket()));
+	}
+	...
+}
 
-    public class TicketSeller {
-    	public void sellTo(Audience audience) {
-    		ticketOffice.sellTicketTo(audience));
-    	}
-    }
+public class TicketSeller {
+	public void sellTo(Audience audience) {
+		ticketOffice.sellTicketTo(audience));
+	}
+}
 ```
 
 ## 객제치향 설계

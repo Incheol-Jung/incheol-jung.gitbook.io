@@ -40,16 +40,16 @@ summary: 오브젝트의 2장을 요약한 내용 입니다.
 Screening의 reserve 메서드는 영화를 예매한 후 예매 정보를 담고 있는 Resercation의 인스턴스를 생성해서 반환한다.
 
 ```java
-    public class Screenning {
-    	public Reservation reserve(Customer customer, int audienceCount){
-    		return Reservation(customer, this, calculateFee(audienceCount), audienceCount);
-    	}
+public class Screenning {
+	public Reservation reserve(Customer customer, int audienceCount){
+		return Reservation(customer, this, calculateFee(audienceCount), audienceCount);
+	}
 
-    	private Money calculateFee(int audienceCount) {
-    		return movie.calculateMovieFee(this).times(audienceCount);
-    	}
+	private Money calculateFee(int audienceCount) {
+		return movie.calculateMovieFee(this).times(audienceCount);
+	}
 
-    }
+}
 ```
 
 영화를 예매하기 위해 Screening, Movie, Reservation 인스턴스들은 서로의 메서드를 호출하며 상호작용한다. 이처럼 시스템의 어떤 기능을 구현하기 위해 객체들 사이에 이뤄지는 상호작용을 협력이라고 부른다
@@ -61,16 +61,16 @@ Screening의 reserve 메서드는 영화를 예매한 후 예매 정보를 담�
 ## 할인 요금 계산을 위한 협력 시작하기
 
 ```java
-    public class Movie {
-    	private Money fee;
-    	private DiscountPolicy discountpolicy
+public class Movie {
+	private Money fee;
+	private DiscountPolicy discountpolicy
 
-    	...
+	...
 
-      public Money calculateMovieFee(Screening screnning) {
-    		return fee.minus(discountPolicy.calculateDiscountAmount(screening));
-    	}
-    }
+	public Money calculateMovieFee(Screening screnning) {
+		return fee.minus(discountPolicy.calculateDiscountAmount(screening));
+	}
+}
 ```
 
 이 메서드 안에는 한 가지 이상한 점이 있다. 어떤 할인 정책을 사용할 것인지 결정하는 코드가 어디에도 존재하지 않는다는 것이다. 단지 discountPolicy에게 메시지를 전송할 뿐이다.
@@ -82,24 +82,24 @@ Screening의 reserve 메서드는 영화를 예매한 후 예매 정보를 담�
 여기서는 부모 부모 클래스인 DiscountPolicy 안에 중복 코드를 두고 AmountDiscountPolicy와 PercentDiscountPolicy가 이 클래스를 상속받게 할 것이다.
 
 ```java
-    public abstract class DiscountPolicy {
-    	private List<DiscountCondition> conditions = new ArrayList<>();
+public abstract class DiscountPolicy {
+	private List<DiscountCondition> conditions = new ArrayList<>();
 
-    	public DiscountPolicy(DiscountCondition ... conditions) {
-    		this.conditions = Arrays.asList(conditions);
-    	}
+	public DiscountPolicy(DiscountCondition ... conditions) {
+		this.conditions = Arrays.asList(conditions);
+	}
 
-    	public Monet calculateDiscountAmount(Screening screening) {
-    		for(DiscountCondition each : conditions) {
-    			if (each.isSatisfiedBy(screening)) {
-    				return getDiscountAmount(screening);
-    			}
-    		}
-    		return Money.ZERO;
-    	}
+	public Monet calculateDiscountAmount(Screening screening) {
+		for(DiscountCondition each : conditions) {
+			if (each.isSatisfiedBy(screening)) {
+				return getDiscountAmount(screening);
+			}
+		}
+		return Money.ZERO;
+	}
 
-    	abstract protected Money getDiscountAmount(Screeing screening);
-    }
+	abstract protected Money getDiscountAmount(Screeing screening);
+}
 ```
 
 이처럼 부모 클래스에 기본적인 알고리즘의 흐름을 구현하고 중간에 필요한 처리를 자식 클래스에게 위임하는 디자인 패턴을 `TEMPLATE METHOD 패턴`이라고 부른다.
@@ -107,20 +107,20 @@ Screening의 reserve 메서드는 영화를 예매한 후 예매 정보를 담�
 영화 예매 시스템에는 순번 조건과 기간 조건의 두 가지 할인 조건이 존재한다. 두 가지 할인 조건은 각각 `SequenceCondition`과 `PeriodCondition`이라는 클래스로 구현할 것이다.
 
 ```java
-    public interface DiscountCondition {
-    	boolean isStisfiedBy(Screening screening);
-    }
+public interface DiscountCondition {
+	boolean isStisfiedBy(Screening screening);
+}
 ```
 
 ```java
-    Movie avatar = new Movie("아바타",
-    		Duration.ofMinutes(120),
-    		Money.wons(10000),
-    		new AmountDiscountPolicy(Money.wons(800),
-    			new SequenceCondition(1),
-    			new SequenceCondition(10),
-    			new PeriodCondition(DayOfWeek.MONDAY, LocalTime.of(10,0), LocalTime.of(11,59)),
-    			new PeriodCondition(DayOfWeek.THURSDAY, LocalTime.of(10,0), LocalTime.of(11,59)));
+Movie avatar = new Movie("아바타",
+		Duration.ofMinutes(120),
+		Money.wons(10000),
+		new AmountDiscountPolicy(Money.wons(800),
+			new SequenceCondition(1),
+			new SequenceCondition(10),
+			new PeriodCondition(DayOfWeek.MONDAY, LocalTime.of(10,0), LocalTime.of(11,59)),
+			new PeriodCondition(DayOfWeek.THURSDAY, LocalTime.of(10,0), LocalTime.of(11,59)));
 ```
 
 ![https://drive.google.com/uc?id=15D2S4cNN6WN4_GuWLjN7ZMhhRraQ1dGE](https://drive.google.com/uc?id=15D2S4cNN6WN4_GuWLjN7ZMhhRraQ1dGE)
@@ -171,13 +171,13 @@ Screening의 reserve 메서드는 영화를 예매한 후 예매 정보를 담�
 반면 합성을 사용하면 이를 해결할 수 있다.
 
 ```java
-    public class Movie {
-    	private DiscountPolicy discountpolicy;
+public class Movie {
+	private DiscountPolicy discountpolicy;
 
-    	public void changeDiscountPolicy(DiscountPolicy discountPolicy) {
-    		this.discountPolicy = discountPolicy;
-    	}
-    }
+	public void changeDiscountPolicy(DiscountPolicy discountPolicy) {
+		this.discountPolicy = discountPolicy;
+	}
+}
 ```
 
 ### 합성

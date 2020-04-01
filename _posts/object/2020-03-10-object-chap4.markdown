@@ -60,17 +60,17 @@ summary: 오브젝트의 4장을 요약한 내용 입니다.
 그리고 더 나쁜 소식은 단지 객체의 내부 구현을 변경 했음에도 이 인터페이스에 의존하는 모든 클라이언트들도 함께 변경해야 한다는 것이다.
 
 ```java
-    public class Movie {
-    	private Money fee;
+public class Movie {
+	private Money fee;
 
-    	public Money getFee() {
-    		return fee;
-    	}
+	public Money getFee() {
+		return fee;
+	}
 
-    	pubic void setfee(Money fee) {
-    		this.fee = fee;
-    	}
-    }
+	pubic void setfee(Money fee) {
+		this.fee = fee;
+	}
+}
 ```
 
 ### 낮은 응집도
@@ -88,25 +88,25 @@ summary: 오브젝트의 4장을 요약한 내용 입니다.
 ### 아래와 같은 코드는 어떤 문제가 있을까?
 
 ```java
-    public Rectangle {
-    	private int left;
-    	private int top;
-    	private int right;
-    	private int bottom;
+public Rectangle {
+	private int left;
+	private int top;
+	private int right;
+	private int bottom;
 
-    	public int getLeft() { return left; }
-    	public void setLeft(int left) { this.left = left; }
+	public int getLeft() { return left; }
+	public void setLeft(int left) { this.left = left; }
 
-    	public int getTop() { return top; }
-    	public void setTop(int top) { this.top = top; }
+	public int getTop() { return top; }
+	public void setTop(int top) { this.top = top; }
 
-    	public int getRight() { return right; }
-    	public void setRight(int right) { this.right = right; }
+	public int getRight() { return right; }
+	public void setRight(int right) { this.right = right; }
 
-    	public int getBottom() { return bottom; }
-    	public void setBottom(int bottom) { this.bottom = bottom; }
+	public int getBottom() { return bottom; }
+	public void setBottom(int bottom) { this.bottom = bottom; }
 
-    }
+}
 ```
 
 첫 번째는 '`코드 중복`'이 발생할 확률이 높다는 것이다.

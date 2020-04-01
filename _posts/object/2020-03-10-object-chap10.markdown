@@ -76,21 +76,21 @@ NightlyDiscountPhone을 Phone의 자식 클래스로 만든 이유는 Phone의 `
 
 java.util.Properties와 java.util.Stack은 대표적인 잘못된 상속의 예이다. 
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0d7b0eae-d012-4d4c-bdf6-bf52eb17e888/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0d7b0eae-d012-4d4c-bdf6-bf52eb17e888/Untitled.png)
+![https://i.ibb.co/K0VNzby/7.png](https://i.ibb.co/K0VNzby/7.png)
 
 자바의 초기 컬렉션 프레임워크 개발자들은 요소의 추가, 삭제 오퍼레이션을 제공하는 Vector를 재사용하기 위해 `Stack`을 `Vector`의 자식 클래스로 구현했다. 
 
 Vector는 임의의 위치(index)에서 요소를 조회하고, 추가하고, 삭제할 수 있는 get, add, remove 오퍼레이션을 제공한다. 이에 비해 Stack은 맨 마지막 위치 에서만 요소를 추가하거나 제거할 수 있는 push, pop 오퍼레이션을 제공한다. 
+```java
+Stack<String> stack = new Stack<>();
+stack.push("1st");
+stack.push("2nd");
+stack.push("3rd");
 
-    Stack<String> stack = new Stack<>();
-    stack.push("1st");
-    stack.push("2nd");
-    stack.push("3rd");
-    
-    stack.add(0, "4th");
-    
-    assertEquals("4th", stack.pop()); // 에러!
+stack.add(0, "4th");
 
+assertEquals("4th", stack.pop()); // 에러!
+```
 위 코드에서 Stack에 마지막으로 추가한 값은 "4th"지만 pop 메서드의 반환값은 "3rd"다. 그 이유는 Vector의 add 메서드를 이용해서 스택의 맨 앞에 "4th"를 추가했기 때문이다. 
 
 ## 메서드 오버라이딩의 오작용 문제
@@ -114,7 +114,7 @@ Vector는 임의의 위치(index)에서 요소를 조회하고, 추가하고, �
 
 부모 클래스를 추가하자. 목표는 모든 클래스들이 추상화에 의존하도록 만드는 것이기 때문에 이 클래스는 추상 클래스로 구현하는 것이 적합할 것이다. 
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4b6cdbfb-825a-4ebe-8ea7-45b5dd33575b/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4b6cdbfb-825a-4ebe-8ea7-45b5dd33575b/Untitled.png)
+![https://i.ibb.co/pQ6FKQM/8.png](https://i.ibb.co/pQ6FKQM/8.png)
 
 > 모든 하위 클래스가 이 행동을 할 수 있게 만들려면 여러 개의 중복 코드를 양산하거나 이 행동을 상위 클래스로 올리는 수밖에 없다.
 

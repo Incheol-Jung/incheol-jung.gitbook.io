@@ -30,11 +30,11 @@ summary:    오브젝트의 6장을 요약한 내용 입니다.
 
 다음은 디미터 법칙을 위반하는 코드의 전형적인 모습이다. 
 ```java
-    screening.getMovie().getDiscountConditions();
+screening.getMovie().getDiscountConditions();
 ```
 디미터 법칙을 따르도록 코드를 개선하면 메시지 전송자는 더 이상 메시지 수신자의 내부 구조에 관해 묻지 않게 된다. 
 ```java
-    screening.calculateFee(audienceCount);
+screening.calculateFee(audienceCount);
 ```
 정보를 처리하는 데 필요한 책임을 정보를 알고 있는 객체에게 할당하기 때문에 `응집도가 높은 객체`가 만들어진다. 
 
@@ -48,13 +48,13 @@ summary:    오브젝트의 6장을 요약한 내용 입니다.
 
 인터페이스의 메서드명은 어떻게 작성하는게 좋을까?
 ```java
-    public class PeriodCondition {
-    	public boolean isSatisfiedByPeriod(Screening screening) { ... }
-    }
-    
-    public class SequenceCondition {
-    	public boolean isSatisfiedBySequence(Screening screening) { ... }
-    }
+public class PeriodCondition {
+    public boolean isSatisfiedByPeriod(Screening screening) { ... }
+}
+
+public class SequenceCondition {
+    public boolean isSatisfiedBySequence(Screening screening) { ... }
+}
 ```
 위와 같은 코드가 좋지 않은 이유를 두 가지로 요약할 수 있다. 
 
@@ -65,13 +65,13 @@ summary:    오브젝트의 6장을 요약한 내용 입니다.
 
 클라이언트의 관점에서 두 메서드는 할인 여부를 판단하기 위한 작업을 수행한다. 
 ```java
-    public class PeriodCondition {
-    	public boolean isSatisfiedBy(Screening screening) { ... }
-    }
-    
-    public class SequenceCondition {
-    	public boolean isSatisfiedBy(Screening screening) { ... }
-    }
+public class PeriodCondition {
+    public boolean isSatisfiedBy(Screening screening) { ... }
+}
+
+public class SequenceCondition {
+    public boolean isSatisfiedBy(Screening screening) { ... }
+}
 ```
 메서드가 어떻게 수행하느냐가 아니라 `무엇을 하느냐`에 초엄을 맞추면 클라이언트의 관점에서 동일한 작업을 수행하는 메서드들을 하나의 타입 계층으로 묶을 수 있는 가능성이 커진다. 
 
@@ -83,7 +83,7 @@ summary:    오브젝트의 6장을 요약한 내용 입니다.
 
 ## 디미터 법칙은 하나의 도트(.)를 강제하는 규칙이 아니다
 ```java
-    IntStream.of(1, 15, 20, 3, ().filter(x -> x > 10).distinct().count();
+IntStream.of(1, 15, 20, 3, ().filter(x -> x > 10).distinct().count();
 ```
 디미터 법칙은 결합도와 관련된 것이며 이 결합도가 문제가 되는 것은 객체의 내부 구조가 외부로 노출되는 경우로 한정된다. `기차 충돌`처럼 보이는 코드라도 객체의 내부 구현에 대한 어떤 정보도 외부로 노출하지 않는다면 그것은 디미터 법칙을 준수한 것이다. 
 
@@ -91,19 +91,19 @@ summary:    오브젝트의 6장을 요약한 내용 입니다.
 
 일반적으로 어떤 객체의 상태를 물어본 후 반환된 객체의 상태를 물어본 후 반환된 상태를 기반으로 결정을 내리고 그 결정에 따라 객체의 상태를 변경하는 코드는 묻지 말고 시켜라 스타일로 변경해야 한다. 
 ```java
-    public class Theater {
-    	public void enter(Audience audience) {
-    		if(audience.getBag().hasInvitation()) {
-    			...
-    }
+public class Theater {
+    public void enter(Audience audience) {
+        if(audience.getBag().hasInvitation()) {
+            ...
+}
 ```
 Theater는 Audience 내부에 포함된 Bag에 대해 질문한 후 반환된 결과를 이용해 Bag의 상태를 변경한다. 
 ```java
-    public class Audience {
-    	public Long buy(Ticket ticket) {
-    		if(bag.hasInvitation()) {
-    			...
-    }
+public class Audience {
+    public Long buy(Ticket ticket) {
+        if(bag.hasInvitation()) {
+            ...
+}
 ```
 이 예제에서 알 수 있는 것처럼 `위임 메서드`를 통해 내부 구조를 감추는 것은 협력에 참여하는 객체들의 결합도를 낮출 수 있는 동시에 객체의 응집도를 높일 수 있는 가장 효과적인 방법이다. 
 
@@ -131,18 +131,18 @@ Theater는 Audience 내부에 포함된 Bag에 대해 질문한 후 반환된 �
 
 어떤 회사에서 주기적으로 이벤트를 추가하는 기능을 추가하였다. 해당 이벤트 클래스는 현재 정의한 스케줄이 설정되어 있는지 검사하는 isSatisfied 메서드를 제공하였다고 가정하자
 ```java
-    public class Event {
-    	public boolean isSaisfied(RecurringSchedule schedule) {
-    		if(조건에 만족하는 스케줄이 없다?) {
-    			reschedule(schedule);
-    			return false;
-    		}
-    		
-    		return true;
-    	}
-    
-    	private void reschedule(RecurringSchedule schedule) { ... }
+public class Event {
+    public boolean isSaisfied(RecurringSchedule schedule) {
+        if(조건에 만족하는 스케줄이 없다?) {
+            reschedule(schedule);
+            return false;
+        }
+        
+        return true;
     }
+
+    private void reschedule(RecurringSchedule schedule) { ... }
+}
 ```
 이 메서드는 만족하는 스케줄이 없을 경우 reschedule(현재 스케줄 수정)하면서 false를 리턴하게 된다. 
 
@@ -154,10 +154,10 @@ Theater는 Audience 내부에 포함된 Bag에 대해 질문한 후 반환된 �
 
 가장 깔끔한 해결책은 명령과 쿼리를 명확하게 분리하는 것이다. 
 ```java
-    public class Event {
-    	public boolean isSaisfied(RecurringSchedule schedule) { ... }
-    	public void reschedule(RecurringSchedule schedule) { ... }
-    }
+public class Event {
+    public boolean isSaisfied(RecurringSchedule schedule) { ... }
+    public void reschedule(RecurringSchedule schedule) { ... }
+}
 ```
 반환 값을 돌려주는 메서드는 쿼리이므로 부수 효과에 대한 부담이 없다. 따라서 몇 번을 호출하더라도 다른 부분에 영향을 미치지 않는다. 
 
@@ -169,15 +169,15 @@ Theater는 Audience 내부에 포함된 Bag에 대해 질문한 후 반환된 �
 
 참조 투명성이란 "`어떤 표현식 e가 있을 때 e의 값으로 e가 나타나는 모든 위치를 교체하더라도 결과가 달라지지 않는 특성`"을 의미한다. 
 ```java
-    f(1) + f(1) = 6
-    f(1) * 2 = 6
-    f(1) - 1 = 2
-    
-    // 계산한 결과 f(1) = 3이라는 결과값을 도출할 수 있었다. 이제 f(1)을 3으로 변경해보자.
-    
-    3 + 3 = 6
-    3 * 2 = 6
-    3 - 1 = 2
+f(1) + f(1) = 6
+f(1) * 2 = 6
+f(1) - 1 = 2
+
+// 계산한 결과 f(1) = 3이라는 결과값을 도출할 수 있었다. 이제 f(1)을 3으로 변경해보자.
+
+3 + 3 = 6
+3 * 2 = 6
+3 - 1 = 2
 ```
 이처럼 어떤 값이 변하지 않는 성질을 `불변성`이라고 부른다. 
 

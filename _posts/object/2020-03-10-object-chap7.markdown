@@ -33,20 +33,20 @@ summary: 오브젝트의 7장을 요약한 내용 입니다.
 ## 급여 관리 시스템
 
 급여 관리 시스템을 구현하기 위해 기능 분해 방법을 사용해보자
-
-    1. 직원의 급여를 계산한다.
-    	1-1. 사용자로부터 소득세율을 입력받는다.
-    		1-1-1. "세율을 입력하세요: "라는 문장을 화면에 출력한다.
-    		1-1-2. 키보드를 통해 세율을 입력받는다.
-    	1-2. 직원의 급여를 계산한다
-    		1-2-1. 전역 변수에 저장된 직원의 기본급 정보를 얻는다
-    		1-2-2. 급여를 계산한다
-    	1-3. 양식에 맞게 결과를 출력한다
-    		1-3-1. "이름: {직원명}, 급여 {계산된 금액}" 형식에 따라 출력 문자열을 생성한다
-
+```
+1. 직원의 급여를 계산한다.
+	1-1. 사용자로부터 소득세율을 입력받는다.
+		1-1-1. "세율을 입력하세요: "라는 문장을 화면에 출력한다.
+		1-1-2. 키보드를 통해 세율을 입력받는다.
+	1-2. 직원의 급여를 계산한다
+		1-2-1. 전역 변수에 저장된 직원의 기본급 정보를 얻는다
+		1-2-2. 급여를 계산한다
+	1-3. 양식에 맞게 결과를 출력한다
+		1-3-1. "이름: {직원명}, 급여 {계산된 금액}" 형식에 따라 출력 문자열을 생성한다
+```
 하향식 기능 분해 방식으로 설계한 시스템은 메인 함수를 루트로 하는 '`트리(tree)`'로 표현할 수 있다. 트리에서 각 노드(node)는 시스템을 구성하는 하나의 `프로시저`를 의미하고 한 노드의 자식 노드는 부모 노드를 구현하는 `절차`중의 한 단계를 의미한다.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cbbefe13-3537-4d51-ae90-5c632d01e23c/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cbbefe13-3537-4d51-ae90-5c632d01e23c/Untitled.png)
+![https://i.ibb.co/Z8QLgqp/9.png](https://i.ibb.co/Z8QLgqp/9.png)
 
 ## 하향식 기능 분해의 문제점
 
@@ -124,24 +124,24 @@ summary: 오브젝트의 7장을 요약한 내용 입니다.
 
 쿡의 정의를 빌리자면 추상 데이터 타입은 타입을 추상화한 것이고 클래스는 절차를 추상화한 것이다.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/eed57658-9722-40b1-bbe9-23912071aa5a/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/eed57658-9722-40b1-bbe9-23912071aa5a/Untitled.png)
+![https://i.ibb.co/jyqyYdK/10.png](https://i.ibb.co/jyqyYdK/10.png)
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1bcf88b5-2dce-4bbe-9522-d6eb4107414e/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1bcf88b5-2dce-4bbe-9522-d6eb4107414e/Untitled.png)
+![https://i.ibb.co/HKdzDYD/11.png](https://i.ibb.co/HKdzDYD/11.png)
 
 ### 변경을 기준으로 선택하라
 
 단순히 클래스를 구현 단위로 사용한다는 것이 객체지향 프로그래밍을 한다는 것을 의미하지는 않는다. `타입을 기준으로 절차를 추상화하지 않았다면 그것은 객체지향 분해가 아니다.`
 
 클래스가 추상 데이터 타입의 개념을 따르는지를 확인할 수 있는 가장 간단한 방법은 클래스 내부에 인스턴스의 타입을 표현하는 변수가 있는지를 살펴보는 것이다.
-
-    public Integer calculatePay(taxRate) {
-    	if(this.houly) return calculateHourlyPay(taxRate);
-    	return calculateSaliedPay(taxRate);
-    }
-
+```java
+public Integer calculatePay(taxRate) {
+	if(this.houly) return calculateHourlyPay(taxRate);
+	return calculateSaliedPay(taxRate);
+}
+```
 객체지향에서는 타입 변수를 이용한 조건문을 `다형성`으로 대체한다. 객체가 메시지를 처리할 적절한 메서드를 선택하게 된다.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/56836ea9-997e-4049-bebf-d6bb0f3d5935/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/56836ea9-997e-4049-bebf-d6bb0f3d5935/Untitled.png)
+![https://i.ibb.co/xqhbcCx/12.png](https://i.ibb.co/xqhbcCx/12.png)
 
 이처럼 기존 코드에 아무런 영향도 미치지 않고 새로운 객체 유형과 행위를 추가할 수 있는 객체지향의 특성을 `개방-폐쇄 원칙(Open-Closed Principle, OCP)`이라고 부른다.
 
