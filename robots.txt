@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: http://[자신의 github 사용자명].github.io/sitemap.xml
+https://gmlwjd9405.github.io/2017/10/20/include-blog-in-a-GoogleSearchEngine.html
