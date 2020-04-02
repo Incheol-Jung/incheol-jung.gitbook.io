@@ -15,28 +15,28 @@
 # in the templates via {{ site.myvariable }}.
 title: Incheol's BLOG
 email: bluesky761@naver.com
-description: 
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "/" # the base hostname & protocol for your site
-twitter_username: 
-github_username:  Jung-Inchul
+description:
+baseurl: "https://jung-inchul.github.io/" # the subpath of your site, e.g. /blog
+url: "https://jung-inchul.github.io" # the base hostname & protocol for your site
+twitter_username:
+github_username: Jung-Inchul
 
 # Analytics
 analytics:
-  provider               : "google-gtag" # 구글 어날리틱스 등록 false (default), "google", "google-universal", "custom"
+  provider: "google-gtag" # 구글 어날리틱스 등록 false (default), "google", "google-universal", "custom"
   google:
-    tracking_id          : "G-17X66FGL75"
-    anonymize_ip         : # true, false (default)
+    tracking_id: "G-17X66FGL75"
+    anonymize_ip: # true, false (default)
 
 # Build settings
 markdown: kramdown
 highlighter: rouge
 
-destination:  ./build
+destination: ./build
 sass:
-    sass_dir: resource/_css
+  sass_dir: resource/_css
 safe: true
-gems: 
-    - jekyll-paginate
-    - jekyll-angular
-    - jekyll-gist
+gems:
+  - jekyll-paginate
+  - jekyll-angular
+  - jekyll-gist
