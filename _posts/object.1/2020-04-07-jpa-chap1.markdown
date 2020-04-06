@@ -227,16 +227,16 @@ class Team {
 Team team = member.getTeam();
 ```
 
-    **이런 방식을 따르면 좋은 객체 모델링은 기대하기 어렵고 결국 객체 지향의 특징을 잃어버리게 된다.**
+  **이런 방식을 따르면 좋은 객체 모델링은 기대하기 어렵고 결국 객체 지향의 특징을 잃어버리게 된다.**
 
-    > 엔티티를 직접 참조하는 것과 간접 참조하는 것에 대한 장단점이 무엇이 있을까?
+  > 엔티티를 직접 참조하는 것과 간접 참조하는 것에 대한 장단점이 무엇이 있을까?
 
-    - 직접 참조
-        - 장점 : 연관된 데이터를 `한번에` 추출할 수 있다.
-        - 단점 : 연관된 데이터에 대한 수정이 발생할 경우 `영향의 범위`가 커질 수 있다.
-    - 간접 참조
-        - 장점 : 복잡도를 낮출 수 있고, `응집도`를 높이고 `결합도`를 낮출 수 있다.
-        - 단점 : 연관된 데이터를 한번에 추출 하려면 구현해야 하는 `로직`이 복잡하다.
+  - 직접 참조
+      - 장점 : 연관된 데이터를 `한번에` 추출할 수 있다.
+      - 단점 : 연관된 데이터에 대한 수정이 발생할 경우 `영향의 범위`가 커질 수 있다.
+  - 간접 참조
+      - 장점 : 복잡도를 낮출 수 있고, `응집도`를 높이고 `결합도`를 낮출 수 있다.
+      - 단점 : 연관된 데이터를 한번에 추출 하려면 구현해야 하는 `로직`이 복잡하다.
 
 - 참조를 사용하는 객체 모델
 
@@ -258,29 +258,29 @@ class Team {
 만약 JDBC로 저장하는 로직을 만들기 위해서는 team 필드를 TEAM_ID `외래 키` 값으로 변환해야 한다.
 
 ```java
-  member.getId(); // MEMBER_ID PK에 저장
-  member.getTeam().getId(); // TEAM_ID FK에 저장
-  member.getUsername(); // USERNAME 컬럼에 저장
+member.getId(); // MEMBER_ID PK에 저장
+member.getTeam().getId(); // TEAM_ID FK에 저장
+member.getUsername(); // USERNAME 컬럼에 저장
 ```
 
 또는 조회하는 로직에도 객체를 생성하고 연관관계를 설정해서 반환하는 로직이 필요하다.
 
 ```java
-  public Member find(String memberId) {
-    // SQL 실행
-    ...
-    Member member = new Member();
-    ...
+public Member find(String memberId) {
+  // SQL 실행
+  ...
+  Member member = new Member();
+  ...
 
-    // 데이터베이스에서 조회한 회원 관련 정보를 모두 입력
-    Team team = new Team();
-    ...
-    // 데이터베이스에서 조회한 팀 관련 정보를 모두 입력
+  // 데이터베이스에서 조회한 회원 관련 정보를 모두 입력
+  Team team = new Team();
+  ...
+  // 데이터베이스에서 조회한 팀 관련 정보를 모두 입력
 
-    // 회원과 팀 관계 설정
-    member.setTeam(team);
-    return member;
-  }
+  // 회원과 팀 관계 설정
+  member.setTeam(team);
+  return member;
+}
 ```
 
 ### JPA와 연관관계 구현
