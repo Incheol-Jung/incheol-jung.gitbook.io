@@ -17,36 +17,36 @@ navigation_weight: 1
 
 - 회원 조회용 SQL을 작성한다.
 ```java
-			SELECT MEMBER_ID,  NAME FROM MEMBER M WHERE MEMBER_ID = ?
+SELECT MEMBER_ID,  NAME FROM MEMBER M WHERE MEMBER_ID = ?
 ```
 - JDBC API를 사용해서 SQL을 실행한다.
 ```java
-			ResultSet rs = stmt.executeQuery(sql);
+ResultSet rs = stmt.executeQuery(sql);
 ```
 - 조회 결과를 Member 객체로 실행한다.
 ```java
-			String memberId = rs.getString("MEMBER_ID");
-			String name = rs.getString("NAME");
-			
-			Member member = new Member();
-			member.setMemberId(memberId);
-			member.setName(name);
-			...
+String memberId = rs.getString("MEMBER_ID");
+String name = rs.getString("NAME");
+
+Member member = new Member();
+member.setMemberId(memberId);
+member.setName(name);
+...
 ```
 ### 이번엔 회원 등록 기능을 개발한다.
 
 - 회원 등록용 SQL을 작성한다.
 ```java
-			String sql = "INSERT INTO MEMBER(MEMBER_ID, NAME) VALUES(?,?)";
+String sql = "INSERT INTO MEMBER(MEMBER_ID, NAME) VALUES(?,?)";
 ```
 - 회원 객체의 값을 꺼내서 등록 SQL에 전달한다.
 ```java
-			pstmt.setString(1, member.getMemberId());
-			pstmt.setString(2, member.getName());
+pstmt.setString(1, member.getMemberId());
+pstmt.setString(2, member.getName());
 ```
 - JDBC API를 사용해서 SQL을 실행한다.
 ```java
-			pstmt.executeUpdate(sql);
+pstmt.executeUpdate(sql);
 ```
 회원 객체를 데이터베이스가 아닌 `자바 컬렉션`에 보관한다면 어떨까? 컬렉션은 다음 한 줄로 객체를 저장할 수 있다. 
 ```java
@@ -64,20 +64,20 @@ navigation_weight: 1
 
 - 회원 클래스에 연락처 필드 추가
 ```java
-			public class Member {
-				private String memberId;
-				private String name;
-				private String tel; // 추가
-				...
-			}
+public class Member {
+	private String memberId;
+	private String name;
+	private String tel; // 추가
+	...
+}
 ```
 - 등록 SQL을 수정
 ```java
-			String sql = "INSERT INTO MEMBER(MEMBER_ID, NAME, TEL) VALUES(?,?,?)";
+String sql = "INSERT INTO MEMBER(MEMBER_ID, NAME, TEL) VALUES(?,?,?)";
 ```
 - 회원 객체의 연락처 값을 꺼내서 등록 SQL에 전달한다.
 ```java
-			pstmt.setString(3, member.getTel());
+pstmt.setString(3, member.getTel());
 ```
 ### 조회 코드 변경
 
@@ -85,12 +85,12 @@ navigation_weight: 1
 
 - 조회용 SQL을 수정
 ```java
-			SELECT MEMBER_ID, NAME, TEL FROM MEMBER WHERE MEMBER_ID = ?
+SELECT MEMBER_ID, NAME, TEL FROM MEMBER WHERE MEMBER_ID = ?
 ```
 - 연락처의 조회 결과를 Member 객체에 추가로 매핑한다.
 ```java
-			String tel = rs.getString("TEL");
-			member.setTel(tel);
+String tel = rs.getString("TEL");
+member.setTel(tel);
 ```
 ### 연관된 객체
 
@@ -100,10 +100,10 @@ navigation_weight: 1
 
 - 연관 팀 정보를 가져오는 SQL 추가
 ```sql
-			SELECT M.MEMBER_ID, M.NAME, M.TEL, T.TEAM_ID, T.TEAM_NAME
-			FROM MEMBER M
-			JOIN TEAM T
-				ON M.TEAM_ID = T.TEAM_ID
+SELECT M.MEMBER_ID, M.NAME, M.TEL, T.TEAM_ID, T.TEAM_NAME
+FROM MEMBER M
+JOIN TEAM T
+	ON M.TEAM_ID = T.TEAM_ID
 ```
 위의 사례에서 보듯이 `Member` 객체가 연관된 `Team` 객체를 사용할 수 있을지 없을지는 전적으로 사용하는 `SQL`에 달려 있다. 이런 방식의 가장 큰 문제는 `데이터 접근 계층`을 사용해서 `SQL`을 숨겨도 어쩔 수 없이 `DAO`를 열어서 어떤 `SQL`이 실행 되는지 확인해야 한다는 점이다. 
 
@@ -123,18 +123,18 @@ navigation_weight: 1
 
 - 조회 기능
 ```java
-			String memberId = "helloId";
-			Member member = jpa.find(Member.class, memberId); // 조회
+String memberId = "helloId";
+Member member = jpa.find(Member.class, memberId); // 조회
 ```
 - 수정 기능
 ```java
-			Member member = jpa.find(Member.class, memberId);
-			member.setName("이름변경"); // 수정
+Member member = jpa.find(Member.class, memberId);
+member.setName("이름변경"); // 수정
 ```
 - 연관된 객체 조회
 ```java
-			Member member = jpa.find(Member.class, memberId);
-			Team team = member.getTeam(); // 연관된 객체 조회
+Member member = jpa.find(Member.class, memberId);
+Team team = member.getTeam(); // 연관된 객체 조회
 ```
 # 패러다임의 불일치
 
@@ -172,20 +172,20 @@ JPA는 상속과 관련된 패러다임의 불일치 문제를 개발자 대신 
 
 - 테이블에 맞춘 객체 모델
 ```java
-			class Member {
-				String id; // MEMBER_ID 컬럼 사용
-				Long temId; // TEAM_ID FK 컬럼 사용
-				String username; // USERNAME 컬럼 사용
-			}
-			
-			class Team {
-				Long id; // TEAM_ID PK 사용
-				String name; // NAME 컬럼 사용
-			}
+class Member {
+	String id; // MEMBER_ID 컬럼 사용
+	Long temId; // TEAM_ID FK 컬럼 사용
+	String username; // USERNAME 컬럼 사용
+}
+
+class Team {
+	Long id; // TEAM_ID PK 사용
+	String name; // NAME 컬럼 사용
+}
 ```
     그런데 여기서 `TEAM_ID` 외래 키의 값을 그대로 보관하는 `teamId` 필드에는 문제가 있다. 객체는 연관된 객체의 `참조`를 보관해야 다음처럼 참조를 통해 연관된 객체를 찾을 수 있어야 하는데 하지 못하게 된다. 
 ```java
-			Team team = member.getTeam();
+Team team = member.getTeam();
 ```
     **이런 방식을 따르면 좋은 객체 모델링은 기대하기 어렵고 결국 객체 지향의 특징을 잃어버리게 된다.** 
 
@@ -200,16 +200,16 @@ JPA는 상속과 관련된 패러다임의 불일치 문제를 개발자 대신 
 
 - 참조를 사용하는 객체 모델
 ```java
-			class Member {
-				String id; // MEMBER_ID 컬럼 사용
-				Long temId; // TEAM_ID FK 컬럼 사용
-				Team team; // 참조로 연관관계를 맺는다. 
-			}
-			
-			class Team {
-				Long id; // TEAM_ID PK 사용
-				String name; // NAME 컬럼 사용
-			}
+class Member {
+	String id; // MEMBER_ID 컬럼 사용
+	Long temId; // TEAM_ID FK 컬럼 사용
+	Team team; // 참조로 연관관계를 맺는다. 
+}
+
+class Team {
+	Long id; // TEAM_ID PK 사용
+	String name; // NAME 컬럼 사용
+}
 ```
 ### JDBC를 이용한 연관 관계 구현
 
@@ -258,9 +258,9 @@ JPA는 상속과 관련된 패러다임의 불일치 문제를 개발자 대신 
 	class MemberService {
 		...
 		public void process() {
-			Member member = memberDAO.find(memberId);
-			member.getTeam(); // member->team 객체 그래프 탐색이 가능한가?
-			member.getOrder().getDelivery(); // ???
+Member member = memberDAO.find(memberId);
+member.getTeam(); // member->team 객체 그래프 탐색이 가능한가?
+member.getOrder().getDelivery(); // ???
 		}
 	}
 ```
@@ -287,11 +287,11 @@ JPA를 사용하면 연관된 객체를 신뢰하고 마음껏 조회할 수 있
 ```java
 	class MemberDAO {
 		public Member getMember(String memberId) {
-			String sql = "SELECT * FROM MEMBER WHERE MEMBER_ID + ?";
-			...
+String sql = "SELECT * FROM MEMBER WHERE MEMBER_ID + ?";
+...
 	
-			// JDBC API, SQL 실행
-			return new Member(...);
+// JDBC API, SQL 실행
+return new Member(...);
 		}
 	}
 
