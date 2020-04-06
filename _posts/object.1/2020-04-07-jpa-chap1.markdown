@@ -33,6 +33,7 @@ member.setMemberId(memberId);
 member.setName(name);
 ...
 ```
+
 ### 이번엔 회원 등록 기능을 개발한다.
 
 - 회원 등록용 SQL을 작성한다.
