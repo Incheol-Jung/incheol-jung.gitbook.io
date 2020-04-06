@@ -16,15 +16,15 @@ navigation_weight: 1
 ### 먼저 회원을 조회하는 기능을 개발한다.
 
 - 회원 조회용 SQL을 작성한다.
-		```java
+```java
 			SELECT MEMBER_ID,  NAME FROM MEMBER M WHERE MEMBER_ID = ?
-		```
+```
 - JDBC API를 사용해서 SQL을 실행한다.
-		```java
+```java
 			ResultSet rs = stmt.executeQuery(sql);
-		```
+```
 - 조회 결과를 Member 객체로 실행한다.
-		```java
+```java
 			String memberId = rs.getString("MEMBER_ID");
 			String name = rs.getString("NAME");
 			
@@ -32,22 +32,22 @@ navigation_weight: 1
 			member.setMemberId(memberId);
 			member.setName(name);
 			...
-		```
+```
 ### 이번엔 회원 등록 기능을 개발한다.
 
 - 회원 등록용 SQL을 작성한다.
-		```java
+```java
 			String sql = "INSERT INTO MEMBER(MEMBER_ID, NAME) VALUES(?,?)";
-		```
+```
 - 회원 객체의 값을 꺼내서 등록 SQL에 전달한다.
-		```java
+```java
 			pstmt.setString(1, member.getMemberId());
 			pstmt.setString(2, member.getName());
-		```
+```
 - JDBC API를 사용해서 SQL을 실행한다.
-		```java
+```java
 			pstmt.executeUpdate(sql);
-		```
+```
 회원 객체를 데이터베이스가 아닌 `자바 컬렉션`에 보관한다면 어떨까? 컬렉션은 다음 한 줄로 객체를 저장할 수 있다. 
 ```java
 	list.add(member);
@@ -63,35 +63,35 @@ navigation_weight: 1
 ### 등록 코드 변경
 
 - 회원 클래스에 연락처 필드 추가
-		```java
+```java
 			public class Member {
 				private String memberId;
 				private String name;
 				private String tel; // 추가
 				...
 			}
-		```
+```
 - 등록 SQL을 수정
-		```java
+```java
 			String sql = "INSERT INTO MEMBER(MEMBER_ID, NAME, TEL) VALUES(?,?,?)";
-		```
+```
 - 회원 객체의 연락처 값을 꺼내서 등록 SQL에 전달한다.
-		```java
+```java
 			pstmt.setString(3, member.getTel());
-		```
+```
 ### 조회 코드 변경
 
 다음으로 회원 조회 화면에서 모든 연락처의 값이 `null`로 출력되었다. **생각해보니 조회 `SQL`에 연락처 컬럼을 추가하지 않았다.** 
 
 - 조회용 SQL을 수정
-		```java
+```java
 			SELECT MEMBER_ID, NAME, TEL FROM MEMBER WHERE MEMBER_ID = ?
-		```
+```
 - 연락처의 조회 결과를 Member 객체에 추가로 매핑한다.
-		```java
+```java
 			String tel = rs.getString("TEL");
 			member.setTel(tel);
-		```
+```
 ### 연관된 객체
 
 회원은 어떤 한 팀에 필수로 소속되어야 한다는 요구사항이 추가되었다. `Member` 객체에 `team` 필드가 추가되어 있었다. 그러나 코드를 실행해보니 `member.getTeam()`의 값이 항상 `null`이 나오고 있었다. 
@@ -99,12 +99,12 @@ navigation_weight: 1
 `memberDAO` 코드를 열어보니 회원을 출력할 때 사용하는 `find()` 메소드는 회원만 조회하는 `SQL`을 그대로 유지하였다. 그래서 `findWithTeam()` 메서드를 추가하였다. 
 
 - 연관 팀 정보를 가져오는 SQL 추가
-		```sql
+```sql
 			SELECT M.MEMBER_ID, M.NAME, M.TEL, T.TEAM_ID, T.TEAM_NAME
 			FROM MEMBER M
 			JOIN TEAM T
 				ON M.TEAM_ID = T.TEAM_ID
-		```
+```
 위의 사례에서 보듯이 `Member` 객체가 연관된 `Team` 객체를 사용할 수 있을지 없을지는 전적으로 사용하는 `SQL`에 달려 있다. 이런 방식의 가장 큰 문제는 `데이터 접근 계층`을 사용해서 `SQL`을 숨겨도 어쩔 수 없이 `DAO`를 열어서 어떤 `SQL`이 실행 되는지 확인해야 한다는 점이다. 
 
 이렇듯 `SQL`에 모든 것을 의존하는 상황에서는 개발자들이 `엔티티`를 신뢰하고 사용할 수 없다. **대신에 `DAO`를 열어서 어떤 `SQL`이 실행되고 어떤 객체 들이 함께 조회 되는지 일일이 확인해야 한다.** 
@@ -122,20 +122,20 @@ navigation_weight: 1
 이전에 구현하였던 애플리케이션의 기능을 JPA를 사용해서 구현 해보자. 
 
 - 조회 기능
-		```java
+```java
 			String memberId = "helloId";
 			Member member = jpa.find(Member.class, memberId); // 조회
-		```
+```
 - 수정 기능
-		```java
+```java
 			Member member = jpa.find(Member.class, memberId);
 			member.setName("이름변경"); // 수정
-		```
+```
 - 연관된 객체 조회
-		```java
+```java
 			Member member = jpa.find(Member.class, memberId);
 			Team team = member.getTeam(); // 연관된 객체 조회
-		```
+```
 # 패러다임의 불일치
 
 비즈니스 요구사항을 정의한 도메인 모델도 객체로 `모델링`하면 객체지향 언어가 가진 `장점`들을 활용할 수 있다. 문제는 이렇게 정의한 `도메인 모델`을 저장할 때 발생한다.
@@ -171,7 +171,7 @@ JPA는 상속과 관련된 패러다임의 불일치 문제를 개발자 대신 
 객체는 참조를 사용해서 다른 객체와 연관관계를 가지고 `참조`에 `접근`해서 연관된 객체를 조회한다. 반면에 테이블은 `외래 키`를 사용해서 다른 테이블과 연관관계를 가지고 `조인`을 사용해서 연관된 테이블을 조회한다. 
 
 - 테이블에 맞춘 객체 모델
-		```java
+```java
 			class Member {
 				String id; // MEMBER_ID 컬럼 사용
 				Long temId; // TEAM_ID FK 컬럼 사용
@@ -182,11 +182,11 @@ JPA는 상속과 관련된 패러다임의 불일치 문제를 개발자 대신 
 				Long id; // TEAM_ID PK 사용
 				String name; // NAME 컬럼 사용
 			}
-		```
+```
     그런데 여기서 `TEAM_ID` 외래 키의 값을 그대로 보관하는 `teamId` 필드에는 문제가 있다. 객체는 연관된 객체의 `참조`를 보관해야 다음처럼 참조를 통해 연관된 객체를 찾을 수 있어야 하는데 하지 못하게 된다. 
-		```java
+```java
 			Team team = member.getTeam();
-		```
+```
     **이런 방식을 따르면 좋은 객체 모델링은 기대하기 어렵고 결국 객체 지향의 특징을 잃어버리게 된다.** 
 
     > 엔티티를 직접 참조하는 것과 간접 참조하는 것에 대한 장단점이 무엇이 있을까?
@@ -199,7 +199,7 @@ JPA는 상속과 관련된 패러다임의 불일치 문제를 개발자 대신 
         - 단점 : 연관된 데이터를 한번에 추출 하려면 구현해야 하는 `로직`이 복잡하다.
 
 - 참조를 사용하는 객체 모델
-		```java
+```java
 			class Member {
 				String id; // MEMBER_ID 컬럼 사용
 				Long temId; // TEAM_ID FK 컬럼 사용
@@ -210,7 +210,7 @@ JPA는 상속과 관련된 패러다임의 불일치 문제를 개발자 대신 
 				Long id; // TEAM_ID PK 사용
 				String name; // NAME 컬럼 사용
 			}
-		```
+```
 ### JDBC를 이용한 연관 관계 구현
 
 만약 JDBC로 저장하는 로직을 만들기 위해서는 team 필드를 TEAM_ID `외래 키` 값으로 변환해야 한다. 
