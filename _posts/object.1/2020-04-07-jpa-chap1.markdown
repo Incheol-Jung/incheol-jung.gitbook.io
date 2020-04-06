@@ -183,7 +183,7 @@ Team team = member.getTeam(); // 연관된 객체 조회
 
 **객체는 상속 이라는 기능을 가지고 있지만 테이블은 상속 이라는 기능이 없다.**
 
-![../../_resources/jpa1.png](../../_resources/jpa1.png)
+![jpa1](https://user-images.githubusercontent.com/2491418/78592088-79ed5c80-787f-11ea-8174-8afcfcc8ff7a.png)
 
 ### JDBC를 이용한 상속 구현
 
