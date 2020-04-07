@@ -48,6 +48,8 @@ public <T> T[] toArray(T[] a) {
 
 @SuppressWarnings("unchecked") 에너테이션을 사용할 때면 그 경고를 무시해도 안전한 이유를 항상 `주석`으로 남겨야 한다.
 
+### SuppressWarnings 종류
+
 | Attribute   | Description                                                         |
 | ----------- | ------------------------------------------------------------------- |
 | all         | 모든 경고를 표시 안함                                               |
