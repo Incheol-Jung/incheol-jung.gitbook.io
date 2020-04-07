@@ -48,7 +48,18 @@ public <T> T[] toArray(T[] a) {
 
 @SuppressWarnings("unchecked") 에너테이션을 사용할 때면 그 경고를 무시해도 안전한 이유를 항상 `주석`으로 남겨야 한다.
 
-[SuppressWarnings 종류](https://www.notion.so/e86a17bac0fe42a1b049e2feba9a078c)
+| Attribute   | Description                                                         |
+| ----------- | ------------------------------------------------------------------- |
+| all         | 모든 경고를 표시 안함                                               |
+| cast        | 캐스트 연산자 관련 경고를 표시 안함                                 |
+| dep-ann     | 사용하지 말아야 할 주석 관련 경고를 표시 안함                       |
+| deprecation | 사용하지 말아야 할 메소드 관련 경고를 표시 안함                     |
+| fallthroush | switch문에서의 break 누락 관련 경고를 표시 안함                     |
+| finally     | 반환하지 않는 finally 블럭 관련 경고를 표시 안함                    |
+| null        | null 분석 관련 경고를 표시 안함                                     |
+| rawtypes    | 제네릭을 사용하는 클래스 매개 변수가 불특정일 때의 경고를 표시 안함 |
+| unchecked   | 검증되지 않은 연산자 관련 경고를 표시 안함                          |
+| unused      | 사용하지 않는 코드 관련 경고를 표시 안함                            |
 
 ## 정리
 
