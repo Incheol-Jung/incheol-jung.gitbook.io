@@ -49,6 +49,25 @@ ol.add("타입이 달라 넣을 수 없다.");
 > 제네릭을 가변 매개변수로 사용한 경우 잠재적 에러에 대한 경고를 무시할 수 있다.<br/>
 > @SuppressWarning를 이용하여 제네릭 매개변수에 대한 경고 무시를 대체하기 위해 나옴
 
+```java
+public class JavaExample{  
+    @SafeVarargs
+    private void print(List... names) {  
+        for (List<String> name : names) {  
+            System.out.println(name);  
+        }  
+    }  
+    public static void main(String[] args) {  
+        JavaExample obj = new JavaExample();  
+        List<String> list = new ArrayList<String>();  
+        list.add("Kevin");  
+        list.add("Rick"); 
+        list.add("Negan");
+        obj.print(list);  
+    }      
+}
+```
+
 배열로 형변환 할 때 제네릭 배열 생성 오류나 `비검사 형변환` 경고가 뜨는 경우 대부분은 배열인 `E[]` 대신 컬렉션인 `List<E>`를 사용하면 해결된다. 코드가 조금 `복잡`해지고 `성능`이 살짝 나빠질 수도 있지만, 그 대신 타입 안전성과 `상호 운용성`은 좋아진다.
 
 ```java
