@@ -1,7 +1,6 @@
 # Table of contents
 
-* [Incheol's DEV BLOG](README.md)
-* [Intro](intro.md)
+* [Intro](README.md)
 
 ## BACK-END
 
