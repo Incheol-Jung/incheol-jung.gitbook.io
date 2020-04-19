@@ -5,11 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: java
 summary: 자바 8 인 액션 5장을 요약한 내용 입니다.
 navigation_weight: 5
+description: 자바 8 인 액션 5장을 요약한 내용 입니다.
 ---
 
-# 2020-03-10-java8InAction-chap5
-
-> 자바 8 인 액션 5장을 요약한 내용 입니다.
+# 5장 스트림 활용
 
 ## 필터링과 슬라이싱
 

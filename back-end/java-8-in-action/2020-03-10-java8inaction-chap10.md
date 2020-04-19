@@ -5,9 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: java
 summary: 자바 8 인 액션 10장을 요약한 내용 입니다.
 navigation_weight: 10
+description: 자바 8 인 액션 10장을 요약한 내용 입니다.
 ---
 
-# 2020-03-10-java8InAction-chap10
+# 10장 null 대신 Optional
 
 > 자바 8 인 액션 10장을 요약한 내용 입니다.
 

@@ -5,11 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: java
 summary: 자바 8 인 액션 8장을 요약한 내용 입니다.
 navigation_weight: 8
+description: 자바 8 인 액션 8장을 요약한 내용 입니다.
 ---
 
-# 2020-03-10-java8InAction-chap8
-
-> 자바 8 인 액션 8장을 요약한 내용 입니다.
+# 8장 리팩토링, 테스팅, 디버깅
 
 ## 코드 가독성 개선
 

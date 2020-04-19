@@ -5,9 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: java
 summary: 자바 8 인 액션 12장을 요약한 내용 입니다.
 navigation_weight: 12
+description: 자바 8 인 액션 12장을 요약한 내용 입니다.
 ---
 
-# 2020-03-10-java8InAction-chap12
+# 12장 새로운 날짜와 시간 API
 
 > 자바 8 인 액션 12장을 요약한 내용 입니다.
 

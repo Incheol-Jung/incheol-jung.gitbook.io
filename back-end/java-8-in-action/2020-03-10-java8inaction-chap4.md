@@ -8,7 +8,7 @@ navigation_weight: 4
 description: 자바 8 인 액션 4장을 요약한 내용 입니다.
 ---
 
-# 2020-03-10-java8InAction-chap4
+# 4장 스트림 소개
 
 대부분 모든 자바 애플리케이션은 컬렉션을 만들고 처리하는 과정을 포함한다.
 
