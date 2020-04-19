@@ -8,7 +8,7 @@ summary: Diving into TypeScript
 navigation_weight: 2
 ---
 
-# 2017-01-22-Diving-into-TypeScript
+# CHAPTER 2. Diving into TypeScript
 
 ## Types as in TypeScript
 

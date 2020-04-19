@@ -8,7 +8,7 @@ summary: From zero to something
 navigation_weight: 4
 ---
 
-# 2017-01-22-From-zero-to-something
+# CHAPTER 4. From zero to something
 
 ## Developing and building a TypeScript app
 

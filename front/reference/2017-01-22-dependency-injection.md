@@ -8,7 +8,7 @@ summary: Dependency injection
 navigation_weight: 6
 ---
 
-# 2017-01-22-Dependency-injection
+# CHAPTER 6. Dependency injection
 
 ## DI yourself
 

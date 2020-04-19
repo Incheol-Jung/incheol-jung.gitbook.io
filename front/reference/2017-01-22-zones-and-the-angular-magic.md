@@ -8,7 +8,7 @@ summary: Zones and the Angular magic
 navigation_weight: 16
 ---
 
-# 2017-01-22-Zones-and-the-Angular-magic
+# CHAPTER 16. Zones and the Angular magic
 
 ## Intro
 

@@ -8,7 +8,7 @@ summary: Testing your app
 navigation_weight: 12
 ---
 
-# 2017-01-22-Testing-your-app
+# CHAPTER 12. Testing your app
 
 ## The problem with troubleshooting is that trouble shoots back
 

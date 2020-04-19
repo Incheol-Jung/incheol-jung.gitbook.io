@@ -8,7 +8,7 @@ summary: The templating syntax
 navigation_weight: 5
 ---
 
-# 2017-01-22-The-templating-syntax
+# CHAPTER 5. The templating syntax
 
 ### Interpolation
 

@@ -8,7 +8,7 @@ summary: A gentle introduction to ECMASCRIPT 6
 navigation_weight: 1
 ---
 
-# 2017-01-22-A-gentle-introduction-to-ECMASCRIPT-6
+# CHAPTER 1. A gentle introduction to ECMASCRIPT 6
 
 ## Transpilers
 

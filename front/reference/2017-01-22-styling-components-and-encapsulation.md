@@ -8,7 +8,7 @@ summary: Styling components and encapsulation
 navigation_weight: 10
 ---
 
-# 2017-01-22-Styling-components-and-encapsulation
+# CHAPTER 10. Styling components and encapsulation
 
 ## Native strategy
 

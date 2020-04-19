@@ -8,7 +8,7 @@ summary: The wonderful land of Web Components
 navigation_weight: 3
 ---
 
-# 2017-01-22-The-wonderful-land-of-Web-Components
+# CHAPTER 3. The wonderful land of Web Components
 
 ## A brave new world
 

@@ -8,7 +8,7 @@ summary: Reactive Programming
 navigation_weight: 8
 ---
 
-# 2017-01-22-Reactive-Programming
+# CHAPTER 8. Reactive Programming
 
 ## Call me maybe
 

@@ -8,7 +8,7 @@ summary: This is the end
 navigation_weight: 17
 ---
 
-# 2017-01-22-This-is-the-end
+# CHAPTER 17. This is the end
 
 ## This is the end
 

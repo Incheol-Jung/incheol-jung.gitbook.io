@@ -8,7 +8,7 @@ summary: RBuilding components and directives
 navigation_weight: 9
 ---
 
-# 2017-01-22-Building-components-and-directives
+# CHAPTER 9. Building components and directives
 
 ## Introduction
 
