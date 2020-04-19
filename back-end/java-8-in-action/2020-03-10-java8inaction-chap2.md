@@ -5,9 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: java
 summary: 자바 8 인 액션 2장을 요약한 내용 입니다.
 navigation_weight: 1
+description: 자바 8 인 액션 2장을 요약한 내용 입니다.
 ---
 
-# 2020-03-10-java8InAction-chap2
+# 2장 동작 파라미터화 코드 전달하기
 
 > 자바 8 인 액션 2장을 요약한 내용 입니다.
 

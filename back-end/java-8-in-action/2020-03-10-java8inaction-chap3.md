@@ -5,11 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: java
 summary: 자바 8 인 액션 3장을 요약한 내용 입니다.
 navigation_weight: 2
+description: 자바 8 인 액션 3장을 요약한 내용 입니다.
 ---
 
-# 2020-03-10-java8InAction-chap3
-
-> 자바 8 인 액션 3장을 요약한 내용 입니다.
+# 3장 람다 표현식
 
 ## 람다란 무엇인가?
 

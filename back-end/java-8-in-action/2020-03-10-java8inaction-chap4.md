@@ -5,11 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: java
 summary: 자바 8 인 액션 4장을 요약한 내용 입니다.
 navigation_weight: 4
+description: 자바 8 인 액션 4장을 요약한 내용 입니다.
 ---
 
 # 2020-03-10-java8InAction-chap4
-
-> 자바 8 인 액션 4장을 요약한 내용 입니다.
 
 대부분 모든 자바 애플리케이션은 컬렉션을 만들고 처리하는 과정을 포함한다.
 
