@@ -5,9 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: effective
 summary: Effective Java 3e 아이템 10을 요약한 내용 입니다.
 navigation_weight: 10
+description: Effective Java 3e 아이템 10를 요약한 내용 입니다.
 ---
 
-# 2020-03-20-effective-10item
+# 아이템10 equals는 일반 규약을 지켜 재정의하라
 
 > Effective Java 3e 아이템 10를 요약한 내용 입니다.
 

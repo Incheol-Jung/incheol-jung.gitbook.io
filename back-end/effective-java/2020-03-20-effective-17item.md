@@ -5,9 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: effective
 summary: Effective Java 3e 아이템 17을 요약한 내용 입니다.
 navigation_weight: 17
+description: Effective Java 3e 아이템 17를 요약한 내용 입니다.
 ---
 
-# 2020-03-20-effective-17item
+# 아이템17 변경 가능성을 최소화하라
 
 > Effective Java 3e 아이템 17를 요약한 내용 입니다.
 

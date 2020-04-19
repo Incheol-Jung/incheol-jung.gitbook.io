@@ -5,9 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: effective
 summary: Effective Java 3e 아이템 16을 요약한 내용 입니다.
 navigation_weight: 16
+description: Effective Java 3e 아이템 16를 요약한 내용 입니다.
 ---
 
-# 2020-03-20-effective-16item
+# 아이템16 public 클래스에서는 public 필드가 아닌 접근자 메서드를 사용하라
 
 > Effective Java 3e 아이템 16를 요약한 내용 입니다.
 

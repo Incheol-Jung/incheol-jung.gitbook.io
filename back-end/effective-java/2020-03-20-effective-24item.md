@@ -5,9 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: effective
 summary: Effective Java 3e 아이템 24을 요약한 내용 입니다.
 navigation_weight: 24
+description: Effective Java 3e 아이템 24를 요약한 내용 입니다.
 ---
 
-# 2020-03-20-effective-24item
+# 아이템24 멤버 클래스는 되도록 static으로 만들라
 
 > Effective Java 3e 아이템 24를 요약한 내용 입니다.
 

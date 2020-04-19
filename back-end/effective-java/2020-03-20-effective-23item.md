@@ -5,9 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: effective
 summary: Effective Java 3e 아이템 23을 요약한 내용 입니다.
 navigation_weight: 23
+description: Effective Java 3e 아이템 23를 요약한 내용 입니다.
 ---
 
-# 2020-03-20-effective-23item
+# 아이템23 태그 달린 클래스보다는 클래스 계층구조를 활용하라
 
 > Effective Java 3e 아이템 23를 요약한 내용 입니다.
 

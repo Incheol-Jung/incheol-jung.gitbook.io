@@ -5,9 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: effective
 summary: Effective Java 3e 아이템 7을 요약한 내용 입니다.
 navigation_weight: 7
+description: Effective Java 3e 아이템 7를 요약한 내용 입니다.
 ---
 
-# 2020-03-20-effective-7item
+# 아이템7 다 쓴 객체 참조를 해제하라
 
 > Effective Java 3e 아이템 7를 요약한 내용 입니다.
 

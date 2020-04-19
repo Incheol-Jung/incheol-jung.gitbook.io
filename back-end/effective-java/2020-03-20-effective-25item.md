@@ -5,9 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: effective
 summary: Effective Java 3e 아이템 25을 요약한 내용 입니다.
 navigation_weight: 25
+description: Effective Java 3e 아이템 25를 요약한 내용 입니다.
 ---
 
-# 2020-03-20-effective-25item
+# 아이템25 톱레벨 클래스는 한 파일에 하나만 담으라
 
 > Effective Java 3e 아이템 25를 요약한 내용 입니다.
 

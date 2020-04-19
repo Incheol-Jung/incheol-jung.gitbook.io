@@ -5,9 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: effective
 summary: Effective Java 3e 아이템 31을 요약한 내용 입니다.
 navigation_weight: 31
+description: Effective Java 3e 아이템 31를 요약한 내용 입니다.
 ---
 
-# 2020-03-20-effective-31item
+# 아이템31 한정적 와일드카드를 사용해 API 유연성을 높이라
 
 > Effective Java 3e 아이템 31를 요약한 내용 입니다.
 

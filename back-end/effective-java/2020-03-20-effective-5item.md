@@ -5,11 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: effective
 summary: Effective Java 3e 아이템 5을 요약한 내용 입니다.
 navigation_weight: 5
+description: Effective Java 3e 아이템 5를 요약한 내용 입니다.
 ---
 
-# 2020-03-20-effective-5item
-
-> Effective Java 3e 아이템 5를 요약한 내용 입니다.
+# 아이템5 자원을 직접 명시하지 말고 의존 객체 주입을 사용하라
 
 많은 클래스가 하나 이상의 자원에 의존한다. 이런 클래스를 `정적 유틸리티 클래스`로 구현한 모습을 드물지 않게 볼 수 있다.
 

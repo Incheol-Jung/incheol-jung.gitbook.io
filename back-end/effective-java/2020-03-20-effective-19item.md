@@ -5,9 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: effective
 summary: Effective Java 3e 아이템 19을 요약한 내용 입니다.
 navigation_weight: 19
+description: Effective Java 3e 아이템 19를 요약한 내용 입니다.
 ---
 
-# 2020-03-20-effective-19item
+# 아이템19 상속을 고려해 설계하고 문서화하라. 그러지 않았다면 상속을 금지하라
 
 > Effective Java 3e 아이템 19를 요약한 내용 입니다.
 

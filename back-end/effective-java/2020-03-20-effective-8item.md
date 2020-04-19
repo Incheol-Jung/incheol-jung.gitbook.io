@@ -5,9 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: effective
 summary: Effective Java 3e 아이템 8을 요약한 내용 입니다.
 navigation_weight: 8
+description: Effective Java 3e 아이템 8를 요약한 내용 입니다.
 ---
 
-# 2020-03-20-effective-8item
+# 아이템8 finalizer와 cleaner 사용을 피하라
 
 > Effective Java 3e 아이템 8를 요약한 내용 입니다.
 

@@ -5,9 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: effective
 summary: Effective Java 3e 아이템 15을 요약한 내용 입니다.
 navigation_weight: 15
+description: Effective Java 3e 아이템 15를 요약한 내용 입니다.
 ---
 
-# 2020-03-20-effective-15item
+# 아이템15 클래스와 멤버의 접근 권한을 최소화하라
 
 > Effective Java 3e 아이템 15를 요약한 내용 입니다.
 

@@ -5,9 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: effective
 summary: Effective Java 3e 아이템 32을 요약한 내용 입니다.
 navigation_weight: 32
+description: Effective Java 3e 아이템 32를 요약한 내용 입니다.
 ---
 
-# 2020-03-20-effective-32item
+# 아이템32 제네릭과 가변인수를 함께 쓸 때는 신중하라
 
 > Effective Java 3e 아이템 32를 요약한 내용 입니다.
 

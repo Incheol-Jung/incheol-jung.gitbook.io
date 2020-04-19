@@ -5,9 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: effective
 summary: Effective Java 3e 아이템 22를 요약한 내용 입니다.
 navigation_weight: 22
+description: Effective Java 3e 아이템 22를 요약한 내용 입니다.
 ---
 
-# 2020-03-20-effective-22item
+# 아이템22 인터페이스 타입을 정의하는 용도로만 사용하라
 
 > Effective Java 3e 아이템 22를 요약한 내용 입니다.
 

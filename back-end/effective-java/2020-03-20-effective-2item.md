@@ -5,9 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: effective
 summary: Effective Java 3e 아이템 2을 요약한 내용 입니다.
 navigation_weight: 2
+description: Effective Java 3e 아이템 2를 요약한 내용 입니다.
 ---
 
-# 2020-03-20-effective-2item
+# 아이템2 생성자에 매개변수가 많다면 빌더를 고려하라
 
 > Effective Java 3e 아이템 2를 요약한 내용 입니다.
 

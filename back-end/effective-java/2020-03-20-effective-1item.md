@@ -5,9 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: effective
 summary: Effective Java 3e 아이템 1을 요약한 내용 입니다.
 navigation_weight: 1
+description: Effective Java 3e 아이템 1을 요약한 내용 입니다.
 ---
 
-# 2020-03-20-effective-1item
+# 아이템1 생성자 대신 정적 팩터리 메서드를 고려하라
 
 > Effective Java 3e 아이템 1을 요약한 내용 입니다.
 

@@ -5,9 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: effective
 summary: Effective Java 3e 아이템 14을 요약한 내용 입니다.
 navigation_weight: 14
+description: Effective Java 3e 아이템 14를 요약한 내용 입니다.
 ---
 
-# 2020-03-20-effective-14item
+# 아이템14 Comparable을 구현할지 고려하라
 
 > Effective Java 3e 아이템 14를 요약한 내용 입니다.
 

@@ -5,9 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: effective
 summary: Effective Java 3e 아이템 3을 요약한 내용 입니다.
 navigation_weight: 3
+description: Effective Java 3e 아이템 3를 요약한 내용 입니다.
 ---
 
-# 2020-03-20-effective-3item
+# 아이템3 private 생성자나 열거 타입으로 싱글턴임을 보증하라
 
 > Effective Java 3e 아이템 3를 요약한 내용 입니다.
 

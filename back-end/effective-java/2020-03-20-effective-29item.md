@@ -5,9 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: effective
 summary: Effective Java 3e 아이템 29을 요약한 내용 입니다.
 navigation_weight: 29
+description: Effective Java 3e 아이템 29를 요약한 내용 입니다.
 ---
 
-# 2020-03-20-effective-29item
+# 아이템29 이왕이면 제네릭 타입으로 만들라
 
 > Effective Java 3e 아이템 29를 요약한 내용 입니다.
 
