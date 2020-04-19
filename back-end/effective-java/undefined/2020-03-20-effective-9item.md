@@ -10,8 +10,6 @@ description: Effective Java 3e 아이템 9를 요약한 내용 입니다.
 
 # 아이템9 try-finally보다는 try-with-resources를 사용하라
 
-> Effective Java 3e 아이템 9를 요약한 내용 입니다.
-
 자원 닫기는 클라이언트가 놓치기 쉬워서 예측할 수 없는 `성능 문제`로 이어지기도 한다.
 
 전통적으로 자원이 제대로 닫힘을 보장하는 수단으로 `try-finally`가 쓰였다. 예외가 발생하거나 메서드에서 반환되는 경우를 포함해서 말이다.

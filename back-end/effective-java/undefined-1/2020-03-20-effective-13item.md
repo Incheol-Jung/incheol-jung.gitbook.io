@@ -10,8 +10,6 @@ description: Effective Java 3e 아이템 13을 요약한 내용 입니다.
 
 # 아이템13 clone 재정의는 주의해서 진행해라
 
-> Effective Java 3e 아이템 13을 요약한 내용 입니다.
-
 ### 메서드 하나 없는 cloneable 인터페이스는 대체 무슨 일을 할까?
 
 이 인터페이스는 `Object`의 protected 메서드인 clone의 동작 방식을 결정한다. `Cloneable`을 구현한 클래스의 인스턴스에서 `clone`을 호출하면 그 객체의 필드들을 하나하나 복사한 객체를 반환하며, 그렇지 않은 클래스의 인스턴스에서 호출하면 `CloneNotSupportedException`을 던진다.

@@ -10,8 +10,6 @@ description: Effective Java 3e 아이템 16를 요약한 내용 입니다.
 
 # 아이템16 public 클래스에서는 public 필드가 아닌 접근자 메서드를 사용하라
 
-> Effective Java 3e 아이템 16를 요약한 내용 입니다.
-
 객체 지향 프로그래머는 필드 들은 모두 private으로 바꾸고 public 접근자\(getter\)를 추가한다.
 
 ```text

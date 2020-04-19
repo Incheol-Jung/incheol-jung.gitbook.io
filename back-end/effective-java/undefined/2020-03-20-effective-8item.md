@@ -10,8 +10,6 @@ description: Effective Java 3e 아이템 8를 요약한 내용 입니다.
 
 # 아이템8 finalizer와 cleaner 사용을 피하라
 
-> Effective Java 3e 아이템 8를 요약한 내용 입니다.
-
 자바는 `두 가지 객체 소멸자`를 제공한다. 그중 finalizer는 예측할 수 없고, 상황에 따라 위험할 수 있어 일반적으로 불필요하다. finalizer는 나름의 쓰임새가 몇 가지 있긴 하지만 기본적으로 '`쓰지 말아야`' 한다. 그래서 자바 9에서는 finalizer를 `사용 자제(deprecated) API`로 지정하고 `cleaner`를 그 대안으로 소개했다. `cleaner`는 `finalizer`보다는 덜 위험하지만, 여전히 예측할 수 없고, 느리고, 일반적으로 불필요하다.
 
 자바에서는 `try-with-resources`와 `try-finally`를 사용해 해결한다.

@@ -10,8 +10,6 @@ description: Effective Java 3e 아이템 14를 요약한 내용 입니다.
 
 # 아이템14 Comparable을 구현할지 고려하라
 
-> Effective Java 3e 아이템 14를 요약한 내용 입니다.
-
 compareTo는 `단순 동치성 비교`에 더해 `순서`까지 비교할 수 있으며 제내릭하다. Comparable을 구현했다는 것은 그 클래스의 인스턴스들에는 `자연적인 순서`가 있음을 뜻한다.
 
 ## compareTo 규약을 자세히 살펴보자.

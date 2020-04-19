@@ -10,8 +10,6 @@ description: Effective Java 3e 아이템 12을 요약한 내용 입니다.
 
 # 아이템12 toString을 항상 재정의하라
 
-> Effective Java 3e 아이템 12을 요약한 내용 입니다.
-
 equals와 hashCode만큼 대단히 중요하진 않지만 `toString`을 잘 구현한 클래스는 사용하기에 훨씬 즐겁고, 그 클래스를 사용한 시스템은 디버깅하기 쉽다.
 
 toString을 제대로 재정의하지 않는다면 쓸모없는 메시지만 로그에 남을 것이다.

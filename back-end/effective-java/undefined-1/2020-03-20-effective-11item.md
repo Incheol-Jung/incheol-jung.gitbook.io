@@ -10,8 +10,6 @@ description: Effective Java 3e 아이템 11을 요약한 내용 입니다.
 
 # 아이템11 equals를 재정의 하려거든 hashCode도 재정의 하라
 
-> Effective Java 3e 아이템 11을 요약한 내용 입니다.
-
 `equals를 재정의한 클래스 모두에서 hashCode도 재정의해야 한다.` 해당 클래스의 인스턴스를 `HashMap`이나 `HashSet` 같은 컬렉션의 원소로 사용할 때 문제를 일으킬 것이다.
 
 ### 다음은 Object 명세에서 발췌한 규약이다.
