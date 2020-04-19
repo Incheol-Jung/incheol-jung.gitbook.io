@@ -5,11 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: object
 summary: 오브젝트의 9장을 요약한 내용 입니다.
 navigation_weight: 9
+description: 오브젝트의 9장을 요약한 내용 입니다.
 ---
 
 # 9장 유연한 설계
-
-> 오브젝트 9장을 요약한 내용 입니다.
 
 ## 개방-폐쇄 원칙
 
