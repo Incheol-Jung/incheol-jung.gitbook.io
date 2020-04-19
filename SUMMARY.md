@@ -98,6 +98,7 @@
   * [설계 원칙](back-end/undefined/undefined-1.md)
   * [DI와 서비스 로케이터](back-end/undefined/di.md)
   * [주요 디자인 패턴](back-end/undefined/undefined-2.md)
+* [스프링부트 코딩 공작소](back-end/undefined-1.md)
 
 ## FRONT-END <a id="front"></a>
 
@@ -125,8 +126,12 @@
 
 * [POSTMAN](infra/2018-01-03-how-to-use-postman.md)
 * [AGILE](infra/2018-01-12-introduce-agile.md)
-* [GIT](infra/2018-01-07-github.md)
 * [Docker](infra/2018-01-16-nodejs-14st.md)
+* [GIT](infra/2018-01-07-github.md)
+* [DEVOPS](infra/devops.md)
+* [MSA](infra/msa.md)
+* [JENKINS](infra/jenkins.md)
+* [DDD](infra/ddd.md)
 
 ## COMPUTER SCIENCE
 
