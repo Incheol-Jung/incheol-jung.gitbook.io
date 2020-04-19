@@ -98,7 +98,7 @@
   * [설계 원칙](back-end/undefined/undefined-1.md)
   * [DI와 서비스 로케이터](back-end/undefined/di.md)
   * [주요 디자인 패턴](back-end/undefined/undefined-2.md)
-* [스프링부트 코딩 공작소](back-end/undefined-1.md)
+* [스프링부트 코딩 공작소\(TBD\)](back-end/undefined-1.md)
 
 ## FRONT-END <a id="front"></a>
 
@@ -120,7 +120,13 @@
   * [CHAPTER 15. Router](front/reference/2017-01-22-router.md)
   * [CHAPTER 16. Zones and the Angular magic](front/reference/2017-01-22-zones-and-the-angular-magic.md)
   * [CHAPTER 17. This is the end](front/reference/2017-01-22-this-is-the-end.md)
-* [Vue.js](front/vue.js.md)
+* [Vue.js\(TBD\)](front/vue.js.md)
+
+## ARCHETECTURE
+
+* [MSA\(TBD\)](archetecture/msa.md)
+* [DDD\(TBD\)](archetecture/ddd.md)
+* [Untitled](archetecture/untitled.md)
 
 ## INFRA
 
@@ -128,10 +134,8 @@
 * [AGILE](infra/2018-01-12-introduce-agile.md)
 * [Docker](infra/2018-01-16-nodejs-14st.md)
 * [GIT](infra/2018-01-07-github.md)
-* [DEVOPS](infra/devops.md)
-* [MSA](infra/msa.md)
-* [JENKINS](infra/jenkins.md)
-* [DDD](infra/ddd.md)
+* [DEVOPS\(TBD\)](infra/devops.md)
+* [JENKINS\(TBD\)](infra/jenkins.md)
 
 ## COMPUTER SCIENCE
 
