@@ -74,6 +74,8 @@
   * [14장 함수형 프로그래밍 기법](back-end/java-8-in-action/2020-03-10-java8inaction-chap14.md)
 * [JAVA ORM JPA](back-end/jpa/README.md)
   * [1장 JPA 소개](back-end/jpa/2020-04-07-jpa-chap1.md)
+  * [2장 JPA 시작](back-end/jpa/2-jpa.md)
+  * [3장 영속성 관리](back-end/jpa/3.md)
 * [NODE.JS](back-end/nodejs/README.md)
   * [1회차](back-end/nodejs/2018-01-16-nodejs-1st.md)
   * [2회차](back-end/nodejs/2018-01-16-nodejs-2st.md)
