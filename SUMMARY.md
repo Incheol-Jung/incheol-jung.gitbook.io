@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Incheol's develop BLOG](README.md)
+* [Incheol's DEV BLOG](README.md)
 
 ## BACK-END
 
