@@ -6,7 +6,7 @@ categories: Agile
 summary: Introduce agile.
 ---
 
-# 2018-01-12-introduce-agile
+# What is Agile??
 
 ## 소프트웨어 개발 방법론?
 
@@ -18,11 +18,11 @@ Waterfall : 소프트웨어 개발을 단계적, 순차적으로 수행되는 �
 
 ### 장단점 분석
 
-![](../../.gitbook/assets/waterfall-agile.png)
+![](../.gitbook/assets/waterfall-agile.png)
 
 ### Agile 종류
 
-![](../../.gitbook/assets/agile-type.png)
+![](../.gitbook/assets/agile-type.png)
 
 ## Scrum Process
 

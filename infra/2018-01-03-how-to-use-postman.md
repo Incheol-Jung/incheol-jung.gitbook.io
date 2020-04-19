@@ -6,7 +6,7 @@ categories: postman
 summary: 'How to use postman http://ourcstory.tistory.com/6'
 ---
 
-# 2018-01-03-how-to-use-postman
+# How To Use Postman??
 
 ## POSTMAN이란?
 
@@ -27,7 +27,7 @@ Authorization이나 Header, Body를 수정하는건 더더욱 제한이 많다.
 [https://www.getpostman.com/](https://www.getpostman.com/) 사이트에서 다운로드 하여 어플리케이션으로 실행할 수 있다.  
  단기적으로 사용한다고 하면 굳이 회원가입없이 바로 사용 가능하다.   
   
- ![](../../.gitbook/assets/postman_download.png)
+ ![](../.gitbook/assets/postman_download.png)
 
 ## POSTMAN 특징
 
@@ -42,7 +42,7 @@ POSTMAN은 REST API를 표현할 수 있다.
  즉, URI를 이용해서 제어할 자원을 명시하고  
  HTTP를 이용해서 제어명령을 내린다.  
   
- ![](../../.gitbook/assets/restapi.png)
+ ![](../.gitbook/assets/restapi.png)
 
 ### - Variables
 
@@ -50,27 +50,27 @@ POSTMAN에서 사용하는 URI, Resource를 단순 text로 표현할 수도 있�
  변수 사용 범위는 모든 텍스트가 들어가는 영역을 대체할 수 있다.   
  변수를 사용하는 이유는 중복적으로 사용하는 text를 하나의 변수로 재사용이 가능할 뿐만 아니라 text가 변경될 경우에 각각의 text를 변경하는 게 아닌 변수 값만 수정하게 된다면 일괄적용될 수 있는 장점이 있다.   
   
- ![](../../.gitbook/assets/variable.png) 변수는 크게 전역 변수로 사용할 수 있는 글로벌 환경과 특정 환경에서만 적용되는 지역 환경으로 구분될 수 있다. 지역 환경 변수는 특정 환경에서 사용되는 변수로 환경이 변경될 때마다 해당 환경에 정의된 값으로 변경되어진다.   
+ ![](../.gitbook/assets/variable.png) 변수는 크게 전역 변수로 사용할 수 있는 글로벌 환경과 특정 환경에서만 적용되는 지역 환경으로 구분될 수 있다. 지역 환경 변수는 특정 환경에서 사용되는 변수로 환경이 변경될 때마다 해당 환경에 정의된 값으로 변경되어진다.   
   
- ![](../../.gitbook/assets/variable-local.png) 글로벌 환경 변수는 특정 환경의 변화와 무관하게 사용되는 전역 변수로 지역 환경 변수가 설정되어 있다고 하더라도 글로벌 변수가 설정되어 있다면 우선순위는 글로벌 환경 변수가 더 높다.   
+ ![](../.gitbook/assets/variable-local.png) 글로벌 환경 변수는 특정 환경의 변화와 무관하게 사용되는 전역 변수로 지역 환경 변수가 설정되어 있다고 하더라도 글로벌 변수가 설정되어 있다면 우선순위는 글로벌 환경 변수가 더 높다.   
   
- ![](../../.gitbook/assets/variable-global.png)
+ ![](../.gitbook/assets/variable-global.png)
 
 ### - Interceptor
 
 Interceptor 기능은 Chrome 브라우저를 이용하여 브라우저에서 발생한 Request 히스토리를 Postman History로 동기화를 해주는 기능이다.  
  [https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo](https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo) 에서 확장 프로그램을 설치한 뒤 우측 상단에서 Request Capture를 활성화 시키고 Postman Application에서도 활성화시켜주게 되면 동기화가 이루어진다.   
   
- ![](../../.gitbook/assets/postman-interceptor.png)
+ ![](../.gitbook/assets/postman-interceptor.png)
 
 ### - Collections
 
 Collection 관리를 통해서 크게는 프로젝트 별로 구분할 수 있고 세부적으로는 프로젝트 내부에서 각 모듈이나 기능 별로 분리할 수 있다.   
  back-end와 front-end의 작업이 구분되어 있다면 개발 시작전에 collection 규칙을 협의하여 진행하는 것이 효율적이다.   
   
- ![](../../.gitbook/assets/collection.png) 유료 서비스를 사용하지 않는다면 팀원 간의 collection 공유는 불가능 하므로 작업한 collection을 export/import하여 공유해야 하는 부분이 있다.   
+ ![](../.gitbook/assets/collection.png) 유료 서비스를 사용하지 않는다면 팀원 간의 collection 공유는 불가능 하므로 작업한 collection을 export/import하여 공유해야 하는 부분이 있다.   
   
- ![](../../.gitbook/assets/collection2.png)
+ ![](../.gitbook/assets/collection2.png)
 
 ### - Test scnario
 
@@ -78,21 +78,21 @@ POSTMAN으로 단순하게 API가 동작하는지에 대한 테스트를 진행�
  예를 들어 Response Data의 address 값의 여부를 테스트 케이스에 넣게 된다면 address 값이 없을 경우에는 API 상태 결과값이 200이더라도 에러라는 테스트 케이스 결과 값을 확인할 수 있다.   
  또는 Response Data를 이용하여 전역변수 또는 지역변수의 값을 설정할 수도 있다.   
   
- ![](../../.gitbook/assets/test-scnario.png)
+ ![](../.gitbook/assets/test-scnario.png)
 
 ### - Pre-scripts
 
 이전에 설명한 Test scnario는 API 호출 이후 시점에 사용되는 기능이라면, Pre-Scripts의 경우에는 API 호출 이전 시점에 사용되는 기능으로 구분할 수 있다.  
  예를 들어 파라미터에 현재 날짜를 전송해주어야 한다면 테스트 진행할 때마다 현재 날짜를 텍스트로 입력해주어야 하는 번거로움이 있다. 그러나 이 부분을 pre-script를 사용하여 function으로 구현하였다면 자동으로 파라미터가 현재 날짜로 변경될 것이다.   
   
- ![](../../.gitbook/assets/pre-script.png)
+ ![](../.gitbook/assets/pre-script.png)
 
 ### - Monitor
 
 Project 단위로 사용자가 원하는 주기로 Collection을 실행하여 API의 monitoring이 가능하다.   
  monitoring하는 주기 단위 또는 traffic량에 따라서 유료로 제공되고 있다.   
   
- ![](../../.gitbook/assets/monitor.png)
+ ![](../.gitbook/assets/monitor.png)
 
 ### - Work flow
 
@@ -100,14 +100,14 @@ Test scnario의 심화 기능으로 Postman.setNextRequest 함수를 이용하�
  특정 API 호출이후에 테스트할 수 있는 API가 있다면 해당 기능이 유용하게 사용될 것이다.   
  한가지 단점은 일반적인 실행으로는 setNextRequest 함수가 실행이 안되고 Runner를 통해서만 실행이 가능하다.   
   
- ![](../../.gitbook/assets/workflow.png)
+ ![](../.gitbook/assets/workflow.png)
 
 ### - Team Library
 
 Team 내부에서 Collection을 공유하는 기능으로 유료 버전에서만 제공한다.   
  무료버전에서 Collection을 공유하기 위해 export/import하는 번거로움을 줄일수 있고 변경된 내용을 실시간으로 확인할 수 있다.   
   
- ![](../../.gitbook/assets/library.png)
+ ![](../.gitbook/assets/library.png)
 
 Thank you!!!
 
