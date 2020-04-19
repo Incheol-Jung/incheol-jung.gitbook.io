@@ -41,7 +41,7 @@
     * [아이템30 이왕이면 제네릭 메서드로 만들라](back-end/effective-java/undefined-3/2020-03-20-effective-30item.md)
     * [아이템31 한정적 와일드카드를 사용해 API 유연성을 높이라](back-end/effective-java/undefined-3/2020-03-20-effective-31item.md)
     * [아이템32 제네릭과 가변인수를 함께 쓸 때는 신중하라](back-end/effective-java/undefined-3/2020-03-20-effective-32item.md)
-* [OBJECT](back-end/object/README.md)
+* [오브젝트](back-end/object/README.md)
   * [1장 객체, 설계](back-end/object/2020-03-10-object-chap1.md)
   * [2장 객체지향 프로그래밍](back-end/object/2020-03-10-object-chap2.md)
   * [3장 역할, 책임, 협력](back-end/object/2020-03-10-object-chap3.md)
@@ -90,9 +90,14 @@
   * [12회차](back-end/nodejs/2018-01-16-nodejs-12st.md)
   * [mongoose](back-end/nodejs/2018-01-16-nodejs-5st.md)
   * [AWS란?](back-end/nodejs/2018-01-16-nodejs-13st.md)
-* [TOBY'S SPRING](back-end/tobys-spring/README.md)
+* [토비의 스프링](back-end/tobys-spring/README.md)
   * [5장 AOP와 LTW](back-end/tobys-spring/2020-03-10-spring2-chap5.md)
   * [6장 테스트 컨텍스트 프레임워크](back-end/tobys-spring/2020-03-10-spring2-chap6.md)
+* [객체지향과 디자인패턴](back-end/undefined/README.md)
+  * [객체 지향](back-end/undefined/undefined.md)
+  * [설계 원칙](back-end/undefined/undefined-1.md)
+  * [DI와 서비스 로케이터](back-end/undefined/di.md)
+  * [주요 디자인 패턴](back-end/undefined/undefined-2.md)
 
 ## FRONT-END <a id="front"></a>
 
@@ -114,6 +119,7 @@
   * [CHAPTER 15. Router](front/reference/2017-01-22-router.md)
   * [CHAPTER 16. Zones and the Angular magic](front/reference/2017-01-22-zones-and-the-angular-magic.md)
   * [CHAPTER 17. This is the end](front/reference/2017-01-22-this-is-the-end.md)
+* [Vue.js](front/vue.js.md)
 
 ## INFRA
 
