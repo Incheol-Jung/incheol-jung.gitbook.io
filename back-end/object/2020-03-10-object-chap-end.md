@@ -7,7 +7,7 @@ summary: 오브젝트의 마지막장을 요약한 내용 입니다.
 navigation_weight: 16
 ---
 
-# 2020-03-10-object-chap-end
+# 마무리
 
 > 오브젝트 마지막장 요약한 내용 입니다.
 

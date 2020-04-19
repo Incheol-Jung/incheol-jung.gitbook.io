@@ -5,9 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: object
 summary: 오브젝트의 3장을 요약한 내용 입니다.
 navigation_weight: 3
+description: 오브젝트의 3장을 요약한 내용 입니다.
 ---
 
-# 2020-03-10-object-chap3
+# 3장 역할, 책임, 협력
 
 > 오브젝트의 3장을 요약한 내용 입니다.
 

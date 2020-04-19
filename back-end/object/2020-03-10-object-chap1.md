@@ -5,11 +5,10 @@ date: '2020-03-10T00:00:00.000Z'
 categories: object
 summary: 오브젝트의 1장을 요약한 내용 입니다.
 navigation_weight: 1
+description: 오브젝트의 1장을 요약한 내용 입니다.
 ---
 
 # 1장 객체, 설계
-
-> 오브젝트의 1장을 요약한 내용 입니다.
 
 ## 티켓 판매 애플리케이션 구현하기
 
