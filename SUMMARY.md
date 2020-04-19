@@ -123,10 +123,9 @@
 
 ## INFRA
 
-* [How To Use Postman??](infra/2018-01-03-how-to-use-postman.md)
-* [What is Agile??](infra/2018-01-12-introduce-agile.md)
-* [POSTMAN](infra/postman.md)
-* [GIT 용어 정리](infra/2018-01-07-github.md)
+* [POSTMAN](infra/2018-01-03-how-to-use-postman.md)
+* [AGILE](infra/2018-01-12-introduce-agile.md)
+* [GIT](infra/2018-01-07-github.md)
 * [Docker](infra/2018-01-16-nodejs-14st.md)
 
 ## COMPUTER SCIENCE

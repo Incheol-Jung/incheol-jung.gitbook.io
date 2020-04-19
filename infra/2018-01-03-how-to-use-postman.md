@@ -6,7 +6,7 @@ categories: postman
 summary: 'How to use postman http://ourcstory.tistory.com/6'
 ---
 
-# How To Use Postman??
+# POSTMAN
 
 ## POSTMAN이란?
 

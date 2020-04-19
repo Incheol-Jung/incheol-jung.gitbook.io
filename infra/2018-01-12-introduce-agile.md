@@ -6,7 +6,7 @@ categories: Agile
 summary: Introduce agile.
 ---
 
-# What is Agile??
+# AGILE
 
 ## 소프트웨어 개발 방법론?
 
