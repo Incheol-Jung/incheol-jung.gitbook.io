@@ -1,8 +1,8 @@
 ---
 layout: reference
 title: CHAPTER 8. Reactive Programming
-date: 2017-01-22T00:00:00.000Z
-updated: 2017-01-22T00:00:00.000Z
+date: '2017-01-22T00:00:00.000Z'
+updated: '2017-01-22T00:00:00.000Z'
 categories: reference
 summary: Reactive Programming
 navigation_weight: 8

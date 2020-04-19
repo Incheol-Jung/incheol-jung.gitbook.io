@@ -1,8 +1,8 @@
 ---
 layout: reference
 title: CHAPTER 9. Building components and directives
-date: 2017-01-22T00:00:00.000Z
-updated: 2017-01-22T00:00:00.000Z
+date: '2017-01-22T00:00:00.000Z'
+updated: '2017-01-22T00:00:00.000Z'
 categories: reference
 summary: RBuilding components and directives
 navigation_weight: 9
