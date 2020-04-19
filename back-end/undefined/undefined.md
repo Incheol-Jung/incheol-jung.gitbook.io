@@ -160,33 +160,39 @@ ByteSource의 종류가 FlowController가 바뀌지 않도록 하는 방법에�
 * ByteSource 타입의 객체를 생성하는 기능을 별도 객체로 분리한 뒤, 그 객체를 사용해서 ByteSource 생성
 * 생성자\(또는 다른 메서드\)를 이용해서 사용할 ByteSource를 전달받기
 
-  public class ByteSourceFactory { public ByteSource create\(\) { if \(useFile\(\)\) return new FileDataReader\(\); else return new SockerDataReader\(\); }
-
   ```text
-    private boolean useFile() {
-    	String useFileVal = System.getProperty("useFile");
-    	return useFileVal != null && Boolean.valueOf(useFileVal);
-    }
+    public class ByteSourceFactory { 
+      public ByteSource create() { 
+        if (useFile()) 
+          return new FileDataReader(); 
+        else return new SockerDataReader(); 
+      }
+  
+      private boolean useFile() {
+      	String useFileVal = System.getProperty("useFile");
+      	return useFileVal != null && Boolean.valueOf(useFileVal);
+      }
 
-    // 싱글톤 패턴 적용
-    private static ByteSourceFactory instance = new ByteSourceFactory();
-    public static ByteSourceFactory getInstance() {
-    	return instance;
-    }
+      // 싱글톤 패턴 적용
+      private static ByteSourceFactory instance = new ByteSourceFactory();
+      public static ByteSourceFactory getInstance() {
+      	return instance;
+      }
 
     ...
+  
   ```
-
-  }
-
-  public class FlowController { public void process\(\) { ByteSource source = new ByteSourceFactory.getInstance\(\).create\(\); byte\[\] data = source.read\(\);
 
   ```text
-    	...
-    }
-  ```
+  public class FlowController {
+  	public void process() {
+  		ByteSource source = new ByteSourceFactory.getInstance().create();
+  		byte[] data = source.read();
 
+  		...
+  	}
   }
+  ```
 
 이제는 새로운 ByteSource 구현 클래스가 추가되어도 FlowController 클래스의 코드는 영향을 받지 않는다.
 
