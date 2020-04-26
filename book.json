@@ -1,0 +1,9 @@
+{
+    "plugins": ["sitemap"],
+    "pluginsConfig": {
+        "sitemap": {
+            "hostname": "https://incheol-jung.gitbook.io",
+            "pathPrefix": "/docs/"
+        }
+    }
+}
