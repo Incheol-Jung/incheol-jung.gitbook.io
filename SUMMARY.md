@@ -79,6 +79,7 @@
     * [3장 영속성 관리](development/backend/jpa/3.md)
     * [4장 엔티티 매핑](development/backend/jpa/4.md)
     * [5장 연관관계 매핑 기초](development/backend/jpa/5.md)
+    * [6장 다양한 연관관계 매핑](development/backend/jpa/6.md)
   * [객체지향과 디자인패턴](development/backend/undefined/README.md)
     * [객체 지향](development/backend/undefined/undefined.md)
     * [설계 원칙](development/backend/undefined/undefined-1.md)
