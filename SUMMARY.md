@@ -137,6 +137,13 @@
   * [DDD\(TBD\)](development/architecture/ddd.md)
   * [MSA\(TBD\)](development/architecture/msa.md)
 * [COMPUTER SCIENCE](development/untitled-1/README.md)
+  * [HTTP](development/untitled-1/http/README.md)
+    * [게이트웨이 vs 프록시](development/untitled-1/http/vs.md)
+    * [HTTP Header](development/untitled-1/http/http-header.md)
+    * [REST API](development/untitled-1/http/rest-api.md)
+    * [HTTP Method 종류](development/untitled-1/http/http-method/README.md)
+      * [HTTP Status Code](development/untitled-1/http/http-method/http-status-code.md)
+    * [HTTP 2.x](development/untitled-1/http/http-2.x.md)
   * [자료구조\(TBD\)](development/untitled-1/undefined.md)
   * [Algorithm\(TBD\)](development/untitled-1/algorithm.md)
 
