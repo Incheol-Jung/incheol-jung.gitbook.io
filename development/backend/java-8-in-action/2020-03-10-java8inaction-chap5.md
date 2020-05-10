@@ -19,11 +19,11 @@ filter 메서드는 predicate를 인수로 받아서 predicate와 일치하는 �
 * 스트림은 처음 n개 요소를 제외한 스트림을 반환하는 skip 메서드를 지원한다.
 
   ```java
-    // 300칼로리 이상의 처음 두 요리를 건너띈 다음에 300칼로리가 넘는 나머지 요리를 반환한다. 
-    List<Dish> dishes = menu.stream()
-                                                        .filter(d -> d.getCalories() > 300)
-                                                        .skip(2)
-                                                        .collect(toList());
+  // 300칼로리 이상의 처음 두 요리를 건너띈 다음에 300칼로리가 넘는 나머지 요리를 반환한다. 
+  List<Dish> dishes = menu.stream()
+    .filter(d -> d.getCalories() > 300)
+    .skip(2)
+    .collect(toList());
   ```
 
   **매핑**
@@ -31,29 +31,29 @@ filter 메서드는 predicate를 인수로 받아서 predicate와 일치하는 �
 스트림은 함수를 인수로 받는 map 메서드를 지원한다. 인수로 제공된 함수는 각 요소에 적용되며 함수를 적용한 결과가 새로운 요소로 매핑된다.
 
 ```java
-    List<Integer> dishNameLengths = menu.stream()
-                                                                                .map(Dish::getName)
-                                                                                .map(String::length)
-                                                                                .collect(toList());
+List<Integer> dishNameLengths = menu.stream()
+    .map(Dish::getName)
+    .map(String::length)
+    .collect(toList());
 ```
 
 매서드 map을 이용해서 리스트의 각 단어의 고유 문자로 이루어진 리스트를 반환해보자.
 
 ```java
-    words.stream()
-                .map(word -> word.split(""))
-                .distinct()
-                .collect(toList());
+words.stream()
+    .map(word -> word.split(""))
+    .distinct()
+    .collect(toList());
 ```
 
 위 코드에서 map으로 전달한 람다는 각 단어의 String\[\]을 반환한다는 점이 문제다. 따라서 map 메서드가 반환한 스트림의 형식은 Stream 이다.
 
 ```java
-    List<String> uniqueCharacters = words.stream()
-                                                                                .map(w -> w.split(""))
-                                                                                .flatMap(Arrays::stream)
-                                                                                .distinct()
-                                                                                .collect(Collectors.toList());
+List<String> uniqueCharacters = words.stream()
+    .map(w -> w.split(""))
+    .flatMap(Arrays::stream)
+    .distinct()
+    .collect(Collectors.toList());
 ```
 
 flatMap은 스트림의 각 값을 다른 스트림으로 만든 다음에 모든 스트림을 하나의 스트림으로 연결하는 기능을 수행한다.
@@ -63,21 +63,21 @@ flatMap은 스트림의 각 값을 다른 스트림으로 만든 다음에 모�
 스트림에서 적어도 한 요소와 일치하는지 확인할 때 anyMatch 메서드를 이용한다.
 
 ```java
-    if(menu.stream().anyMatch(Dish::isVegetarian)) {
-        System.out.println("The menu is (somewhat) vegetarian friendly!!");
-    }
+if(menu.stream().anyMatch(Dish::isVegetarian)) {
+    System.out.println("The menu is (somewhat) vegetarian friendly!!");
+}
 ```
 
 allMatch 메서드는 anyMatch와 달리 스트림의 모든 요소가 주어진 Predicate와 일치하는지 검사한다.
 
 ```java
-    boolean isHealthy = menu.stream().allmatch(d -> d.getCalories() < 1000);
+boolean isHealthy = menu.stream().allmatch(d -> d.getCalories() < 1000);
 ```
 
 noneMatch는 allMatch와 반대 연산을 수행한다.
 
 ```java
-    boolean isHealthy = menu.stream().noneMatch(d -> d.getCalories() > 1000);
+boolean isHealthy = menu.stream().noneMatch(d -> d.getCalories() > 1000);
 ```
 
 표현식에서 하나라도 거짓이라는 결과가 나오면 나머지 표현식의 결과와 상관없이 전체 결과도 거짓이 된다. 이러한 상황을 `쇼트서킷`이라고 부른다. allMatch, noneMatch, findFirst, findAny 등의 연산은 모든 스트림의 요소를 처리하지 않고도 결과를 반환할 수 있다. 또는 원하는 요소를 찾았으면 즉시 결과를 반환할 수 있다. 특히 무한한 요소를 가진 스트림을 유한한 크기로 줄일 수 있는 유용한 연산이다.
@@ -85,9 +85,9 @@ noneMatch는 allMatch와 반대 연산을 수행한다.
 findAny 메서드는 현재 스트림에서 임의의 요소를 반환한다.
 
 ```java
-    Optional<Dish> dish = menu.stream()
-                                                            .filter(Dish::isVegetarian)
-                                                            .findAny();
+Optional<Dish> dish = menu.stream()
+    .filter(Dish::isVegetarian)
+    .findAny();
 ```
 
 `findFirst`와 `findAny`는 언제 사용하나?? 사용의 차이 유무는 병렬성 때문이다. 병렬 실행에서는 첫 번째 요소를 찾기 어렵다. 따라서 요소의 반환 순서가 상관없다면 병렬 스트림에서는 제약이 적은 findAny를 사용한다.
@@ -102,11 +102,11 @@ Optional 클래스는 값의 존재나 부재 여부를 표현하는 컨테이�
 * T orElse\(T other\)는 값이 있으면 값을 반환하고, 값이 없으면 기본값을 반환한다.
 
   ```java
-    menu.stream()
-            .filter(Dish::isVegetarian)
-            .findAny()
-            .ifPresent(d -> System.out.println(d.getName()); 
-    // 값이 있으면 출력되고, 값이 없으면 아무 일도 일어나지 않는다.
+  menu.stream()
+    .filter(Dish::isVegetarian)
+    .findAny()
+    .ifPresent(d -> System.out.println(d.getName()); 
+  // 값이 있으면 출력되고, 값이 없으면 아무 일도 일어나지 않는다.
   ```
 
   **리듀싱**
@@ -116,30 +116,30 @@ Optional 클래스는 값의 존재나 부재 여부를 표현하는 컨테이�
 numbers의 각 요소의 합계를 구하려고 할때, 외부 반복을 사용하면 어떻게 구현해야 할까?
 
 ```java
-    int sum = 0;
-    for (int x : numbers) {
-        sum += x;
-    }
+int sum = 0;
+for (int x : numbers) {
+    sum += x;
+}
 ```
 
 위의 코드를 reduce를 이용해서 다음처럼 스트림의 모든 요소를 더할 수 있다.
 
 ```java
-    int sum = numbers.stream().reduce(0, (a, b) -> a + b);
-    int product = numbers.stream().reduce(1, (a, b) -> a * b);
+int sum = numbers.stream().reduce(0, (a, b) -> a + b);
+int product = numbers.stream().reduce(1, (a, b) -> a * b);
 ```
 
 초기값을 받지 않도록 오버로드된 reduce도 있다. 그러나 이 reduce는 Optional 객체를 반환한다.
 
 ```java
-    Optional<Integer> sum = numbers.stream().reduce((a, b) -> a + b);
+Optional<Integer> sum = numbers.stream().reduce((a, b) -> a + b);
 ```
 
 최댓값과 최솟값을 찾을 때도 reduce를 활용할 수 있다.
 
 ```java
-    Optional<Integer> max = numbers.stream().reduce(a, b) -> a < b);
-    Optional<Integer> max = numbers.stream().reduce(Integer::max);
+Optional<Integer> max = numbers.stream().reduce(a, b) -> a < b);
+Optional<Integer> max = numbers.stream().reduce(Integer::max);
 ```
 
 [중간 연산과 최종 연산](https://www.notion.so/8802562f484b4632b48fc203ce14bdae)
@@ -149,58 +149,58 @@ numbers의 각 요소의 합계를 구하려고 할때, 외부 반복을 사용�
 ### 2011년에 일어난 모든 트랜잭션을 찾아서 값을 오름차순으로 정렬하시오
 
 ```java
-    List<Transaction> tr2011 = treansactions.stream()
-                                                                                        .filter(transaction -> transaction.getYear() == 2011)
-                                                                                        .sorted(comparting(Transaction::getValue))
-                                                                                        .collect(toList());
+List<Transaction> tr2011 = treansactions.stream()
+    .filter(transaction -> transaction.getYear() == 2011)
+    .sorted(comparting(Transaction::getValue))
+    .collect(toList());
 ```
 
 ### 거래자가 근무하는 모든 도시를 중복 없이 나열하시오
 
 ```java
-    transactions.stream()
-                                .map(transaction -> transaction.getTrader().getCity())
-                                .distinct()
-                                .collect(toList());
+transactions.stream()
+    .map(transaction -> transaction.getTrader().getCity())
+    .distinct()
+    .collect(toList());
 ```
 
 ### 케임브리지에서 근무하는 모든 거래자를 찾아서 이름순으로 정렬하시오
 
 ```java
-    transactions.stream()
-                                //.map(Transaction::gettrader)
-                                .filter(trader -> Transaction::gettrader.getCity().equals("Cambridge"))
-                                .distinct()
-                                .sorted(comparing(Trader::getName))
-                                .collect(toList());
+transactions.stream()
+    //.map(Transaction::gettrader)
+    .filter(trader -> Transaction::gettrader.getCity().equals("Cambridge"))
+    .distinct()
+    .sorted(comparing(Trader::getName))
+    .collect(toList());
 ```
 
 ### 모든 거래자의 이름을 알파벳순으로 정렬해서 반환하시오
 
 ```java
-    transactions.stream()
-                                .map(transaction -> transaction.getTrader().getName())
-                                .distinct()
-                                .sorted()
-                                .reduce("", (n1, n1) -> n1 + n2);
+transactions.stream()
+    .map(transaction -> transaction.getTrader().getName())
+    .distinct()
+    .sorted()
+    .reduce("", (n1, n1) -> n1 + n2);
 ```
 
 ### 밀란에 거래자가 있는지?
 
 ```java
-    transactions.stream()
-                                .anyMatch(transaction -> transaction.getTrader()
-                                                                                                            .getCity()
-                                                                                                            .equals("Milan"));
+transactions.stream()
+.anyMatch(transaction -> transaction.getTrader()
+                                .getCity()
+                                .equals("Milan"));
 ```
 
 ### 케임브리지에 거주하는 거래자의 모든 트랜잭션값을 출력하시오
 
 ```java
-    transactions.stream()
-                            .filter(t -> "Cambridge".equals(t.getTrader().getCity())
-                            .map(Transaction::getValue)
-                            .forEach(System.out::println);
+transactions.stream()
+    .filter(t -> "Cambridge".equals(t.getTrader().getCity())
+    .map(Transaction::getValue)
+    .forEach(System.out::println);
 ```
 
 ### 전체 트랜잭션 중 최댓값/최솟값은 얼마인가?
