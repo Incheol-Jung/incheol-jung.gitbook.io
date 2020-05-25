@@ -39,7 +39,7 @@ description: 오브젝트의 2장을 요약한 내용 입니다.
 
 ### 협력하는 객체들의 공동체
 
-Screening의 reserve 메서드는 영화를 예매한 후 예매 정보를 담고 있는 Resercation의 인스턴스를 생성해서 반환한다.
+Screening의 reserve 메서드는 영화를 예매한 후 예매 정보를 담고 있는 Reservation의 인스턴스를 생성해서 반환한다.
 
 ```java
 public class Screenning {

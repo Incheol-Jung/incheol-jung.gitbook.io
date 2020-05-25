@@ -17,6 +17,24 @@ description: 자바 8 인 액션 2장을 요약한 내용 입니다.
 
 초기 요구사항은 단순히 녹색 사과만 얻기를 바랬다.
 
+{% tabs %}
+{% tab title="First Tab" %}
+test
+{% endtab %}
+
+{% tab title="Second Tab" %}
+test
+{% endtab %}
+
+{% tab title="" %}
+test
+{% endtab %}
+{% endtabs %}
+
+```java
+test
+```
+
 ```java
 public static List<Apple> filterGreenApples(List<Apple> inventory) {
     List<Apple> result = new  ArrayList<>();
