@@ -81,6 +81,8 @@
     * [5장 연관관계 매핑 기초](development/backend/jpa/5.md)
     * [6장 다양한 연관관계 매핑](development/backend/jpa/6.md)
     * [7장 고급 매핑](development/backend/jpa/7.md)
+    * [8장 프록시와 연관관계 관리](development/backend/jpa/8.md)
+    * [9장 값 타입](development/backend/jpa/9.md)
   * [객체지향과 디자인패턴](development/backend/undefined/README.md)
     * [객체 지향](development/backend/undefined/undefined.md)
     * [설계 원칙](development/backend/undefined/undefined-1.md)
