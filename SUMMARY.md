@@ -5,7 +5,7 @@
 ## DEVELOPMENT
 
 * [BACK-END](development/backend/README.md)
-  * [DDD START!!!](development/backend/ddd-start/README.md)
+  * [DDD START!](development/backend/ddd-start/README.md)
     * [1장 도메인 모델 시작](development/backend/ddd-start/1.md)
     * [2장 아키텍처 개요](development/backend/ddd-start/2.md)
     * [3장 애그리거트](development/backend/ddd-start/3.md)
