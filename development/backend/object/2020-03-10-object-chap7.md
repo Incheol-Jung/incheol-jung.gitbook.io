@@ -145,7 +145,7 @@ public Integer calculatePay(taxRate) {
 
 객체지향에서는 타입 변수를 이용한 조건문을 `다형성`으로 대체한다. 객체가 메시지를 처리할 적절한 메서드를 선택하게 된다.
 
-![https://i.ibb.co/xqhbcCx/12.png](https://i.ibb.co/xqhbcCx/12.png)
+![](../../../.gitbook/assets/polymorphism.jpg)
 
 이처럼 기존 코드에 아무런 영향도 미치지 않고 새로운 객체 유형과 행위를 추가할 수 있는 객체지향의 특성을 `개방-폐쇄 원칙(Open-Closed Principle, OCP)`이라고 부른다.
 
