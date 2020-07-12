@@ -116,6 +116,8 @@
     * [DI와 서비스 로케이터](development/backend/undefined/di.md)
     * [주요 디자인 패턴](development/backend/undefined/undefined-2.md)
   * [토비의 스프링](development/backend/tobys-spring/README.md)
+    * [1장 오브젝트와 의존관계](development/backend/tobys-spring/1.md)
+    * [2장 테스트](development/backend/tobys-spring/2.md)
     * [5장 AOP와 LTW](development/backend/tobys-spring/2020-03-10-spring2-chap5.md)
     * [6장 테스트 컨텍스트 프레임워크](development/backend/tobys-spring/2020-03-10-spring2-chap6.md)
   * [NODE.JS](development/backend/nodejs/README.md)
