@@ -22,7 +22,24 @@ description: 오브젝트의 8장을 요약한 내용 입니다.
 
 의존성은 전이될 수 있기 때문에 의존성의 종류를 **직접 의존성**과 **간접 의존성**으로 나누기도 한다. 직접 의존성이란 말 그대로 한 요소가 다른 요소에 직접 의존하는 경우를 가리킨다. 간접 의존성이란 직접적인 관계는 존재하지 않지만 의존성 전이에 의해 영향이 전파되는 경우를 가리킨다.
 
-직접 의존성과 간접 의존성의 실제 예제 코드 필요
+```java
+// 직접 의존성
+Class Movie {
+    private AmountDiscountPolicy amountDiscountPolicy 
+        = new AmountDiscountPolicy();
+    ...
+}
+
+// 간접 의존성
+class Movie {
+    private DiscountPolicy discountPolicy;
+    
+    Movie(DiscountPolicy discountPolicy) {
+        this.discountPolicy = discountPolicy;
+    }
+    ...
+}
+```
 
 ### 컨텍스트 독립성
 
