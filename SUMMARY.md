@@ -33,6 +33,8 @@
   * [토비의 스프링](development/backend/tobys-spring/README.md)
     * [1장 오브젝트와 의존관계](development/backend/tobys-spring/1.md)
     * [2장 테스트](development/backend/tobys-spring/2.md)
+    * [3장 템플릿](development/backend/tobys-spring/3.md)
+    * [4장 예외](development/backend/tobys-spring/4.md)
     * [5장 AOP와 LTW](development/backend/tobys-spring/2020-03-10-spring2-chap5.md)
     * [6장 테스트 컨텍스트 프레임워크](development/backend/tobys-spring/2020-03-10-spring2-chap6.md)
   * [JAVA ORM JPA](development/backend/jpa/README.md)
