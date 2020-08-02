@@ -6,8 +6,6 @@
 
 * [BACK-END](development/backend/README.md)
   * [Question & Answer](development/backend/question-and-answer.md)
-  * [코틀린 쿡북](development/backend/undefined-2/README.md)
-    * [2장 코틀린 기초](development/backend/undefined-2/2.md)
   * [오브젝트](development/backend/object/README.md)
     * [1장 객체, 설계](development/backend/object/2020-03-10-object-chap1.md)
     * [2장 객체지향 프로그래밍](development/backend/object/2020-03-10-object-chap2.md)
@@ -96,6 +94,8 @@
       * [아이템30 이왕이면 제네릭 메서드로 만들라](development/backend/effective-java/undefined-3/2020-03-20-effective-30item.md)
       * [아이템31 한정적 와일드카드를 사용해 API 유연성을 높이라](development/backend/effective-java/undefined-3/2020-03-20-effective-31item.md)
       * [아이템32 제네릭과 가변인수를 함께 쓸 때는 신중하라](development/backend/effective-java/undefined-3/2020-03-20-effective-32item.md)
+  * [코틀린 쿡북](development/backend/undefined-2/README.md)
+    * [2장 코틀린 기초](development/backend/undefined-2/2.md)
   * [DDD START!](development/backend/ddd-start/README.md)
     * [1장 도메인 모델 시작](development/backend/ddd-start/1.md)
     * [2장 아키텍처 개요](development/backend/ddd-start/2.md)
