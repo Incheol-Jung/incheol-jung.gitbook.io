@@ -39,6 +39,7 @@
       * [4장 예외](development/backend/tobys-spring/undefined/4.md)
       * [5장 서비스 추상화](development/backend/tobys-spring/undefined/5.md)
       * [6장 AOP](development/backend/tobys-spring/undefined/6-aop.md)
+      * [8장 스프링이란 무엇인가?](development/backend/tobys-spring/undefined/8.md)
     * [스프링의 기술과 선택](development/backend/tobys-spring/undefined-1/README.md)
       * [5장 AOP와 LTW](development/backend/tobys-spring/undefined-1/2020-03-10-spring2-chap5.md)
       * [6장 테스트 컨텍스트 프레임워크](development/backend/tobys-spring/undefined-1/2020-03-10-spring2-chap6.md)
