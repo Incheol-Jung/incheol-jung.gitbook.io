@@ -102,6 +102,8 @@
     * [3장 코틀린 객체지향 프로그래밍](development/backend/undefined-2/3.md)
     * [4장 함수형 프로그래밍](development/backend/undefined-2/4.md)
     * [5장 컬렉션](development/backend/undefined-2/5.md)
+    * [6장 시퀀스](development/backend/undefined-2/6.md)
+    * [7장 영역 함수](development/backend/undefined-2/7.md)
     * [9장 테스트](development/backend/undefined-2/9.md)
     * [10장 입력/출력](development/backend/undefined-2/10.md)
     * [11장 그 밖의 코틀린 기능](development/backend/undefined-2/11.md)
