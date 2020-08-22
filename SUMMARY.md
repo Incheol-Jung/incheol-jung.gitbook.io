@@ -77,7 +77,7 @@
     * [14장 컬렉션과 부가 기능](development/backend/jpa/14.md)
     * [15장 고급 주제와 성능 최적화](development/backend/jpa/15.md)
     * [16장 트랜잭션과 락, 2차 캐시](development/backend/jpa/16.md)
-  * [토비의 스프링](development/backend/tobys-spring/README.md)
+  * [토비의 스프링 \(3.1\)](development/backend/tobys-spring/README.md)
     * [스프링의 이해와 원리](development/backend/tobys-spring/undefined/README.md)
       * [1장 오브젝트와 의존관계](development/backend/tobys-spring/undefined/1.md)
       * [2장 테스트](development/backend/tobys-spring/undefined/2.md)
