@@ -225,8 +225,3 @@
   * [구름](https://level.goorm.io/)
   * [릿코드](https://leetcode.com/problemset/all/)
 
----
-
-* [test](test/README.md)
-  * [tete](test/tete.md)
-
