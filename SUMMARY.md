@@ -69,6 +69,7 @@
       * [아이템38 확장할 수 있는 열거 타입이 필요하면 인터페이스를 사용하라](development/backend/effective-java/undefined-4/38.md)
       * [아이템 39 명명 패턴보다 애너테이션을 사용하라](development/backend/effective-java/undefined-4/39.md)
       * [아이템40 @Override 애너테이션을 일관되게 사용하라](development/backend/effective-java/undefined-4/40-override.md)
+      * [아이템41 정의하려는 것이 타입이라면 마커 인터페이스를 사용하라](development/backend/effective-java/undefined-4/41.md)
     * [람다와 스트림](development/backend/effective-java/undefined-5/README.md)
       * [아이템](development/backend/effective-java/undefined-5/undefined.md)
     * [메서드](development/backend/effective-java/undefined-6/README.md)
