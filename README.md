@@ -1,8 +1,8 @@
 ---
-description: 안녕하세요. 백엔드 개발자 정인철 입니다.
+description: 'Don''t look back, you''re not going that'
 ---
 
-# Intro
+# Incheol's TECH BLOG
 
 ### 😎 Contact
 

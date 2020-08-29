@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Intro](README.md)
+* [Incheol's TECH BLOG](README.md)
 
 ## DEVELOPMENT
 
