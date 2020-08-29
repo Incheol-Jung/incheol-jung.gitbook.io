@@ -2,7 +2,7 @@
 description: 'Don''t look back, you''re not going that'
 ---
 
-# Incheol's TECH BLOG
+# Incheol Jung \| 개발자 정인철
 
 ### 😎 Contact
 

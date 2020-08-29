@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Incheol's TECH BLOG](README.md)
+* [Incheol Jung \| 개발자 정인철](README.md)
 
 ## DEVELOPMENT
 
