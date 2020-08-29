@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Incheol Jung \| 개발자 정인철](README.md)
+* [Intro](README.md)
 
 ## DEVELOPMENT
 
