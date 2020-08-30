@@ -6,8 +6,6 @@ description: 'Don''t look back, you''re not going that'
 
 ### 😎 Contact
 
-  **Phone**. +82-10-6679-6096  
-
   **Email**. [bluesky60960@gmail.com](mailto:bluesky60960@gmail.com)
 
   **LinkedIn**. [www.linkedin.com/in/incheolJung](http://www.linkedin.com/in/incheolJung)
