@@ -5,12 +5,12 @@
 ## Question & Answer <a id="q-and-a"></a>
 
 * [JAVA](q-and-a/java/README.md)
-  * [Exception](q-and-a/java/exception.md)
-  * [JDK 8 특징](q-and-a/java/jdk-8.md)
-  * [Thread\(쓰레드\)](q-and-a/java/thread.md)
-  * [Garbage Collecter](q-and-a/java/garbage-collecter.md)
-  * [hashCode\(\)와 equals\(\)](q-and-a/java/hashcode-equals.md)
   * [JVM](q-and-a/java/jvm.md)
+  * [Thread\(쓰레드\)](q-and-a/java/thread.md)
+  * [hashCode\(\)와 equals\(\)](q-and-a/java/hashcode-equals.md)
+  * [JDK 8 특징](q-and-a/java/jdk-8.md)
+  * [Exception](q-and-a/java/exception.md)
+  * [Garbage Collecter](q-and-a/java/garbage-collecter.md)
 * [SPRING](q-and-a/spring/README.md)
   * [Filter와 Interceptor](q-and-a/spring/filter-interceptor.md)
   * [Spring Security](q-and-a/spring/spring-security.md)
