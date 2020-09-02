@@ -35,8 +35,20 @@ description: JVM에 대해 알아보자
 
 ![](../../.gitbook/assets/jvm-runtime-data-area.jpg)
 
-* **각각의 스레드에서 동작**하는 **PC Register, JVM Stack, Native Method Stack**으로 구성되어 있다.
-* **공유 스레드에서 동작**하는 **Heap과 Method Area**가 있다.
+* 개별 스레드에서 관
+  * PC Register : 쓰레드가 실행되는 부분의 주소와 명령을 저장하는 영역 
+  * JVM Stack : 지역 변수, 파라미터, 리턴 값, 연산에 사용되는 임시 값이 생성되는 영역 
+  * Native Method Stack : 자바 외 언어로 작성된 네이티브 코드를 위한 메모리 영역\(C/C++ 코드\) 
+* 공유 스레드에서 관리
+  * Method Area : 클래스 멤버 변수의 이름, 데이터 타입, final 클래스 변수 
+  * Heap Area : new 키워드로 생성된 객체와 배열이 생성되는 영역, \( jdk 8 이상 : static 변수, string 상수 풀\)
+
+{% hint style="danger" %}
+**Primitive 배열을 선언할 경우, 엘리먼트는 어느 영역에 존재하는가?**
+
+원시타입일 경우 무조건 스택 메모리에 적재된다고 생각하는 분들이 많은데 원시타입의 배열일 경우,   
+배열의 주소는 스택 메모리에 적재되고 원시타입이더라도 엘리먼트는 힙 메모리에 적재 된다. 
+{% endhint %}
 
 ## JVM 역할
 
