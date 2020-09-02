@@ -1,3 +1,7 @@
+---
+description: hashCode와 equals를 알아보고 override 해야 하는 이유에 대해 알아보자
+---
+
 # hashCode\(\)와 equals\(\)
 
 ## Object 제공 method
