@@ -9,7 +9,7 @@
   * [Thread\(쓰레드\)](q-and-a/java/thread.md)
   * [hashCode\(\)와 equals\(\)](q-and-a/java/hashcode-equals.md)
   * [JDK 8 특징](q-and-a/java/jdk-8.md)
-  * [Exception](q-and-a/java/exception.md)
+  * [예외](q-and-a/java/exception.md)
   * [Garbage Collecter](q-and-a/java/garbage-collecter.md)
 * [SPRING](q-and-a/spring/README.md)
   * [Filter와 Interceptor](q-and-a/spring/filter-interceptor.md)
