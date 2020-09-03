@@ -85,5 +85,3 @@ STW는 GC를 실행하는 쓰레드를 제외한 나머지 쓰레드는 모두 �
 * [https://lazymankook.tistory.com/83](https://lazymankook.tistory.com/83)
 * [https://kkwonsy.tistory.com/11](https://kkwonsy.tistory.com/11)
 
-![](../../.gitbook/assets/lego-city-garbage-truck-4432-003%20%281%29.jpg)
-
