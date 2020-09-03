@@ -18,7 +18,7 @@
   * [Spring Boot 특징](q-and-a/spring/spring-boot.md)
   * [Filter와 Interceptor](q-and-a/spring/filter-interceptor.md)
   * [Spring Security](q-and-a/spring/spring-security.md)
-  * [Spring Web MVC](q-and-a/spring/spring-web-mvc.md)
+  * [Dispatcher Servlet](q-and-a/spring/spring-web-mvc.md)
   * [@EnableWebMvc](q-and-a/spring/enablewebmvc.md)
   * [Stereo Type\(스테레오 타입\)](q-and-a/spring/stereo-type.md)
   * [Rabbit MQ와 KAFKA](q-and-a/spring/rabbit-mq-kafka.md)
