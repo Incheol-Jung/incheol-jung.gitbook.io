@@ -58,6 +58,8 @@ List<Apple> heavierThan150g = filter(inventory, (Apple a) -> a.getWeight() > 150
 | \(str, i\) -&gt; str.substring\(i\) | String::substring |
 | \(String s\) -&gt; System.out.println\(s\) | System.out::println |
 
+\*\*\*\*
+
 ## **Stream**
 
 ### 스트림이란 무엇인가?
