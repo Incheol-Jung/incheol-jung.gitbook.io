@@ -40,10 +40,6 @@ Object에는 객체가 가져야 할 기본적인 메서드를 제공한다.
 | void wait\(long timeout\)  | 주어진 시간만큼 스레드를 일시적으로 중지할 때 호출한다.  |
 | void wait\(long timeout, int nanos\)  | 주어진 시간만큼 스레드를 일시적으로 중지할 때 호출한다. |
 
-  
-  
-출처: [https://hyeonstorage.tistory.com/178](https://hyeonstorage.tistory.com/178) \[개발이 하고 싶어요\]
-
 ## hashCode\(\)
 
 hashCode는 기본적으로 객체의 고유의 값을 표기할 때 사용한다. hashCode를 override 하지 않고 그대로 사용한다면 jdk 버전에 따라 기본 전략을 사용하게 된다.
