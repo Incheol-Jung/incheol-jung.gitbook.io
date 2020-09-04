@@ -152,7 +152,7 @@ public class DelegatingWebMvcConfiguration extends WebMvcConfigurationSupport {
 }
 ```
 
-위의 코드를 보면 setConfigurers 메소드에서 WebMvcConfigurer 타입의 빈을 모두 주입받아서 WebMvcConfigurerComposite 타입의 객체에 주입하고 있다. 따라서 WebMvcConfigurer 타입의 빈들은 전부 WebMvcConfigurerComposite 객체에 주입이 된다. WebMvcConfigurer 타입의 빈들은 Web 관련 빈들을 초기화할 때 사용된다.
+위의 코드를 보면 setConfigurers 메소드에서 WebMvcConfigurer 타입의 빈을 모두 주입받아서 WebMvcConfigurerComposite 타입의 객체에 주입하고 있다. 따라서 WebMvcConfigurer 타입의 빈들은 전부 WebMvcConfigurerComposite 객체에 주입이 된다. WebMvcConfigurer 타입의 빈들은 Web 관련 빈들을 초기화할 때 사용된다.    
 
 DelegatingWebMvcConfiguration는 WebMvcConfigurer 타입의 빈들을 통해서 등록되는 빈들을 커스터마이징 할 수 있게 해주는 정도의 역할만 하고 있다.
 
