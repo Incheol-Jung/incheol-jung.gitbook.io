@@ -4,6 +4,8 @@ description: JDK 8 특징을 알아보자
 
 # JDK 8 특징
 
+![http://www.javaclix.com/2016/12/whats-new-in-java-8-sdk.html](../../.gitbook/assets/java-8-features.png)
+
 ## **Lambda expressions**
 
 ### 람다란 무엇인가?

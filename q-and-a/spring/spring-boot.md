@@ -4,6 +4,8 @@ description: Spring 과 비교하여 Spring Boot의 특징을 살펴보자
 
 # Spring Boot 특징
 
+![https://www.north-47.com/knowledge-base/testing-spring-boot-application/](../../.gitbook/assets/spring-boot-interview-questions-1.jpg)
+
 ## Spring Boot Framework란?
 
 * 스프링부트 애플리케이션은 스프링 프레임워크에서 설정하였던 정보들을 간편하게 설정할 수 있도록 경량화되어 제공한 프레임워크이다.
