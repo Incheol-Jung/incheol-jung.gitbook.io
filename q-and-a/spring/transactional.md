@@ -67,7 +67,7 @@ description: '@Transactional 에 대해서 알아보자'
 * 가장 간단한 방법은 새로운 클래스를 생성하여 메소드를 위임하는 것이다.
 * 클래스 생성이 어렵다면 aspectj를 사용하면 된다.
 
-  ```text
+  ```java
   @SpringBootApplication
   @EnableTransactionManagement(proxyTargetClass = true, mode = AdviceMode.ASPECTJ)
   @EnableLoadTimeWeaving(aspectjWeaving = EnableLoadTimeWeaving.AspectJWeaving.ENABLED)
