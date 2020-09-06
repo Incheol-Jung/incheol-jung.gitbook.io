@@ -10,8 +10,6 @@ description: 'Don''t look back, you''re not going that'
 
   **LinkedIn**. [www.linkedin.com/in/incheolJung](http://www.linkedin.com/in/incheolJung)
 
-
-
 ### 👨💻 Channel 
 
   **Blog**. [https://incheol-jung.gitbook.io/docs](https://incheol-jung.gitbook.io/docs/)
