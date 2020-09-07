@@ -28,16 +28,16 @@
   * [Isolation level](q-and-a/db/isolation-level.md)
   * [SQL Hint](q-and-a/db/sql-hint.md)
   * [Index란](q-and-a/db/index.md)
+* [Architecture](q-and-a/architecture/README.md)
+  * [객체지향과 절차지향](q-and-a/architecture/undefined.md)
+  * [SOLID 원칙](q-and-a/architecture/solid.md)
+  * [캡슐화](q-and-a/architecture/undefined-1.md)
 * [INFRA](q-and-a/infra/README.md)
   * [Rabbit MQ와 KAFKA](q-and-a/infra/rabbit-mq-kafka.md)
   * [SSL Handshake](q-and-a/infra/ssl-handshake.md)
   * [nginx 와 apache 차이](q-and-a/infra/nginx-apache.md)
   * [REDIS와 MEMCACHED](q-and-a/infra/redis-memcached.md)
 * [Computer Science](q-and-a/computer-science.md)
-* [Architecture](q-and-a/architecture/README.md)
-  * [객체지향과 절차지향](q-and-a/architecture/undefined.md)
-  * [SOLID 원칙](q-and-a/architecture/solid.md)
-  * [캡슐화](q-and-a/architecture/undefined-1.md)
 
 ## STUDY
 
