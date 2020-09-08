@@ -37,7 +37,10 @@
   * [SSL Handshake](q-and-a/infra/ssl-handshake.md)
   * [nginx 와 apache 차이](q-and-a/infra/nginx-apache.md)
   * [REDIS와 MEMCACHED](q-and-a/infra/redis-memcached.md)
-* [Computer Science](q-and-a/computer-science.md)
+* [Computer Science](q-and-a/computer-science/README.md)
+  * [Context Switch](q-and-a/computer-science/context-switch.md)
+  * [REST API](q-and-a/computer-science/rest-api.md)
+  * [Untitled](q-and-a/computer-science/untitled.md)
 
 ## STUDY
 
