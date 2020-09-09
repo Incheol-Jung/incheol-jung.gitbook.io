@@ -30,9 +30,11 @@ description: 클라우드 컴퓨팅에 대해서 알아보자
 * 클라우드 환경 또한 운영에 필요한 다양한 설정이 필요한데, 이 또한 새로운 기술 습득에 대한 부담이 될 수 있다.
 * 기존의 온프레미스 환경을 클라우드 환경으로 이전하는 기술적인 부담감이 있다.
 
-> 프라이빗 클라우드란?
-
+{% hint style="info" %}
+**프라이빗 클라우드란?**  
+  
 프라이빗 클라우드는 단일 비즈니스 또는 조직에서 독점적으로 사용되는 클라우드 컴퓨팅 리소스를 의미한다. 프라이빗 클라우드는 회사의 실제 온사이트 데이터 센터 내에 배치할 수 있게 된다. 일부 회사에서는 해당 프라이빗 클라우드를 호스트하기 위해 타사 서비스 공급자에 비용을 지급하기도 한다. 프라이빗 클라우드는 서비스와 인프라가 개인 네트워크에서 유지 관리되는 클라우드라고 생각하면 된다. 프라이빗 클라우드는 최고 수준의 보안이 적용된 클라우드 솔루션이지만 일부 기업에서는 비용이 부담스러울 수도 있다.
+{% endhint %}
 
 ### 클라우드 컴퓨팅 장점
 
@@ -63,13 +65,15 @@ description: 클라우드 컴퓨팅에 대해서 알아보자
 * Azure
 * IBM Cloud
 
-> NAVER CLOUD PLATFORM에선 제공하는 기능은?
+{% hint style="success" %}
+**NAVER CLOUD PLATFORM에선 제공하는 기능은?**
 
 * VM Server
 * GPU Server
 * Block Storage
 * Object Storage
 * Load Balancer
+{% endhint %}
 
 ### Paas
 
@@ -80,13 +84,15 @@ PaaS를 사용하면 기본 인프라\(일반적으로 하드웨어와 운영 �
 * GitLab
 * GitHub
 
-> NAVER CLOUD PLATFORM에선 제공하는 기능은?
+{% hint style="success" %}
+**NAVER CLOUD PLATFORM에선 제공하는 기능은?**
 
 * MySQL
 * Redis
 * Cloud Log Analytics
 * ELSA
 * Image Optimizer
+{% endhint %}
 
 ### Saas
 
@@ -98,19 +104,23 @@ SaaS는 서비스 공급자에 의해 실행되고 관리되는 완전한 제품
 * Google Apps
 * Office 365
 
-> NAVER CLOUD PLATFORM에선 제공하는 기능은?
+{% hint style="success" %}
+**NAVER CLOUD PLATFORM에선 제공하는 기능은?**
 
 * Chatbot
 * Papago NMT
 * Jenkins
 * MAPS
 * SENS
+{% endhint %}
 
-> Faas와 Caas는 무엇인가?
-
+{% hint style="info" %}
+**Faas와 Caas는 무엇인가?**  
+  
 CaaS\(Container as a Service\) 컨테이너 플랫폼은 IaaS의 최신 구현 방식이다. CaaS 업체는 완전한 서버 호스트를 제공하는 대신 기업이컨테이너 내에서 서비스나 애플리케이션을 호스팅할 수 있도록 해주고, 컨테이너를 대신 관리한다. 컨테이너는 가상머신보다 기반 호스트 자원을 더 효율적으로 활용할 수 있다. 대표적인 서비스로 Docker 기반 서비스가 있다.
 
 FaaS\(Function as a Service\) FaaS를 사용하면 확장, 서버 또는 컨테이너에 대한 생각 없이 코드를 업로드하고 실행할 수 있다. 그런 점에서 FaaS는 기존 계층화 아키텍처의 사용 편의성 기준을 능가한다. 대표적인 예로 aws Lambda가 있을 수 있다.
+{% endhint %}
 
 ### 클라우드 컴퓨팅 동향
 
