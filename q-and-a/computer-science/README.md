@@ -1,2 +1,2 @@
-# Computer Science
+# COMPUTER SCIENCE
 
