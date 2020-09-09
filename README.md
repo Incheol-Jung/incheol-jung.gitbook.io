@@ -1,5 +1,3 @@
-<meta name="google-site-verification" content="r4LsNfktyACmMs0laL7rOhfBiszepcGH8wn0VUPg4rQ" />
-
 ---
 description: 'Don''t look back, you''re not going that'
 ---

@@ -33,6 +33,7 @@
   * [SOLID 원칙](q-and-a/architecture/solid.md)
   * [캡슐화](q-and-a/architecture/undefined-1.md)
 * [INFRA](q-and-a/infra/README.md)
+  * [CLOUD COMPUTING](q-and-a/infra/cloud-computing.md)
   * [Rabbit MQ와 KAFKA](q-and-a/infra/rabbit-mq-kafka.md)
   * [SSL Handshake](q-and-a/infra/ssl-handshake.md)
   * [nginx 와 apache 차이](q-and-a/infra/nginx-apache.md)
