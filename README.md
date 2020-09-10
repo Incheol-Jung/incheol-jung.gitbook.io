@@ -4,6 +4,8 @@ description: 'Don''t look back, you''re not going that'
 
 # Intro
 
+![](.gitbook/assets/apps.813.71665921497358788.ffe29860-f051-4324-82a6-ce1465add4c7.jpg)
+
 ### 😎 Contact
 
   **Email**. [bluesky60960@gmail.com](mailto:bluesky60960@gmail.com)
