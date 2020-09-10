@@ -57,13 +57,13 @@ description: Jenkins에 대해 알아보자
 
 #### 젠킨스 설치 이후에 추가로 설치하고 싶은 플러그인이 있다면?
 
-![](../../.gitbook/assets/11%20%282%29.png)
+![](../../.gitbook/assets/11%20%283%29.png)
 
 ### Repository 연동
 
 #### 연동할 Repository에 Jenkins 설정 추가
 
-![](../../.gitbook/assets/12%20%281%29.png)
+![](../../.gitbook/assets/12%20%282%29.png)
 
 #### Jenkins에 연동할 Repository의 새로운 프로젝트를 생성한다.
 
