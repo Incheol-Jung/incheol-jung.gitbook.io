@@ -1,5 +1,5 @@
 ---
-description: "Don't look back, you're not going that \U0001F525"
+description: "Better late than naver \U0001F525"
 ---
 
 # Intro
