@@ -34,7 +34,7 @@ Exception의 자식 클래스 중 **RuntimeException을 제외한 모든 클래�
 * 예외처리를 컴파일 단계에서 확인하지 않는다.
 * 실행 중에 발생하는 에러로 Runtime Exception이라 명명한다.
 
-#### Exception 비
+#### Exception 비교 
 
 <table>
   <thead>
@@ -65,7 +65,7 @@ Exception의 자식 클래스 중 **RuntimeException을 제외한 모든 클래�
         &#xD55C;&#xB2E4;</td>
     </tr>
     <tr>
-      <td style="text-align:left">&#xC885;</td>
+      <td style="text-align:left">&#xC885;&#xB958;</td>
       <td style="text-align:left">
         <ul>
           <li>IOException</li>

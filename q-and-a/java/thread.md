@@ -143,7 +143,7 @@ java.util.concurrent.atomic 하위에 동기화를 보장해주는 타입을 제
 
 #### Atomic 타입은 어떻게 동기화가 구현되어 있을까?
 
-```text
+```java
 public class AtomicInteger extends Number implements java.io.Serializable { 
     private volatile int value; 
 
