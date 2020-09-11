@@ -4,7 +4,7 @@ description: "Better late than naver \U0001F525"
 
 # Intro
 
-![](.gitbook/assets/aaaa.png)
+![](.gitbook/assets/1%20%2811%29.png)
 
 ### 😎 Contact
 
