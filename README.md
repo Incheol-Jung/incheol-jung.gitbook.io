@@ -1,5 +1,5 @@
 ---
-description: 'Don''t look back, you''re not going that'
+description: "Don't look back, you're not going that \U0001F525"
 ---
 
 # Intro
@@ -19,4 +19,6 @@ description: 'Don''t look back, you''re not going that'
   **Github.** [https://github.com/incheol-jung](https://github.com/incheol-jung)
 
   **Tech Tree.** [![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/incheol-jung/incheol-jung)
+
+
 
