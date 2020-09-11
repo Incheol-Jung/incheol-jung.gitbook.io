@@ -224,6 +224,7 @@
     * [Chap 4. 스프링 시큐리티](study/backend/srping-in-action-5th/chap-4..md)
     * [Chap 5. 구성 속성 사용하기](study/backend/srping-in-action-5th/chap-5..md)
     * [Chap 6. REST 서비스 생성하기](study/backend/srping-in-action-5th/chap-6.-rest.md)
+    * [Chap 9. 스프링 통합하기](study/backend/srping-in-action-5th/chap-9..md)
     * [Chap 7. REST 서비스 사용하기](study/backend/srping-in-action-5th/chap-7.-rest.md)
   * [스프링부트 코딩 공작소\(TBD\)](study/backend/undefined-1.md)
   * [KOTLIN IN ACTION \(TODO\)](study/backend/kotlin-tbd.md)
