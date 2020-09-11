@@ -4,7 +4,7 @@ description: "Better late than naver \U0001F525"
 
 # Intro
 
-![](.gitbook/assets/apps.813.71665921497358788.ffe29860-f051-4324-82a6-ce1465add4c7.jpg)
+![](.gitbook/assets/apps.813.71665921497358788.ffe29860-f051-4324-82a6-ce1465add4c7%20%281%29.jpg)
 
 ### 😎 Contact
 
@@ -19,6 +19,8 @@ description: "Better late than naver \U0001F525"
   **Github.** [https://github.com/incheol-jung](https://github.com/incheol-jung)
 
   **Tech Tree.** [![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/incheol-jung/incheol-jung)
+
+### 
 
 
 
