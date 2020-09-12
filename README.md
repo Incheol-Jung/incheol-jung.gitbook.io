@@ -6,6 +6,8 @@ description: "Better late than naver \U0001F525"
 
 ![](.gitbook/assets/lego-worlds_0.jpg)
 
+![](.gitbook/assets/giphy.gif)
+
 ### 😎 Contact
 
   **Email**. [bluesky60960@gmail.com](mailto:bluesky60960@gmail.com)
