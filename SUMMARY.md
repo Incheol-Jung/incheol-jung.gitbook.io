@@ -25,6 +25,7 @@
   * [@Transactional](q-and-a/spring/transactional.md)
 * [DB](q-and-a/db/README.md)
   * [Database Index](q-and-a/db/index.md)
+  * [SQL vs NoSQL](q-and-a/db/sql-vs-nosql.md)
   * [DB 교착상태](q-and-a/db/rdb.md)
   * [Isolation level](q-and-a/db/isolation-level.md)
   * [SQL Hint](q-and-a/db/sql-hint.md)
