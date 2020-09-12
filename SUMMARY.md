@@ -47,6 +47,7 @@
   * [캡슐화](q-and-a/architecture/undefined-1.md)
   * [DDD\(TBD\)](q-and-a/architecture/ddd.md)
 * [COMPUTER SCIENCE](q-and-a/computer-science/README.md)
+  * [뮤텍스와 세마포어](q-and-a/computer-science/undefined-1.md)
   * [Algorithm\(TBD\)](q-and-a/computer-science/algorithm.md)
   * [자료구조\(TBD\)](q-and-a/computer-science/undefined.md)
   * [AGILE](q-and-a/computer-science/2018-01-12-introduce-agile.md)
