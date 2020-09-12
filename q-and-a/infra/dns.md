@@ -4,15 +4,57 @@ description: DNS 동작원리에 대해 알아보자
 
 # DNS 동작 원리
 
-1. 이제 아래 그림과 같이 PC 브라우저에서 www.naver.com을 입력합니다. 그러면 PC는 미리 설정되어 있는 DNS \(단말에 설정되어 있는 이 DNS를 Local DNS라 부름, 제 PC의 경우는 203.248.252.2\)에게 "www.naver.com이라는 hostname"에 대한 IP 주소를 물어봅니다.
-2. Local DNS에는 "www.naver.com에 대한 IP 주소"가 있을 수도 없을 수도 있습니다. 만약 있다면 Local DNS가 바로 PC에 IP 주소를 주고 끝나겠지요. 본 설명에서는 Local DNS에 "www.naver.com에 대한 IP 주소"가 없다고 가정합니다.
-3. Local DNS는 이제 "www.naver.com에 대한 IP 주소"를 찾아내기 위해 다른 DNS 서버들과 통신\(DNS 메시지\)을 시작합니다. 먼저 Root DNS 서버에게 "너 혹시 www.naver.com에 대한 IP 주소 아니?"라고 물어봅니다. 이를 위해 각 Local DNS 서버에는 Root DNS 서버의 정보 \(IP 주소\)가 미리 설정되어 있어야 합니다.
-4. 여기서 "Root DNS"라 함은 좀 특별한 녀석인데요\(기능의 특별함이 아니고 그 존재감이..\). 이 Root DNS 서버는 전세계에 13대가 구축되어 있습니다. 미국에 10대, 일본/네덜란드/노르웨이에 각 1대씩... 그리고 우리나라의 경우 Root DNS 서버가 존재하지는 않지만 Root DNS 서버에 대한 미러 서버를 3대 운용하고 있다고 합니다.
-5. Root DNS 서버는 "www.naver.com의 IP 주소"를 모릅니다. 그래서 Local DNS 서버에게 "난 www.naver.com에 대한 IP 주소 몰라. 나 말고 내가 알려주는 다른 DNS 서버에게 물어봐~"라고 응답을 합니다.
-6. 이 다른 DNS 서버는 "com 도메인"을 관리하는 DNS 서버입니다.
-7. 이제 Local DNS 서버는 "com 도메인을 관리하는 DNS 서버"에게 다시 "너 혹시 www.naver.com에 대한 IP 주소 아니?"라고 물어봅니다.
-8. 역시 "com 도메인을 관리하는 DNS 서버"에도 해당 정보가 없습니다. 그래서 이 DNS 서버는 Local DNS 서버에게 "난 www.naver.com에 대한 IP 주소 몰라. 나 말고 내가 알려주는 다른 DNS 서버에게 물어봐~"라고 응답을 합니다. 이 다른 DNS 서버는 "[naver.com](http://naver.com) 도메인"을 관리하는 DNS 서버입니다.
-9. 이제 Local DNS 서버는 "[naver.com](http://naver.com) 도메인을 관리하는 DNS 서버"에게 다시 "너 혹시 www.naver.com에 대한 IP 주소 있니?"라고 물어봅니다.
-10. "[naver.com](http://naver.com) 도메인을 관리하는 DNS 서버"에는 "[www.naver.com](http://www.naver.com) 호스트네임에 대한 IP 주소"가 있습니다. 그래서 Local DNS 서버에게 "응! www.naver.com에 대한 IP 주소는 222.122.195.6이야~"라고 응답을 해 줍니다.
-11. 이를 수신한 Local DNS는 www.naver.com에 대한 IP 주소를 캐싱을 하고\(이후 다른 넘이 물어보면 바로 응답을 줄 수 있도록\) 그 IP 주소 정보를 단말\(PC\)에 전달해 줍니다.
+![http://www.tcpipguide.com/free/t\_DNSNameResolutionProcess-2.htm](../../.gitbook/assets/how-route-53-routes-traffic.8d313c7da075c3c7303aaef32e89b5d0b7885e7c.png)
+
+## DNS는 무엇인가?
+
+IP 네트워크에서 사용하는 시스템이다. 우리가 인터넷을 편리하게 쓰게 해주는 것으로, 영문/한글 주소를 IP 네트워크에서 찾아갈 수 있는 IP로 변환해 준다. DNS는 도메인 이름과 IP 주소를 서로 변환하는 역할을 한다.
+
+### 그렇다면 IP 주소는 무엇인가?
+
+IP주소는 네트워킹이 가능한 장비를 식별하는 주소를 가리킨다. IP주소는 네트워크 주소와 호스트 주소를 조합한 주소 체계를 가지고 있다.
+
+* 네트워크 주소 : IP 기기가 속해 있는 네트워크를 구분
+* 호스트 주소 : 네트워크 안에 있는 IP 기기를 구분
+
+이런 주소 체계를 표현하는 방법은 IPv4와 IPv6로 표현할 수 있다.
+
+![](../../.gitbook/assets/maxresdefault%20%282%29.jpg)
+
+### IPv4
+
+IPv4 주소는 \(.\)마침표로 구분되며 4개의 8비트 필드로 구분된 십진수로 작성된다. 각 영역은 256가지의 경우의 수를 가질 수 있으므로 2의 8승을 표현할 수 있다. 이를 비트로 표현하면 영역마다 8비트로 이루어지며 총 4개의 영역으로 구분되므로 32비트를 사용한다.
+
+하지만 기술이 급속도로 발전하면서 단말기의 갯수도 기하급수적으로 증가하다 보니 40억개에 달하는 IP주소의 수가 부족하게 되어 IPv6라는 확장된 주소 체계가 등장하게 되었다.
+
+### IPv6
+
+IPv6주소는 128비트체계로 구성 되어 있으며, 그 표현 방법은 128비트를 16비트씩 8부분으로 나누어지며, 각 구분은 16진수로 표현한다. 128비트 주소체계를 사용하게 되면 최대 1조개 이상의 주소를 가질 수 있는게 장점이다. 또한 IPv4에서 사용하는 클래스 계층 구조를 사용하지 않고 유니캐스트, 멀티캐스트, 멀티 캐스트 형태의 유형으로 할당하기 때문에 할당된 주소의 낭비 요인이 사라지게 된다.
+
+#### IPv4에서 사용하는 클래스 계층 구조란 무엇인가?
+
+네트워크 ID와 호스트 ID의 조합에 대한 규칙을 클래스로 표현하고 있다.
+
+![](../../.gitbook/assets/ip-.png)
+
+## DNS 동작 원리
+
+1. 사용자는 브라우저에 "[www.example.com](http://www.example.com)"을 입력한다.
+2. 로컬 host 파일을 검색한다. 이를 로컬 DNS 서버로 일컫는다.
+3. 해당 파일에 IP 정보가 있을 경우, host 파일의 IP 정보를 전달한다.
+4. 파일에 없을 경우, Root DNS 서버에 질의를 전송한다.
+   * 로컬 DNS 서버는 Root DNS 서버 정보를 가지고 있어야 한다.
+   * Root DNS 서버는 전세계에 13대 구축되어 있다. 우리나라의 경우 Root DNS 서버가 구축되어 있지는 않지만 Root DNS 서버에 대한 미러 서버를 3대 운용하고 있다.
+5. Root DNS 서버는 요청한 도메인 이름에 해당하는 IP 주소가 있으면 전달한다
+6. IP 주소가 존재하지 않는다면 다른 Root DNS 서버에게 질의하라고 응답한다. \(이를 재귀적 질의라 한다\)
+7. 재귀적 질의를 반복하여 IP 주소 정보를 확인하면 확인된 IP 주소 정보는 로컬 DNS 서버에서 캐싱처리 한다.
+
+## 참고
+
+* [https://namu.wiki/w/DNS](https://namu.wiki/w/DNS)
+* [https://zzsza.github.io/development/2018/04/16/domain-name-system/](https://zzsza.github.io/development/2018/04/16/domain-name-system/)
+* [https://m.blog.naver.com/PostView.nhn?blogId=shj1126zzang&logNo=90193677759&proxyReferer=https:%2F%2Fwww.google.com%2F](https://m.blog.naver.com/PostView.nhn?blogId=shj1126zzang&logNo=90193677759&proxyReferer=https:%2F%2Fwww.google.com%2F)
+* [https://ykarma1996.tistory.com/14](https://ykarma1996.tistory.com/14)
+* [https://jwprogramming.tistory.com/28](https://jwprogramming.tistory.com/28)
+* [http://korean-daeddo.blogspot.com/2015/12/ip.html](http://korean-daeddo.blogspot.com/2015/12/ip.html)
 
