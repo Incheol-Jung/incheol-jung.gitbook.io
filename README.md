@@ -4,9 +4,7 @@ description: "Better late than naver \U0001F525"
 
 # Intro
 
-![](.gitbook/assets/lego-worlds_0.jpg)
-
-![](.gitbook/assets/giphy.gif)
+![](.gitbook/assets/7b39c67abc82d534cc91a3e6c4cd8609.gif)
 
 ### 😎 Contact
 
