@@ -4,7 +4,7 @@ description: "Better late than naver \U0001F525"
 
 # Intro
 
-![](.gitbook/assets/damagedimportantamurratsnake-size_restricted.gif)
+![](.gitbook/assets/tumblr_n21agzcg9d1sj5h4oo1_1280.webp)
 
 ### 😎 Contact
 
