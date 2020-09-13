@@ -55,8 +55,6 @@
   * [Context Switch](q-and-a/computer-science/context-switch.md)
   * [REST API](q-and-a/computer-science/rest-api.md)
   * [OSI 7 Layer \(TODO\)](q-and-a/computer-science/osi-7-layer-todo.md)
-  * [Algorithm\(TODO\)](q-and-a/computer-science/algorithm.md)
-  * [자료구조\(TODO\)](q-and-a/computer-science/undefined.md)
 
 ## STUDY
 
