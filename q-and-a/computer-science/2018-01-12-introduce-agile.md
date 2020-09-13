@@ -28,44 +28,44 @@ Waterfall : 소프트웨어 개발을 단계적, 순차적으로 수행되는 �
 
 * 스크럼 개발 과정은 업무 환경이나 리드하는 사람에 따라서 상이할 수 있다. 
 
-![](https://github.com/jung-inchul/jung-inchul.github.io/tree/7cd53f287788fa857cfa8c68092974e5c3c0dc8d/resource/images/post/scrum0.png)
+![](../../.gitbook/assets/06%20%282%29.png)
 
 ### Step 1. Product Backlog
 
 스크럼을 시작하는 단계로써 사전에 프로젝트의 기능정의 문서나 스토리보드등 기본적으로 개발을 진행하기 이전에 필요한 문서 작업이 완료되었다는 전제하에 PO는 스크럼에 해당하는 백로그를 등록한다. 하나의 스크럼에 대한 백로그만 등록할 수 도 있지만 스크럼을 여러개 등록하여 각 스크럼의 백로그를 등록할 수도 있다.
 
-![](https://github.com/jung-inchul/jung-inchul.github.io/tree/7cd53f287788fa857cfa8c68092974e5c3c0dc8d/resource/images/post/scrum1.png)
+![](../../.gitbook/assets/07%20%282%29.png)
 
 ### Step 2. Sprint Backlog
 
 PO가 등록한 백로그를 기준으로 스크럼 참여자들은 본인이 수행해야할 백로그의 서브 테스크를 등록한다.   
  서브 테스크를 등록하는 단계에서는 상호간에 협의가 필요한 부분이나 협업해야 하는 부분에 대해서 충분히 검토가 되어야 하고 반영되어야 한다.
 
-![](https://github.com/jung-inchul/jung-inchul.github.io/tree/7cd53f287788fa857cfa8c68092974e5c3c0dc8d/resource/images/post/scrum2.png)
+![](../../.gitbook/assets/08%20%282%29.png)
 
 ### Step 3. Scrum Meeting
 
 스프린트가 시작되면 최소 1주일에서 최대 4주 정도로 진행된다. \(기간을 산정하는건 task의 m/m 선정을 기준으로 산정한다.\) 데일리로 스크럼 미팅을 진행하며 이슈가 있거나 협의가 필요한 내용을 공유 한다. 스크럼 미팅은 될수 있는 한 짧고 간결하게 하는게 원칙이며 어느 프로젝트에서는 스탠드 미팅으로 진행하기도 한다. 또한, 스크럼 미팅에서 공유해야할 내용이 없을 경우에는 생략하는 프로젝트 팀도 있다.
 
-![](https://github.com/jung-inchul/jung-inchul.github.io/tree/7cd53f287788fa857cfa8c68092974e5c3c0dc8d/resource/images/post/scrum3.png)
+![](../../.gitbook/assets/09%20%282%29.png)
 
 ### Step 4. QA
 
 프로젝트의 특성에 따라 QA단계를 스크럼 단계에서 진행하기도 하지만 별도로 QA기간을 지정하여 진행하는 경우도 있다. 해당 단계는 스프린트가 완료되고 QA를 진행하는 단계이다.
 
-![](https://github.com/jung-inchul/jung-inchul.github.io/tree/7cd53f287788fa857cfa8c68092974e5c3c0dc8d/resource/images/post/scrum4.png)
+![](../../.gitbook/assets/10%20%283%29.png)
 
 ### Step 5. Sprint review
 
 QA단계 까지 완료되면 스프린트에 참여하였던 인원들은 초기에 PO가 작성해준 백로그를 기반으로 데모를 시연하고 스크럼 미팅에서 이슈된 내용을 정리하여 다음 스프린트에서 반영될 부분들을 확인하게 된다.
 
-![](https://github.com/jung-inchul/jung-inchul.github.io/tree/7cd53f287788fa857cfa8c68092974e5c3c0dc8d/resource/images/post/scrum5.png)
+![](../../.gitbook/assets/11%20%284%29.png)
 
 ### Step 6. Sprint Retrospective
 
 스프린트가 완료된 시점으로 참여자들은 PO가 작성한 질문지를 통해서 이번 스프린트에 대한 회고를 작성한다. 회고에 대한 내용은 추후 스프린트에 대한 방향성이나 보완할 수 있는 부분으로 사용되어진다. 그러므로 질문지를 얼마나 효과적으로 작성하는지도 매우 중요하다.
 
-![](https://github.com/jung-inchul/jung-inchul.github.io/tree/7cd53f287788fa857cfa8c68092974e5c3c0dc8d/resource/images/post/scrum5.png)
+![](../../.gitbook/assets/12%20%283%29.png)
 
 ## PROS AND CONST
 
