@@ -77,7 +77,7 @@ description: JVM에 대해 알아보자
 {% hint style="warning" %}
 **static 데이터는 어느 메모리 영역에 존재하는가?**
 
-Java 8 이전에는 Method Area를 Pergen\(permanant Generation Space\)에 할당하였다. Static data는 애플리케이션이 생성되면 영구적으로 메모리에 올라가기 때문에 String Constant Pool이나 Static 배열 오용으로 인한 OutOfMemory 이슈가 발생하였다. \(Perm 영역은 JVM에 의해 크기가 강제되던 영역이다\)
+Java 8 이전에는 Method Area를 Permgen\(permanant Generation Space\)에 할당하였다. Static data는 애플리케이션이 생성되면 영구적으로 메모리에 올라가기 때문에 String Constant Pool이나 Static 배열 오용으로 인한 OutOfMemory 이슈가 발생하였다. \(Perm 영역은 JVM에 의해 크기가 강제되던 영역이다\)
 
 Java 8 이후부터는 PermGen 영역이 Metaspace 영역으로 변경되면서 기존에 관리되던 Static 데이터나 String Constant Pool은 Heap 메모리로 이동하게 되었고 클래스의 메타 데이터만 Metaspace로 이동하게 되었다. Metaspace 영역은 네이티브 메모리에서 관리하므로 -XX:MaxPermSize를 통해서 관리되는 데이터 양에 따라 유동적으로 관리할 수 있게 되었다. 
 {% endhint %}
