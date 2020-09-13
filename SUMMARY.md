@@ -50,7 +50,7 @@
 * [COMPUTER SCIENCE](q-and-a/computer-science/README.md)
   * [뮤텍스와 세마포어](q-and-a/computer-science/undefined-1.md)
   * [AGILE](q-and-a/computer-science/2018-01-12-introduce-agile.md)
-  * [Context Switch\(TODO\)](q-and-a/computer-science/context-switch.md)
+  * [Context Switch](q-and-a/computer-science/context-switch.md)
   * [Algorithm\(TODO\)](q-and-a/computer-science/algorithm.md)
   * [자료구조\(TODO\)](q-and-a/computer-science/undefined.md)
   * [REST API\(TODO\)](q-and-a/computer-science/rest-api.md)
