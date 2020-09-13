@@ -49,7 +49,8 @@ Public class MockvcWebTests {
 ```
 
 {% hint style="info" %}
-@WebAppConfiguration 애너테이션은 SpringJUnit4ClassRunner가 애플리케이션 컨텍스트로 \(기본값인 비웹용 ApplicationContext가 아니라\) WebApplicationContext를 생성하도록 선언하다. setupMockMvc\(\) 메서드는 Junit의 @Before 애너테이션을 붙여 다른 테스트 메서드보다 먼저 실행해야 함을 나타낸다. 이 메서드는 주입된 WebApplicationContext를 webAppContetSetup\(\)메서드에 전달한 후 build\(\) 메서드를 호출하여 MockMvc 인스턴스를 생성하고, 테스트 메서드에서 사용할 인스턴스 변수에 할당한다.
+* @WebAppConfiguration 애너테이션은 SpringJUnit4ClassRunner가 애플리케이션 컨텍스트로 \(기본값인 비웹용 ApplicationContext가 아니라\) WebApplicationContext를 생성하도록 선언하다. 
+* setupMockMvc\(\) 메서드는 Junit의 @Before 애너테이션을 붙여 다른 테스트 메서드보다 먼저 실행해야 함을 나타낸다. 이 메서드는 주입된 WebApplicationContext를 webAppContetSetup\(\)메서드에 전달한 후 build\(\) 메서드를 호출하여 MockMvc 인스턴스를 생성하고, 테스트 메서드에서 사용할 인스턴스 변수에 할당한다.
 {% endhint %}
 
 ```java
