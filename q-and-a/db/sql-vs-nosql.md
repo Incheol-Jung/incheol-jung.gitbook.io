@@ -76,13 +76,11 @@ Sharding\(샤딩\)은 같은 테이블 스키마를 가진 데이터를 다수�
 * CAP이론은 분산 시스템에서는 CAP 세 가지 속성 모두를 만족하는 것은 불가능하며, 오직 2가지만 만족할 수 있다는 것으로 정의할 수 있다.
 
 {% hint style="info" %}
-**CAP 이론**  
-  
-- Consistency \(일관성\) : 모든 요청은 최신 데이터 또는 에러를 응답받는다. \(DB가 3개로 분산되었다고 가정할 때, 하나의 특정 DB의 데이터가 수정되면 나머지 2개의 DB에서도 수정된 데이터를 응답받아야 한다.\)   
-  
-- Availability \(가용성\) : 모든 요청은 정상 응답을 받는다. \(특정 DB가 장애가 나도 서비스가 가능해야 한다.\)   
-  
-- Partitions Tolerance \(분리 내구성\) : DB간 통신이 실패하는 경우라도 시스템은 정상 동작 한다.
+**CAP 이론**
+
+* Consistency \(일관성\) : 모든 요청은 최신 데이터 또는 에러를 응답받는다. \(DB가 3개로 분산되었다고 가정할 때, 하나의 특정 DB의 데이터가 수정되면 나머지 2개의 DB에서도 수정된 데이터를 응답받아야 한다.\)
+* Availability \(가용성\) : 모든 요청은 정상 응답을 받는다. \(특정 DB가 장애가 나도 서비스가 가능해야 한다.\)
+*  Partitions Tolerance \(분리 내구성\) : DB간 통신이 실패하는 경우라도 시스템은 정상 동작 한다.
 {% endhint %}
 
 ### 스키마
@@ -135,14 +133,4 @@ Sharding\(샤딩\)은 같은 테이블 스키마를 가진 데이터를 다수�
 * [https://academind.com/learn/web-dev/sql-vs-nosql/](https://academind.com/learn/web-dev/sql-vs-nosql/)
 * [https://velog.io/@thms200/SQL-vs-NoSQL](https://velog.io/@thms200/SQL-vs-NoSQL)
 * [https://velog.io/@rlcjf0014/Database-SQL-vs-NoSQL](https://velog.io/@rlcjf0014/Database-SQL-vs-NoSQL)
-
-
-
-
-
-
-
-
-
-
 
