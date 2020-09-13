@@ -111,23 +111,26 @@ Mono book = WebClient.create("<http://localhost:8080>")
 
 ## 라이브러리 갱신
 
-* 갱신된 지원 패키지
-  * Jackson 2.6 이상
-  * EhCache 2.10+ / 3.0 GA
-  * 최대 절전 모드 5.0 이상
-  * JDBC 4.0 이상
-  * XmlUnit 2.x 이상
-  * OkHttp 3.x 이상
-  * Netty 4.1 이상
-* 지원 중단 패키지
-  * beans.factory.access
-  * jdbc.support.nativejdbc
-  * web.view.tiles2M
-  * orm.hibernate3 및 orm.hibernate4
-  * JasperReports
-  * XMLBeans
-  * JDO
-  * Guava
+### 갱신된 지원 패키지 
+
+* Jackson 2.6 이상
+* EhCache 2.10+ / 3.0 GA
+* 최대 절전 모드 5.0 이상
+* JDBC 4.0 이상
+* XmlUnit 2.x 이상
+* OkHttp 3.x 이상
+* Netty 4.1 이상
+
+### 지원 중단 패키
+
+* beans.factory.access
+* jdbc.support.nativejdbc
+* web.view.tiles2M
+* orm.hibernate3 및 orm.hibernate4
+* JasperReports
+* XMLBeans
+* JDO
+* Guava
 
 ## 참고
 
