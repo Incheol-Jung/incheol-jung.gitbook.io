@@ -4,7 +4,7 @@ description: "Better late than naver \U0001F525"
 
 # Intro
 
-![](.gitbook/assets/tumblr_mzzi6jfjbm1qh59n0o1_500.gif)
+![](.gitbook/assets/7b39c67abc82d534cc91a3e6c4cd8609%20%281%29.gif)
 
 ### 😎 Contact
 
