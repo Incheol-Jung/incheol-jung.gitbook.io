@@ -46,6 +46,7 @@
   * [DEVOPS\(TODO\)](q-and-a/infra/devops.md)
 * [ARCHITECTURE](q-and-a/architecture/README.md)
   * [객체지향과 절차지향](q-and-a/architecture/undefined.md)
+  * [상속보단 합성?](q-and-a/architecture/undefined-2.md)
   * [SOLID 원칙](q-and-a/architecture/solid.md)
   * [캡슐화](q-and-a/architecture/undefined-1.md)
   * [DDD\(TODO\)](q-and-a/architecture/ddd.md)
