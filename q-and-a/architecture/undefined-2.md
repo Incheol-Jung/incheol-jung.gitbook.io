@@ -185,13 +185,13 @@ assertEquals("4th", stack.pop()); // 실패!!!!
 
 다음은 오브젝트 책에서 발췌한 전화 통신비 세율 계산 기능이다. 전화 통신비 세율은 평일 낮 시간에는 통화한 금액만 부과가 되고, 늦은 저녁시간 부터는 할인을 해주는 제도가 있다. 이럴 경우에 세율을 계산하는 인터페이스를 두고 인터페이스를 구현한 일반적인 할인 클래스와 저녁시간 할인 클래스를 구현하여 시간에 따라서 세율 구현 전략을 변경할 수 있다.
 
-```text
+```java
 public interface RatePolicy {
     Money calculateFee(Phone phone);
 }
 ```
 
-```text
+```java
 public abstract class BasicRatePolicy implements RatePolicy {
     @Override
     public Money calculateFee(Phone phone) {
@@ -208,7 +208,7 @@ public abstract class BasicRatePolicy implements RatePolicy {
 }
 ```
 
-```text
+```java
 public class RegularPolicy extends BasicRatePolicy {
     private Money amout;
     private Duration seconds;
