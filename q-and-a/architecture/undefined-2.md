@@ -86,6 +86,10 @@ public class Bird extends Animal {
     protected void move(){
         this.fly();
     }
+    
+    public void go(){
+        this.move();
+    }
 
     public static void main(String[] args) {
         Bird bird = new Bird();
