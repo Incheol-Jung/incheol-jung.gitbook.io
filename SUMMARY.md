@@ -57,7 +57,7 @@
   * [REST API](q-and-a/computer-science/rest-api.md)
   * [HTTP HEADER](q-and-a/computer-science/http-header.md)
   * [HTTP METHOD](q-and-a/computer-science/http-method.md)
-  * [HTTP STATUS \(TODO\)](q-and-a/computer-science/http-status-todo.md)
+  * [HTTP STATUS](q-and-a/computer-science/http-status-todo.md)
   * [OSI 7 Layer](q-and-a/computer-science/osi-7-layer-todo.md)
 
 ## STUDY
