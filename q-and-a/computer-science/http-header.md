@@ -27,19 +27,21 @@ REQUEST와 RESPONSE 헤더에 공통으로 사용하는 속성이다.
   * public : 공유 캐시\(또는 중개 서버\)에 저장한다.
   * private : 브라우저같은 특정 사용자 환경에만 저장한다.
   * max-age : 캐시 유효시간을 명시한다.
-* Content-Length : 요청과 응답 메시지의 본문 크기를 바이트 단위로 표시한다.
-* Content-Type : 컨텐츠 타입\(MIME\)과 문자열 인코딩\(utf-8\)을 명시할 수 있다.
-* Content-Language : 해당 개체와 적합한 언어 정보 표시
+* Transfer-Encoding : 메시지 본문의 인코딩 방식을 나타낸다.
+* Via : 도중에 경유한 프록시나 게이트웨이를 기록한다.
+
+## HTTP 엔티티 헤더
+
+엔티티\(메시지 본문\)의 부가 정보로 사용하는 헤더 필드
+
+* Allow : 지정한 URI로 사용 가능한 메소드를 나타낸다.
 * Content-Encoding : 메시지 압축 방식 표시
+* Content-Type : 컨텐츠 타입\(MIME\)과 문자열 인코딩\(utf-8\)을 명시할 수 있다.
+* Content-Length : 요청과 응답 메시지의 본문 크기를 바이트 단위로 표시한다.
+* Last-Modified : 리소스를 마지막으로 갱신한 일시
+* Content-Language : 해당 개체와 적합한 언어 정보 표시
 * Content-Disposition : 응답 Body를 브라우저가 어떻게 표시해야할지 알려준다.
   * inline인 경우 웹페이지 화면에 표시되고, attachment인 경우 다운로드한다.
-* Location : 리소스가 리다이렉트될 경우에 이동된 주소, 또는 새로 생성된 리소스 주소를 명시
-  * 새로 생성된 리소스의 경우
-    * HTTP 상태 코드 201 Created가 반환된다.
-  * 300번대 응답의 경우
-    * `HTTP/1.1 302 Found Location: /`
-    * 이런 응답이 왔다면 브라우저는 / 주소로 redirect한다
-* Last-Modified : 리소스를 마지막으로 갱신한 일시
 
 ## HTTP REQUEST
 
@@ -62,6 +64,12 @@ HTTP 헤더 내 응답 헤더 \(Response Header\) 항목
 * Expires : 캐시 만료일을 알려준다.
 * Allow : 해당 엔티티에 대해 서버 측에서 지원 가능한 HTTP 메소드 리스트를 표시
 * Access-Control-Allow-Origin : 요청 Host와 응답 Host가 다르면 CORS 에러가 발생하는데 서버에서 응답 메시지 Access-Control-Allow-Origin 헤더에 프론트 주소를 적어주면 에러가 발생하지 않는다.
+* Location : 리소스가 리다이렉트될 경우에 이동된 주소, 또는 새로 생성된 리소스 주소를 명시
+  * 새로 생성된 리소스의 경우
+    * HTTP 상태 코드 201 Created가 반환된다.
+  * 300번대 응답의 경우
+    * `HTTP/1.1 302 Found Location: /`
+    * 이런 응답이 왔다면 브라우저는 / 주소로 redirect한다
 
 ## 참고
 
@@ -70,4 +78,5 @@ HTTP 헤더 내 응답 헤더 \(Response Header\) 항목
 * [https://code-machina.github.io/2019/07/29/HTTP-Header-Summary-Part-1.html](https://code-machina.github.io/2019/07/29/HTTP-Header-Summary-Part-1.html)
 * [https://webdir.tistory.com/263](https://webdir.tistory.com/263)
 * [https://velog.io/@surim014/HTTP란-무엇인가](https://velog.io/@surim014/HTTP%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80)
+* [https://webdir.tistory.com/263](https://webdir.tistory.com/263)
 
