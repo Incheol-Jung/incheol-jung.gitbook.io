@@ -49,7 +49,7 @@
   * [상속보단 합성](q-and-a/architecture/undefined-2.md)
   * [SOLID 원칙](q-and-a/architecture/solid.md)
   * [캡슐화](q-and-a/architecture/undefined-1.md)
-  * [DDD\(TODO\)](q-and-a/architecture/ddd.md)
+  * [DDD](q-and-a/architecture/ddd.md)
 * [COMPUTER SCIENCE](q-and-a/computer-science/README.md)
   * [뮤텍스와 세마포어](q-and-a/computer-science/undefined-1.md)
   * [AGILE](q-and-a/computer-science/2018-01-12-introduce-agile.md)
