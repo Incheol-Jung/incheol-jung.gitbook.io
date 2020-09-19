@@ -25,6 +25,7 @@
   * [Stereo Type\(스테레오 타입\)](q-and-a/spring/stereo-type.md)
   * [AOP](q-and-a/spring/aop.md)
   * [@Transactional](q-and-a/spring/transactional.md)
+  * [Exception](q-and-a/spring/exception.md)
 * [DB](q-and-a/db/README.md)
   * [Database Index](q-and-a/db/index.md)
   * [SQL vs NoSQL](q-and-a/db/sql-vs-nosql.md)
