@@ -32,7 +32,14 @@ Exception의 자식 클래스 중 **RuntimeException을 제외한 모든 클래�
 * 예외처리를 컴파일 단계에서 확인하지 않는다.
 * 실행 중에 발생하는 에러로 Runtime Exception이라 명명한다.
 
-[Exception 비교](https://www.notion.so/569ffbd3e5594506a4aef98229648099)
+### Exception 비교 
+
+| 구분 | Checked Exception | Unchecked Exception |
+| :--- | :--- | :--- |
+| 확인 시점 | 컴파일\(Compile\) 시점 | 런타임\(Runtime\) 시점 |
+| 처리 여부 | 반드시 예외 처리해야 한다 | 명시적으로 하지 않아도 된다. |
+| 트랜잭션 처리 | 예외 발생시 롤백\(rollback\)되지 않는다. | 예외 발생시 롤백\(rollback\)해야 한다 |
+| 종류 | - IOException - ClassNotFoundException | - NullPointerException - ClassCastException |
 
 ## 예외처리 방법
 
