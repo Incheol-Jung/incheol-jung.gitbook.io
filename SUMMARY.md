@@ -26,6 +26,7 @@
   * [AOP](q-and-a/spring/aop.md)
   * [@Transactional](q-and-a/spring/transactional.md)
   * [영속성 컨텍스트\(Persistence Context\)](q-and-a/spring/persistence-context.md)
+  * [N+1 문제](q-and-a/spring/n+1.md)
   * [Exception](q-and-a/spring/exception.md)
 * [INFRA](q-and-a/infra/README.md)
   * [CLOUD COMPUTING](q-and-a/infra/cloud-computing.md)
