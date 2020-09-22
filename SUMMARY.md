@@ -128,7 +128,7 @@
       * [아이템40 @Override 애너테이션을 일관되게 사용하라](study/backend/effective-java/undefined-4/40-override.md)
       * [아이템41 정의하려는 것이 타입이라면 마커 인터페이스를 사용하라](study/backend/effective-java/undefined-4/41.md)
     * [람다와 스트림](study/backend/effective-java/undefined-5/README.md)
-      * [아이템](study/backend/effective-java/undefined-5/undefined.md)
+      * [아이템46 스트림에는 부작용 없는 함수를 사용하라](study/backend/effective-java/undefined-5/undefined.md)
     * [메서드](study/backend/effective-java/undefined-6/README.md)
       * [아이템53 가변인수는 신중히 사용하라](study/backend/effective-java/undefined-6/53.md)
     * [일반적인 프로그래밍 원칙](study/backend/effective-java/undefined-7/README.md)
