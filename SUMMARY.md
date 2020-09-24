@@ -132,6 +132,7 @@
       * [아이템46 스트림에는 부작용 없는 함수를 사용하라](study/backend/effective-java/undefined-5/undefined.md)
       * [아이템47 반환 타입으로는 스트림보다 컬렉션이 낫다](study/backend/effective-java/undefined-5/47.md)
       * [아이템48 스트림 병렬화는 주의해서 적용하라](study/backend/effective-java/undefined-5/48.md)
+      * [아이템49 매개변수가 유효한지 검사하라](study/backend/effective-java/undefined-5/49.md)
     * [메서드](study/backend/effective-java/undefined-6/README.md)
       * [아이템49 매개변수가 유효한지 검사하라](study/backend/effective-java/undefined-6/49.md)
       * [아이템53 가변인수는 신중히 사용하라](study/backend/effective-java/undefined-6/53.md)
