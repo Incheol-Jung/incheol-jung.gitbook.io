@@ -28,6 +28,7 @@
   * [Stereo Type\(스테레오 타입\)](q-and-a/spring/stereo-type.md)
   * [AOP](q-and-a/spring/aop.md)
   * [@Transactional](q-and-a/spring/transactional.md)
+  * [JPA vs MyBatis](q-and-a/spring/jpa-vs-mybatis.md)
   * [영속성 컨텍스트\(Persistence Context\)](q-and-a/spring/persistence-context.md)
   * [Exception](q-and-a/spring/exception.md)
 * [INFRA](q-and-a/infra/README.md)
