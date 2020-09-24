@@ -14,7 +14,7 @@ description: Effective Java 3e 아이템 57를 요약한 내용 입니다.
 
 #### 메소드 상단에 사용할 모든 변수를 선언해서 사용한 경우이다.
 
-```text
+```java
 public void calculate() {
 	int a = 1;
 	int b = 2;
@@ -32,7 +32,7 @@ public void calculate() {
 
 #### 변수를 사용하는 위치에서 선언한 경우이다.
 
-```text
+```java
 public void calculate() {
 	int b = 2;
 	int c = 3;
@@ -51,7 +51,7 @@ public void calculate() {
 
 초기화에 필요한 정보다 충분하지 않다면 충분해질 때까지 선언을 미뤄야 한다.
 
-```text
+```java
 public void calculate() {
 	Person person = new Person();
 
@@ -62,7 +62,7 @@ public void calculate() {
 }
 ```
 
-```text
+```java
 public void calculate() {
 	Person person = new Person("incheol", 20);
 	...
@@ -75,7 +75,7 @@ public void calculate() {
 
 다음은 while 문을 잘못 사용하여 버그를 발생한 상황이다.
 
-```text
+```java
 Iterator<Element> i = c.iterator();
 while (i.hasNext()) {
 	doSomething(i.next());
@@ -93,7 +93,7 @@ while (i.hasNext()) {
 
 for 문을 사용하면 이런 오류를 컴파일 타임에 잡아줄 것이다.
 
-```text
+```java
 for (Iterator<Element> i = c.iterator(); i.hasNext()) {
 	doSomething(i.next());
 }
@@ -110,7 +110,7 @@ while (Iterator<Element> i2 = c2.iterator(); i.hasNext()) {
 
 한 메서드에서 여러 가지 기능을 처리한다면 그중 한 기능과 관련된 지역 변수라도 다른 기능을 수행하는 코드에서 접근할 수 있을 것이다. 해결책은 간단하다. 단순히 메서드를 기능별로 쪼개면 된다.
 
-```text
+```java
 // case1. 하나의 메소드에 여러 기능을 포함한 경우
 public void buy() {
 	// 아이템의 가격을 확인한다. 
