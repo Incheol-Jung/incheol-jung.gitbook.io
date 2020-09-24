@@ -135,6 +135,7 @@
     * [메서드](study/backend/effective-java/undefined-6/README.md)
       * [아이템49 매개변수가 유효한지 검사하라](study/backend/effective-java/undefined-6/49.md)
       * [아이템53 가변인수는 신중히 사용하라](study/backend/effective-java/undefined-6/53.md)
+      * [아이템56 공개된 API 요소에는 항상 문서화 주석을 작성하라](study/backend/effective-java/undefined-6/56-api.md)
     * [일반적인 프로그래밍 원칙](study/backend/effective-java/undefined-7/README.md)
       * [아이템57 지역변수의 범위를 최소화하라](study/backend/effective-java/undefined-7/undefined.md)
     * [예외](study/backend/effective-java/undefined-8/README.md)
