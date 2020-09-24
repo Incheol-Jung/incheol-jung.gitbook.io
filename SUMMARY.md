@@ -12,7 +12,7 @@
   * [JDK 8 특징](q-and-a/java/jdk-8.md)
   * [예외](q-and-a/java/exception.md)
   * [Garbage Collecter](q-and-a/java/garbage-collecter.md)
-  * [스택 오버 플로우\(STW\)](q-and-a/java/stw.md)
+  * [스택 오버 플로우\(SOF\)](q-and-a/java/stw.md)
   * [Collection](q-and-a/java/collection.md)
   * [Call by Value & Call by Reference](q-and-a/java/call-by-value-and-call-by-reference.md)
 * [SPRING](q-and-a/spring/README.md)
