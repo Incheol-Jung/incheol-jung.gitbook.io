@@ -227,7 +227,7 @@ people.stream()
 
 Collector는 supplier, accumulator, 그리고 combiner의 오퍼레이션에 대한 인터페이스 역할을 한다. 이전 예제에서 세 개의 서로 다른 파라미터로 설정한 오퍼레이션들이다.
 
-이전 버전을 collect를 사용한 버전으로 수정해보자
+#### 이전 버전을 collect를 사용한 버전으로 수정해보자
 
 ```java
 people.stream()
@@ -256,7 +256,7 @@ people.stream()
 									reducing(BinaryOperator.maxBy(byAgeGroup))));
 ```
 
-세번째 예제에 대한 프로세스를 살펴보자
+#### 세번째 예제에 대한 프로세스를 살펴보자
 
 * 첫 번째 문자를 기반으로 이름을 그룹핑한다.
 * 두 번째 파라미터는 매핑 대신에 리듀스 오퍼레이션을 수행한다.
