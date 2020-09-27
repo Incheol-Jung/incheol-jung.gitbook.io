@@ -94,7 +94,7 @@ friends.stream()
 
 > 메서드 레퍼런스를 언제 사용해야 하는가?
 
-메서드 래퍼런스는 람다 표현식이 짧아서 간단하게 만들거나 인스턴스 메서드 혹은 정적 메서드를 직접 호출하는 경우에 유용하다. 다시 말하면, 람다 표현식을 사용할 때 파라미터를 전달하지 않는 경우라면 메서드 레퍼런스를 사용할 수 있다. 그러나 이 편리함은 파라미터를 인수로 전달하기 전에 파라미터를 처리해야 하거나 혹은 리턴하기 전에 호출의 결과를 사용해야 하는 경우에는 사용할 수 없다.
+메서드 퍼런스는 람다 표현식이 짧아서 간단하게 만들거나 인스턴스 메서드 혹은 정적 메서드를 직접 호출하는 경우에 유용하다. 다시 말하면, 람다 표현식을 사용할 때 파라미터를 전달하지 않는 경우라면 메서드 레퍼런스를 사용할 수 있다. 그러나 이 편리함은 파라미터를 인수로 전달하기 전에 파라미터를 처리해야 하거나 혹은 리턴하기 전에 호출의 결과를 사용해야 하는 경우에는 사용할 수 없다.
 
 ## 엘리먼트 찾기
 
@@ -147,10 +147,12 @@ final long countFriendsStartN =
   friends.stream()
          .filter(startsWithN)
          .count();
+         
 final long countEditorsStartN = 
   editors.stream()
          .filter(startsWithN)
          .count();
+         
 final long countComradesStartN = 
   comrades.stream()
           .filter(startsWithN)
@@ -181,6 +183,7 @@ checkIfStartsWith\(\)가 리턴하는 Predicate는 지금까지 배운 람다 �
 final long countFriendsStartN =
   friends.stream()
          .filter(checkIfStartsWith("N")).count();
+         
 final long countFriendsStartB =
   friends.stream()
          .filter(checkIfStartsWith("B")).count();
@@ -207,6 +210,9 @@ final Function<String, Predicate<String>> startsWithLetter =
 // version 3 : version 2을 더 간결하게 표현
 final Function<String, Predicate<String>> startsWithLetter = 
       letter -> name -> name.startsWith(letter);
+      
+// 실제 사용하
+long count = list.stream().filter(startsWithLetter.apply("N")).count();
 ```
 
 이 섹션에서 Function과 Predicate 모두를 사용하는 것이 좋다는 것을 알았지만 이 두가지가 어떻게 다른지 알아보자
@@ -313,7 +319,7 @@ final String steveOrLonger =
               name1.length() >= name2.length() ? name1 : name2);
 ```
 
-주어진 기준\("steve"\)보다 긴 이름이 있다면, 그 이름이 선택된다. 그렇지 않으면 함수는 리준값을 리턴한다.
+주어진 기준\("steve"\)보다 긴 이름이 있다면, 그 이름이 선택된다. 그렇지 않으면 함수는 준값을 리턴한다.
 
 ## 엘리먼트 조인
 

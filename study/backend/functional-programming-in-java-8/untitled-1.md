@@ -26,8 +26,10 @@ str.chars()
 이 결과는 우리가 의도한 결과는 아니다. 우리는 문자열을 통해서 문자를 루프문 돌면서 출력하고 싶었다. 그러면 다시 수정해보자.
 
 ```java
-private static void printChar(int aChar) {
-	System.out.println((char)(aChar));
+class IterateString {
+	private static void printChar(int aChar) {
+		System.out.println((char)(aChar));
+	}
 }
 
 // case 1. Custom static 함수 이용
