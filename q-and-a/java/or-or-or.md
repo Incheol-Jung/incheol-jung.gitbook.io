@@ -18,7 +18,7 @@ description: Blocking | Non Blocking | Sync | Async 에 대해 알아보자
 ### Non Blocking
 
 * 프로그램 A는 프로그램 B를 호출한 이후에도 제어권을 가지고 있어 대기큐에 들어가지 않고 다른 로직을 수행할 수 있다.
-* 프로그램 B가 호출된 순간 호출되었다는 결과를 프로그램 A에게 돌려준다.
+* 프로그램 B가 호출된 순간 호출되었다는 결과 프로그램 A에게 돌려준다.
 
 ## SYNC vs ASYNC
 
