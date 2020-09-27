@@ -58,7 +58,7 @@ str.chars()
 
 // case 2. 메소드 레퍼런스를 이용한 표현
 str.chars()
-	.filter(ch -> Character.isDigit(ch))
+	.filter(ch -> Character::isDigit)
 	.forEach(ch -> printChar(ch));
 
 // result
