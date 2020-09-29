@@ -114,6 +114,8 @@
     * [스프링의 기술과 선택](study/backend/tobys-spring/undefined-1/README.md)
       * [5장 AOP와 LTW](study/backend/tobys-spring/undefined-1/2020-03-10-spring2-chap5.md)
       * [6장 테스트 컨텍스트 프레임워크](study/backend/tobys-spring/undefined-1/2020-03-10-spring2-chap6.md)
+  * [자바 트러블슈팅\(with scouter\)](study/backend/with-scouter/README.md)
+    * [CHAP 01. 자바 기반의 시스템에서 발생할 수 있는 문제들](study/backend/with-scouter/chap-01..md)
   * [EFFECTIVE JAVA 3/e](study/backend/effective-java/README.md)
     * [객체 생성과 파괴](study/backend/effective-java/undefined/README.md)
       * [아이템1 생성자 대신 정적 팩터리 메서드를 고려하라](study/backend/effective-java/undefined/2020-03-20-effective-1item.md)
