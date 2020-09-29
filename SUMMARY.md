@@ -118,6 +118,7 @@
     * [CHAP 01. 자바 기반의 시스템에서 발생할 수 있는 문제들](study/backend/with-scouter/chap-01..md)
     * [CHAP 02. scouter 살펴보기](study/backend/with-scouter/chap-02.-scouter-1.md)
     * [CHAP 03. scouter 설정하기\(서버 및 에이전트\)](study/backend/with-scouter/chap-03.-scouter.md)
+    * [CHAP 04. scouter 클라이언트에서 제공하는 기능들](study/backend/with-scouter/chap-04.-scouter.md)
   * [EFFECTIVE JAVA 3/e](study/backend/effective-java/README.md)
     * [객체 생성과 파괴](study/backend/effective-java/undefined/README.md)
       * [아이템1 생성자 대신 정적 팩터리 메서드를 고려하라](study/backend/effective-java/undefined/2020-03-20-effective-1item.md)
