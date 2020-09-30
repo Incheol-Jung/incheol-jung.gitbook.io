@@ -121,6 +121,7 @@
     * [CHAP 04. scouter 클라이언트에서 제공하는 기능들](study/backend/with-scouter/chap-04.-scouter.md)
     * [CHAP 05. scouter XLog](study/backend/with-scouter/chap-05.-scouter-xlog.md)
     * [CHAP 06. scouter 서버/에이전트 플러그인](study/backend/with-scouter/chap-06.-scouter.md)
+    * [CHAP 07. scouter 사용 시 유용한 팁](study/backend/with-scouter/chap-07.-scouter.md)
   * [EFFECTIVE JAVA 3/e](study/backend/effective-java/README.md)
     * [객체 생성과 파괴](study/backend/effective-java/undefined/README.md)
       * [아이템1 생성자 대신 정적 팩터리 메서드를 고려하라](study/backend/effective-java/undefined/2020-03-20-effective-1item.md)
