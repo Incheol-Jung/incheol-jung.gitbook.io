@@ -132,6 +132,7 @@
     * [CHAP 15. 메모리 문제\(Case Study\)](study/backend/with-scouter/chap-15.-case-study.md)
     * [CHAP 24. scouter로 리소스 모니터링하기](study/backend/with-scouter/chap-24.-scouter.md)
     * [CHAP 25. 장애 진단은 이렇게 한다](study/backend/with-scouter/chap-25..md)
+    * [부록 A. Fatal error log 분석](study/backend/with-scouter/a.-fatal-error-log.md)
   * [EFFECTIVE JAVA 3/e](study/backend/effective-java/README.md)
     * [객체 생성과 파괴](study/backend/effective-java/undefined/README.md)
       * [아이템1 생성자 대신 정적 팩터리 메서드를 고려하라](study/backend/effective-java/undefined/2020-03-20-effective-1item.md)
