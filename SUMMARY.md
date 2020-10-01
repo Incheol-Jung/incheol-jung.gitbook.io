@@ -124,6 +124,8 @@
     * [CHAP 07. scouter 사용 시 유용한 팁](study/backend/with-scouter/chap-07.-scouter.md)
     * [CHAP 08. 스레드 때문에\(스레드에서\) 발생하는 문제들](study/backend/with-scouter/chap-08..md)
     * [CHAP 09. 스레드 단면 잘라 놓기](study/backend/with-scouter/chap-09..md)
+    * [CHAP 10. 잘라 놓은 스레드 단면 분석하기](study/backend/with-scouter/chap-10..md)
+    * [CHAP 11. 스레드 문제](study/backend/with-scouter/chap-11..md)
   * [EFFECTIVE JAVA 3/e](study/backend/effective-java/README.md)
     * [객체 생성과 파괴](study/backend/effective-java/undefined/README.md)
       * [아이템1 생성자 대신 정적 팩터리 메서드를 고려하라](study/backend/effective-java/undefined/2020-03-20-effective-1item.md)
