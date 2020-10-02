@@ -139,6 +139,7 @@
     * [CHAP 03. 테스트 코드 작성 순서](study/backend/undefined-3/chap-03..md)
     * [CHAP 04. TDD/기능 명세/설계](study/backend/undefined-3/chap-04.-tdd.md)
     * [CHAP 05. JUnit 5 기초](study/backend/undefined-3/chap-05.-junit-5.md)
+    * [CHAP 06. 테스트 코드의 구성](study/backend/undefined-3/chap-06..md)
   * [EFFECTIVE JAVA 3/e](study/backend/effective-java/README.md)
     * [객체 생성과 파괴](study/backend/effective-java/undefined/README.md)
       * [아이템1 생성자 대신 정적 팩터리 메서드를 고려하라](study/backend/effective-java/undefined/2020-03-20-effective-1item.md)
