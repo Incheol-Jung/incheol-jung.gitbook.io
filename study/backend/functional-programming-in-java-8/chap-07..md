@@ -1,5 +1,5 @@
 ---
-description: Functional Programming in Java 8의 Chapter 6을 요약한 내용 입니다.
+description: Functional Programming in Java 8의 Chapter 7을 요약한 내용 입니다.
 ---
 
 # CHAP 07. 재귀 호출 최적화
