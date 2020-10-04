@@ -216,6 +216,7 @@
     * [CHAP 06. 레이지](study/backend/functional-programming-in-java-8/chap-06..md)
     * [CHAP 07. 재귀 호출 최적화](study/backend/functional-programming-in-java-8/chap-07..md)
     * [CHAP 08. 람다 표현식의 조합](study/backend/functional-programming-in-java-8/chap-08..md)
+    * [CHAP 09. 모든 것을 함께 사용해보자](study/backend/functional-programming-in-java-8/chap-09..md)
   * [코틀린 쿡북](study/backend/undefined-2/README.md)
     * [2장 코틀린 기초](study/backend/undefined-2/2.md)
     * [3장 코틀린 객체지향 프로그래밍](study/backend/undefined-2/3.md)
