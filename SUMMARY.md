@@ -222,6 +222,7 @@
     * [Chap 02. 컬렉션의 사용](study/backend/functional-programming-in-java-8/untitled-2.md)
     * [Chap 03. String, Comparator, 그리고 filter](study/backend/functional-programming-in-java-8/untitled-1.md)
     * [Chap 04. 람다 표현식을 이용한 설계](study/backend/functional-programming-in-java-8/chap-04..md)
+    * [CHAP 05. 리소스를 사용한 작업](study/backend/functional-programming-in-java-8/chap-05..md)
   * [DDD START!](study/backend/ddd-start/README.md)
     * [1장 도메인 모델 시작](study/backend/ddd-start/1.md)
     * [2장 아키텍처 개요](study/backend/ddd-start/2.md)
