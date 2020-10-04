@@ -18,7 +18,7 @@ description: Functional Programming in Java 8의 Chapter 5을 요약한 내용 �
 
 FileWriter를 사용하여 메시지를 출력하는 간단한 예제 클래스를 만들어보자
 
-```text
+```java
 public class FileWriterExample {
   private final FileWriter writer;
   
@@ -46,7 +46,7 @@ public class FileWriterExample {
 
 #### 이제 main\(\) 메서드를 살펴보자
 
-```text
+```java
 public static void main(final String[] args) throws IOException {
     final FileWriterExample writerExample = 
       new FileWriterExample("peekaboo.txt");
@@ -63,7 +63,7 @@ public static void main(final String[] args) throws IOException {
 
 위와 같은 문제점을 해결하기 위해 리소스를 종료하면서 close에 대한 호출을 보장하기 위해 코드를 개선하였다.
 
-```text
+```java
 public static void main(final String[] args) throws IOException {
   final FileWriterExample writerExample = 
     new FileWriterExample("peekaboo.txt");
@@ -79,7 +79,7 @@ public static void main(final String[] args) throws IOException {
 
 ARM은 이전 예제의 장황한 코드를 감소시켜준다.
 
-```text
+```java
 public static void main(final String[] args) throws IOException {
   try(final FileWriterARM writerARM = new FileWriterARM("peekaboo.txt")) {
     writerARM.writeStuff("peek-a-boo");
@@ -103,7 +103,7 @@ ARM은 올바른 방법이지만 아주 효과적이라고 말하기는 어렵�
 
 FileWriterEAM 클래스를 설계해보자. 생성자와 close\(\) 메서드를 프라이빗으로 만든다. 이렇게 하게 되면 프로그래머가 클래스를 사용할 때 주의하게 된다. 인스턴스를 직접 만들 수 없고 close를 직접 호출할 수도 없다.
 
-```text
+```java
 public class FileWriterEAM  {
   private final FileWriter writer;
   
@@ -125,7 +125,7 @@ public class FileWriterEAM  {
 
 프로그래머가 직접 FileWriterEAM의 인스턴스를 생성할 수 없기 때문에 이들을 사용하는 팩토리 메서드가 필요하다. 인스턴스를 생성하고 파라미터로 해당 인스턴스를 전달하는 일반적인 팩토리 메서드와 달리, 우리가 만드는 메서드는 인스턴스를 사용자에게 전달하고 작업이 끝날 때까지 기다린다. 람다 표현식을 이용하면 이러한 작업이 가능하다.
 
-```text
+```java
 public static void use(final String fileName, 
   final UseInstance<FileWriterEAM, IOException> block) throws IOException {
   
@@ -149,7 +149,7 @@ user\(\) 메서드는 execute around method 패턴의 구조를 표현한다. �
 
 #### UseInstance 인터페이스
 
-```text
+```java
 @FunctionalInterface
 public interface UseInstance<T, X extends Throwable> {
   void accept(T instance) throws X;
@@ -164,13 +164,13 @@ UseInstance는 함수형 인터페이스이며 자바 컴파일러가 자동으�
 
 클래스 설계자들처럼 AutoCloseable 인터페이스를 간단하게 구현하는 대신 더 노력해야 한다. 다음을 보자
 
-```text
+```java
 FileWriterEAM.use("eam.txt", writerEAM -> writerEAM.writeStuff("sweet"));
 ```
 
 클래스의 사용자들은 인스턴스를 직접 생성하지 못한다. 이런 특징은 인스턴스가 만료되는 시점 이후로 리소스의 클린업을 지연시키는 코드의 생성을 막는다.
 
-```text
+```java
 FileWriterEAM.use("eam2.txt", writerEAM -> {
   writerEAM.writeStuff("how");
   writerEAM.writeStuff("sweet");      
@@ -198,7 +198,7 @@ Lock 인터페이스는 lock, unlock, check 등에 대한 더 향상된 인터�
 
 쌍방향 synchronized가 아닌 개발자가 직접 록킹\(locking\)과 언록킹\(unlocking\)에 대한 설정을 해줘야 한다. 이것은 언록\(unlock\)을 기억해야 할 뿐만 아니라 finally 블록에서 그 작업을 해야 한다는 것을 의미한다.
 
-```text
+```java
 public class Locking {
   Lock lock = new ReentrantLock(); //or mock
   
@@ -221,7 +221,7 @@ doOp1\(\) 메서드에 잠금된 태스크들이 있고 원하는 태스크들�
 
 ### 람다 표현식을 사용하여 잠금을 관리하는 클래스를 만들어보자
 
-```text
+```java
 public class Locker {
   public static void runLocked(Lock lock, Runnable block) {
     lock.lock();
@@ -256,7 +256,7 @@ execute around method를 사용하여 코드를 얼마나 간결하고 오류가
 
 다음은 try와 catch를 사용하여 maxProfit\(\) 메서드의 예외를 체크한다.
 
-```text
+```java
 @Test 
 public void VerboseExceptionTest() {
   rodCutter.setPrices(prices);
@@ -275,7 +275,7 @@ public void VerboseExceptionTest() {
 
 람다 표현식을 사용해서 예외를 테스트해보자.
 
-```text
+```java
 public class TestHelper {
   public static <X extends Throwable> Throwable assertThrows(
     final Class<X> exceptionClass, final Runnable block) {
@@ -294,7 +294,7 @@ public class TestHelper {
 
 assertThrows 정적 메서드는 예외 코드가 발생하는지 조사하는 역할을 한다. 예외가 발생하지 않거나 첫 번째 파라미터로 주어진 타입과 다른 예외가 발생하면, 호출은 Junit의 fail\(\) 메서드를 사용하여 실패했음을 알린다.
 
-```text
+```java
 @Test
 public void ConciseExceptionTest() {
   rodCutter.setPrices(prices);

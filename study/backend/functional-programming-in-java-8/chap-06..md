@@ -14,7 +14,7 @@ description: Functional Programming in Java 8의 Chapter 6을 요약한 내용 �
 
 리소스에 따라 필요한 메모리와 자원이 제각각이기 때문에 이 클래스의 인스턴스를 생성하는 것은 상당한 시간과 메모리가 필요하다.
 
-```text
+```java
 public class HolderNaive {
   private Heavy heavy;
   
@@ -43,14 +43,14 @@ public class HolderNaive {
 
 Supplier&lt;T&gt;는 인스턴스를 리턴한다. 예를 들어, Supplier&lt;Heavy&gt;를 구현해서 Heavy의 인스턴스를 리턴한다.
 
-```text
+```java
 Supplier<Heavy> supplier = () -> new Heavy();
 Supplier<Heavy> supplier = Heavy::new;
 ```
 
 하지만 이전의 코드는 단순히 생성하는 것보다 더 많은 로직이 필요하다. 인스턴스를 지연시키고 캐시하는 기능이 추가되어야 한다.
 
-```text
+```java
 public class Holder {
   private Supplier<Heavy> heavy = () -> createAndCacheHeavy();
   
@@ -95,7 +95,7 @@ public class Holder {
 
 ### eager evaluation으로 시작하기
 
-```text
+```java
 // 실행 함수
 public static boolean evaluate(final int value) {
   System.out.println("evaluating ..." + value);
@@ -130,7 +130,7 @@ eagerEvaluator 메서드는 두 개의 boolean 파라미터를 갖는다. 메서
 
 ### lazy evaluation을 위한 설계
 
-```text
+```java
 // 지연 실행 함수
 public static void lazyEvaluator(
   final Supplier<Boolean> input1, final Supplier<Boolean> input2) {
@@ -181,7 +181,7 @@ lazyEvaluator(() -> evaludate(1), () -> evaludate(2));
 
 map\(\)과 filter\(\) 메서드가 중간 오퍼레이션이다. 이 메서드를 호출하면 바로 리턴하고 이 메서드에게 전달되는 람다 표현식은 즉시 평가되지 않는다. 이 메서드의 코어 비헤이비어는 나중에 실행될 때를 위해 캐시한다는 것과 이 메서드가 호출될 때 실제 실행되지 않는다는 점이다. 캐시 비헤이비어는 finFirst\(\)와 reduce\(\)와 같은 종단 오퍼레이션 중 하나가 호출된다. 캐시된 코드 모두가 실행되는 것은 아니지만, 연산은 원하는 결과를 삭제하면 바로 완료한다.
 
-```text
+```java
 public class LazyStreams {
     private static int length(final String name) {
       System.out.println("getting length for " + name);
@@ -229,7 +229,7 @@ converting to uppercase: Kim
 
 ### 레이지에 대한 심도 있는 고찰
 
-```text
+```java
 public static void main(final String[] args) {
 		System.out.println("//" + "START:SPLIT_OUTPUT");
     Stream<String> namesWith3Letters = names.stream()
@@ -271,7 +271,7 @@ KIM
 
 주어진 숫자가 소수이면 소수의 리스트에 추가하고 그렇지 않으면 제거하고 다음수를 검사한다.
 
-```text
+```java
 public static List<Integer> primes(final int number) {
   if(isPrime(number))
     return concat(number, primes(number + 1));
@@ -284,7 +284,7 @@ public static List<Integer> primes(final int number) {
 
 #### 이는 어떻게 해결할 수 있을까?
 
-```text
+```java
 public static List<Integer> primes(final int fromNumber, final int count) {
   return Stream.iterate(primeAfter(fromNumber - 1), Primes::primeAfter)
                .limit(count)
@@ -294,7 +294,7 @@ public static List<Integer> primes(final int fromNumber, final int count) {
 
 Stream 인터페이스는 정적 메서드 iterate\(\)를 가지며 이 메서드는 무한 스트림을 생성한다. iterate\(\) 메서드가 리턴하는 스트림은 terminating 메서드를 사용하기 전까지 엘리먼트에 대한 생성을 지연한다. 첫 번째 엘리먼트를 얻기 위해서 findFirst\(\) 메서드를 호출한다. 10개의 엘리먼트를 얻기 위해서는 스트림에서 limit\(\) 메서드를 호출한다.
 
-```text
+```java
 public static void main(final String[] args) {
   System.out.println("10 primes from 1: " + primes(1, 10));
   System.out.println("5 primes from 100: " + primes(100, 5));
