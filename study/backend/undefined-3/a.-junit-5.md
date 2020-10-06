@@ -12,7 +12,7 @@ JUnit 5는 조건에 따라 테스트를 실행할지 여부를 결정하는 기
 
 특정 운영체에따라 테스트를 동작해야 할 경우에 사용할 수 있다.
 
-```text
+```java
 public class OsTmpPathTest {
     @Test
     @EnabledOnOs(OS.WINDOWS)
@@ -34,7 +34,7 @@ public class OsTmpPathTest {
 
 자바 버전에 따라 테스트를 실행할 수 있다.
 
-```text
+```java
 @Test
 @EnabledOnJre({JRE.JAVA_8, JRE.JAVA_9, JRE.JAVA_10, JRE.JAVA_11})
 void testOnJre() {
@@ -46,7 +46,7 @@ void testOnJre() {
 
 시스템 프로퍼티 값을 비교하여 테스트 실행 여부를 결정한다. named 속성은 시스템 프로피터의 이름을 지정하고 matches 속성에는 값의 일치 여부를 검사할 때 사용할 정규 표현식을 지정한다.
 
-```text
+```java
 public class SystemPropertyTest {
 
     @Test
@@ -71,7 +71,7 @@ public class SystemPropertyTest {
 
 @Tag 애노테이션은 테스트에 태그를 달 때 사용한다. @Tag 애노테이션은 클래스와 테스트 메서드에 적용할 수 있다.
 
-```text
+```java
 @Tag("integration")
 public class TagTest {
 
@@ -109,7 +109,7 @@ public class TagTest {
 
 ### 태그를 기준으로 테스트 대상을 포함하거나 제외시킬 수 있다.
 
-```text
+```java
 test {
     useJUnitPlatform {
         includeTags 'integration'
@@ -129,7 +129,7 @@ test {
 
 @Nested 애노테이션을 사용하면 중첩 클래스에 테스트 메서드를 추가할 수 있다.
 
-```text
+```java
 public class Outer {
 
     public Outer() {
@@ -194,7 +194,7 @@ public class Outer {
 
 ## 테스트 메시지
 
-```text
+```java
 public class MessageTest {
     @Test
     void message() {
@@ -220,7 +220,7 @@ assertEuqlas 메서드의 세 번째 인자로 설명 문자열을 추가하였�
 
 @TempDir 애노테이션을 사용하면 JUnit은 임시 폴더를 생성하고 임시 폴더 경로를 전달한다.
 
-```text
+```java
 public class TempDirTest {
 
     @TempDir
@@ -244,7 +244,7 @@ public class TempDirTest {
 
 @Timeout 애노테이션을 사용하면 테스트가 일정 시간 내에 실행되는지 검증할 수 있다.
 
-```text
+```java
 public class TimeoutTest {
     @Test
     @Timeout(1)

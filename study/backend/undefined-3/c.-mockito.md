@@ -10,7 +10,7 @@ Mockito는 모의 객체 생성, 검증, 스텁을 지원하는 프레임워크�
 
 Mockito.mock\(\) 메서드를 이용하면 특정 타입의 모의 객체를 생성할 수 있다.
 
-```text
+```java
 @Test
 void mockClass() {
     GameNumGen mockGen = mock(GameNumGen.class);
@@ -23,7 +23,7 @@ void mockClass() {
 
 모의 객체를 생성한 뒤에는 BDDMockito 클래스를 이용해서 모의 객체에 스텁을 구성할 수 있다.
 
-```text
+```java
 @Test
 void mockClass() {
     GameNumGen mockGen = mock(GameNumGen.class);
@@ -34,7 +34,7 @@ void mockClass() {
 
 지정한 값을 리턴하는 대신에 익셉션을 발생하게 설정할 수도 있다.
 
-```text
+```java
 @Test
 void mockThrowTest() {
     GameNumGen genMock = mock(GameNumGen.class);
@@ -50,7 +50,7 @@ void mockThrowTest() {
 
 org.mockito.ArgumentMatchers 클래스를 사용하면 정확하게 일치하는 값 대신 임의의 값에 일치하도록 설정할 수 있다.
 
-```text
+```java
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -88,7 +88,7 @@ public class VerifyTest {
 
 모의 객체의 역할 중 하나는 실제로 모의 객체가 불렸는지 검증하는 것이다.
 
-```text
+```java
 public class VerifyTest {
     @Test
     void anyMatchTest() {
@@ -105,7 +105,7 @@ public class VerifyTest {
 
 정확하게 한 번만 호출된 것을 검증하고 싶다면 should\(\) 메서드에 Mockito.only\(\)를 인자로 전달한다.
 
-```text
+```java
 then(genMock).should(only()).generate(GameLevel.EASY);
 ```
 
@@ -122,7 +122,7 @@ then(genMock).should(only()).generate(GameLevel.EASY);
 
 Mockito의 ArgumentCaptor를 사용하면 메서드 호출 여부를 검증하는 과정에서 실제 호출할때 전달한 인자를 보관할 수 있다.
 
-```text
+```java
 @DisplayName("가입하면 메일을 전송함")
 @Test
 void whenRegisterThenSendMail() {
@@ -140,7 +140,7 @@ void whenRegisterThenSendMail() {
 
 Mockito의 JUnit 5의 확장 기능을 사용하면 애노테이션을 이용해서 모의 객체를 생성할 수 있다. 확장 기능을 사용하려면 mockito-junit-jupiter 의존을 추가해야 한다.
 
-```text
+```java
 <dependency>
     <groupId>org.junit.jupiter</groupId>
     <artifactId>junit-jupiter</artifactId>
@@ -151,7 +151,7 @@ Mockito의 JUnit 5의 확장 기능을 사용하면 애노테이션을 이용해
 
 의존을 추가했다면 MockitoExtension 확장을 사용할 수 있다.
 
-```text
+```java
 @ExtendWith(MockitoExtension.class)
 public class JUnit5ExtensionTest {
 
