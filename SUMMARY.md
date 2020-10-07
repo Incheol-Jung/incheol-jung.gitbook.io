@@ -281,6 +281,8 @@
     * [14장 함수형 프로그래밍 기법](study/backend/java-8-in-action/2020-03-10-java8inaction-chap14.md)
   * [객체지향과 디자인패턴](study/backend/undefined/README.md)
     * [객체 지향](study/backend/undefined/undefined.md)
+    * [다형성과 추상 타입](study/backend/undefined/undefined-3.md)
+    * [재사용: 상속보단 조립](study/backend/undefined/undefined-4.md)
     * [설계 원칙](study/backend/undefined/undefined-1.md)
     * [DI와 서비스 로케이터](study/backend/undefined/di.md)
     * [주요 디자인 패턴](study/backend/undefined/undefined-2.md)
