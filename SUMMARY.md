@@ -283,7 +283,7 @@
     * [객체 지향](study/backend/undefined/undefined.md)
     * [다형성과 추상 타입](study/backend/undefined/undefined-3.md)
     * [재사용: 상속보단 조립](study/backend/undefined/undefined-4.md)
-    * [설계 원칙](study/backend/undefined/undefined-1.md)
+    * [설계 원칙: SOLID](study/backend/undefined/undefined-1.md)
     * [DI와 서비스 로케이터](study/backend/undefined/di.md)
     * [주요 디자인 패턴](study/backend/undefined/undefined-2.md)
   * [NODE.JS](study/backend/nodejs/README.md)
