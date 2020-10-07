@@ -209,7 +209,7 @@
     * [동시성](study/backend/effective-java/undefined-9/README.md)
       * [아이템](study/backend/effective-java/undefined-9/undefined.md)
     * [직렬화](study/backend/effective-java/undefined-10/README.md)
-      * [아이템](study/backend/effective-java/undefined-10/undefined-1.md)
+      * [아이템 87 커스텀 직렬화 형태를 고려해보라](study/backend/effective-java/undefined-10/undefined-1.md)
   * [Functional Programming in Java 8](study/backend/functional-programming-in-java-8/README.md)
     * [Chap 01. 헬로, 람다 표현식](study/backend/functional-programming-in-java-8/untitled.md)
     * [Chap 02. 컬렉션의 사용](study/backend/functional-programming-in-java-8/untitled-2.md)
