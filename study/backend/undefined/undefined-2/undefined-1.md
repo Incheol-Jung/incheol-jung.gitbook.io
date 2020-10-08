@@ -78,7 +78,7 @@ public <T> T execute(TransactionCallback<T> action)
 * TransactionTemplate의 execute\(\) 메서드는 파라미터로 전달받은 action의 메서드를 호출하고 있다.
 * 따라서 TransactionTemplate의 execute\(\) 메서드를 사용하는 코드는 다음과 같이 execute\(\) 메서드를 호출할 때 원하는 기능을 구현한 TransactionCallback 객체를 전달한다.
 
-```text
+```java
 transactionTemplate.execute(new TransactionCallback<String>() {
 		public String doInTransaction(TransactionStatus status) {
 				// 트랜잭션 범위 안에서 실행될 코드
