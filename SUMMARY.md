@@ -289,6 +289,7 @@
       * [전략패턴](study/backend/undefined/undefined-2/undefined.md)
       * [템플릿 메서드 패턴](study/backend/undefined/undefined-2/undefined-1.md)
       * [상태 패턴](study/backend/undefined/undefined-2/undefined-2.md)
+      * [데코레이터 패턴](study/backend/undefined/undefined-2/undefined-3.md)
   * [NODE.JS](study/backend/nodejs/README.md)
     * [1회차](study/backend/nodejs/2018-01-16-nodejs-1st.md)
     * [2회차](study/backend/nodejs/2018-01-16-nodejs-2st.md)
