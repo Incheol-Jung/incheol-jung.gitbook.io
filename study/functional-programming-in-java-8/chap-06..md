@@ -286,7 +286,7 @@ public static List<Integer> primes(final int number) {
 
 ```java
 public static List<Integer> primes(final int fromNumber, final int count) {
-  return Stream.iterate(primeAfter(fromNumber - 1), Primes::primeAfter)
+  return Stream.iterate(primeAfter(fromNumber + 1), Primes::primeAfter)
                .limit(count)
                .collect(Collectors.<Integer>toList());
 }
