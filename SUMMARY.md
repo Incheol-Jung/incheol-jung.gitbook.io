@@ -215,7 +215,7 @@
   * [Chap 03. String, Comparator, 그리고 filter](study/functional-programming-in-java-8/untitled-1.md)
   * [Chap 04. 람다 표현식을 이용한 설계](study/functional-programming-in-java-8/chap-04..md)
   * [CHAP 05. 리소스를 사용한 작업](study/functional-programming-in-java-8/chap-05..md)
-  * [CHAP 06. 레이지](study/functional-programming-in-java-8/chap-06..md)
+  * [CHAP 06. 레이지](study/functional-programming-in-java-8/chap-06.md)
   * [CHAP 07. 재귀 호출 최적화](study/functional-programming-in-java-8/chap-07..md)
   * [CHAP 08. 람다 표현식의 조합](study/functional-programming-in-java-8/chap-08..md)
   * [CHAP 09. 모든 것을 함께 사용해보자](study/functional-programming-in-java-8/chap-09..md)
