@@ -4,9 +4,7 @@ description: "Better late than naver \U0001F525"
 
 # Intro
 
-
-
-![](.gitbook/assets/7b39c67abc82d534cc91a3e6c4cd8609%20%281%29.gif)
+![](.gitbook/assets/lego-worlds-listing-thumb-01-ps4-eu-02dec16%20%281%29.png)
 
 ### 😎 Contact
 
@@ -21,8 +19,4 @@ description: "Better late than naver \U0001F525"
   **Github.** [https://github.com/incheol-jung](https://github.com/incheol-jung)
 
   **Tech Tree.** [![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/incheol-jung/incheol-jung)
-
-### 
-
-
 
