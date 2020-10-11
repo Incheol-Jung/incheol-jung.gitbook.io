@@ -18,6 +18,7 @@
   * [Garbage Collecter](q-and-a/java/garbage-collecter.md)
   * [Collection](q-and-a/java/collection.md)
   * [Call by Value & Call by Reference](q-and-a/java/call-by-value-and-call-by-reference.md)
+  * [제네릭\(Generic\)](q-and-a/java/generic.md)
 * [SPRING](q-and-a/spring/README.md)
   * [Spring 특징](q-and-a/spring/spring-1.md)
   * [N+1 문제](q-and-a/spring/n+1.md)
