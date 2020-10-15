@@ -222,17 +222,51 @@ public class Product {
 
 열거된 모든 원소를 배열에 담아 순서대로 반환한다.
 
+```java
+for(Category category : Category.values()) {
+    System.out.println(category);
+}
+
+// 결과값
+// CLOTHES
+// SHOES
+// JACKET
+// DRESS
+// UNKNOWN
+```
+
 ### ordinal\(\)
 
 원소에 열거된 순서를 정수 값으로 반환한다.
+
+```java
+System.out.println(Category.CLOTHES.ordinal())
+
+// 결과값
+// 0
+```
 
 ### valueOf\(\)
 
 매개변수로 주어진 String과 열거형에서 일치하는 이름을 갖는 원소를 반환한다.
 
+```java
+System.out.println(Category.valueOf("CA0001"));
+
+// 결과값
+// DRESS
+```
+
 ### name\(\)
 
 해당 원소의 이름을 반환한다.
+
+```java
+System.out.println(Category.DRESS.name());
+
+// 결과값
+// DRESS
+```
 
 ### compareTo\(\)
 
