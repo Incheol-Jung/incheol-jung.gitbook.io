@@ -210,6 +210,7 @@
     * [아이템 73 추상화 수준에 맞는 예외를 던지라](study/effective-java/undefined-8/undefined-1.md)
   * [동시성](study/effective-java/undefined-9/README.md)
     * [아이템78 공유 중인 가변 데이터는 동기화해 사용하라](study/effective-java/undefined-9/undefined.md)
+    * [아이템 80 스레드보다는 실행자, 태스크, 스트림을 애용하라](study/effective-java/undefined-9/80.md)
   * [직렬화](study/effective-java/undefined-10/README.md)
     * [아이템 87 커스텀 직렬화 형태를 고려해보라](study/effective-java/undefined-10/undefined-1.md)
 * [Functional Programming in Java](study/functional-programming-in-java-8/README.md)
