@@ -8,7 +8,7 @@ description: 스프링 인 액션(5판) 챕터 2장을 요약한 내용 입니�
 
 타코 식자재를 정의하기 위한 모델을 생성해보자.
 
-```text
+```java
 @Data
 @RequiredArgsConstructor
 public class Ingredient {
@@ -30,7 +30,7 @@ public class Ingredient {
 
 타코 클래스를 추가해보자.
 
-```text
+```java
 @Data
 public class Taco {
 	private String name;
@@ -40,7 +40,7 @@ public class Taco {
 
 @Slf4j는 컬파일 시에 Lombok에 제공되며 애당 클래스에 자동으로 SLF4J Logger를 생성한다.
 
-```text
+```java
 private static final org.slf4j.Logger log = 
 	org.slf4j.LoggerFactory.getLogger(DesignTacoController.class);
 ```
@@ -49,7 +49,7 @@ private static final org.slf4j.Logger log =
 
 스프링 4.3 이전에는 Get Method를 사용하려면 @RequestMapping 애노테이션을 사용할 수 있었다. 4.3 이후에는 @GetMapping을 사용할 수 있는데 더 간결하고 HTTP GET 요청에 특화되어 있다.
 
-```text
+```java
 // spring 4.3 이전
 @RequestMagging(method = RequestMethod.GET)
 
@@ -87,7 +87,7 @@ private static final org.slf4j.Logger log =
 
 타코 디자인 폼의 제출을 처리하기 위해 processDesign\(\) 메서드를 추가하자.
 
-```text
+```java
 @PostMapping
 public String processDesign(@Valid @ModelAttribute("design") Taco design, Errors errors, Model model) {
   if (errors.hasErrors()) {
@@ -120,7 +120,7 @@ processDesign\(\)에서 반환되는 값은 리디렉션 뷰를 나타내는 "re
 * HomeController 외의 다른 컨트롤러에서는 자신이 처리하는 요청 패턴을 정의하기 위해 클래스 수준의 @RequestMapping 애노테이션을 사용한다.
 * 메서드에서 어떤 종류의 요청을 처리해야 하는지 나타내기 위해 @GetMapping 또는 @PostMaiing 애노테이션이 지정된 하나 이상의 메서드를 갖는다.
 
-```text
+```java
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -146,7 +146,7 @@ addViewControllers\(\) 메서드는 하나 이상의 뷰 컨트롤러를 등록�
 
 다행스럽게도 템플릿 캐싱을 비활성화하는 방법이 있다.
 
-```text
+```java
 spring.thymeleaf.cache = false
 ```
 
