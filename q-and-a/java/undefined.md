@@ -39,6 +39,7 @@ description: lambda와 closure에 대해서 알아보자
 
 * 코드를 간결하게 작성할 수 있다.
 * 보일러 플레이트를 제거하여 로직만 작성하면 되므로 가독성이 향상되었다.
+* 병렬 프로그래밍이 용이하다.
 
 ### 람다 표현식 단점
 
@@ -67,7 +68,7 @@ public class Store {
 
 클로저를 사용하기 위해서는 외부 변수는 가변적이면 안된다. java 8 이전에서는 불변을 보장하기 위해 final 키워드를 컴파일 단계에서 체크하였지만 java 8 이후부터는 final이 없어도 사용할 수 는 있다. 그러나 람다 내에서 수정한다고 하면 오류 메시지를 확인할 수 있다.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bc0bf486-0f33-41f9-b8db-ac3c560a4bcf/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bc0bf486-0f33-41f9-b8db-ac3c560a4bcf/Untitled.png)
+![](../../.gitbook/assets/222%20%2816%29.png)
 
 ### 클로저는 Java 8 에서부터 적용된 기능인가?
 
