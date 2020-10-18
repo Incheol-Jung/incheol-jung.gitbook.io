@@ -65,6 +65,7 @@ STW는 GC를 실행하는 쓰레드를 제외한 나머지 쓰레드는 모두 �
 * Parallel GC는 Serial GC와 기본적인 알고리즘은 같다.
 * Serial GC는 GC를 처리하는 스레드가 하나인 것에 비해, Parallel GC는 GC를 처리하는 쓰레드가 여러 개이다. 그렇기 때문에 Serial GC보다 빠른게 객체를 처리할 수 있다.
 * Parallel GC는 메모리가 충분하고 코어의 개수가 많을 때 유리하다.
+* JAVA 9 이전에는 기본 설정된 GC로 사용 되었다.
 
 ### Parallel Old GC\(-XX:+UseParallelOldGC\)
 
