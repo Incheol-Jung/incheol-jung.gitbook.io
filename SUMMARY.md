@@ -324,6 +324,7 @@
   * [Chap 7. REST 서비스 사용하기](study/srping-in-action-5th/chap-7.-rest.md)
   * [Chap 9. 스프링 통합하기](study/srping-in-action-5th/chap-9..md)
   * [CHAP 13. 서비스 탐구하기](study/srping-in-action-5th/chap-13..md)
+  * [CHAP 15. 실패와 지연 처리하기](study/srping-in-action-5th/chap-15..md)
   * [CHAP 16. 스프링 부트 액추에이터 사용하기](study/srping-in-action-5th/chap-16..md)
 * [스프링부트 코딩 공작소](study/undefined-1/README.md)
   * [스프링 부트를 왜 사용 해야 할까?](study/undefined-1/undefined.md)
