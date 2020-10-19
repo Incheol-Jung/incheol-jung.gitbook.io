@@ -209,6 +209,7 @@
     * [아이템57 지역변수의 범위를 최소화하라](study/effective-java/undefined-7/undefined.md)
   * [예외](study/effective-java/undefined-8/README.md)
     * [아이템 73 추상화 수준에 맞는 예외를 던지라](study/effective-java/undefined-8/undefined-1.md)
+    * [아이템 74 메서드가 던지는 모든 예외를 문서화하라](study/effective-java/undefined-8/74.md)
   * [동시성](study/effective-java/undefined-9/README.md)
     * [아이템78 공유 중인 가변 데이터는 동기화해 사용하라](study/effective-java/undefined-9/undefined.md)
     * [아이템79 과도한 동기화는 피하라](study/effective-java/undefined-9/79.md)
