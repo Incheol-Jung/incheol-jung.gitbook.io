@@ -106,9 +106,7 @@ RxJava나 ReactiveX를 잘 알고 있다면 Mono, Flux가 Observable, Single과 
 
 리액티브 플로우는 마블 다이어그램으로 나타내곤 한다.
 
-![](../../.gitbook/assets/111%20%2824%29.png)
-
-[https://taes-k.github.io/2020/08/12/spring-reactive-1/](https://taes-k.github.io/2020/08/12/spring-reactive-1/)
+![ &#x200B;https://taes-k.github.io/2020/08/12/spring-reactive-1/](../../.gitbook/assets/111%20%2824%29.png)
 
 마블 다이어그램의 제일 위에는 Flux나 Mono를 통해 전달되는 데이터의 타임라인을 나타내고, 중앙에는 오퍼레이션을, 제일 밑에는 결과로 생성되는 Flux나 Mono의 타임라인을 나타낸다.
 
