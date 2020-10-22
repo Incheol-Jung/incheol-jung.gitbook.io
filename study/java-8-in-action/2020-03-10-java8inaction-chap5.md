@@ -206,14 +206,14 @@ transactions.stream()
 ### 전체 트랜잭션 중 최댓값/최솟값은 얼마인가?
 
 ```java
-    // 최대값 
-    transactions.stream()
-                            .map(Transaction::getValue)
-                            .reduce(Integer::max);
+// 최대값 
+transactions.stream()
+    .map(Transaction::getValue)
+    .reduce(Integer::max);
 
-    // 최소값
-    transactions.stream()
-                            .min((t1, t2) -> t1.getVlaue() < t2.getValue() ? t1 : t2);
+// 최소값
+transactions.stream()
+    .min((t1, t2) -> t1.getVlaue() < t2.getValue() ? t1 : t2);
 ```
 
 ## 숫자형 스트림
@@ -221,17 +221,17 @@ transactions.stream()
 이전의 소스코드에서 reduce 메서드로 스트림 요소의 합을 구하는 예제를 살펴봤다.
 
 ```java
-    menu.stream()
-            .map(Dish::getCalories)
-            .reduce(0, Integer::sum);
+menu.stream()
+    .map(Dish::getCalories)
+    .reduce(0, Integer::sum);
 ```
 
 사실 위 코드에는 박싱 비용이 숨어있다. 내부적으로 합계를 계산하기 전에 Integer를 기본형으로 언박싱해야 한다. 다행히도 스트림 API 숫자 스트림을 효율적으로 처리할 수 있도록 기본형 특화 스트림\(primitive stream speciailzation\)을 제공한다.
 
 ```java
-    menu.stream()
-            .mapToInt(Dish::getCalories) // IntStream 반환
-            .sum();
+menu.stream()
+    .mapToInt(Dish::getCalories) // IntStream 반환
+    .sum();
 ```
 
 mapToInt 메서드는 각 요리에서 모든 칼로리\(Integer 형식\)을 추출한 다음에 IntStream을 반환한다. 따라서 IntStream 인터페이스에서 제공하는 sum 메서드를 이용해서 칼로리 합계를 계산할 수 있다. \(스트림이 비어있으면 sum은 기본값 0을 반환한다.\)
@@ -239,8 +239,8 @@ mapToInt 메서드는 각 요리에서 모든 칼로리\(Integer 형식\)을 추
 ### 객체 스트림으로 복원하기
 
 ```java
-    IntStream intStream = menu.stream().mapToInt(Dish::getCalories);
-    Stream(Integer> stream = intStream.boxed(); // 숫자 스트림을 일반 스트림으로 변환도 가능하다
+IntStream intStream = menu.stream().mapToInt(Dish::getCalories);
+Stream(Integer> stream = intStream.boxed(); // 숫자 스트림을 일반 스트림으로 변환도 가능하다
 ```
 
 ### 기본값: OptionalInt
@@ -248,11 +248,11 @@ mapToInt 메서드는 각 요리에서 모든 칼로리\(Integer 형식\)을 추
 스트림을 특화 스트림으로 변환할 때는 mapToInt, mapToDouble, mapToLong 세 가지 메서드를 가장 많이 사용한다.
 
 ```java
-    OptionalInt maxCalories =    menu.stream()
-                                                                .mapToInt(Dish::getCalories)
-                                                                .max();
+OptionalInt maxCalories =    menu.stream()
+    .mapToInt(Dish::getCalories)
+    .max();
 
-    int max = maxCalories.orElse(1); // 값이 없을 때 기본 최댓값을 명시적으로 설정
+int max = maxCalories.orElse(1); // 값이 없을 때 기본 최댓값을 명시적으로 설정
 ```
 
 합계 예제에서는 0이라는 기본값이 있었으므로 별 문제가 없었다. 하지만 IntStream에서 최댓값을 찾을 때는 0이라는 기본값 때문에 잘못된 결과가 도출될 수 있다. 그럴 경우 Optional을 사용하여 최댓값이 없는 상황에 사용할 기본값을 명시적으로 정의할 수 있다.
@@ -260,8 +260,8 @@ mapToInt 메서드는 각 요리에서 모든 칼로리\(Integer 형식\)을 추
 ### 숫자 범위
 
 ```java
-    IntStream evenNumbers = IntStream.rangeClosed(1, 100)
-                                                                        .filter(x -> x % 2 == 0); // 1부터 100까지의 짝수 스트림
+IntStream evenNumbers = IntStream.rangeClosed(1, 100)
+    .filter(x -> x % 2 == 0); // 1부터 100까지의 짝수 스트림
 ```
 
 rangedClosed를 이용해서 1부터 100까지의 숫자를 만들 수도 있다. rangedClosed는 시작과 끝을 포함하고 range는 포함하지 않는다.
@@ -273,15 +273,15 @@ rangedClosed를 이용해서 1부터 100까지의 숫자를 만들 수도 있다
 ### 값으로 스트림 만들기
 
 ```java
-    Stream<String> stream = Stream.of("Java 8", "Lambdas", "In", "Action")
-    stream.map(String::toUpperCase).forEach(System.out::println);
+Stream<String> stream = Stream.of("Java 8", "Lambdas", "In", "Action")
+stream.map(String::toUpperCase).forEach(System.out::println);
 ```
 
 ### 배열로 스트림 만들기
 
 ```java
-    int[] numbers = {2, 3, 4, 5, 6}
-    int sum = Arrays.stream(numbers).sum();
+int[] numbers = {2, 3, 4, 5, 6}
+int sum = Arrays.stream(numbers).sum();
 ```
 
 ## 무한 스트림
@@ -291,9 +291,9 @@ rangedClosed를 이용해서 1부터 100까지의 숫자를 만들 수도 있다
 ### Iterate
 
 ```java
-    Stream.iterate(0, n -> n + 2)
-                .limit(10)
-                .forEach(System.out::println); // 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20
+Stream.iterate(0, n -> n + 2)
+    .limit(10)
+    .forEach(System.out::println); // 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20
 ```
 
 ### Generate
@@ -301,9 +301,9 @@ rangedClosed를 이용해서 1부터 100까지의 숫자를 만들 수도 있다
 iterate와 비슷하게 generate도 요구할 때 값을 계산하는 무한 스트림을 만들 수 있다. 하지만 iterate와 달리 generate는 생산된 각 값을 연속적으로 계산하지 않는다.
 
 ```java
-    Stream.getnerate(Math::random)
-                .limit(5)
-                .forEach(System.out::println);
+Stream.getnerate(Math::random)
+    .limit(5)
+    .forEach(System.out::println);
 ```
 
 ## 요약
