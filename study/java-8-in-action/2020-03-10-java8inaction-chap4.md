@@ -102,7 +102,7 @@ List<String> lowCaloricDishesName = menu.parallelStream()
 
   스트림 연산은 `순차적`으로 또는 `병렬`로 실행할 수 있다.
 
-### 스트림 특
+### 스트림 특징 
 
 * 파이프라이닝
 
