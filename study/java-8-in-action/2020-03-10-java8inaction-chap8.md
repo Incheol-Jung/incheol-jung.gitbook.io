@@ -489,14 +489,14 @@ public void testComparingTwoPoints() throws Exception {
 ```java
 List<Integer> result = 
     numbers.stream()
-                    .peek(x -> System.out.println("From stream: " + x))
-                    .map(x -> x + 17)
-                    .peek(x -> System.out.println("after map: " + x))
-                    .filter(x -> x % 2 == 0)
-                    .peek(x -> System.out.println("after filter: " + x))
-                    .lmit(3)
-                    .peek(x -> System.out.println("after limit: " + x))
-                    .collect(toList());
+        .peek(x -> System.out.println("From stream: " + x))
+        .map(x -> x + 17)
+        .peek(x -> System.out.println("after map: " + x))
+        .filter(x -> x % 2 == 0)
+        .peek(x -> System.out.println("after filter: " + x))
+        .lmit(3)
+        .peek(x -> System.out.println("after limit: " + x))
+        .collect(toList());
 
 // rersult
 
