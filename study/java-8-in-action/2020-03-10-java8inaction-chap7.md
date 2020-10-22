@@ -30,13 +30,13 @@ description: 자바 8 인 액션 7장을 요약한 내용 입니다.
 숫자 n을 인수로 받아서 1부터 n까지의 모든 숫자의 합계를 반환하는 메서드를 구현한다고 가정하자
 
 ```java
-    public static long iterativeSum(long n) {
-        long result = 0;
-        for(long i = 1L; i<n; i++) {
-            result += i;
-        }
-        ret urn result;
+public static long iterativeSum(long n) {
+    long result = 0;
+    for(long i = 1L; i<n; i++) {
+        result += i;
     }
+    ret urn result;
+}
 ```
 
 특히 n이 커진다면 이 연산을 병렬로 처리하는 것이 좋을 것이다. 그렇다면 무엇을 고민해야 할까?
@@ -52,11 +52,11 @@ description: 자바 8 인 액션 7장을 요약한 내용 입니다.
 ## 순차 스트림을 병렬 스트림으로 변환하기
 
 ```java
-    public static long parallelSum(long n) {
-        return Stream.iterate(1L, i => i + 1)
-                                    .limit(n)
-                                    .parallel() // 스트림을 병렬 스트림으로 변환
-                                    .reduce(0L, Long::sum);
+public static long parallelSum(long n) {
+    return Stream.iterate(1L, i => i + 1)
+                                .limit(n)
+                                .parallel() // 스트림을 병렬 스트림으로 변환
+                                .reduce(0L, Long::sum);
 ```
 
 내부적으로는 parallel을 호출하면 이후 연산이 병렬로 수행해야 함을 의미하는 불린 플래그가 설정된다. 반대로 sequential로 병렬 스트림을 순차 스트림으로 바꿀 수 있다. 이 두 메서드를 이용해서 어떤 연산을 병렬로 실행하고 어떤 연산을 순차로 실행할지 제어할 수 있다.
@@ -68,30 +68,30 @@ description: 자바 8 인 액션 7장을 요약한 내용 입니다.
 순차 덧셈 함수를 이용해서 천만 개 숫자의 합계에 걸리는 시간을 계산해보자
 
 ```java
-    // 일반 스트림으로 수행한 결과(sequentialSum)
-    System.out.println("Sequential sum done in: " + 
-                        measureSumPerf(ParallelStreams::sequentialSum, 10_000_000) + " msecs");
+// 일반 스트림으로 수행한 결과(sequentialSum)
+System.out.println("Sequential sum done in: " + 
+    measureSumPerf(ParallelStreams::sequentialSum, 10_000_000) + " msecs");
 
-    // 결과값
-    Sequential sum done in: 97 msecs
+// 결과값
+Sequential sum done in: 97 msecs
 
-    --- 
+--- 
 
-    // for loop로 실행한 결과(iterativeSum)
-    System.out.println("Iterative sum done in: " + 
-                        measureSumPerf(ParallelStreams::iterativeSum, 10_000_000) + " msecs");
+// for loop로 실행한 결과(iterativeSum)
+System.out.println("Iterative sum done in: " + 
+    measureSumPerf(ParallelStreams::iterativeSum, 10_000_000) + " msecs");
 
-    // 결과값
-    Iterative sum done in: 2 msecs
+// 결과값
+Iterative sum done in: 2 msecs
 
-    ---
+---
 
-    // 병렬 스트림으로 실행환 결과(parallelSum)
-    System.out.println("Parallel sum done in: " + 
-                        measureSumPerf(ParallelStreams::parallelSum, 10_000_000) + " msecs");
+// 병렬 스트림으로 실행환 결과(parallelSum)
+System.out.println("Parallel sum done in: " + 
+    measureSumPerf(ParallelStreams::parallelSum, 10_000_000) + " msecs");
 
-    // 결과값
-    Iterative sum done in: 164 msecs
+// 결과값
+Iterative sum done in: 164 msecs
 ```
 
 병렬 버전이 순차 버전보다 느리다는 것을 확인할 수 있다. 그 이유는 무엇일까?
@@ -113,26 +113,26 @@ description: 자바 8 인 액션 7장을 요약한 내용 입니다.
 언박싱과 관련한 오버헤드가 얼마나 될까?
 
 ```java
-    public static long rangedSum(long n) {
-        return LongStream.rangeClosed(1, n)
-                                            .reduce(0L, Long::sum);
-    }
+public static long rangedSum(long n) {
+    return LongStream.rangeClosed(1, n)
+        .reduce(0L, Long::sum);
+}
 
-    // 결과값
-    Ranged sum done in: 17 msecs
+// 결과값
+Ranged sum done in: 17 msecs
 ```
 
 다음과 같은 새로운 버전에 병렬 스트림을 적용하면 무슨 일이 일어날까?
 
 ```java
-    public static long parallelRangedSum(long n) {
-        return LongStream.rangeClosed(1, n)
-                                            .parallel()
-                                            .reduce(0L, Long::sum);
-    }
+public static long parallelRangedSum(long n) {
+    return LongStream.rangeClosed(1, n)
+        .parallel()
+        .reduce(0L, Long::sum);
+}
 
-    // 결과값
-    Parallel range sum done in: 1 msecs
+// 결과값
+Parallel range sum done in: 1 msecs
 ```
 
 드디오 순차 실행보다 빠른 성능을 갖는 병렬 리듀싱을 만들었다.
@@ -146,16 +146,16 @@ description: 자바 8 인 액션 7장을 요약한 내용 입니다.
 병렬 스트림을 잘못 사용하면서 발생하는 많은 문제는 공유된 상태를 바꾸는 알고리즘을 사용하기 때문에 일어난다.
 
 ```java
-    public static long sideEffectSum(long n) {
-        Accumulator accumulator = new Accumulator();
-        LongStream.rangeClosed(1, n).forEach(accumulator::add);
-        return accumulator.total;
-    }
+public static long sideEffectSum(long n) {
+    Accumulator accumulator = new Accumulator();
+    LongStream.rangeClosed(1, n).forEach(accumulator::add);
+    return accumulator.total;
+}
 
-    public class Accumulator {
-        public long total = 0;
-        public void add(long value) { total += value; }
-    }
+public class Accumulator {
+    public long total = 0;
+    public void add(long value) { total += value; }
+}
 ```
 
 코드에 무슨 문제라도 있는가? 위 코드는 본질적으로 순차 실행할 수 있도록 구현되어 있으므로 병렬로 실행하면 참사가 일어난다. 특히 total을 접근할 때마다 \(다수의 스레드에서 동시에 데이터에 접근하는\) 데이터 레이스 문제가 일어난다. 동기화로 문제를 해결하다보면 결국 병렬화라는 특성이 없어져 버릴 것이다.
@@ -184,20 +184,20 @@ description: 자바 8 인 액션 7장을 요약한 내용 입니다.
 스레드 풀을 이용하려면 RecursiveTask의 서브클래스를 만들어야 한다. 여기서 R은 병렬화된 태스크가 생성하는 결과 형식 또는 결과가 없을 때는 RecursiveAction 형식이다.
 
 ```java
-    protected abstract R compute();
+protected abstract R compute();
 ```
 
 compute 메서드는 태스크를 서브태스크로 분할하는 로직과 더 이상 분할할 수 없을 때 개별 서브태스크의 결과를 생산할 알고리즘을 정의한다.
 
 ```java
-    if(태스크가 충분히 작거나 더 이상 분할할 수 없으면){
-        순차적으로 태스크 계산
-    } else {
-        태스크를 두 서브태스크로 분할
-        태스크가 다시 서브태스크로 분할되도록 이 메서드를 재귀적으로 호출함
-        모든 서브태스크의 연산이 완료될 때까지 기다림
-        각 서브태스크의 결과를 합침
-    }
+if(태스크가 충분히 작거나 더 이상 분할할 수 없으면){
+    순차적으로 태스크 계산
+} else {
+    태스크를 두 서브태스크로 분할
+    태스크가 다시 서브태스크로 분할되도록 이 메서드를 재귀적으로 호출함
+    모든 서브태스크의 연산이 완료될 때까지 기다림
+    각 서브태스크의 결과를 합침
+}
 ```
 
 이 알고리즘은 분할 후 정복 알고리즘의 병렬화버전이다.
