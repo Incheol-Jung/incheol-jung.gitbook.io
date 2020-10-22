@@ -186,11 +186,6 @@ List<String> names = menu.stream()
 - **filter**와 **map**은 서로 다른 연산이지만 한 과정으로 병합되었다. \(이 기법을 **루프 퓨전**이라고 한다.\)
 {% endhint %}
 
-### 최종 연산
-
-최종 연산은 스트림 파이프라인에서 `결과`를 도출한다.  
-보통 최종 연산에 의해 `List`, `Integer`, `void` 등 스트림 이외의 결과가 반환된다.
-
 #### 중간 연산 종류 
 
 | 연산 | 형 | 연산의 인 | 함수 디스크립 |
@@ -200,6 +195,11 @@ List<String> names = menu.stream()
 | limit | 중간 연산 |  |  |
 | sorted | 중간 연산 | Conparator&lt;T&gt; | \(T, T\) -&gt; int |
 | distinct | 중간 연산 |  |  |
+
+### 최종 연산
+
+최종 연산은 스트림 파이프라인에서 `결과`를 도출한다.  
+보통 최종 연산에 의해 `List`, `Integer`, `void` 등 스트림 이외의 결과가 반환된다.
 
 #### 최종 연산 종류 
 
