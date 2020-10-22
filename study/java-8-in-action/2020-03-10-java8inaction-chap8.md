@@ -24,15 +24,15 @@ description: 자바 8 인 액션 8장을 요약한 내용 입니다.
 익명 클래스가 얼마나 코드를 장황하게 만들고 쉽게 에러를 일으키는지 이해하였다. 이런 문제를 람다 표현식을 이용해서 간결하고 가독성이 좋은 코드를 구현할 수 있었다.
 
 ```java
-    // 익명 클래스를 사용한 이전 코드
-    Runnable r1 = new Runnable() {
-        public void run() {
-            System.out.println("Hello");
-        }
-    };
+// 익명 클래스를 사용한 이전 코드
+Runnable r1 = new Runnable() {
+    public void run() {
+        System.out.println("Hello");
+    }
+};
 
-    // 람다 표현식을 사용한 최신 코드
-    Runnable r2 = () -> System.out.println("Hello");
+// 람다 표현식을 사용한 최신 코드
+Runnable r2 = () -> System.out.println("Hello");
 ```
 
 하지만 모든 익명 클래스를 람다 표현식으로 변환할 수 있는 것은 아니다.
@@ -41,18 +41,18 @@ description: 자바 8 인 액션 8장을 요약한 내용 입니다.
 * 익명 클래스는 감싸고 있는 클래스의 변수를 가릴 수 있다. 하지만 람다 표현식으로는 변수를 가릴 수 없다.
 
   ```java
-    int a = 10;
-    Runnable r1 = () -> {
-        int a = 2; // 컴파일 에러!!!!
-        System.out.println("Hello");
-    };
+  int a = 10;
+  Runnable r1 = () -> {
+    int a = 2; // 컴파일 에러!!!!
+    System.out.println("Hello");
+  };
 
-    Runnable r2 = new Runnable() {
-        public void run() {
-            int a = 2;
-            System.out.println("Hello");
-        }
-    };
+  Runnable r2 = new Runnable() {
+    public void run() {
+        int a = 2;
+        System.out.println("Hello");
+    }
+  };
   ```
 
 * 익명 클래스를 람다 표현식으로 바꾸면 콘텍스트 오버로딩에 따른 모호함이 초래 될 수 있다.
@@ -60,25 +60,25 @@ description: 자바 8 인 액션 8장을 요약한 내용 입니다.
   익명 클래스는 인스턴스화할 때 명시적으로 형식이 정해지는 반면 람다의 형식은 콘텍스트에 따라 달라지기 때문이다. 아래 코드에서는 Task라는 Runnable과 같은 시그니처를 갖는 함수형 인터페이스를 선언한다.
 
   ```java
-        interface Task {
-            public void execute();
-        }
+  interface Task {
+    public void execute();
+  }
 
-        public static void doSomething(Runnable r){ r.run(); }
-        public static void doSomething(Task a){ a.execute(); }
+  public static void doSomething(Runnable r){ r.run(); }
+  public static void doSomething(Task a){ a.execute(); }
 
-        // Task를 구현하는 익명 클래스를 전달할 수 있다. 
-        doSomething(new Testttt() {
-            public void execute() {
-                System.out.println("Danger danger!!");
-            }
-        });
+  // Task를 구현하는 익명 클래스를 전달할 수 있다. 
+  doSomething(new Testttt() {
+    public void execute() {
+        System.out.println("Danger danger!!");
+    }
+  });
 
-        // 람다 표현식으로는 어떤 인터페이스를 사용하는지 알 수 없다. 
-        doSomeThing(() -> System.out.println("Danger danger!!"));
+  // 람다 표현식으로는 어떤 인터페이스를 사용하는지 알 수 없다. 
+  doSomeThing(() -> System.out.println("Danger danger!!"));
 
-        // 명시적 형변환을 이용해서 모호함을 제거할 수 있다. 
-        doSomeThing((Task)() -> System.out.println("Danger danger!!"));
+  // 명시적 형변환을 이용해서 모호함을 제거할 수 있다. 
+  doSomeThing((Task)() -> System.out.println("Danger danger!!"));
   ```
 
   넥빈즈와 IntelliJ 등을 포함한 대부분의 통합 개발환경에서 제공하는 리팩토링 기능을 이용하면 이와 같은 문제가 자동으로 해결된다.
@@ -90,29 +90,29 @@ description: 자바 8 인 액션 8장을 요약한 내용 입니다.
 칼로리에 따른 레벨 그룹을 구해보자
 
 ```java
-    Map<CaloricLevel, List<Dish>> dishedByCaloricLevel = 
-        menu.stream()
-                .collect(
-                    groupingBy(dish -> {
-                        if (dish.getCalories() <= 400) return CaloricLevel.DIET;
-                        else if (dish.getCalories() <= 700) return CaloricLevel.NORMAL;                
-                        else return CaloricLevel.FAT;
-        }));
+Map<CaloricLevel, List<Dish>> dishedByCaloricLevel = 
+    menu.stream()
+            .collect(
+                groupingBy(dish -> {
+                    if (dish.getCalories() <= 400) return CaloricLevel.DIET;
+                    else if (dish.getCalories() <= 700) return CaloricLevel.NORMAL;                
+                    else return CaloricLevel.FAT;
+    }));
 
 
-    Map<CaloricLevel, List<Dish>> dishedByCaloricLevel = 
-        menu.stream()
-                .collect(
-                    groupingBy(dish::getCaloricLevel));
+Map<CaloricLevel, List<Dish>> dishedByCaloricLevel = 
+    menu.stream()
+            .collect(
+                groupingBy(dish::getCaloricLevel));
 ```
 
 또한 comparing과 maxBy 같은 정적 헬퍼 메서드를 활용하는 것도 좋다.
 
 ```java
-    inventory.sort(
-        (Apple a1, Apple a2) -> a1.getWeight().compareTo(a2.getWeight())); // 비교 구현에 신경써야 한다. 
+inventory.sort(
+    (Apple a1, Apple a2) -> a1.getWeight().compareTo(a2.getWeight())); // 비교 구현에 신경써야 한다. 
 
-    inventory.sort(comparing(Apple::getWeight)); // 코드가 문제 자체를 설명한다.
+inventory.sort(comparing(Apple::getWeight)); // 코드가 문제 자체를 설명한다.
 ```
 
 sum, maximum 등 자주 사용하는 리듀싱 연산은 메서드 레퍼런스와 함께 사용할 수 있는 내장 헬퍼 메서드를 제공한다.
@@ -128,23 +128,23 @@ sum, maximum 등 자주 사용하는 리듀싱 연산은 메서드 레퍼런스�
 다음은 내장 자바 Logger 클래스를 사용하는 예제다.
 
 ```java
-    // 조건이 참일 경우에만 로그 메시지를 작성하도록 함
-    if (logger.isLoggable(Log.FINER)) {
-        logger.finer("Problem: " + generateDiagnostic());
-    }
+// 조건이 참일 경우에만 로그 메시지를 작성하도록 함
+if (logger.isLoggable(Log.FINER)) {
+    logger.finer("Problem: " + generateDiagnostic());
+}
 ```
 
 log 메서드는 logger의 수준이 적절하게 설정되어 있을 때만 인수로 넘겨진 람다를 내부적으로 실행한다. 다음은 log 메서드의 내부 구현 코드다.
 
 ```java
-    public void log(Level level, Supplier<String> msgSupplier){
-        if(logger.isLoggable(level)){
-            log(level, msgSupplier.get()); // 람다 실행
-        }
+public void log(Level level, Supplier<String> msgSupplier){
+    if(logger.isLoggable(level)){
+        log(level, msgSupplier.get()); // 람다 실행
     }
+}
 
 
-    Logger.log(Level.FINER, () -> "Problem: " + generateDiagnostic());
+Logger.log(Level.FINER, () -> "Problem: " + generateDiagnostic());
 ```
 
 이 기법으로 어떤 문제를 해결할 수 있을까?
@@ -170,50 +170,50 @@ log 메서드는 logger의 수준이 적절하게 설정되어 있을 때만 인
 텍스트 입력이 다양한 조건에 맞게 포맷되어 있는지 검증한다고 가정하자
 
 ```java
-    public interface ValidationStrategy {
-        boolean execute(String s);
+public interface ValidationStrategy {
+    boolean execute(String s);
+}
+
+public class IsAllLowerCase implements ValidationStrategy {
+    public boolean execute(String s) {
+        return s.matches("[a-z]+");
+    }
+}
+
+public class IsNumeric implements ValidationStrategy {
+    public boolean execute(String s) {
+        return s.matches("\\d+");
+    }
+}
+
+public class Validator {
+    private final ValidationStrategy strategy;
+    public Validator(ValidationStrategy strategy) {
+        this.strategy = strategy;
     }
 
-    public class IsAllLowerCase implements ValidationStrategy {
-        public boolean execute(String s) {
-            return s.matches("[a-z]+");
-        }
+    public boolean validate(String s) {
+        return this.strategy.execute(s);
     }
+}
 
-    public class IsNumeric implements ValidationStrategy {
-        public boolean execute(String s) {
-            return s.matches("\\d+");
-        }
-    }
+Validator numericValidator = new Validator(new IsNumeric());
+boolean b1 = numericValidator.validate("aaaa"); // false
 
-    public class Validator {
-        private final ValidationStrategy strategy;
-        public Validator(ValidationStrategy strategy) {
-            this.strategy = strategy;
-        }
-
-        public boolean validate(String s) {
-            return this.strategy.execute(s);
-        }
-    }
-
-    Validator numericValidator = new Validator(new IsNumeric());
-    boolean b1 = numericValidator.validate("aaaa"); // false
-
-    Validator lowerCaseValidator = new Validator(new IsAllLowerCase());
-    boolean b2 = lowerCaseValidator.validate("bbbb"); // true
+Validator lowerCaseValidator = new Validator(new IsAllLowerCase());
+boolean b2 = lowerCaseValidator.validate("bbbb"); // true
 ```
 
 람다 표현식 사용하기
 
 ```java
-    Validator numericValidator = 
-            new Validator((String s) -> s.matches("[a-z]+"));
-    boolean b1 = numericValidator.validate("aaaa"); // false
+Validator numericValidator = 
+    new Validator((String s) -> s.matches("[a-z]+"));
+boolean b1 = numericValidator.validate("aaaa"); // false
 
-    Validator lowerCaseValidator = 
-            new Validator((String s) -> s.matches("\\d+"));
-    boolean b2 = lowerCaseValidator.validate("bbbb"); // true
+Validator lowerCaseValidator = 
+    new Validator((String s) -> s.matches("\\d+"));
+boolean b2 = lowerCaseValidator.validate("bbbb"); // true
 ```
 
 위 코드에서 확인할 수 있듯이 람다 표현식을 이용하면 전략 디자인 패턴에서 발생하는 자잘한 코드를 제거할 수 있다.
@@ -225,14 +225,14 @@ log 메서드는 logger의 수준이 적절하게 설정되어 있을 때만 인
 다음은 온라인 뱅킹 애플리케이션의 동작을 정의하는 추상 클래스다.
 
 ```java
-    abstract class OnlineBanking {
-        public void processCustomer(int id) {
-            Customer c = Database.getCustomerWithId(id);
-            makeCustomerHappy(c);
-        }
-
-        abstract void makeCustomerHappy(Customer c);
+abstract class OnlineBanking {
+    public void processCustomer(int id) {
+        Customer c = Database.getCustomerWithId(id);
+        makeCustomerHappy(c);
     }
+
+    abstract void makeCustomerHappy(Customer c);
+}
 ```
 
 각각의 지점은 OnlineBanking 클래스를 상속받아 makeCustomerHappy 메서드가 원하는 동작을 수행하도록 구현할 수 있다.
@@ -240,15 +240,15 @@ log 메서드는 logger의 수준이 적절하게 설정되어 있을 때만 인
 람다 표현식 사용하기
 
 ```java
-    public class OnlineBankingLamda {
-        public void processCustomer(int id, Consumer<Customer> makeCustomerHappy) {
-            Customer c = Database.getCustomerWithId(id);
-            makeCustomerHappy.accept(c);
-        }
+public class OnlineBankingLamda {
+    public void processCustomer(int id, Consumer<Customer> makeCustomerHappy) {
+        Customer c = Database.getCustomerWithId(id);
+        makeCustomerHappy.accept(c);
     }
+}
 
-    new OnlineBankingLamda().processCustomer(1337, (Customer c) -> 
-        System.out/println("Hello "+ c.getName());
+new OnlineBankingLamda().processCustomer(1337, (Customer c) -> 
+    System.out/println("Hello "+ c.getName());
 ```
 
 ### 옵저버 패턴
@@ -256,83 +256,83 @@ log 메서드는 logger의 수준이 적절하게 설정되어 있을 때만 인
 어떤 이벤트가 발생했을 때 한 객체\(주제subject\)가 다른 객체 리스트\(옵저버\)에 자동으로 알림을 보내야 하는 상황에서 옵저버 디자인 패턴을 사용한다. 예를 들어 주식의 가격 변동에 반응하는 다수의 거래자 예제에서도 옵저버 패턴을 사용할 수 있다.
 
 ```java
-    interface Observer {
-        void notify(String tweet);
-    }
+interface Observer {
+    void notify(String tweet);
+}
 
-    // 트윗에 포함된 다양한 키워드에 다른 동작을 수행할 수 있는 여러 옵저버를 정의할 수 있다. 
-    class NYTimes implements Observer {
-        public void notify(String tweet) {
-            if(tweet != null && tweet.contains("money")) {
-                System.out.println("Breaking news in NY! " + tweet);
-            }
+// 트윗에 포함된 다양한 키워드에 다른 동작을 수행할 수 있는 여러 옵저버를 정의할 수 있다. 
+class NYTimes implements Observer {
+    public void notify(String tweet) {
+        if(tweet != null && tweet.contains("money")) {
+            System.out.println("Breaking news in NY! " + tweet);
         }
     }
+}
 
-    class Guardian implements Observer {
-        public void notify(String tweet) {
-            if(tweet != null && tweet.contains("queen")) {
-                System.out.println("Yet another new in London... " + tweet);
-            }
+class Guardian implements Observer {
+    public void notify(String tweet) {
+        if(tweet != null && tweet.contains("queen")) {
+            System.out.println("Yet another new in London... " + tweet);
         }
     }
+}
 
-    class LeMonde implements Observer {
-        public void notify(String tweet) {
-            if(tweet != null && tweet.contains("wine")) {
-                System.out.println("Today cheese, wine and news! " + tweet);
-            }
+class LeMonde implements Observer {
+    public void notify(String tweet) {
+        if(tweet != null && tweet.contains("wine")) {
+            System.out.println("Today cheese, wine and news! " + tweet);
         }
     }
+}
 
-    // Subject 인터페이스의 정의다. 
-    interface Subject { 
-        void registerObserver(Observer o);
-        void notifyObservers(String tweet);
+// Subject 인터페이스의 정의다. 
+interface Subject { 
+    void registerObserver(Observer o);
+    void notifyObservers(String tweet);
+}
+
+
+class Feed implements Subject {
+    private final List<Observer> observers = new ArrayList<>();
+
+    // 새로운 옵저를 등록한다. 
+    public void registerObserver(Observer o) {
+        this.observers.add(o);
     }
 
-
-    class Feed implements Subject {
-        private final List<Observer> observers = new ArrayList<>();
-
-        // 새로운 옵저를 등록한다. 
-        public void registerObserver(Observer o) {
-            this.observers.add(o);
-        }
-
-        // 트윗을 등록한 옵저들에게 알린다. 
-        public void notifyObservers(String tweet) {
-            observers.forEach(o -> o.notify(tweet));
-        }
+    // 트윗을 등록한 옵저들에게 알린다. 
+    public void notifyObservers(String tweet) {
+        observers.forEach(o -> o.notify(tweet));
     }
+}
 
-    Feed f = new Feed();
+Feed f = new Feed();
 
-    // 구독할 옵저버를 등록한다. 
-    f.registerObserver(new NYTimes());
-    f.registerObserver(new Guardian());
-    f.registerObserver(new LeMonde());
+// 구독할 옵저버를 등록한다. 
+f.registerObserver(new NYTimes());
+f.registerObserver(new Guardian());
+f.registerObserver(new LeMonde());
 
-    // 옵저버들에게 메시지를 전송한다. 
-    f.notifyObservers("The queen said her favorite book is Java 8 in Action!");
+// 옵저버들에게 메시지를 전송한다. 
+f.notifyObservers("The queen said her favorite book is Java 8 in Action!");
 ```
 
 람다 표현식 사용하기
 
 ```java
-    Feed f = new Feed();
+Feed f = new Feed();
 
-    f.registerObserver((String tweet) {
-        if(tweet != null && tweet.contains("money")) {
-            System.out.println("Breaking news in NY! " + tweet);
-        }
-    });
+f.registerObserver((String tweet) {
+    if(tweet != null && tweet.contains("money")) {
+        System.out.println("Breaking news in NY! " + tweet);
+    }
+});
 
-    f.registerObserver((String tweet) {
-        if(tweet != null && tweet.contains("queen")) {
-            System.out.println("Yet another new in London... " + tweet);
-        }
-    });
+f.registerObserver((String tweet) {
+    if(tweet != null && tweet.contains("queen")) {
+        System.out.println("Yet another new in London... " + tweet);
+    }
+});
 ```
 
 이 예제에서는 실행해야 할 동작이 비교적 간단하므로 람다 표현식으로 불필요한 코드를 제거하는 것이 바람직하다. 하지만 옵저버가 상태를 가지며, 여러 메서드를 정의하는 등 복잡하다면 람다 표현식보다 기존의 클래스 구현방식을 고수하는 것이 바람직할 수도 있다.
@@ -344,43 +344,43 @@ log 메서드는 logger의 수준이 적절하게 설정되어 있을 때만 인
 일반적으로 다음으로 처리할 객체 정보를 유지하는 필드를 포함하는 작업 처리 추상 클래스로 의무 체인 채턴을 구성한다.
 
 ```java
-    public abstract class ProcessingObject<T> {
-        protected ProcessingObject<T> successor;
+public abstract class ProcessingObject<T> {
+    protected ProcessingObject<T> successor;
 
-        public void setSuccessor(ProcessingObject<T> successor) {
-            this.successor = successor;
+    public void setSuccessor(ProcessingObject<T> successor) {
+        this.successor = successor;
+    }
+    public T handle(T input) {
+        T r = handleWork(input);
+        if (successor != null) {
+            return successor.handle(r);
         }
-        public T handle(T input) {
-            T r = handleWork(input);
-            if (successor != null) {
-                return successor.handle(r);
-            }
-            return r;
-        }
-
-        abstract protected T handleWork(T input);
+        return r;
     }
 
-    public class HeaderTextProcessing extends ProcessingObject<String> {
-        public String handleWork(String text) {
-            return "From Raoul, Mario and Alan: " + text);
-        }
+    abstract protected T handleWork(T input);
+}
+
+public class HeaderTextProcessing extends ProcessingObject<String> {
+    public String handleWork(String text) {
+        return "From Raoul, Mario and Alan: " + text);
     }
+}
 
-    public class SpellCheckerProcessing extends ProcessingObject<String> {
-        public String handleWork(String text) {
-            return text.replaceAll("labda", "lambda");
-        }
+public class SpellCheckerProcessing extends ProcessingObject<String> {
+    public String handleWork(String text) {
+        return text.replaceAll("labda", "lambda");
     }
+}
 
-    ProcessingObject<String> p1 = new HeaderTextProcessing();
-    ProcessingObject<String> p2 = new SpellCheckerProcessing();
+ProcessingObject<String> p1 = new HeaderTextProcessing();
+ProcessingObject<String> p2 = new SpellCheckerProcessing();
 
-    p1.setSuccessor(p2);
+p1.setSuccessor(p2);
 
-    String result = p1.handle("Aren't ladas really sexy?!!");
-    System.out.println(result); 
-    // From Raoul, Mario and Alan: Aren't lambda really sexy?!!
+String result = p1.handle("Aren't ladas really sexy?!!");
+System.out.println(result); 
+// From Raoul, Mario and Alan: Aren't lambda really sexy?!!
 ```
 
 람다 표현식 사용하기
@@ -388,20 +388,20 @@ log 메서드는 logger의 수준이 적절하게 설정되어 있을 때만 인
 작업처리 객체를 Function, 더 정확히 표현하자면 UnaryProcessingObject 형식의 인스턴스로 표현할 수 있다.
 
 ```java
-    public abstract class UnaryProcessingObject<T> {
-        abstract protected T handleWork(T input);
-    }
+public abstract class UnaryProcessingObject<T> {
+    abstract protected T handleWork(T input);
+}
 
-    UnaryProcessingObject<String> headerProcessing = 
-        (String text) -> "From Raoul, Mario and Alan: " + text;
+UnaryProcessingObject<String> headerProcessing = 
+    (String text) -> "From Raoul, Mario and Alan: " + text;
 
-    UnaryProcessingObject<String> spellCheckerProcessing = 
-        (String text) -> text.replaceAll("labda", "lambda");
+UnaryProcessingObject<String> spellCheckerProcessing = 
+    (String text) -> text.replaceAll("labda", "lambda");
 
-    Function<String, String> pipeline = 
-        headerProcessing.andThen(spellCheckerProcessing);
+Function<String, String> pipeline = 
+    headerProcessing.andThen(spellCheckerProcessing);
 
-    String result = pipeline.apply("Aren't ladas really sexy?!!");
+String result = pipeline.apply("Aren't ladas really sexy?!!");
 ```
 
 ### 팩토리
@@ -409,36 +409,36 @@ log 메서드는 logger의 수준이 적절하게 설정되어 있을 때만 인
 인스턴스화 로직을 클라이언트에 노출하지 않고 객체를 만들 때 팩토리 디자인 패턴을 사용한다. 예를 들어 우리가 은행에서 일하고 있는데 은행에서 취급하는 대출, 채권, 주식 등 다양한 상품을 만들어야 한다고 가정하자
 
 ```java
-    public class ProductFactory {
-        public static Product createProduct(String name) {
-            switch (name) {
-                case "loan": return new Loan();
-                case "stock": return new Stock();
-                case "bond": return new Bond();
-                default: throw new RuntimeException("No such product " + name);
-            }
+public class ProductFactory {
+    public static Product createProduct(String name) {
+        switch (name) {
+            case "loan": return new Loan();
+            case "stock": return new Stock();
+            case "bond": return new Bond();
+            default: throw new RuntimeException("No such product " + name);
         }
     }
+}
 ```
 
 람다 표현식 사용하기
 
 ```java
-    Supplier<Product> loanSupplier = Loan::new;
-    Loan loan = loanSupplier.get();
+Supplier<Product> loanSupplier = Loan::new;
+Loan loan = loanSupplier.get();
 
-    final static Map<String, Supplier<Product>> map = new HashMap<>();
-    static {
-        map.put("loan", Loan::new);
-        map.put("stock", Stock::new);
-        map.put("bond", Bond::new);
-    }
+final static Map<String, Supplier<Product>> map = new HashMap<>();
+static {
+    map.put("loan", Loan::new);
+    map.put("stock", Stock::new);
+    map.put("bond", Bond::new);
+}
 
-    public static Product createProduct(String name) {
-        Supplier<Product> p = map.get(name);
-        if(p != null) return p.get();
-        throw new IllegalArgumentException("No such product " + name);
-    }
+public static Product createProduct(String name) {
+    Supplier<Product> p = map.get(name);
+    if(p != null) return p.get();
+    throw new IllegalArgumentException("No such product " + name);
+}
 ```
 
 예제는 생성자 파라미터가 없을 경우라 간단하지만 생성자에 파라미터가 필요하다면 인터페이스로는 이 문제를 해결할 수 없다.
@@ -450,19 +450,19 @@ log 메서드는 logger의 수준이 적절하게 설정되어 있을 때만 인
 따라서 필요하다면 람다를 필드에 저장해서 재사용할 수 있으며 람다의 로직을 테스트할 수 있다.
 
 ```java
-    public class Point {
-        pubic final static Comparator<Point> compareByXAndThenY =
-            comparing(Point::getX).thenComparing(Point::getY);
-            ...
-    }
+public class Point {
+    pubic final static Comparator<Point> compareByXAndThenY =
+        comparing(Point::getX).thenComparing(Point::getY);
+        ...
+}
 
-    @Test
-    public void testComparingTwoPoints() throws Exception {
-        Point p1 = new Point(10, 15);
-        Point p2 = new Point(10, 20);
-        int result = Point.compareByXAndThenY.compare(p1, p2);
-        assertEquals(-1, result);
-    }
+@Test
+public void testComparingTwoPoints() throws Exception {
+    Point p1 = new Point(10, 15);
+    Point p2 = new Point(10, 20);
+    int result = Point.compareByXAndThenY.compare(p1, p2);
+    assertEquals(-1, result);
+}
 ```
 
 람다 표현식을 사용하는 메서드의 동작을 테스트함으로써 람다를 공개하지 않으면서도 람다 표현식을 검증할 수 있다.
@@ -487,31 +487,31 @@ log 메서드는 logger의 수준이 적절하게 설정되어 있을 때만 인
 바로 peek이라는 스트림 연산을 활용할 수 있다. peek은 스트림의 각 요소를 소비한 것처럼 동작을 실행한다. 하지만 forEach처럼 실제로 스트림의 요소를 소비하지는 않는다. peek은 자신이 확인한 요소를 파이프라인의 다음 연산으로 그대로 전달한다.
 
 ```java
-    List<Integer> result = 
-        numbers.stream()
-                        .peek(x -> System.out.println("From stream: " + x))
-                        .map(x -> x + 17)
-                        .peek(x -> System.out.println("after map: " + x))
-                        .filter(x -> x % 2 == 0)
-                        .peek(x -> System.out.println("after filter: " + x))
-                        .lmit(3)
-                        .peek(x -> System.out.println("after limit: " + x))
-                        .collect(toList());
+List<Integer> result = 
+    numbers.stream()
+                    .peek(x -> System.out.println("From stream: " + x))
+                    .map(x -> x + 17)
+                    .peek(x -> System.out.println("after map: " + x))
+                    .filter(x -> x % 2 == 0)
+                    .peek(x -> System.out.println("after filter: " + x))
+                    .lmit(3)
+                    .peek(x -> System.out.println("after limit: " + x))
+                    .collect(toList());
 
-    // rersult
+// rersult
 
-    from stream: 2
-    after map: 19
-    from stream: 3
-    after map: 20
-    after filter: 20
-    after limit: 20
-    from stream: 4
-    after map: 21
-    from stream: 5
-    after map: 22
-    after filter: 22
-    after limit: 22
+from stream: 2
+after map: 19
+from stream: 3
+after map: 20
+after filter: 20
+after limit: 20
+from stream: 4
+after map: 21
+from stream: 5
+after map: 22
+after filter: 22
+after limit: 22
 ```
 
 ## 요약
