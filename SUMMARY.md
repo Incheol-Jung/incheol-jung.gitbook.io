@@ -346,7 +346,7 @@
 
 ## REFERENCE
 
-* [TECH BLOGS](reference/undefined/README.md)
+* [TECH BLOGS](reference/tech-blogs/README.md)
   * [어썸데브블로그](https://github.com/sarojaba/awesome-devblog)
   * [NAVER D2](https://d2.naver.com/home)
   * [우아한 형제들](https://woowabros.github.io/)
