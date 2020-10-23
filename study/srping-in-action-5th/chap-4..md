@@ -301,11 +301,41 @@ authorizeRequests\(\)는 ExpressionInterceptUrlRegistry 객체를 반환한다. 
 
 hasRole\(\)과 permitAll\(\)은 요청 경로의 보안 요구를 선언하는 메서드다. 이때 사용 가능한 메서드는 다음과 같다.
 
-[요청 경로가 보안 처리되는 방법을 정의하는 구성 메서드](https://www.notion.so/78c1857e313e4d879ca979f8dc73e9e5)
+**요청 경로가 보안 처리되는 방법을 정의하는 구성 메서드** 
+
+| 메서드 | 하는일 |
+| :--- | :--- |
+| access\(String\) | 인자로 전달된 SpEL\(Spring Expression Language. 표현식이 true면 접근을 허용한다. |
+| anonymous\(\) | _익명의 사용자에게 접근을 허용한다._ |
+| authenticated\(\) | 익명이 아닌 사용자로 인증된 경우 접근을 허용한다. |
+| denyAll\(\) | 무조건 접근을 거부한다. |
+| fullyAuthenticated\(\) | 익명이 아니거나 또는 remember-me\(바로 아래 참조\)가 아닌 사용자로 인증되면 접근을 허용한다. |
+| hasAnyAuthority\(String...\) | 지정된 권한 중 어떤 것이라도 사용자가 갖고 있으면 접근을 허용한다. |
+| hasAnyRole\(String...\) | 지정된 역할 중 어느 하나라도 사용자가 갖고 있으면 접근을 허용한다. |
+| hasAuthority\(String\) | 지정된 권한을 사용자가 갖고 있으면 접근을 허용한다. |
+| hasIpAddress\(String\) | 지정된 IP주소로부터 요청이 오면 접근을 허용한다. |
+| hasRole\(String\) | 지정된 역할을 사용자가 갖고 있으면 접근을 허용한다. |
+| not\(\) | 다른 접근 메서드들의 효력을 무효화한다. |
+| permitAll\(\) | 무조건 접근을 허용한다. |
+| rememberMe\(\) | remember-me\(이전 로그인 정보나 쿠키나 데이터베이스로 저장한 후 일정 기간 내에 다시 접근 시 저장된 정보로 자동 로그인됨\)를 통해 인증된 사용자의 접근을 허용한다. |
 
 대부분의 메서드는 요청 처리의 기본적인 보안 규칙을 제공한다. 그러나 각 메서드에 정의된 보안 규칙만 사용된다는 제약이 있다. 따라서 이의 대안으로 access\(\) 메서드를 사용하면 더 풍부한 보안 규칙을 선언하기 위해 SpEl을 사용할 수 있다.
 
-[스프링 시큐리티에서 확장된 SpEL](https://www.notion.so/ebcf1e02534c4323acade882451d5739)
+**스프링 시큐리티에서 확장된 SpEL**
+
+| 메서드 | 하는일 |
+| :--- | :--- |
+| authentication | 해당 사용자의 인증 객체 |
+| denyAll | 항상 false를 산출한다. |
+| hasAnyRole\(역할 내역\) | 지정된 역할 중 어느 하나라도 해당 사용자가 갖고 있으면 true |
+| hasRole\(역할\) | 지정된 역할을 해당 사용자가 갖고 있으면 true |
+| hasIpAddress\(IP 주소\) | 지정된 IP주소로부터 해당 요청이 온 것이면 true |
+| isAnonymous\(\) | 해당 사용자가 익명 사용자이면 true |
+| isAuthenticated\(\) | 해당 사용자가 익명이 아닌 사용자로 인증되었으면 true |
+| isFullyAuthenticated\(\) | 해당 사용자가 익명이 아니거나 또는 remember-me가 아닌 사용자로 인증되었으면 true |
+| isRememberMe\(\) | 해당 사용자가 remember-me 기능으로 인증되었으면 true |
+| permitAll | 항상 true를 산출한다. |
+| principal | 해당 사용자의 principal 객체 |
 
 ### CSRF 공격 방어하기
 
