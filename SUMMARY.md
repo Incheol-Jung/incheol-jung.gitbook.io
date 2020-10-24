@@ -325,6 +325,7 @@
   * [Chap 5. 구성 속성 사용하기](study/srping-in-action-5th/chap-5..md)
   * [Chap 6. REST 서비스 생성하기](study/srping-in-action-5th/chap-6.-rest.md)
   * [Chap 7. REST 서비스 사용하기](study/srping-in-action-5th/chap-7.-rest.md)
+  * [CHAP 8 비동기 메시지 전송하기](study/srping-in-action-5th/chap-8.md)
   * [Chap 9. 스프링 통합하기](study/srping-in-action-5th/chap-9..md)
   * [CHAP 10. 리액터 개요](study/srping-in-action-5th/chap-10..md)
   * [CHAP 13. 서비스 탐구하기](study/srping-in-action-5th/chap-13..md)
