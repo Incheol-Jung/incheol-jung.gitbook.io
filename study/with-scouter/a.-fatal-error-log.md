@@ -1,3 +1,7 @@
+---
+description: '자바 트러블슈팅: scouter를 활용한 시스템 장애 진단 및 해결 노하우를 부록 A을 요약한 내용입니다.'
+---
+
 # 부록 A. Fatal error log 분석
 
 시스템을 운영하다 보면 가끔 JVM이 사라질 때가 있다. 그럴땐 JVM 치명 에러 로그\(Fatal error log\) 파일을 확인하면 실마리를 잡을 수 있다. 그 파일의 기본 이름은 hs\_err\_pidXXX.log의 형식으로 생성된다.

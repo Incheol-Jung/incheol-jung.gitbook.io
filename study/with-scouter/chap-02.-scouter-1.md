@@ -12,9 +12,7 @@ APM은 Application Performance Monitoring 혹은 Application Performance Managem
 
 가장 유명한 오픈소스 기반의 APM에는 scouter와 pinpoint가 있다. pinpoint는 자바 에이전트에서 데이터를 수집하여 중간에 Collector로 보낸다. Collector에서는 HBase에 그 정보를 저장하며, 화면에서는 분산되어 있는 HBase에 저장된 데이터를 읽어 사용자에게 제공한다.
 
-![](../../.gitbook/assets/unnamed.png)
-
-[http://developer.gaeasoft.co.kr/development-guide/knowledge/apm/pinpoint/pinpoint-practice/](http://developer.gaeasoft.co.kr/development-guide/knowledge/apm/pinpoint/pinpoint-practice/)
+![ &#x200B;http://developer.gaeasoft.co.kr/development-guide/knowledge/apm/pinpoint/pinpoint-practice/&#x200B;](../../.gitbook/assets/unnamed.png)
 
 #### 장점
 
@@ -34,9 +32,7 @@ APM은 Application Performance Monitoring 혹은 Application Performance Managem
 
 집킨 서버는 Spring Boot 기반의 성능 모니터링을 위한 분산 저장 애플리케이션이다. 사용 가능한 주요 저장소로는 Cassandra, Eleasticsearch 등이 있으며, 데이터를 수집할 때에는 HTTP를 사용할 수도 있고, Kafka, RabbitMQ와 같은 큐를 사용할 수도 있다.
 
-![](../../.gitbook/assets/9914ba3c5c5f96301c.jpg)
-
-[https://12bme.tistory.com/396](https://12bme.tistory.com/396)
+![https://12bme.tistory.com/396](../../.gitbook/assets/9914ba3c5c5f96301c.jpg)
 
 #### 방화벽 설정
 
