@@ -1,2 +1,0 @@
-# TECH BLOGS
-
