@@ -166,7 +166,7 @@ public static final double PI = 3.14159265358979323846;
 제네릭 타입이나 제네릭 메서드를 문서화할 때는 모든 타입 `매개변수`에 주석을 달아야 한다.
 
 ```java
-* @param <K> the type of keys maintained by this map
+ * @param <K> the type of keys maintained by this map
  * @param <V> the type of mapped values
  *
  * @author  Josh Bloch
