@@ -54,6 +54,7 @@
   * [DB 교착상태](q-and-a/db/rdb.md)
   * [Isolation level](q-and-a/db/isolation-level.md)
   * [SQL Hint](q-and-a/db/sql-hint.md)
+  * [JOIN](q-and-a/db/join.md)
 * [ARCHITECTURE](q-and-a/architecture/README.md)
   * [객체지향과 절차지향](q-and-a/architecture/undefined.md)
   * [상속보단 합성](q-and-a/architecture/undefined-2.md)
