@@ -71,8 +71,16 @@ public BigInteger multiply(BigInteger val) {
 
 클래스를 상속용으로 설계할 때는 자기사용 패턴\(`self-use patten`\)에 대해서도 문서에 남겨 다른 프로그래머에게 그 메서드를 올바로 재정의하는 방법을 알려줘야 한다. 자기사용 패턴은 자바 8에 추가된 @implSpec 태그로 문서화한다.
 
-```text
-
+```java
+/**
+  * Returns true if this collection is empty.
+  *
+  * @implSpec 
+  * This implementation returns {@code this.size() == 0}
+  *
+  * @return true if this collection is empty
+  */
+ public boolean isEmpty() {...}
 ```
 
 `@implSpec` 주석은 해당 메서드와 하위 클래스 사이의 계약을 설명하여, 하위 클래스들이 그 메서드를 상속하거나 `super` 키워드를 이용해 호출할 때 그 메서드가 어떻게 동작 하는지를 명확히 인지하고 사용하도록 해줘야 한다.
