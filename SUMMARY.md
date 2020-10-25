@@ -208,6 +208,7 @@
     * [아이템53 가변인수는 신중히 사용하라](study/effective-java/undefined-6/53.md)
     * [아이템56 공개된 API 요소에는 항상 문서화 주석을 작성하라](study/effective-java/undefined-6/56-api.md)
   * [일반적인 프로그래밍 원칙](study/effective-java/undefined-7/README.md)
+    * [아이템56 공개된 API 요소에는 항상 문서화 주석을 작성하라](study/effective-java/undefined-7/56-api.md)
     * [아이템57 지역변수의 범위를 최소화하라](study/effective-java/undefined-7/undefined.md)
   * [예외](study/effective-java/undefined-8/README.md)
     * [아이템 73 추상화 수준에 맞는 예외를 던지라](study/effective-java/undefined-8/undefined-1.md)
