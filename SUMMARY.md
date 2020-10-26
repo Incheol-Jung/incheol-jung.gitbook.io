@@ -210,6 +210,7 @@
   * [일반적인 프로그래밍 원칙](study/effective-java/undefined-7/README.md)
     * [아이템56 공개된 API 요소에는 항상 문서화 주석을 작성하라](study/effective-java/undefined-7/56-api.md)
     * [아이템57 지역변수의 범위를 최소화하라](study/effective-java/undefined-7/undefined.md)
+    * [아이템 60 정확한 답이 필요하다면 float와 double은 피하라](study/effective-java/undefined-7/60-float-double.md)
   * [예외](study/effective-java/undefined-8/README.md)
     * [아이템 73 추상화 수준에 맞는 예외를 던지라](study/effective-java/undefined-8/undefined-1.md)
     * [아이템 74 메서드가 던지는 모든 예외를 문서화하라](study/effective-java/undefined-8/74.md)
