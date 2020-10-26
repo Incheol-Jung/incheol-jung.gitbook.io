@@ -48,7 +48,7 @@
   * [DEVOPS](q-and-a/infra/devops.md)
   * [JWT](q-and-a/infra/jwt.md)
   * [MSA](q-and-a/infra/msa.md)
-* [DB](q-and-a/db/README.md)
+* [DATABASE](q-and-a/db/README.md)
   * [Database Index](q-and-a/db/index.md)
   * [SQL vs NoSQL](q-and-a/db/sql-vs-nosql.md)
   * [DB 교착상태](q-and-a/db/rdb.md)
