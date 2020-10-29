@@ -158,3 +158,73 @@ WHERE A.member_id = B.member_id
 
 ![](../../.gitbook/assets/555%20%284%29.png)
 
+
+
+## SEMI JOIN
+
+서브 쿼리 내에서 존재하는 데이터를 사용하여 메인 쿼리에 데이터를 추출한다.
+
+```text
+# EXISTS 사용
+SELECT *
+FROM members as m
+WHERE EXISTS(SELECT *
+             FROM orders AS o
+             WHERE m.name = o.name
+               AND o.order_id > 2);
+
+# IN 사용
+SELECT *
+FROM members as m
+WHERE m.name IN (SELECT o.name
+                 FROM orders AS o
+                 WHERE o.order_id > 2)
+```
+
+### 결과 데이터
+
+![](../../.gitbook/assets/111%20%2826%29.png)
+
+## JOIN문 사용시 주의사항
+
+### ON절과 WHERE 절의 차이
+
+ON과 WHERE는 사용에 따라서 결과값이나 조회하는 성능에 영향을 미칠 수 있다. 그러므로 ON과 WHERE에 대해 차이를 아는 것이 중요하다. 다음의 쿼리를 살펴보자
+
+```text
+SELECT *
+FROM members m LEFT JOIN orders o
+ON (m.name = o.name)
+WHERE o.order_id = 2;
+```
+
+해당 쿼리는 members 테이블과 orders 테이블을 LEFT OUTER JOIN한다. 그러면 members 기준으로 데이터를 추출할 것이다. 그 이후에 order\_id가 2인 row만 추출하기 때문에 결과 값은 order\_id가 2인 데이터 하나만 추출될 것이다.
+
+![](../../.gitbook/assets/222%20%2819%29.png)
+
+그렇다면 다음과 같은 쿼리는 어떻게 될까?
+
+```text
+SELECT *
+FROM members m LEFT JOIN orders o
+ON (m.name = o.name and o.order_id = 2);
+```
+
+'o.order\_id = 2' 구문을 on 절 안으로 이동하였다. 그 다음에 결과값을 살펴보자
+
+![](../../.gitbook/assets/333%20%2813%29.png)
+
+결과값이 5개가 나왔다. 그 이유는 해당 쿼리는 단순히 LEFT OUTER 조건만 있기 때문이다. memers 테이블 기준으로 데이터를 출력하되 on 절에 일치하는 데이터에는 null이 아닌 값만 채워졌을 뿐이다.
+
+이렇게 같은 조건문이어도 on 절에 사용하는 것과 where 문에 사용하는것에 따라서 결과값이 차이가 발생할 수 있다. 그리고 성능상에서도 차이가 있을 수 있다. on 절을 수행한 쿼리에 where 조건을 한 경우와 on 절 내에서 쿼리 결과를 수행한 결과도 데이터 갯수에 따라서 성능 차이가 발생할 수있으므로 우리가 원하는 데이터를 어떻게 하면 최적의 쿼리로 도출할 수 있을지 항상 주의해야 한다.
+
+### 서브 쿼리와 조인의 성능 비교
+
+서브쿼리는 데이터베이스에 따라 내부적으로 최적화 되는 경우가 있다. 그래서 해당 쿼리를 사용하는 사용자는 성능상에 차이를 못 느낄 수 도 있다. 하지만 서브쿼리 최적화는 데이터베이스에 따라서 또는 데이터베이스 버전에 따라서 모두 다른 성능을 보여주기 때문에 신중히 사용해야 한다. MYSQL 또한 5.5 버전까지는 서브 쿼리 최적화가 잘 구현되어 있지 않고 MYSQL 5.6 이후 부터 서브 쿼리 최적화가 많이 개선되었다고 한다. 그러므로 데이터베이스에 종속적이지 않은 일정한 성능을 유지하고 싶으면 되도록이면 조인문을 사용하는 것을 권장한다.
+
+## 참고
+
+* [https://blog.leocat.kr/notes/2017/07/28/sql-join-on-vs-where](https://blog.leocat.kr/notes/2017/07/28/sql-join-on-vs-where)
+* [https://jojoldu.tistory.com/520](https://jojoldu.tistory.com/520)
+* [https://marobiana.tistory.com/35](https://marobiana.tistory.com/35)
+
