@@ -206,6 +206,7 @@
   * [메서드](study/effective-java/undefined-6/README.md)
     * [아이템49 매개변수가 유효한지 검사하라](study/effective-java/undefined-6/49.md)
     * [아이템53 가변인수는 신중히 사용하라](study/effective-java/undefined-6/53.md)
+    * [아이템 54 null이 아닌, 빈 컬렉션이나 배열을 반환하라](study/effective-java/undefined-6/54-null.md)
     * [아이템56 공개된 API 요소에는 항상 문서화 주석을 작성하라](study/effective-java/undefined-6/56-api.md)
   * [일반적인 프로그래밍 원칙](study/effective-java/undefined-7/README.md)
     * [아이템56 공개된 API 요소에는 항상 문서화 주석을 작성하라](study/effective-java/undefined-7/56-api.md)
