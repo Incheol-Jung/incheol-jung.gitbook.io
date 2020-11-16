@@ -160,6 +160,7 @@
 * [KOTLIN IN ACTION](study/kotlin-in-action/README.md)
   * [1장 코틀린이란 무엇이며, 왜 필요한가?](study/kotlin-in-action/1.md)
   * [2장 코틀린 기초](study/kotlin-in-action/untitled.md)
+  * [3장 함수 정의와 호출](study/kotlin-in-action/3.md)
 * [EFFECTIVE JAVA 3/e](study/effective-java/README.md)
   * [객체 생성과 파괴](study/effective-java/undefined/README.md)
     * [아이템1 생성자 대신 정적 팩터리 메서드를 고려하라](study/effective-java/undefined/2020-03-20-effective-1item.md)
