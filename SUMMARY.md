@@ -38,6 +38,7 @@
   * [@EnableWebMvc](q-and-a/spring/enablewebmvc.md)
   * [Stereo Type\(스테레오 타입\)](q-and-a/spring/stereo-type.md)
   * [AOP](q-and-a/spring/aop.md)
+  * [JPA Repository 규칙](q-and-a/spring/jpa-repository.md)
 * [INFRA](q-and-a/infra/README.md)
   * [CLOUD COMPUTING](q-and-a/infra/cloud-computing.md)
   * [GIT](q-and-a/infra/2018-01-07-github.md)
