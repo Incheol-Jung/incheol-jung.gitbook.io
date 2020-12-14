@@ -164,6 +164,7 @@
   * [3장 함수 정의와 호출](study/kotlin-in-action/3.md)
   * [4장 클래스, 객체, 인터페이스](study/kotlin-in-action/4.md)
   * [5장 람다로 프로그래밍](study/kotlin-in-action/5.md)
+  * [6장 코틀린 타입 시스템](study/kotlin-in-action/6.md)
 * [EFFECTIVE JAVA 3/e](study/effective-java/README.md)
   * [객체 생성과 파괴](study/effective-java/undefined/README.md)
     * [아이템1 생성자 대신 정적 팩터리 메서드를 고려하라](study/effective-java/undefined/2020-03-20-effective-1item.md)
