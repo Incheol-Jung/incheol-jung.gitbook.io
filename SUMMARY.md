@@ -167,6 +167,7 @@
   * [6장 코틀린 타입 시스템](study/kotlin-in-action/6.md)
   * [7장 연산자 오버로딩과 기타 관례](study/kotlin-in-action/7.md)
   * [8장 고차 함수: 파라미터와 반환 값으로 람다 사용](study/kotlin-in-action/8.md)
+  * [9장 제네릭스](study/kotlin-in-action/9.md)
 * [EFFECTIVE JAVA 3/e](study/effective-java/README.md)
   * [객체 생성과 파괴](study/effective-java/undefined/README.md)
     * [아이템1 생성자 대신 정적 팩터리 메서드를 고려하라](study/effective-java/undefined/2020-03-20-effective-1item.md)
