@@ -164,6 +164,7 @@
   * [8장 고차 함수: 파라미터와 반환 값으로 람다 사용](study/kotlin-in-action/8.md)
   * [9장 제네릭스](study/kotlin-in-action/9.md)
   * [10장 애노테이션과 리플렉션](study/kotlin-in-action/10.md)
+  * [부록 A. 코틀린 프로젝트 빌드](study/kotlin-in-action/a..md)
 * [KOTLIN 공식 레퍼런스](study/kotlin/README.md)
   * [BASIC](study/kotlin/basic.md)
   * [Classes and Objects](study/kotlin/classes-and-objects/README.md)
