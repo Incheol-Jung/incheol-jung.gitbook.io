@@ -165,6 +165,7 @@
   * [9장 제네릭스](study/kotlin-in-action/9.md)
   * [10장 애노테이션과 리플렉션](study/kotlin-in-action/10.md)
   * [부록 A. 코틀린 프로젝트 빌드](study/kotlin-in-action/a..md)
+  * [부록 B. 코틀린 코드 문서화](study/kotlin-in-action/b..md)
 * [KOTLIN 공식 레퍼런스](study/kotlin/README.md)
   * [BASIC](study/kotlin/basic.md)
   * [Classes and Objects](study/kotlin/classes-and-objects/README.md)
