@@ -166,6 +166,7 @@
   * [10장 애노테이션과 리플렉션](study/kotlin-in-action/10.md)
   * [부록 A. 코틀린 프로젝트 빌드](study/kotlin-in-action/a..md)
   * [부록 B. 코틀린 코드 문서화](study/kotlin-in-action/b..md)
+  * [부록 D. 코틀린 1.1과 1.2, 1.3 소개](study/kotlin-in-action/d.-1.1-1.2-1.3.md)
 * [KOTLIN 공식 레퍼런스](study/kotlin/README.md)
   * [BASIC](study/kotlin/basic.md)
   * [Classes and Objects](study/kotlin/classes-and-objects/README.md)
