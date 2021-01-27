@@ -6,7 +6,7 @@ description: 가비지 컬렉터의 종류를 알아보고 특징을 살펴보�
 
 
 
-![https://www.coleka.com/en/lego/lego-city/garbage-truck\_i84801](../../.gitbook/assets/lego-city-garbage-truck-4432-003.jpg)
+![https://www.coleka.com/en/lego/lego-city/garbage-truck\_i84801](../../.gitbook/assets/lego-city-garbage-truck-4432-003%20%281%29.jpg)
 
 ## Garbage Collection 이란?
 

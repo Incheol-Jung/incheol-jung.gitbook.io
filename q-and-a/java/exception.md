@@ -6,7 +6,7 @@ description: Java 에서 발생하는 예외에 대해서 알아보고 해결 �
 
 ## 예외 클래스 구조
 
-![](../../.gitbook/assets/untitled%20%281%29.png)
+![](../../.gitbook/assets/untitled%20%281%29%20%281%29.png)
 
 ### Throwable 클래스
 

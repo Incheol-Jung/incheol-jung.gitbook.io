@@ -28,7 +28,7 @@ description: OSI 7 Layer에 대해 알아보자
 
 ## OSI 모델 구조
 
-![](../../.gitbook/assets/145af20e4c74774961%20%281%29.png)
+![](../../.gitbook/assets/145af20e4c74774961.png)
 
 ### 구조 및 동작
 

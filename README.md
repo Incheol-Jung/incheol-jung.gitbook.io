@@ -4,7 +4,7 @@ description: "Better late than naver \U0001F525"
 
 # Intro
 
-![](.gitbook/assets/lego-worlds-listing-thumb-01-ps4-eu-02dec16%20%281%29.png)
+![](.gitbook/assets/lego-worlds-listing-thumb-01-ps4-eu-02dec16.png)
 
 ### 😎 Contact
 

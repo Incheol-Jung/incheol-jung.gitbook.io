@@ -45,7 +45,7 @@ description: Jenkins에 대해 알아보자
 
 #### 설치 시 비밀번호를 확인한다.
 
-![](../../.gitbook/assets/07%20%281%29.png)
+![](../../.gitbook/assets/07%20%281%29%20%281%29.png)
 
 #### 젠킨스에 기본으로 들어갈 플러그인을 설정한다.
 
@@ -53,11 +53,11 @@ description: Jenkins에 대해 알아보자
 
 #### 관리자 계정을 추가한다.
 
-![](../../.gitbook/assets/09%20%281%29.png)
+![](../../.gitbook/assets/09.png)
 
 #### 젠킨스 설치 이후에 추가로 설치하고 싶은 플러그인이 있다면?
 
-![](../../.gitbook/assets/11%20%283%29.png)
+![](../../.gitbook/assets/11%20%283%29%20%281%29.png)
 
 ### Repository 연동
 
@@ -67,7 +67,7 @@ description: Jenkins에 대해 알아보자
 
 #### Jenkins에 연동할 Repository의 새로운 프로젝트를 생성한다.
 
-![](../../.gitbook/assets/14%20%281%29.png)
+![](../../.gitbook/assets/14%20%281%29%20%281%29.png)
 
 #### 연동할 Git Repository 정보와 인증 정보를 입력한다.
 
@@ -75,9 +75,9 @@ description: Jenkins에 대해 알아보자
 
 #### 빌드 설정을 한다. \(브랜치 전략, 알림 설정, 빌드 전략, 빌드 후 처리 등\)
 
-![](../../.gitbook/assets/16%20%281%29.png)
+![](../../.gitbook/assets/16.png)
 
-![](../../.gitbook/assets/17%20%281%29.png)
+![](../../.gitbook/assets/17.png)
 
 ## 참고
 
