@@ -178,6 +178,7 @@
   * [3장 라이프 사이클과 에러 핸들링](study/undefined-4/3.md)
   * [4장 일시 중단 함수와 코루틴 컨텍스트](study/undefined-4/4.md)
   * [5장 이터레이터, 시퀀스 그리고 프로듀서](study/undefined-4/5.md)
+  * [7장 스레드 한정, 액터 그리고 뮤텍스](study/undefined-4/7.md)
 * [EFFECTIVE JAVA 3/e](study/effective-java/README.md)
   * [객체 생성과 파괴](study/effective-java/undefined/README.md)
     * [아이템1 생성자 대신 정적 팩터리 메서드를 고려하라](study/effective-java/undefined/2020-03-20-effective-1item.md)
