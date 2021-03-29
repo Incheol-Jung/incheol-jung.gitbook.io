@@ -122,6 +122,7 @@
     * [6장 테스트 컨텍스트 프레임워크](study/tobys-spring/undefined-1/2020-03-10-spring2-chap6.md)
 * [클린코드](study/undefined-5/README.md)
   * [1장 깨끗한 코드](study/undefined-5/1.md)
+  * [2장 의미 있는 이름](study/undefined-5/2.md)
 * [자바 트러블슈팅\(with scouter\)](study/with-scouter/README.md)
   * [CHAP 01. 자바 기반의 시스템에서 발생할 수 있는 문제들](study/with-scouter/chap-01..md)
   * [CHAP 02. scouter 살펴보기](study/with-scouter/chap-02.-scouter-1.md)
