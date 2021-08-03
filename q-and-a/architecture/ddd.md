@@ -2,7 +2,7 @@
 description: Domain Driven Design에 대해 알아보자
 ---
 
-# DDD
+# DDD\(Domain Driven Design\)
 
 ![](../../.gitbook/assets/100-explicit-architecture-svg.png)
 
