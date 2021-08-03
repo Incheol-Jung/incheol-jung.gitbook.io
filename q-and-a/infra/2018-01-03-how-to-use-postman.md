@@ -74,7 +74,7 @@ Interceptor 기능은 Chrome 브라우저를 이용하여 브라우저에서 발
 Collection 관리를 통해서 크게는 프로젝트 별로 구분할 수 있고 세부적으로는 프로젝트 내부에서 각 모듈이나 기능 별로 분리할 수 있다.   
  back-end와 front-end의 작업이 구분되어 있다면 개발 시작전에 collection 규칙을 협의하여 진행하는 것이 효율적이다. 
 
-![](../../.gitbook/assets/6%20%282%29.png)
+![](../../.gitbook/assets/6%20%282%29%20%281%29.png)
 
 유료 서비스를 사용하지 않는다면 팀원 간의 collection 공유는 불가능 하므로 작업한 collection을 export/import하여 공유해야 하는 부분이 있다. 
 

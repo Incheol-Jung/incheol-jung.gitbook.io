@@ -4,7 +4,7 @@ description: hashCode와 equals를 알아보고 override 해야 하는 이유에
 
 # hashCode\(\)와 equals\(\)
 
-![https://www.jitendrazaa.com/blog/java/what-is-the-need-to-override-hashcode-and-equals-method/](../../.gitbook/assets/how-hashcode-works-in-java%20%281%29.jpg)
+![https://www.jitendrazaa.com/blog/java/what-is-the-need-to-override-hashcode-and-equals-method/](../../.gitbook/assets/how-hashcode-works-in-java%20%281%29%20%281%29.jpg)
 
 ## Object 제공 method
 
