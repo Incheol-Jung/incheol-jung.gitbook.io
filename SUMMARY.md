@@ -126,6 +126,7 @@
   * [3장 함수](study/undefined-5/3.md)
   * [4장 주석](study/undefined-5/4.md)
   * [5장 형식 맞추기](study/undefined-5/5.md)
+  * [6장 객체와 자료 구조](study/undefined-5/6.md)
 * [자바 트러블슈팅\(with scouter\)](study/with-scouter/README.md)
   * [CHAP 01. 자바 기반의 시스템에서 발생할 수 있는 문제들](study/with-scouter/chap-01..md)
   * [CHAP 02. scouter 살펴보기](study/with-scouter/chap-02.-scouter-1.md)
