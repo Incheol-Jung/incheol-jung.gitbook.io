@@ -1,2 +1,0 @@
-# IONIC\(TODO\)
-
