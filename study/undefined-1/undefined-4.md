@@ -1,157 +1,72 @@
-# 스프링부트 테스트하기
+---
+description: '객체지향과 디자인 패턴(최범균 저) 재사용: 상속보단 조립 파트 정리한 내용입니다.'
+---
 
-## 테스트
+# 재사용: 상속보단 조립
 
-```java
-@Requestmapping(method=RequestMethod.POST)
-Public String addToReadingList(Book book) {
-	book.setReader(reader);
-	readingListRepository.save(book);
-	return “redirect:/”;
-}
-```
+## 재사용 : 상속보단 조립
 
-@RequestMapping 애너테이션을 무시하고 보면 이 메서드는 일반적인 자바 메서드다. ReadingListRepository의 목\(Mock\) 구현체를 제공한 후 addToReadingLisrt\(\) 메서드를 직접 호출하여 반환 값을 검증하고 리포지토리의 save\(\) 메서드 호출을 확인하는 테스트는 만들기가 그리 어렵지 않다.
+객체 지향의 주요 특징으로 재사용을 말하면서 그 예로 상속을 드는 경우가 있다. 물론, 상속을 사용하면 상위 클래스에 구현된 기능을 그대로 재사용할 수 있기 때문에 상속을 사용하면 재사용을 쉽게 할 수 있는 것은 분명하다.
 
-하지만 이 테스트의 문제는 메서드 자체만 테스트한다는 것이다. 테스트를 아예 안 하는 것보다는 낫지만, /로 들어오는 POST 요청을 처리하는 부분은 테스트할 수 없다. 폼 필드들을 Book 매개변수에 제대로 연결 했는지도 테스트할 수 없다. 게다가 메서드가 반환한 String이 특정 값을 포함하는지 검증할 수는 있어도 메서드 처리를 완료한 후 요청을 /로 리다이렉트 했는지 명확히 테스트할 수는 없다.
+### 상속을 통한 재사용의 단점
 
-웹 애플리케이션을 올바르게 테스트하려면 웹 애플리케이션에 실제 HTTP 요청을 보내고 애플리케이션이 요청을 제대로 처리했는지 검증할 방법이 있어야 한다. 다행히 스프링 부트 애플리케이션 개발자에게는 웹 애플리케이션을 테스트할 수 있는 두 가지 옵션이 있다.
+* 상위 클래스 변경의 어려움
 
-### 스프링 부트 애플리케이션 테스트 옵션
+  어떤 클래스를 상속받는다는 것은 그 클래스에 의존한다는 뜻이다. 따라서 의존하는 클래스의 코드가 변경되면 영향을 받을 수 있다는 것이다.
 
-* 스프링 Mock MVC : 애플리케이션 서버를 구동하지 않고도 서블릿 컨테이너와 거의 비슷하게 작동하는 목 구현체로 컨트롤러를 테스트할 수 있다.
-* 웹 통합 테스트 : 톰캣, 제티 등 내장 서블릿 컨테이너에서 애플리케이션을 실행하여 실제 애플리케이션 서버에서 애플리케이션을 테스트할 수 있다.
+  상속 계층을 따라 상위 클래스의 변경이 하위 클래스에 영향을 주기 떄문에, 최악의 경우 상위 클래스의 변화가 모든 하위 클래스에 영향을 줄 수 있다.
 
-Mock MVC를 설정하려면 MockMvcBuilders를 사용한다. 이 클래스는 정적 메서드 두 개를 제공한다.
+  ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1a8a0153-5894-4f76-b90e-312a37174399/2.png](../../.gitbook/assets/2%20%288%29.png)
 
-* standaloneSetup\(\) : 수동으로 생성하고 구성한 컨트롤러 한 개 이상을 서비스할 Mock MVC를 만든다.
-* webAppContextSetup\(\) : 구성된 컨트롤러 한 개 이상을 포함하는 스프링 애플리케이션 컨텍스트를 사용하여 Mock MVC를 만든다.
+* 클래스의 불필요한 증가
 
-이 두 옵션의 가장 큰 차이는 standaloneSetup\(\) 메서드는 테스트할 컨트롤러를 수동으로 초기화하고 주입하기를 기대하는 반면, webAppContextSetup\(\) 메서드는 \(스프링이 로드한\) WebApplicationContext의 인스턴스로 작동한다는 점이다.standaloneSetup\(\) 메서드는 한 컨트롤러에 집중하여 테스트하는 용도로만 사용한다는 점에서 유닛 테스트와 유사하다. 반면에 webAppContextSetup\(\) 메서드는 스프링이 컨트롤하는 물론 의존성까지 로드하여 완전한 통합 테스트를 할 수 있게 한다.
+  유사한 기능을 확장하는 과정에서 클래스의 개수가 불필요하게 증가할 수 있다.
 
-```java
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes=ReadingListApplication.class)
-@WebAppConfiguration
-Public class MockvcWebTests {
-	@Autowired
-	private WebApplicationContext webContext;		// WebApplicationConext 주입
-	
-	private MockMvc mockMvc;
-	
-	@Before
-	public void setupMockMvc() {
-		mockMvc = MockMvcBuilders
-							.webAppContextSetup(webContext)
-							.build();
-	}
-}
-```
+  ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/442de1e5-0d09-44e2-ba2d-5e05d1d85686/3.png](../../.gitbook/assets/3%20%288%29.png)
 
-{% hint style="info" %}
-* @WebAppConfiguration 애너테이션은 SpringJUnit4ClassRunner가 애플리케이션 컨텍스트로 \(기본값인 비웹용 ApplicationContext가 아니라\) WebApplicationContext를 생성하도록 선언하다. 
-* setupMockMvc\(\) 메서드는 Junit의 @Before 애너테이션을 붙여 다른 테스트 메서드보다 먼저 실행해야 함을 나타낸다. 이 메서드는 주입된 WebApplicationContext를 webAppContetSetup\(\)메서드에 전달한 후 build\(\) 메서드를 호출하여 MockMvc 인스턴스를 생성하고, 테스트 메서드에서 사용할 인스턴스 변수에 할당한다.
-{% endhint %}
+* 상속의 오용
 
-```java
-@Test
-Public void postBook() throws Exception {
-	mockMvc.perform(post(“/”)		// POST 요청 수행
-		.contentType(MediaType.APPLICATION_FORM_URLENCODED)
-		.param(“title”, “BOOK TITLE”)
-		.param(“author”,”BOOK AUTHOR”)
-		.param(“isbn”,123456789)
-		.param(“description”,”DESCRIPTION”)
-		.andExpect(status().is3xxRedirection())
-		.andExpect(header().string(“Location”, “/”));
+  잘못된 상속으로 인한 잘못된 메서드를 제공할 수 있다.
 
-	Book expectedBook = new Book();
-	expectedBook.setId(1L);
-	expectedBook.setReader(“craig”);
-	expectedBook.setTitle(“BOOK TITLE”);
-	expectedBook.setAuthor(“BOOK AUTHOR”);
-	expectedBook.setIsbn(“123456789”);
-	expectedBook.setDescription(“DESCRIPTION”);
+  ```text
+  public class Container extends ArrayList<Luggage> {
+  	private int maxSize;
+  	private int currentSize;
 
-	mockMvc.perform(get(“/”))
-		.andExpect(status().isOK())
-		.andExpect(view().name(“readingList”))
-		.andExpect(model().attributeExists(“books”))
-		.andExpect(model().attribute(“books”, hasSize(1)))
-		.andExpect(model().attribute(“books”, contains(samePropertyValuesAs(expectedBook))));
+  	public Container(int maxSize) {
+  		this.maxSize = maxSize;
+  	}
 
-}
-```
+  	public void put(Luggage lug) throws NotEnoughSpaceException { ... }
+  	public void extract(Luggage lug) { ... }
+  	public boolean canContain(Luggage lug) { ... }
+  }
+  ```
 
-{% hint style="info" %}
-책 정보를 등록할 때는 웹 브라우저가 애플리케이션에 전송할 때 사용하는 application/x-www-form-urlencoded\(MediaType.APPLICATION\_FORM\_URLENCODED\)로 콘텐트 타입을 설정해야 한다. 다음으로 MockMvcRequestBuilders의 param\(\) 메서드로 전송할 폼을 시뮬레이션하는 필드들을 설정한다. 요청을 실행하면 응답이 /로 리다이렉트되는지 검증한다. 첫 번째 테스트 메서드가 성공했다면 두 번째 부분으로 넘어간다. 먼저 응답으로 기대하는 값을 담은 Book 객체를 생성하다. 이 객체는 메인 페이지를 요청한 후 반환되는 모델 값과 비교하는 데 사용한다. 이제 /에 GET 요청을 수행한다.모델에는 빈 컬렉션 대신 객체 하나를 담은 컬렉션이 있고, 그 객체가 방금 생성한 Book 객체와 동일한지 확인한다. 두 객체가 같으면 컨트롤러는 POST 요청으로 책을 저장하는 작업을 수행한다고 볼 수 있다. 지금까지는 보안이 없는 애플리케이션을 테스트한다고 가정하고 진행했다. 이제부터는 보안을 적용한 애플리케이션을 테스트하고 싶다면 어떻게 해야 할까?
-{% endhint %}
+  Container 클래스에 정의된 세 개의 메서드 뿐만 아니라 상위 클래스인 ArrayList 클래스에 등록된 메서드의 목록을 함께 제공된다.
 
-## 웹 보안 테스트
+  ArrayList의 add\(\) 메서드를 사용하면 Container의 여분 계산이 정상적으로 동작하지 않기 때문에 에러가 발생할 것이다.
 
-테스트하기 이전에 dependency를 추가해야 한다. \( Spring-security-test \)
+  이건 누구의 잘못일까? Put\(\) 메서드를 사용하지 않고 add\(\) 메서드를 사용한 개발자의 잘못일까? 물론, 잘못은 Container 클래스의 사용법을 제대로 지키지 않은 개발자에 있다. 하지만, 더 큰 잘못은 오용의 여지를 준 Container 클래스 작성자에 있다.
 
-springSecurity\(\) 메서드는 Mock MVC용으로 스프링 시큐리티를 활성화하는 Mock MVC 구성자를 반환한다.
+  위와 같은 문제가 발생하는 이유는 Container는 사실 ArrayList가 아니기 때문이다. 상속은 IS-A 관계가 성립할 때에만 사용해야 하는데 “Container는 ArrayList이다.” 라는 IS-A 관계가 성립되지 않는다.
 
-### 그렇다면 어떻게 인증된 요청을 수행할 수 있을까?
+### 조립을 이용한 재사용
 
-* @WithMockUser : 지정한 사용자 이름, 패스워드, 권한으로 UserDetails를 생성한 후 보안 컨텍스트를 로드한다.
-* @WithUserDetails : 지정한 사용자 이름으로 UserDetails 객체를 조회하여 보안 컨텍스트를 로드한다.
+객체 조립은 여러 객체를 묶어서 더 복잡한 기능을 제공하는 객체를 만들어내는 것이다.
 
-```java
-@Test
-@WithMockUser(username=“craig”, password=“password”, roles=“READER”)
-Public void homepage_authenticatedUser() throws Exception {
+한 객체가 다른 객체를 조립해서 필드로 갖는다는 것은 다른 객체의 기능을 사용한다는 의미를 내포한다.
 
-}
-```
+앞서 기능이 추가될 때마다 Storage 클래스를 상속받은 하위 클래스가 증가했던 방식과 비교해 봤을 때, 조립을 이용하면 불필요한 클래스 증가를 방지할 수 있다는 것을 알 수 있다.
 
-{% hint style="info" %}
-@WithMockUser 애너테이션은 일반적인 UserDetails 객체 조회를 건너뛰고 대신 지정된 값으로 UserDetails를 생성한다. 하지만 여기서 수행할 테스트에는 @WithMockUser가 생성하는 일반적인 UserDetails가 아니라 UserDetails를 구현한 Reader가 필요하다.
-{% endhint %}
+조립 방식의 또 다른 장점은 런타임에 조립 대상 객체를 교체할 수 있다는 것이다.
 
-```java
-@Test
-@WithUserDetails(“craig”)
-Public void homepage_authenticatedUser() throws Exception {
-	Reader expectedReader = new Reader();
-	expectedReader.setUsername(“craig”);
-	expectedReader.setPassword(“password”);
-	expectedReader.setFullname(“Craig Walls”);
+상속에 비해 조립을 통한 재사용의 단점은 아래 그림 에서 보는 것처럼 상대적으로 런타임 구조가 복잡해진다는 것이다. 또 다른 단점은 상속보다 구현이 더 어렵다는데 있다.
 
-	mockMvc.perform(get(“/”))
-		.andExpect(status().isOK())
-		.andExpect(view().name(“readingList”))
-		.andExpect(model().attribute(“reader”, samePropertyValuesAs(expectedReader)))
-		.andExpect(model().attribute(“books”, hasSize(0)))
-		.andExpect(model().attribute(“amazonID”, “habuma-20”));
-}
-```
+### 그렇다면 상속은 언제 사용해야 할까?
 
-{% hint style="info" %}
-@Withuserdetails 애너테이션을 사용하여 테스트 메서드가 작동하는 동안 시큐리티 컨텍스트에 craig 사용자를 로드하도록 했다. 모델에 Reader가 포함된다는 사실을 알고 있으므로 테스트에서 추후 모델과 비교할 Reader 객체를 생성했다. 이제 SecurityConfig의 두 번째 configure\(\) 메서드를 조금 수정해야 한다.
-{% endhint %}
+![](../../.gitbook/assets/1%20%2818%29.png)
 
-```java
-@Override
-Protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-	auth.userDetailsService(userDetailsService());
-}
-
-------
-
-@Bean
-Public UserDetailService userDetailsService() {
-	return new UserDetailsService() {
-		@Override
-		public UserDetails loadUserByUsername(String username) {
-			return readerRepository.findOne(username);
-		}
-	}
-}
-```
-
-{% hint style="info" %}
-테스트를 실행하면 스프링 시큐리티는 사용자 정보를 조회하는 사용자 상세 서비스를 요구한다. 따라서 사용자 상세 서비스를 테스트 러너에서 참조할 수 있도록 빈을 만들어야 한다.
-{% endhint %}
+* 상속을 사용할 때에는 재사용이라는 관점이 아닌 기능의 확장이라는 관점에서 상속을 적용해야 한다.
+* 이처럼 상속은 명확한 IS-A 관계에서 점진적으로 상위 클래스의 기능을 확장해 나갈 때 사용할 수 있다. 단, 최초에는 명확한 IS-A 관계로 보여서 상속을 이용해서 기능을 확장했다고 하더라도, 이후에 클래스의 개수가 불필요하게 증가하는 문제가 발생하거나 상위 클래스의 변경이 어려워지는 등 상위 클래스를 상속받을 때의 단점이 발생한다면, 조립으로 전환하는것을 고려해야 한다.
 

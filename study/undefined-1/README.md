@@ -1,8 +1,8 @@
 ---
-description: 스프링부트 코딩 공작소를 요약한 내용입니다.
+description: 객체지향과 디자인 패턴(최범균 저) 정리한 내용입니다.
 ---
 
-# 스프링부트 코딩 공작소
+# 객체지향과 디자인패턴
 
-![](../../.gitbook/assets/xxlarge%20%281%29.jpg)
+![](../../.gitbook/assets/600.jpg)
 

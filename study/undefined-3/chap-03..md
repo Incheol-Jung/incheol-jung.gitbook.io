@@ -30,59 +30,54 @@ description: 테스트 주도 개발 시작하기 3장을 요약한 내용입니
   * 모든 규칙을 충족하는 경우
   * 숫자를 포함하지 않고 나머지 규칙은 충족하는 경우
 * 이 순서대로 TDD를 진행해 보자
-* 대문자 포함 규칙만 충족하는 경우를 테스트하기 위한 코드를 작성해보자
+*   대문자 포함 규칙만 충족하는 경우를 테스트하기 위한 코드를 작성해보자
 
-  ```text
-  @Test
-  void meetsOnlyUpperCriteria_Then_Weak() {
-    PasswordStrengthMeter meter = new PasswordStrengthMeter();
-  	PasswordStrength result = meter.meter("abcDef");
-    assertStrength(result, PasswordStrength.WEAK);
-  }
-  ```
+    ```
+    @Test
+    void meetsOnlyUpperCriteria_Then_Weak() {
+      PasswordStrengthMeter meter = new PasswordStrengthMeter();
+    	PasswordStrength result = meter.meter("abcDef");
+      assertStrength(result, PasswordStrength.WEAK);
+    }
+    ```
+*   이 테스트에 대한 구현은 간단하다. 단순히 WEAK를 리턴하면 된다.
 
-* 이 테스트에 대한 구현은 간단하다. 단순히 WEAK를 리턴하면 된다.
+    ```
+    public PasswordStrength meter(String s) {
+        return PasswordStrength.WEAK;
+    }
+    ```
+*   이제 모든 규칙을 충족하는 경우를 테스트하기 위한 코드를 추가할 차례다.
 
-  ```text
-  public PasswordStrength meter(String s) {
-      return PasswordStrength.WEAK;
-  }
-  ```
+    ```
+    @Test
+    void meetsAllCriteria_Then_Weak() {
+      PasswordStrengthMeter meter = new PasswordStrengthMeter();
+    	PasswordStrength result = meter.meter("abcDef12");
+      assertStrength(result, PasswordStrength.STRONG);
+    }
+    ```
+*   이 테스트를 가장 빨리 통과시킬 수 있는 방법은 입력값이 "abcDef12"이면 STRONG을 리턴하는 코드를 추가하는 것이다.
 
-* 이제 모든 규칙을 충족하는 경우를 테스트하기 위한 코드를 추가할 차례다.
+    ```
+    public PasswordStrength meter(String s) {
+    		if("abcDef12".equals(s)) return PasswordStrength.STRONG;
+        return PasswordStrength.WEAK;
+    }
+    ```
+*   테스트 예를 하나 더 추가해보자
 
-  ```text
-  @Test
-  void meetsAllCriteria_Then_Weak() {
-    PasswordStrengthMeter meter = new PasswordStrengthMeter();
-  	PasswordStrength result = meter.meter("abcDef12");
-    assertStrength(result, PasswordStrength.STRONG);
-  }
-  ```
+    ```
+    @Test
+    void meetsAllCriteria_Then_Weak() {
+      PasswordStrengthMeter meter = new PasswordStrengthMeter();
+    	PasswordStrength result = meter.meter("abcDef12");
+      assertStrength(result, PasswordStrength.STRONG);
 
-* 이 테스트를 가장 빨리 통과시킬 수 있는 방법은 입력값이 "abcDef12"이면 STRONG을 리턴하는 코드를 추가하는 것이다.
-
-  ```text
-  public PasswordStrength meter(String s) {
-  		if("abcDef12".equals(s)) return PasswordStrength.STRONG;
-      return PasswordStrength.WEAK;
-  }
-  ```
-
-* 테스트 예를 하나 더 추가해보자
-
-  ```text
-  @Test
-  void meetsAllCriteria_Then_Weak() {
-    PasswordStrengthMeter meter = new PasswordStrengthMeter();
-  	PasswordStrength result = meter.meter("abcDef12");
-    assertStrength(result, PasswordStrength.STRONG);
-
-  	PasswordStrength result = meter.meter("aZcDef12");
-    assertStrength(result, PasswordStrength.STRONG);
-  }
-  ```
-
+    	PasswordStrength result = meter.meter("aZcDef12");
+      assertStrength(result, PasswordStrength.STRONG);
+    }
+    ```
 * 검증 예를 추가할때마다 if 절을 늘릴 수는 없다. 좀 더 범용적인 구현이 필요하다.
 
 범용적인 구현은 어떤 모습일까?
@@ -117,7 +112,7 @@ description: 테스트 주도 개발 시작하기 3장을 요약한 내용입니
 ### 예외 상황을 먼저 테스트해야 하는 이유
 
 * 다양한 예외 상황은 복잡한 if-else 블록을 동반할 때가 많다.
-* 예외 상황을 전혀 고려하지 않은 코드에 예외 상황을 반영하려면 코드의 구조를 뒤집거나 코드 중간에 예외 상황을 처리하기 위해 조건문을 중복해서 추가하는 일이 벌어진다. \(버그 발생 가능성을 높인다\)
+* 예외 상황을 전혀 고려하지 않은 코드에 예외 상황을 반영하려면 코드의 구조를 뒤집거나 코드 중간에 예외 상황을 처리하기 위해 조건문을 중복해서 추가하는 일이 벌어진다. (버그 발생 가능성을 높인다)
 * TDD를 하는 동안 예외 상황을 찾고 테스트에 반영하면 예외 상황을 처리하지 않아 발생하는 버그도 줄여준다.
 * 사소한 버그가 서비스 중단을 일으킬 수 있다.
 
@@ -160,65 +155,63 @@ description: 테스트 주도 개발 시작하기 3장을 요약한 내용입니
 이제 테스트 메서드를 추가하자.
 
 * 우선 가장 쉬어 보이는 만료일을 계산하는 테스트 코드를 작성해 보자
-* 계산에 필요한 값은 납부일과 납부액이고 결과는 계산된 만료일이다.
+*   계산에 필요한 값은 납부일과 납부액이고 결과는 계산된 만료일이다.
 
-  ```text
-  @Test
-  void 만원_납부하면_한달_뒤가_만료일이_됨() {
-      LocalDate billingDate = LocalDate.of(2019,3,1);
-  		int payAmount = 10,000;
+    ```
+    @Test
+    void 만원_납부하면_한달_뒤가_만료일이_됨() {
+        LocalDate billingDate = LocalDate.of(2019,3,1);
+    		int payAmount = 10,000;
 
-  		ExpiryDateCalculator cal = new ExpiryDateCalculator();
-  		LocalDate expiryDate = cal.calculateExpiryDate(billingDate, payAmount);
-    
-  		assertEquals(LocalDate.of(2019,4,1),expiryDate);
-  }
-  ```
+    		ExpiryDateCalculator cal = new ExpiryDateCalculator();
+    		LocalDate expiryDate = cal.calculateExpiryDate(billingDate, payAmount);
+        
+    		assertEquals(LocalDate.of(2019,4,1),expiryDate);
+    }
+    ```
+*   테스트 코드를 성공하기 위해 구현 코드를 작성하자
 
-* 테스트 코드를 성공하기 위해 구현 코드를 작성하자
+    ```
+    public LocalDate calculateExpiryDate(PayData payData) {
+        return LocalDate.of(2019,4,1);
+    }
+    ```
+*   테스트 케이스를 추가한 후, 구현 코드를 일반화 하자
 
-  ```text
-  public LocalDate calculateExpiryDate(PayData payData) {
-      return LocalDate.of(2019,4,1);
-  }
-  ```
-
-* 테스트 케이스를 추가한 후, 구현 코드를 일반화 하자
-
-  ```text
-  public LocalDate calculateExpiryDate(PayData payData) {
-      return payData.plugMonth(1);
-  }
-  ```
+    ```
+    public LocalDate calculateExpiryDate(PayData payData) {
+        return payData.plugMonth(1);
+    }
+    ```
 
 ### 코드 정리:중복 제거
 
 * 테스트 코드의 상수를 변수화한다.
-* 테스트 코드의 중복된 영역을 메소드로 분리 한다.
+*   테스트 코드의 중복된 영역을 메소드로 분리 한다.
 
-  ```text
-  @Test
-  void 만원_납부하면_한달_뒤가_만료일이_됨() {
-      assertExpiryDate(
-              PayData.builder()
-                      .billingDate(LocalDate.of(2019, 3, 1))
-                      .payAmount(10_000)
-                      .build(),
-              LocalDate.of(2019, 4, 1));
-      assertExpiryDate(
-              PayData.builder()
-                      .billingDate(LocalDate.of(2019, 5, 5))
-                      .payAmount(10_000)
-                      .build(),
-              LocalDate.of(2019, 6, 5));
-  }
+    ```
+    @Test
+    void 만원_납부하면_한달_뒤가_만료일이_됨() {
+        assertExpiryDate(
+                PayData.builder()
+                        .billingDate(LocalDate.of(2019, 3, 1))
+                        .payAmount(10_000)
+                        .build(),
+                LocalDate.of(2019, 4, 1));
+        assertExpiryDate(
+                PayData.builder()
+                        .billingDate(LocalDate.of(2019, 5, 5))
+                        .payAmount(10_000)
+                        .build(),
+                LocalDate.of(2019, 6, 5));
+    }
 
-  private void assertExpiryDate(PayData payData, LocalDate expectedExpiryDate) {
-      ExpiryDateCalculator cal = new ExpiryDateCalculator();
-      LocalDate realExpiryDate = cal.calculateExpiryDate(payData);
-      assertEquals(expectedExpiryDate, realExpiryDate);
-  }
-  ```
+    private void assertExpiryDate(PayData payData, LocalDate expectedExpiryDate) {
+        ExpiryDateCalculator cal = new ExpiryDateCalculator();
+        LocalDate realExpiryDate = cal.calculateExpiryDate(payData);
+        assertEquals(expectedExpiryDate, realExpiryDate);
+    }
+    ```
 
 ### 예외 상황 처리
 
@@ -227,33 +220,32 @@ description: 테스트 주도 개발 시작하기 3장을 요약한 내용입니
   * 납부일이 2019-01-31이고 납부액이 1만 원이면 만료일은 2019-02-28이다.
   * 납부일이 2019-05-31이고 납부액이 1만 원이면 만료일은 2019-06-30이다.
   * 납부일이 2020-01-31이고 납부액이 1만 원이면 만료일은 2020-02-29이다.
-* 테스트 코드를 작성해보자
+*   테스트 코드를 작성해보자
 
-  ```text
-  @Test
-  void 납부일과_한달_뒤_일자가_같지_않음() {
-      assertExpiryDate(
-              PayData.builder()
-                      .billingDate(LocalDate.of(2019, 1, 31))
-                      .payAmount(10_000)
-                      .build(),
-              LocalDate.of(2019, 2, 28));
-      assertExpiryDate(
-              PayData.builder()
-                      .billingDate(LocalDate.of(2019, 5, 31))
-                      .payAmount(10_000)
-                      .build(),
-              LocalDate.of(2019, 6, 30));
-      assertExpiryDate(
-              PayData.builder()
-                      .billingDate(LocalDate.of(2020, 1, 31))
-                      .payAmount(10_000)
-                      .build(),
-              LocalDate.of(2020, 2, 29));
-  }
-  ```
-
-* 테스트 코드는 바로 통과한다. 왜냐하면 LocalDate.plugMonths\(\) 메서드가 알아서 한 달 추가 처리를 해주기 때문이다.
+    ```
+    @Test
+    void 납부일과_한달_뒤_일자가_같지_않음() {
+        assertExpiryDate(
+                PayData.builder()
+                        .billingDate(LocalDate.of(2019, 1, 31))
+                        .payAmount(10_000)
+                        .build(),
+                LocalDate.of(2019, 2, 28));
+        assertExpiryDate(
+                PayData.builder()
+                        .billingDate(LocalDate.of(2019, 5, 31))
+                        .payAmount(10_000)
+                        .build(),
+                LocalDate.of(2019, 6, 30));
+        assertExpiryDate(
+                PayData.builder()
+                        .billingDate(LocalDate.of(2020, 1, 31))
+                        .payAmount(10_000)
+                        .build(),
+                LocalDate.of(2020, 2, 29));
+    }
+    ```
+* 테스트 코드는 바로 통과한다. 왜냐하면 LocalDate.plugMonths() 메서드가 알아서 한 달 추가 처리를 해주기 때문이다.
 
 ### 다음 테스트 선택: 다시 예외 상황
 
@@ -268,73 +260,70 @@ description: 테스트 주도 개발 시작하기 3장을 요약한 내용입니
 * 만료일을 계산하는데 필요한 값이 세 개로 늘렀다.
   * calculateExpiryDate 메서드의 파라미터로 첫 납부일 추가
   * 첫 납부일, 납부일, 납부액을 담은 객체를 calculateExpiryDate 메서드에 전달
-* 리팩토링을 진행하고 나면 ExpiryDateCalculator 코드는 다음과 같이 변경된다.
+*   리팩토링을 진행하고 나면 ExpiryDateCalculator 코드는 다음과 같이 변경된다.
 
-  ```text
-  public class ExpiryDateCalculator {
-      public LocalDate calculateExpiryDate(PayData payData) {
-          ...
-      }
-  }
-  ```
+    ```
+    public class ExpiryDateCalculator {
+        public LocalDate calculateExpiryDate(PayData payData) {
+            ...
+        }
+    }
+    ```
 
 ### 예외 상황 테스트 진행 계속
 
-* 리팩토링을 했으니 다시 테스트를 추가하자
+*   리팩토링을 했으니 다시 테스트를 추가하자
 
-  * 첫 납부일이 2019-01-31이고 만료되는 2019-02-28에 1만 원을 납부하면 다음 만료일은 2019-03-31이다.
+    * 첫 납부일이 2019-01-31이고 만료되는 2019-02-28에 1만 원을 납부하면 다음 만료일은 2019-03-31이다.
 
-  ```text
-  @Test
-  void 첫_납부일과_만료일_일자가_다를때_만원_납부() {
-      PayData payData = PayData.builder()
-              .firstBillingDate(LocalDate.of(2019, 1, 31)) // 납부일 추가
-              .billingDate(LocalDate.of(2019, 2, 28))
-              .payAmount(10_000)
-              .build();
+    ```
+    @Test
+    void 첫_납부일과_만료일_일자가_다를때_만원_납부() {
+        PayData payData = PayData.builder()
+                .firstBillingDate(LocalDate.of(2019, 1, 31)) // 납부일 추가
+                .billingDate(LocalDate.of(2019, 2, 28))
+                .payAmount(10_000)
+                .build();
 
-      assertExpiryDate(payData, LocalDate.of(2019, 3, 31));
-  }
-  ```
+        assertExpiryDate(payData, LocalDate.of(2019, 3, 31));
+    }
+    ```
+*   테스트는 실패하였다. 구현 코드를 수정해보자.
 
-* 테스트는 실패하였다. 구현 코드를 수정해보자.
-
-  ```text
-  public class ExpiryDateCalculator {
-      public LocalDate calculateExpiryDate(PayData payData) {
-          if(payDate.getFirstBillingDate().equals(LocalDate.of(2019,1,31))) {
-  						return LocalDate.of(2019,3,31);
-  				}
-  				return payData.getBillingDate().plugMonths(1);
-      }
-  }
-  ```
-
+    ```
+    public class ExpiryDateCalculator {
+        public LocalDate calculateExpiryDate(PayData payData) {
+            if(payDate.getFirstBillingDate().equals(LocalDate.of(2019,1,31))) {
+    						return LocalDate.of(2019,3,31);
+    				}
+    				return payData.getBillingDate().plugMonths(1);
+        }
+    }
+    ```
 * 첫 번째 테스트는 통과했지만 두 테스트가 실패했다.
   * getFirstbillingDate가 null 체크를 구현 코드에 추가하였다.
-* 상수를 이용해서 테스트를 통과시켰으니 구현을 일반화할 차례다.
+*   상수를 이용해서 테스트를 통과시켰으니 구현을 일반화할 차례다.
 
-  ```text
-  public class ExpiryDateCalculator {
-      public LocalDate calculateExpiryDate(PayData payData) {
-          if(payDate.getFirstBillingDate() != null) {
-  						LocalDate candidateExp = payDate.getBillingDate().plusMonths(1);
-  						if(payData.getFirstBillingDate().getDayOfMonth() != 
-  								candidateExp.getDatOhMonth()) {
-  								return candidateExp.withDayOfMonth(
-  										payData.getFirstBillingDate().getDayOfMonth());
-  						}
-  				}
-  				return payData.getBillingDate().plugMonths(1);
-      }
-  }
-  ```
-
+    ```
+    public class ExpiryDateCalculator {
+        public LocalDate calculateExpiryDate(PayData payData) {
+            if(payDate.getFirstBillingDate() != null) {
+    						LocalDate candidateExp = payDate.getBillingDate().plusMonths(1);
+    						if(payData.getFirstBillingDate().getDayOfMonth() != 
+    								candidateExp.getDatOhMonth()) {
+    								return candidateExp.withDayOfMonth(
+    										payData.getFirstBillingDate().getDayOfMonth());
+    						}
+    				}
+    				return payData.getBillingDate().plugMonths(1);
+        }
+    }
+    ```
 * 테스트는 통과하였다.
 
 ### 코드 정리: 상수를 변수로
 
-* plugMonths\(1\) 를 사용하였다. 1은 만료일을 계산할 때 추가할 개월 수를 의미한다.
+* plugMonths(1) 를 사용하였다. 1은 만료일을 계산할 때 추가할 개월 수를 의미한다.
 * 상수 1을 변수로 변경하자
 
 ### 다음 테스트 선택: 쉬운 테스트
@@ -342,100 +331,97 @@ description: 테스트 주도 개발 시작하기 3장을 요약한 내용입니
 * 다음 테스트를 선택하자.
   * 2만 원을 지불하면 만료일이 두 달 뒤가 된다.
   * 3만 원을 지불하면 만료일이 석 달 뒤가 된다.
-* 테스트 코드를 추가해 보자
+*   테스트 코드를 추가해 보자
 
-  ```text
-  @Test
-  void 이만원_이상_납부하면_비례해서_만료일_계산() {
-      assertExpiryDate(
-              PayData.builder()
-                      .billingDate(LocalDate.of(2019, 3, 1))
-                      .payAmount(20_000)
-                      .build(),
-              LocalDate.of(2019, 5, 1));
-  }
-  ```
+    ```
+    @Test
+    void 이만원_이상_납부하면_비례해서_만료일_계산() {
+        assertExpiryDate(
+                PayData.builder()
+                        .billingDate(LocalDate.of(2019, 3, 1))
+                        .payAmount(20_000)
+                        .build(),
+                LocalDate.of(2019, 5, 1));
+    }
+    ```
+*   구현 코드를 수정해보자
 
-* 구현 코드를 수정해보자
+    ```
+    public LocalDate calculateExpiryDate(PayData payData) {
+    		// addedMonths를 금액에 따라 수정
+    		int addedMonths = payData.getPayAmount() / 10_000;
 
-  ```text
-  public LocalDate calculateExpiryDate(PayData payData) {
-  		// addedMonths를 금액에 따라 수정
-  		int addedMonths = payData.getPayAmount() / 10_000;
-
-      if(payDate.getFirstBillingDate() != null) {
-  				LocalDate candidateExp = payDate.getBillingDate().plusMonths(1);
-  				if(payData.getFirstBillingDate().getDayOfMonth() != 
-  						candidateExp.getDatOhMonth()) {
-  						return candidateExp.withDayOfMonth(
-  								payData.getFirstBillingDate().getDayOfMonth());
-  				}
-  		}
-  		return payData.getBillingDate().plugMonths(1);
-  }
-  ```
+        if(payDate.getFirstBillingDate() != null) {
+    				LocalDate candidateExp = payDate.getBillingDate().plusMonths(1);
+    				if(payData.getFirstBillingDate().getDayOfMonth() != 
+    						candidateExp.getDatOhMonth()) {
+    						return candidateExp.withDayOfMonth(
+    								payData.getFirstBillingDate().getDayOfMonth());
+    				}
+    		}
+    		return payData.getBillingDate().plugMonths(1);
+    }
+    ```
 
 ### 예외 상황 테스트 추가
 
 * 이번에 추가할 상황은 첫 납부일과 납부일의 일자가 다를 때 2만 원이상 납부한 경우이다.
   * 첫 납부일이 2019-01-31이고 만료되는 2019-02-28에 2만원을 납부하면 다음 만료일은 2019-04-30이다.
-* 테스트 코드를 추가하자
+*   테스트 코드를 추가하자
 
-  ```text
-  @Test
-  void 첫_납부일과_만료일_일자가_다를때_이만원_이상_납부() {
-      assertExpiryDate(
-              PayData.builder()
-                      .firstBillingDate(LocalDate.of(2019, 1, 31))
-                      .billingDate(LocalDate.of(2019, 2, 28))
-                      .payAmount(20_000)
-                      .build(),
-              LocalDate.of(2019, 4, 30));
-  }
-  ```
+    ```
+    @Test
+    void 첫_납부일과_만료일_일자가_다를때_이만원_이상_납부() {
+        assertExpiryDate(
+                PayData.builder()
+                        .firstBillingDate(LocalDate.of(2019, 1, 31))
+                        .billingDate(LocalDate.of(2019, 2, 28))
+                        .payAmount(20_000)
+                        .build(),
+                LocalDate.of(2019, 4, 30));
+    }
+    ```
+*   이는 익셉션이 발생한다. 왜냐하면 4월에는 31일이 없는데 31일로 설정해서 발생한 것임을 알 수 있다.
 
-* 이는 익셉션이 발생한다. 왜냐하면 4월에는 31일이 없는데 31일로 설정해서 발생한 것임을 알 수 있다.
+    ```
+    public LocalDate calculateExpiryDate(PayData payData) {
+    		int addedMonths = payData.getPayAmount() / 10_000;
 
-  ```text
-  public LocalDate calculateExpiryDate(PayData payData) {
-  		int addedMonths = payData.getPayAmount() / 10_000;
+        if(payDate.getFirstBillingDate() != null) {
+    				LocalDate candidateExp = payDate.getBillingDate().plusMonths(1);
+    				if(payData.getFirstBillingDate().getDayOfMonth() != 
+    						candidateExp.getDatOhMonth()) {
+    						// 날짜가 잘못 계산되어 익셉션이 발생한다. 
+    						return candidateExp.withDayOfMonth(
+    								payData.getFirstBillingDate().getDayOfMonth());
+    				}
+    		}
+    		return payData.getBillingDate().plugMonths(1);
+    }
+    ```
+*   이 테스트를 통과시키려면 다음 조건을 확인해야 한다.
 
-      if(payDate.getFirstBillingDate() != null) {
-  				LocalDate candidateExp = payDate.getBillingDate().plusMonths(1);
-  				if(payData.getFirstBillingDate().getDayOfMonth() != 
-  						candidateExp.getDatOhMonth()) {
-  						// 날짜가 잘못 계산되어 익셉션이 발생한다. 
-  						return candidateExp.withDayOfMonth(
-  								payData.getFirstBillingDate().getDayOfMonth());
-  				}
-  		}
-  		return payData.getBillingDate().plugMonths(1);
-  }
-  ```
+    * 후보 만료일이 포함된 달의 마지막 날 < 첫 납부일의 일자
 
-* 이 테스트를 통과시키려면 다음 조건을 확인해야 한다.
+    ```
+    public LocalDate calculateExpiryDate(PayData payData) {
+    		int addedMonths = payData.getPayAmount() / 10_000;
 
-  * 후보 만료일이 포함된 달의 마지막 날 &lt; 첫 납부일의 일자
-
-  ```text
-  public LocalDate calculateExpiryDate(PayData payData) {
-  		int addedMonths = payData.getPayAmount() / 10_000;
-
-      if(payDate.getFirstBillingDate() != null) {
-  				LocalDate candidateExp = payDate.getBillingDate().plusMonths(1);
-  				if(payData.getFirstBillingDate().getDayOfMonth() != 
-  						candidateExp.getDatOhMonth()) {
-  						// 후보 만료일이 포함된 달의 마지막 날 < 첫 납부일의 일자 조건 추가
-  						if(YearMonth.from(candidateExp).lengthOfMonth() <
-  							payData.getFirstBillingDate().getDayOfMonth()) { 
-  								return candidateExp.withDayOfMonth(
-  										payData.getFirstBillingDate().getDayOfMonth());
-  							}
-  				}
-  		}
-  		return payData.getBillingDate().plugMonths(1);
-  }
-  ```
+        if(payDate.getFirstBillingDate() != null) {
+    				LocalDate candidateExp = payDate.getBillingDate().plusMonths(1);
+    				if(payData.getFirstBillingDate().getDayOfMonth() != 
+    						candidateExp.getDatOhMonth()) {
+    						// 후보 만료일이 포함된 달의 마지막 날 < 첫 납부일의 일자 조건 추가
+    						if(YearMonth.from(candidateExp).lengthOfMonth() <
+    							payData.getFirstBillingDate().getDayOfMonth()) { 
+    								return candidateExp.withDayOfMonth(
+    										payData.getFirstBillingDate().getDayOfMonth());
+    							}
+    				}
+    		}
+    		return payData.getBillingDate().plugMonths(1);
+    }
+    ```
 
 ## 시작이 안 될 때는 단언부터 고민
 
@@ -456,4 +442,3 @@ TDD를 작성하다 보면 어떻게 해야 할지 생각이 잘 나지 않거�
 
 * 쉬운 테스트, 예외적인 테스트
 * 완급 조절
-

@@ -48,9 +48,9 @@ ol.add("타입이 달라 넣을 수 없다.");
 
 `**제네릭 컬렉션`에서는 자신의 원소 타입을 담은 배열을 반환하는 게 보통은 불가능하다.\*\* 또한 제네릭 타입과 `가변 인수 메서드`를 함께 쓰면 해석하기 어려운 경고 메시지를 받게 된다. 이 문제는 `@SafeVarargs` 에너테이션으로 대처할 수 있다.
 
-> @SafeVarargs는 구체적으로 어떻게 사용할 수 있을까?  
->  제네릭을 가변 매개변수로 사용한 경우 잠재적 에러에 대한 경고를 무시할 수 있다.  
->  @SuppressWarning를 이용하여 제네릭 매개변수에 대한 경고 무시를 대체하기 위해 나옴
+> @SafeVarargs는 구체적으로 어떻게 사용할 수 있을까?\
+> &#x20;제네릭을 가변 매개변수로 사용한 경우 잠재적 에러에 대한 경고를 무시할 수 있다.\
+> &#x20;@SuppressWarning를 이용하여 제네릭 매개변수에 대한 경고 무시를 대체하기 위해 나옴
 
 ```java
 public class JavaExample{  
@@ -113,7 +113,6 @@ public class Chooser<T> {
 
 ## 출처
 
-* [https://blog.itthis.me/115](https://blog.itthis.me/115)
+*   [https://blog.itthis.me/115](https://blog.itthis.me/115)
 
-  -
-
+    \-

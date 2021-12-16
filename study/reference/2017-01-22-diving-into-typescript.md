@@ -25,8 +25,8 @@ const poneyNumber: number = 0;
 const poneyName: string = 'Rainbow Dash';
 ```
 
-이러한 경우에는 유형은 TS 컴파일러가 유형을 추측할 수 있기때문에 선택적이다.   
- 유형은 다음의 Pony 클래스와 같이 당신의 앱에서 나올수 있다.
+이러한 경우에는 유형은 TS 컴파일러가 유형을 추측할 수 있기때문에 선택적이다. \
+&#x20;유형은 다음의 Pony 클래스와 같이 당신의 앱에서 나올수 있다.
 
 ```javascript
 const pony: Pony = new Pony();
@@ -38,8 +38,8 @@ TypeScript는 일부 언어에서 "generic"으로 부르는것을 지원한다.
 const ponies: Array<Pony> = [new Pony()];
 ```
 
-해당 코드는 배열이 '&lt;&gt;' 이라는 일반적인 표기를 사용하여 ponies를 담을수 있다는 것을 의미한다.   
- 당신은 이것에 대해 의문을 가질지 모른다. 유형 정보를 추가하는 것은 컴파일러가 가능한 실수를 판별하도록 도울수 있을 것이다.   
+해당 코드는 배열이 '<>' 이라는 일반적인 표기를 사용하여 ponies를 담을수 있다는 것을 의미한다. \
+&#x20;당신은 이것에 대해 의문을 가질지 모른다. 유형 정보를 추가하는 것은 컴파일러가 가능한 실수를 판별하도록 도울수 있을 것이다. \
 
 
 ```javascript
@@ -129,7 +129,7 @@ interface HasScore {
 
 ## Optional arguments
 
-또 Javascript의 다른 대안은 파라미터가 선택적이라는 것이다.  
+또 Javascript의 다른 대안은 파라미터가 선택적이라는 것이다.\
 당신은 파라미터를 누락시킬수 있고 그것들은 'undefined'로 정의될 것이다. 그러나 당신이 유형이 정해진 파라미터로 정의했다면 컴파일러는 당신이 파라미터를 누락했다는 것을 표기할 것이다.
 
 ```javascript
@@ -263,7 +263,7 @@ class NamedPonyWithoutShortcut {
 
 JS로 작성된 외부 라이브러리로 작업 할 대, 그 라이브러리에서 어떤 유형의 파라미터가 예상되는지 알지 못하기 때문에 우리는 운명으로 생각할지 모른다. TypeScript의 강점중 하나입니다. 해당 멤버는 일반적인 자바 스크립트 라이브러리에 의해 노출 된 유형과 함수를 위한 인터페이스를 정의하였다.
 
-인터페이스가 포함된 파일에는 특별한 확장자\(".d.ts"\)가 있다. 그들은 라이브러리의 함수의 리스트를 포함한다. 이 파일을 찾는 좋은 장소는 DefinitelyTyped 이다. 예를 들어, 만약 당신이 Angularjs 1 버젼의 프로젝트에서 ts 파일을 사용하였다면 당신은 npm을 사용하여 적절한 파일을 다운 받을 수 있다.
+인터페이스가 포함된 파일에는 특별한 확장자(".d.ts")가 있다. 그들은 라이브러리의 함수의 리스트를 포함한다. 이 파일을 찾는 좋은 장소는 DefinitelyTyped 이다. 예를 들어, 만약 당신이 Angularjs 1 버젼의 프로젝트에서 ts 파일을 사용하였다면 당신은 npm을 사용하여 적절한 파일을 다운 받을 수 있다.
 
 ```javascript
 npm install --save-dev @types/angular
@@ -282,16 +282,16 @@ angular.module(10, []); // the module name should be a string
 
 ## Decorators
 
-이것은 새로운 특징이며 Angularjs를 지원하기 위해 오직 TypeScript 1.5 에 추가되었다. 게다가 곧 알수 있듯이 Angular 2 Componenet는 Decorator를 사용하여 설명될 수 있다. 이것은 모든 언어에서 가지고 있지 않기 때문에, decorator에 대해서 들어보지 않았을 수도 있다. decorator는 메타 프로그래밍을 할수 있는 방법이라 할 수 있다. 그들은 java, c\#, python 또는 내가 알지 못하는 언어에서 주로 사용되어지는 선언과 같은 것과 매우 유사할 것이다. 언어에 따라서 당신은 속성, 함수, 변수를 추가할수 있다. 일반적으로 선언은 언어에 의해 사용되어지지 않고 프레임워크나 라이브러리에서 주로 사용된어 진다.  
-  
+이것은 새로운 특징이며 Angularjs를 지원하기 위해 오직 TypeScript 1.5 에 추가되었다. 게다가 곧 알수 있듯이 Angular 2 Componenet는 Decorator를 사용하여 설명될 수 있다. 이것은 모든 언어에서 가지고 있지 않기 때문에, decorator에 대해서 들어보지 않았을 수도 있다. decorator는 메타 프로그래밍을 할수 있는 방법이라 할 수 있다. 그들은 java, c#, python 또는 내가 알지 못하는 언어에서 주로 사용되어지는 선언과 같은 것과 매우 유사할 것이다. 언어에 따라서 당신은 속성, 함수, 변수를 추가할수 있다. 일반적으로 선언은 언어에 의해 사용되어지지 않고 프레임워크나 라이브러리에서 주로 사용된어 진다.\
+\
 
 
-Decorator는 매우 강력하다. 그들은 메소드, 클래스 등을 수정할 수 있으며 예를 들어 호출의 파라미터를 변경하고, 결과를 간섭할 수 있으며, 대상이 호출 될 때 다른 메소드를 호출하더나 프레임 워크에 대한 메타 데이터를 추가 할 수 있습니다. 지금까지도 자바스크립트에서는 몇몇은 가능하지 않는다. 그러나 언어는 진화하고 있고 향후에는 표준화 시키자는 공식 제안이 있습니다. TypeScript 구현은 제안 된 표준 보다 약간 더 가깝다.   
-  
+Decorator는 매우 강력하다. 그들은 메소드, 클래스 등을 수정할 수 있으며 예를 들어 호출의 파라미터를 변경하고, 결과를 간섭할 수 있으며, 대상이 호출 될 때 다른 메소드를 호출하더나 프레임 워크에 대한 메타 데이터를 추가 할 수 있습니다. 지금까지도 자바스크립트에서는 몇몇은 가능하지 않는다. 그러나 언어는 진화하고 있고 향후에는 표준화 시키자는 공식 제안이 있습니다. TypeScript 구현은 제안 된 표준 보다 약간 더 가깝다. \
+\
 
 
-Angular2에서는 프레임워크에 의해 제공하는 decorator를 사용할 것이다. decorator의 역활은 매우 간단하다. decorator는 우리의 클래스에 약간의 메타 데이터를 추가한다. " 해당 클래스는 컴포넌트이다.", "이것은 선택적인 의존이다." "이것은 커스터마이징된 속성이다." 당신이 메타데이터를 수정으로 넣는다면 decorator를 사용하라고 요구 하지 않는다.  
-  
+Angular2에서는 프레임워크에 의해 제공하는 decorator를 사용할 것이다. decorator의 역활은 매우 간단하다. decorator는 우리의 클래스에 약간의 메타 데이터를 추가한다. " 해당 클래스는 컴포넌트이다.", "이것은 선택적인 의존이다." "이것은 커스터마이징된 속성이다." 당신이 메타데이터를 수정으로 넣는다면 decorator를 사용하라고 요구 하지 않는다.\
+\
 
 
 TypeScript에서는 decorator는 @로 시작한다. 그리고 클래스에 적용할수 있고 변수 또는 함수 또는 파라미터에도 적용할 수 있다. decorator는 생성자에는 적용될수 없으나 생성자의 파라미터에는 적용될 수 있다.
@@ -328,9 +328,9 @@ const Log = function () {
 * name : targeted 함수의 이름
 * descriptor : targeted된 함수의 설명
 
-우리는 함수 이름을, 그러나 당신은 당신이 원하는 어떤 것이든 할수 있다.   
-  
- 그래서 간단한 예를 들어, getRace\(\) 또는 getRaces\(\) 함수는 매 번 호출한다. 우리는 브라우져 로그에서 추적되는 것을 확인할 수 있다.
+우리는 함수 이름을, 그러나 당신은 당신이 원하는 어떤 것이든 할수 있다. \
+\
+&#x20;그래서 간단한 예를 들어, getRace() 또는 getRaces() 함수는 매 번 호출한다. 우리는 브라우져 로그에서 추적되는 것을 확인할 수 있다.
 
 ```javascript
 raceService.getRaces();
@@ -350,21 +350,20 @@ class HomeComponent {
 }
 ```
 
-@Component decorator는 Home 클래스에 추가되었다. Angular2 가 로드되었을 때, 그것은 Home 클래스를 확인할 것이고 component라는 것으로 이해할 것이다. 보시다시피, decorator는 파라미터를 받을 수 있다.   
-  
+@Component decorator는 Home 클래스에 추가되었다. Angular2 가 로드되었을 때, 그것은 Home 클래스를 확인할 것이고 component라는 것으로 이해할 것이다. 보시다시피, decorator는 파라미터를 받을 수 있다. \
+\
 
 
-나는 decorator의 가공되지 않은 개념을 소개하길 원한다. 우리는 모든 decorator를 책 전체에서 살펴볼 것이다. TypeScript 대신에 Babel과 함께 사용할 수 있다는 점을 지적해야 한다. 모든 Angular 2 decorator를 지원하는 플러그인도 있다. : angular2-annotations  
+나는 decorator의 가공되지 않은 개념을 소개하길 원한다. 우리는 모든 decorator를 책 전체에서 살펴볼 것이다. TypeScript 대신에 Babel과 함께 사용할 수 있다는 점을 지적해야 한다. 모든 Angular 2 decorator를 지원하는 플러그인도 있다. : angular2-annotations\
 
 
 Babel은 클래스 속성도 지원하지만 TypeScript에서 제공하는 유형 시스템은 지원하지 않는다. 당신은 Babel을 사용할수 있고 "ES6+"로 작성하여라. 그러나 당신은 유형들을 사용할수 없을것이고 그들은 의존성 주입에 매우 유용하게 사용될 것이다. 예를 들면, 완전히 가능하지만 유형을 대체하기 위해 더 많은 decorator를 추가해야 한다.
 
-그래서 나의 조언은 TypeScript 시도하라는 것이다. 그것으로 부터 나온 나의 모든 경험은 사용할 수 있다. 당신이 나머지에 대한 것을 잊고 융용한곳에 사용할수 있다면 이것은 방해되지 않는다. 만약 당신이 싫다면, decorator는 Babel또는 Traceur 를 사용한 ES6 또는 심지어 ES5로 전환하는 것이 그리 어렵지 않을 것이다. \(솔직히 ES5로는 angular 2 앱이 안좋은 코드를 가지고 있다.\)
+그래서 나의 조언은 TypeScript 시도하라는 것이다. 그것으로 부터 나온 나의 모든 경험은 사용할 수 있다. 당신이 나머지에 대한 것을 잊고 융용한곳에 사용할수 있다면 이것은 방해되지 않는다. 만약 당신이 싫다면, decorator는 Babel또는 Traceur 를 사용한 ES6 또는 심지어 ES5로 전환하는 것이 그리 어렵지 않을 것이다. (솔직히 ES5로는 angular 2 앱이 안좋은 코드를 가지고 있다.)
 
 ## Reference URL
 
-* [Become a NINJA with Angular 2](https://books.ninja-squad.com/public/samples/Become_a_ninja_with_Angular2_sample.pdf)
-* [Learn Angular 2](http://learnangular2.com/)
+* [Become a NINJA with Angular 2](https://books.ninja-squad.com/public/samples/Become\_a\_ninja\_with\_Angular2\_sample.pdf)
+* [Learn Angular 2](http://learnangular2.com)
 * [Angular 2 Component](https://www.tutorialspoint.com/angular2/)
 * [An Introduction to Angular 2](http://angular-tips.com/blog/2015/05/an-introduction-to-angular-2/)
-

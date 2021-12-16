@@ -23,7 +23,7 @@ Front Controller는 주로 서블릿 컨테이너의 제일 앞에서 서버로 
 {% hint style="info" %}
 **Q2. 어떻게 dispatcherServlet이 외부의 요청을 가로채는가?**
 
-web.xml에 등록된 dispatcherServlet의 &lt;url-pattern&gt;이 '/'와 같이 해당 어플을 통과하는 모든 URL로 등록했기 때문이다. 특정 URL만 적용하고 싶다면 &lt;url-pattern&gt;의 내용을 변경해주면 된다.
+web.xml에 등록된 dispatcherServlet의 \<url-pattern>이 '/'와 같이 해당 어플을 통과하는 모든 URL로 등록했기 때문이다. 특정 URL만 적용하고 싶다면 \<url-pattern>의 내용을 변경해주면 된다.
 {% endhint %}
 
 스프링은 web.xml 파일에 아래와 같이 dispatcher servlet적용 url pattern을 적용할 수 있다.
@@ -48,8 +48,8 @@ web.xml에 등록된 dispatcherServlet의 &lt;url-pattern&gt;이 '/'와 같이 �
 ```
 
 {% hint style="info" %}
-**스프링 부트는 url pattern을 어떻게 설정할 수 있을까?**  
-  
+**스프링 부트는 url pattern을 어떻게 설정할 수 있을까?**\
+\
 appliation.yml , application.properties파일에 server.servlet.context-path 옵션으로 지정할 수 있다.
 {% endhint %}
 
@@ -84,4 +84,3 @@ appliation.yml , application.properties파일에 server.servlet.context-path 옵
 * [https://qkrrudtjr954.github.io/spring/2018/03/12/spring-mvc-structure.html](https://qkrrudtjr954.github.io/spring/2018/03/12/spring-mvc-structure.html)
 * [https://mangkyu.tistory.com/18](https://mangkyu.tistory.com/18)
 * [https://gompangs.tistory.com/entry/Dispatcher-Servlet](https://gompangs.tistory.com/entry/Dispatcher-Servlet)
-

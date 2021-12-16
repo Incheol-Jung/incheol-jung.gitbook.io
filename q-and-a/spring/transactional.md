@@ -30,23 +30,23 @@ description: '@Transactional 에 대해서 알아보자'
 
 @Transactional 어노테이션 같은 경우 Spring AOP를 이용하게 되는데 이 AOP는 기본적으로 Dynamic Proxy를 이용한다.Dynamic Proxy는 인터페이스 기반으로 동작하기 때문에 인터페이스가 없을경우 트랜잭션이 동작하지 않는다.
 
-인터페이스 없이 트랜잭션 동작하게 하려면 CGLib\(Code Generation Library\) Proxy를 이용하면 된다.CGLib Proxy는 클래스에 대한 Proxy가 가능하기 때문에 인터페이스가 없어도 된다.
+인터페이스 없이 트랜잭션 동작하게 하려면 CGLib(Code Generation Library) Proxy를 이용하면 된다.CGLib Proxy는 클래스에 대한 Proxy가 가능하기 때문에 인터페이스가 없어도 된다.
 
 ## @Transactional 설정 정보
 
 **@Transactional 설정**
 
-| 속성 | 타입 | 설명 |
-| :--- | :--- | :--- |
-| value |  String  | 사용할 트랜잭션 관리자 |
-| propagation | enum: Propagation | 선택적 전파 설정 |
-| isolation | enum: Isolation | 선택적 격리 수준 |
-| readOnly | boolean | 읽기/쓰기 vs 읽기 전용 트랜잭션 |
-|  timeout  | int \(초\) | 트랜잭션 타임 아웃 |
-| rollbackFor | Throwable 로부터 얻을 수 있는 Class 객체 배열 | 롤백이 수행되어야 하는, 선택적인 예외 클래스의 배열 |
-| rollbackForClassName | Throwable 로부터 얻을 수 있는 클래스 이름 배열 | 롤백이 수행되어야 하는, 선택적인 예외 클래스 이름의 배열 |
-| noRollbackFor | Throwable 로부터 얻을 수 있는 Class 객체 배열 | 롤백이 수행되지 않아야 하는, 선택적인 예외 클래스의 배열 |
-| noRollbackForClassName | Throwable 로부터 얻을 수 있는 클래스 이름 배열 | 롤백이 수행되지 않아야 하는, 선택적인 예외 클래스 이름의 배열 |
+| 속성                     | 타입                                | 설명                                  |
+| ---------------------- | --------------------------------- | ----------------------------------- |
+| value                  |  String                           | 사용할 트랜잭션 관리자                        |
+| propagation            | enum: Propagation                 | 선택적 전파 설정                           |
+| isolation              | enum: Isolation                   | 선택적 격리 수준                           |
+| readOnly               | boolean                           | 읽기/쓰기 vs 읽기 전용 트랜잭션                 |
+| <p> timeout<br></p>    | int (초)                           | 트랜잭션 타임 아웃                          |
+| rollbackFor            | Throwable 로부터 얻을 수 있는 Class 객체 배열 | 롤백이 수행되어야 하는, 선택적인 예외 클래스의 배열       |
+| rollbackForClassName   | Throwable 로부터 얻을 수 있는 클래스 이름 배열   | 롤백이 수행되어야 하는, 선택적인 예외 클래스 이름의 배열    |
+| noRollbackFor          | Throwable 로부터 얻을 수 있는 Class 객체 배열 | 롤백이 수행되지 않아야 하는, 선택적인 예외 클래스의 배열    |
+| noRollbackForClassName | Throwable 로부터 얻을 수 있는 클래스 이름 배열   | 롤백이 수행되지 않아야 하는, 선택적인 예외 클래스 이름의 배열 |
 
 ## 주의할 점
 
@@ -56,7 +56,7 @@ description: '@Transactional 에 대해서 알아보자'
 
 만약 private 에 @Transactional을 적용한다고 하면 IDE에서 컴파일 오류를 확인할 수 있다.
 
-![&#xCEF4;&#xD30C;&#xC77C; &#xC624;&#xB958; &#xD655;&#xC778;](../../.gitbook/assets/untitled%20%282%29.png)
+![컴파일 오류 확인](<../../.gitbook/assets/untitled (2).png>)
 
 ### 동일한 클래스 내의 메소드 호출은 @Transactional이 동작하지 않는다.
 
@@ -65,18 +65,18 @@ description: '@Transactional 에 대해서 알아보자'
 #### 클래스 내 메소드를 호출하여 @Transactional을 동작하고 싶다면?
 
 * 가장 간단한 방법은 새로운 클래스를 생성하여 메소드를 위임하는 것이다.
-* 클래스 생성이 어렵다면 aspectj를 사용하면 된다.
+*   클래스 생성이 어렵다면 aspectj를 사용하면 된다.
 
-  ```java
-  @SpringBootApplication
-  @EnableTransactionManagement(proxyTargetClass = true, mode = AdviceMode.ASPECTJ)
-  @EnableLoadTimeWeaving(aspectjWeaving = EnableLoadTimeWeaving.AspectJWeaving.ENABLED)
-  public class AspectjApplication {
-      public static void main(String[] args) {
-          SpringApplication.run(AspectjApplication.class, args);
-      }
-  }
-  ```
+    ```java
+    @SpringBootApplication
+    @EnableTransactionManagement(proxyTargetClass = true, mode = AdviceMode.ASPECTJ)
+    @EnableLoadTimeWeaving(aspectjWeaving = EnableLoadTimeWeaving.AspectJWeaving.ENABLED)
+    public class AspectjApplication {
+        public static void main(String[] args) {
+            SpringApplication.run(AspectjApplication.class, args);
+        }
+    }
+    ```
 
 ## 참고
 
@@ -85,4 +85,3 @@ description: '@Transactional 에 대해서 알아보자'
 * [https://goddaehee.tistory.com/167](https://goddaehee.tistory.com/167)
 * [https://madnix.tistory.com/entry/Transactional-사용시-rollback이-안될-경우](https://madnix.tistory.com/entry/Transactional-%EC%82%AC%EC%9A%A9%EC%8B%9C-rollback%EC%9D%B4-%EC%95%88%EB%90%A0-%EA%B2%BD%EC%9A%B0)
 * [https://medium.com/chequer/spring-transactional-caching-그리고-aspectj-1편-transactional-17eca8c33bf](https://medium.com/chequer/spring-transactional-caching-%EA%B7%B8%EB%A6%AC%EA%B3%A0-aspectj-1%ED%8E%B8-transactional-17eca8c33bf)
-
