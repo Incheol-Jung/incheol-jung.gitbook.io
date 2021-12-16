@@ -35,4 +35,3 @@ public class SearchServiceTolrAdapter implements SearchService {
 어댑터 패턴이 적용된 예는 SLF4J라는 로깅 API이다. SLF4J는 단일 로깅 API를 사용하면서 자바 로깅, log4j, LogBack 등의 로깅 프레임워크를 선택적으로 사용할 수 있도록 해주는데, 이 때SLF4J가 제공하는 인터페이스와 각 로깅 프레임워크를 맞춰 주기 위해 어댑터를 사용하고 있다.
 
 어댑터 패턴은 개방 폐쇄 원칙을 따를 수 있도록 도와준다. 로깅 프레임워크를 LogBack으로 교체하고 싶다면 LogBack을 slf4j-api 패키지의 Logger로 맞춰주는 새로운 어댑터만 구현해 주면 된다.
-

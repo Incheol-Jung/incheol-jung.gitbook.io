@@ -25,7 +25,7 @@ public class PowerController {
 
 ## 문제
 
-위 코드에는 단점이 있다. PowerController 입장에서 봤을 때 장비나 장비 그룹의 전원을 켜는 동작은 동일한 동작임에도 불구하고 Device와 DeviceGroup을 구분해서 처리해야 한다는 점이다. 전원 켜고/끄는 기능 외에 소비 전력 측정과 같은 새로운 기능이 추가될 경우 PowerController 클래스에는 turnOn\(\)/turnGroupOn\(\)처럼 거의 동일한 메서드가 추가된다.
+위 코드에는 단점이 있다. PowerController 입장에서 봤을 때 장비나 장비 그룹의 전원을 켜는 동작은 동일한 동작임에도 불구하고 Device와 DeviceGroup을 구분해서 처리해야 한다는 점이다. 전원 켜고/끄는 기능 외에 소비 전력 측정과 같은 새로운 기능이 추가될 경우 PowerController 클래스에는 turnOn()/turnGroupOn()처럼 거의 동일한 메서드가 추가된다.
 
 ## 해결방법
 
@@ -67,4 +67,3 @@ public class DeviceGroup implements Device {
 ## 컴포지트 패턴 구현의 고려 사항
 
 컴포지트 패턴을 구현할 때 고려할 점은 컴포넌트를 관리하는 인터페이스를 어디서 구현할지에 대한 여부다. 컴포지트 패턴의 장점 중 하나는 클라이언트가 컴포지트와 컴포넌트를 구분하지 않고 컴포넌트 인터페이스만으로 프로그래밍 할 수 있게 돕는다는 점인데, 앞서 예제에서는 컴포지트인 DeviceGroup에 인터페이스를 정의했다.
-

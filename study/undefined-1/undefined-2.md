@@ -14,7 +14,7 @@
 
 WebSecurityConfigurerAdapter를 확장해서 구성 클래스를 작성하였다. 이렇게 사용자 정의 보안 구성 클래스를 선언하면 스프링부트는 보안 자동 구성을 건너뛴 채 사용자 정의 보안 구성을 사용한다.
 
-```text
+```
 @Configuration
 @EnableWebSecurity
 Public class SecurityConfig extends WebSecrityConfigurerAdapter {
@@ -46,8 +46,8 @@ Public class SecurityConfig extends WebSecrityConfigurerAdapter {
 
 * / 경로에는 READER 롤이 있는 인증된 사용자만 요청할 수 있게 한다.
 * 이외의 모든 요청 경로에는 별도의 인증 없이 어떤 사용자든 요청할 수 있게 했다.
-* /login 경로를 로그인 페이지와 로그인 실패 페이지\(error 속성 포함\)로 설정하였다.
-* 사용자를 인증하려고 사용자 상세 정보 서비스를 설정한다. 이 서비스는 UserDetailsService를 구현하는 클래스이며, 제공된 사용자 이름으로 사용자의 상세 정보를 조회할 때 사용한다. 앞의 코드는 주입된 ReaderRepository\(스프링 데이터 JJPA 리포지토리 인터페이스\)의 findOne\(\) 메서드를 호출하는 익명 내부 클래스 구현을 보여 준다.
+* /login 경로를 로그인 페이지와 로그인 실패 페이지(error 속성 포함)로 설정하였다.
+* 사용자를 인증하려고 사용자 상세 정보 서비스를 설정한다. 이 서비스는 UserDetailsService를 구현하는 클래스이며, 제공된 사용자 이름으로 사용자의 상세 정보를 조회할 때 사용한다. 앞의 코드는 주입된 ReaderRepository(스프링 데이터 JJPA 리포지토리 인터페이스)의 findOne() 메서드를 호출하는 익명 내부 클래스 구현을 보여 준다.
 
 #### 결론은 스프링 부트 자동 구성을 오버라이드 하려면 명시적인 구성만 작성하면 된다.
 
@@ -61,7 +61,7 @@ Public class SecurityConfig extends WebSecrityConfigurerAdapter {
 2. java:comp/env에서 얻을 수 있는 JNDI 속성
 3. JVM 시스템 프로퍼티
 4. 운영체제의 환경 변수
-5. random.\*로 시작하는 프로퍼티 때문에 무작위로 생성된 값\(${random.long}처럼 다른 프로퍼티를 설정할 때 참조\)
+5. random.\*로 시작하는 프로퍼티 때문에 무작위로 생성된 값(${random.long}처럼 다른 프로퍼티를 설정할 때 참조)
 6. 애플리케이션 외부에 있는 application.properties 나 application.yml 파일
 7. 애플리케이션 내부에 패키징된 application.properties 나 application.yml 파일
 8. @PropertySource로 지정된 프로퍼티 소스
@@ -78,16 +78,16 @@ Public class SecurityConfig extends WebSecrityConfigurerAdapter {
 
 ### 유용한 프로퍼티
 
-* spring.thymeleaf.cache : 개발하는 동안 실시간 반영되도록 캐싱 하지 않음 \(프리마커 그루비 벨로시키도 있음 - 모두 기본 설정은 true\)
+* spring.thymeleaf.cache : 개발하는 동안 실시간 반영되도록 캐싱 하지 않음 (프리마커 그루비 벨로시키도 있음 - 모두 기본 설정은 true)
 * server.port : 어플리케이션 서버 포트
 * https setup : ssl setup
 * logging.level.root : 로그 레벨을 설정 \*\* log4j나 log4j2를 사용한다면 해당 구현체에 대응하는 적당한 스타터를 추가하고, 의존성을 변경하여 로그백을 제외시켜야 한다.
 
 ## 프로파일 및 에러 페이지
 
-@Profile 애너테이션은 production 프로파일을 런타임에서 활성화했을 때만 해당 구성을 적용함\(보안같은 경우 로컬에서는 해당 안될 경우에는 이런 옵션이 필요\) 또는 spring.profiles.active : production도 가능 또는 application-{profile}.properties 형태의 추가적인 프로퍼티 파일을 생성하여 프로파일에 특화된 프로퍼티를 제공할 수 있다. yml 경우에는 하이픈 세개\(---\)를 사용하여 부분을 나눌 수 있다.
+@Profile 애너테이션은 production 프로파일을 런타임에서 활성화했을 때만 해당 구성을 적용함(보안같은 경우 로컬에서는 해당 안될 경우에는 이런 옵션이 필요) 또는 spring.profiles.active : production도 가능 또는 application-{profile}.properties 형태의 추가적인 프로퍼티 파일을 생성하여 프로파일에 특화된 프로퍼티를 제공할 수 있다. yml 경우에는 하이픈 세개(---)를 사용하여 부분을 나눌 수 있다.
 
-```text
+```
 @Profile(“production”)
 @Configuration
 @EnableWebSecurity
@@ -96,7 +96,7 @@ Public class SecurityConfig extends WebSecrityConfigurerAdapter {
 }
 ```
 
-![](../../.gitbook/assets/111%20%283%29.png)
+![](<../../.gitbook/assets/111 (3).png>)
 
 스프링 부트는 자동 구성을 이용하여 '화이트라벨' 오류 페이지를 기본으로 제공한다. 스프링 부트가 자동으로 구성한 기본 오류 핸들러는 'error'뷰를 찾는다. 결국 사용자 정의할 뷰는 다음과 같이 오류 뷰를 해석할 때 사용될 뷰 리졸버에 따라 달라진다.
 
@@ -106,5 +106,4 @@ Public class SecurityConfig extends WebSecrityConfigurerAdapter {
 * Velocity를 사용한다면 Velocity 템플릿 error.JVM
 * JSP를 사용한다면 JSP 템플릿 error.JSP
 
-![](../../.gitbook/assets/222%20%284%29.png)
-
+![](<../../.gitbook/assets/222 (4).png>)

@@ -16,11 +16,11 @@ description: 객체지향과 디자인 패턴(최범균 저) 전략 패턴 정�
 
 ## 해결방법
 
-![](../../../.gitbook/assets/222%20%2813%29.png)
+![](<../../../.gitbook/assets/222 (13).png>)
 
-* 가격 할인 알고리즘\(계산 방법\)을 추상화하고 있는 DiscountStrategy를 전략\(Strategy\)이라고 한다.
+* 가격 할인 알고리즘(계산 방법)을 추상화하고 있는 DiscountStrategy를 전략(Strategy)이라고 한다.
 * 가격 계산 기능 자체의 책임을 갖고 있는 Calulator를 콘텍스트로 정의한다.
-* 특정 콘텍스트에서 알고리즘\(전략\)을 별도로 분리하는 설계 방법이 전략 패턴이다.
+* 특정 콘텍스트에서 알고리즘(전략)을 별도로 분리하는 설계 방법이 전략 패턴이다.
 * 전략 패턴에서 콘텍스트는 사용할 전략을 직접 선택하지 않는다.
 * 콘텍스트의 클라이언트가 콘텍스트에 사용할 전략을 전달해 준다.
 
@@ -68,4 +68,3 @@ public void onClaculationButtonClick() {
     int price = cal.calculate(items);
 }
 ```
-

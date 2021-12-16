@@ -2,106 +2,159 @@
 description: 객체지향과 디자인 패턴(최범균 저) 다형성과 추상 타입 파트 정리한 내용입니다.
 ---
 
-# 다형성과 추상 타입
+# 액추에이터로 내부 들여다보기
 
-## 객체 지향이 주는 장점은 구현 변경의 유연함이다
+## 앤드포인트
 
-상속은 한 타입을 그대로 사용하면서 구현을 추가할 수 있도록 해주는 방법을 제공한다. 다형성은 한 객체가 여러 가지\(poly\) 모습\(morph\)을 갖는다는 것을 의미한다.
+스프링 부트 액추에이터의 핵심 기능은 실행중인 애플리케이션 내부를 볼 수 있게 하는 여러 웹 엔드포인트를 애플리케이션에서 제공하는 것이다. 액추에이터를 이용하면 스프링 애플리케이션 컨텍스트의 빈들을 어떻게 연결했고, 애플리케이션에서 어떤 환경 프로퍼티를 사용할 수 있는지 확인할 수 있으며, 런타임 메트릭의 스냅샷도 확보할 수 있다.
 
-구현 상속은 클래스 상속을 통해서 이루어진다. 구현 상속은 보통 상위 클래스에 정의된 기능을 재사용하기 위한 목적으로 사용된다. 추상화는 데이터나 프로세스 등을 의미가 비슷한 개념이나 표현으로 정의하는 과정이다. 추상화된 타입은 오퍼레이션의 시그니터만 정의할 뿐 실제 구현을 제공하지는 못한다.
+| HTTP | 메서드             | 경로 설명                                                                      |
+| ---- | --------------- | -------------------------------------------------------------------------- |
+| GET  | /autoconfig     | 어떤 자동 구성 조건이 통과하고 실패하는지 나타내는 자동 구성 보고서를 제공한다.                              |
+| GET  | /configprops    | 기본값을 비롯하여 구성 ㅍ로퍼티에 빈이 어떻게 주입되었는지 보여준다.                                     |
+| GET  | /beans          | 애플리케이션 커넧ㅌ트에 있는 모든 빈과 빈 사이의 관계를 보여 준다.                                     |
+| GET  | /dump           | 스레드 활동의 스냅샷 덤프를 조회한다.                                                      |
+| GET  | /env            | 모든 환경 프로퍼티를 조회한다.                                                          |
+| GET  | /env/{name}     | 환경 변수 이름으로 특정 환경 값을 조회한다.                                                  |
+| GET  | /health         | HeadlthIndiator 구현체가 제공하는 애플리케이션 헬스 메트릭을 보여 준다.                            |
+| GET  | /info           | Info로 시작하는 프로퍼티로 사용자 정의된 애플리케이션 정보를 조회한다.                                  |
+| GET  | /mappings       | 모든 URI 경로와 해당 경로를 포함한 컨트롤러에 어떻게 매핑했는지 보여 준다. (액추에이터 엔드포인트 포함)              |
+| GET  | /metrics        | 메모리 사용량과 HTTP 요청 카운터 등 여러 애플리케이션 메트릭을 보고한다.                                |
+| GET  | /metrics/{name} | 메트릭 이름으로 개별 애플리케이션 메트릭을 보고한다.                                              |
+| POST | /shutdown       | 애플리케이션을 종료한다. 종료 기능을 사용하려면 endpoints/shutdown.enabled 프로퍼티를 true로 설정해야 한다. |
+| GET  | /trace          | HTTP 요청의 timestamp, headers 등 기본 트레이스 정보를 제공한다.                            |
 
-#### 콘크리트 클래스를 직접 사용해도 문제가 없는데, 왜 추상 타입을 사용하는 것일까?
+### 액추에이터 추가(메이븐)
+
+스프링 부트 자동 구성은 스프링 구성이 더 적은데도 이 문제를 더욱 악화시킨다. 적어도 명시적 구성으로는 XML 파일이나 구성 클래스를 들여다보고, 스프링 애플리케이션 컨텍스트에 있는 빈 사이의 관계를 파악할 수 있었다. 애플리케이션의 스프링 컨텍스트를 살펴볼 수 있는 가장 핵심적인 엔드포인트는 /beans이다.
+
+![](<../../.gitbook/assets/333 (4) (1).png>)
+
+/metrics 엔드포인트는 실행 중인 애플리케이션에 다양한 카운터의 스냅샷과 게이지를 제공한다. 단일 메트릭만을 보고 싶다면 “/metrics/{name}” 으로 요청하게 되면 단일 속성 값만 확인할 수 있다.
+
+| 카테고리    | 접두어             | 설명                                                                                               |
+| ------- | --------------- | ------------------------------------------------------------------------------------------------ |
+| 가비지 컬렉터 | Gc.\*           | 가비지 컬렉션의 발생 획수, mark-sweep과 scavenge 가비지 컬렉터의 가비지 컬렉션 수행 시간을 보여 준다.                              |
+| 메모리     | Mem.\*          | 애플리케이션에 할당된 메모리 용량과 여유 메모리 용량을 보여준다.                                                             |
+| 힙       | Heap.\*         | 현재 메모리 사용량을 보여준다.                                                                                |
+| 클래스 로더  | Classes.\*      | JVM 클래스 로더로 로드, 언로드된 클래스 개수를 보여준다.                                                               |
+| 시스템     | Processors      | 프로세스 개수 같은 시스템 정보와 가동 시간, 평균 시스템 로그를 보여준다.                                                       |
+| 스레드 풀   | Threads.\*      | 스레드, 데몬 스레드 개수와 JVM이 시작된 이후 최대 스레드 개수를 보여준다.                                                     |
+| 데이터 소스  | Datasource.\*   | 데이터 소스 커넥션 개수를 보여준다.(스프링 애플리케이션 컨텍스트에 DataSource 빈이 하나 이상 있을 때만 데이터 소스 메타데이터에서 얻어 온 정보를 보여 준다. ) |
+| 톰캣 세션   | Httpsessions.\* | 톰캣의 활성화된 세션과 최대 세션 개수를 보여 준다.(애플리케이션이 내장 톰캣 서버로 서비스할 때 내장 톰캣 빈에서 얻어 온 정보를 보여 준다. )               |
+
+\| HTTP | Counter.status. _guage.response._ | 애플리케이션이 서비스한 HTTP 요청에서 다양한 게이지와 카운터를 보여 준다. |
+
+애플리케이션을 실행하여 현재 구동 중인지 알고 싶을 때는 /health 엔드포인트를 요청하여 간편하게 확인할 수 있다. /health 앤드포인트가 제공하는 일부 정보는 민감할 수 있으므로 인증되지 않은 요청에는 단순한 상태만 응답으로 보낸다.
+
+/info 엔드포인트는 호출자에게 알리고 싶은 모든 애플리케이션 정보를 보여 준다. appliation.yml 에 info.ccontactEmail 프로퍼티를 다음과 같이 설정한다. /info 엔드포인트에 프로퍼티를 추가하는 것은 애구에이터 작동을 사용자 정의하는 수많은 방법 중 하나에 불과하다.
+
+비록 액추에이터로 실행 중인 스프링 부트 애플리케이션의 내부 작동을 살펴볼 수 있더라도 모든 요건을 완벽히 충족하지는 못할 것이다.
+
+#### 액추에이터는 다양한 방법으로 사용자 화할 수 있다.
+
+* 엔드포인트 이름 변경
+* 엔드포인트 활성화/비활성화
+* 사용자 메트릭과 게이지 정의
+* 트레이스 데이터를 저장할 사용자 정의 리포지토리 생성
+* 사용자 정의 헬스 인디케이터 추가
+
+## 사용자 정의 헬스 인디케이터 추가
+
+애플리케이션이 헬스 인디케이터 기능이 없는 시스템과 상호작용해야 한다면 어떻게 해야 할까? 도서 목록 애플리케이션의 도서 목록에 등록된 책은 아마존으로 이동하는 링크를 포함하므로 아마존에 접속이 가능한지 보고하면 흥미로울 것이다. 아마존의 상태를 표시하는 HealthIndicator 구현체를 작성해보자.
 
 ```java
-public class FlowController {
-	private boolean useFile;
-	public FlowController(boolean useFile) {
-		this.useFile = useFile;
-	}
-
-	public void process() {
-		byte[] data = null;
-		if (useFile) {
-			FileDataReader fileReader = new FileDataReader();
-			data = fileReader.read();
-		} else {
-			SockerDataReader sockerReader = new SockerDataReader();
-			data = sockerReader.read();
+@Component
+Public class AmazonHealth implements HealthIndicator {
+	
+	@Override
+	public Health health() {
+		try {
+			RestTemplate rest = new RestTemplate(); // 아마존에 요청 전송
+			rest.getForObject(<http://www.amazon.com>, String.class);
+			return Health.up().build();
+		} catch (Exception e) {
+			return Health.down().build(); // 다운 상태 보고
 		}
-		...
-} 
-```
-
-FlowController 자체는 파일이건 소켓이건 상관없이 데이터를 읽어 오고 이를 암호화해서 특정 파일에 기록하는 책임을 진다.
-
-그런데, flowController의 본연의 책임\(흐름 제어\)과 상관없는 데이터 읽기 구현의 변경 때문에 FlowController도 함께 바뀌는 것이다.
-
-```java
-ByteSource source = null;
-if (useFile)
-	source = new FileDataReader();
-else
-	source = new SockerDataReader();
-byte[] data = source.read();
-```
-
-이전 코드보다 약간 단순해졌지만, 여전히 if-else 블록이 남아있다.
-
-#### ByteSource의 종류가 FlowController가 바뀌지 않도록 하는 방법에는 다음의 두 가지가 존재한다.
-
-* ByteSource 타입의 객체를 생성하는 기능을 별도 객체로 분리한 뒤, 그 객체를 사용해서 ByteSource 생성
-* 생성자\(또는 다른 메서드\)를 이용해서 사용할 ByteSource를 전달받기
-
-```java
-public class ByteSourceFactory {
-	public ByteSource create() {
-		if (useFile())
-			return new FileDataReader();
-		else
-			return new SockerDataReader();
 	}
 
-	private boolean useFile() {
-		String useFileVal = System.getProperty("useFile");
-		return useFileVal != null && Boolean.valueOf(useFileVal);
-	}
+}
 
-	// 싱글톤 패턴 적용
-	private static ByteSourceFactory instance = new ByteSourceFactory();
-	public static ByteSourceFactory getInstance() {
-		return instance;
-	}
-
-	...
+// result
+{
+	“status”: “UP”,
+	“amazonHealth” : {
+		“status”: “DOWN”
+	}, 
+	…..
 }
 ```
 
 ```java
-public class FlowController {
-	public void process() {
-		ByteSource source = new ByteSourceFactory.getInstance().create();
-		byte[] data = source.read();
+@Component
+Public class AmazonHealth implements HealthIndicator {
+	
+……
+			return Health.down().build();
+		} catch (Exception e) {
+			return Health.down().withDetail(“reason”, e.getMessage()).build(); // 다운 상태 보고
+		}
+	}
 
-		...
+}
+
+// result
+{
+	“status”: “UP”,
+	“amazonHealth” : {
+		“status”: “DOWN”
+		“reason” “I/O error on GET request ….. ”
+	}, 
+	…..
+}
+```
+
+## 보안
+
+권한이 있는 관리자만 접근할 수 있도록 엑추에이터에 보안을 적용할 수 있다. (ex. /shutdown) 시큐리티 스타터를 빌드 의존성에 추가하면 보안 자동 구성이 일어나 액추에이터 엔드포인트를 포함하여 애플리케이션에 보안을 적용한다. .antMatchers("/shutdown","/metrics") 이렇게 할 수 도 있지만 application.yml에서 management.context-path: /mgmt 로 하여 모든 metris 관련된 메소드 권한을 그룹으로 제한할 수 있다.
+
+```java
+Manegement.context-path=/mgmt
+
+...
+
+@Configuration
+@EnableWebSecurity
+Public class SecurityConfig extends WebSecrityConfigurerAdapter {
+	@Autowired
+	private ReaderRepository readerRepository;
+
+	@Override
+	protected void configure(HttpSecurity http) whroes Exception {
+		http
+			.authorizeRequests()
+				.antMatchers(“/”).access(“hasRole(‘READER’)”)
+				.antMatchers(“/shutdown”, “/metrics”, “/configprops”).access(“hasRole(‘ADMIN’)”)		// ADMIN 권한 필요
+				.antMatchers(“/mgmt./**”).access(“hasRole(‘ADMIN’)”)		// ADMIN 권한 필요
+				.antmatchers(“/**”).permitAll()
+			.and()
+			.formLogin(“Login”)
+			.failureUrl(“/login?error=true”); 
 	}
 }
 ```
 
-이제는 새로운 ByteSource 구현 클래스가 추가되어도 FlowController 클래스의 코드는 영향을 받지 않는다.
+## Shell
 
-즉, 추상화는 공통된 개념을 도출해서 추상 타입을 정의해 주기도 하지만, 많은 책임을 가진 객체로부터 책임을 분리하는 촉매제가 되기도 한다.
+### Actuator 원격 Shell 에 접속하기
 
-사실 추상화를 잘 하려면 다양한 상황에서 코드를 작성하고 이 과정에서 유연한 설계를 만들어 보는 경험을 해봐야 한다.
+스프링 부트는 CRaSH(The Common Reusable SHell)를 내장하고 있는데 이 셸은 어떤 자바 애플리케이션에서도 내장할 수 있다. 이 기능을 원격 Shell에 접속하여 Actuator와 거의 동일한 기능을 수행할 수 있다.
 
-경험하지 않은 분야라 하더라도 추상화할 수 있는 방법이 하나 있는데, 그것이 바로 변화되는 부분을 추상화하는 것이다. 요구 사항이 바뀔 때 변화되는 부분은 이후에도 변경될 소지가 많다. 이런 부분을 추상 타입으로 교체하면 향후 변경에 유연하게 대처할 수 있는 가능성이 높아진다.
+메이븐에 의존성 추가한다.
 
-## 인터페이스에 대고 프로그래밍하기
-
-실제 구현을 제공하는 콘크리트 클래스를 사용해서 프로그래밍하지 말고, 기능을 정의한 인터페이스를 사용해서 프로그래밍하라는 뜻이다.
-
-추상 타입을 사용하면 기존 코드를 건드리지 않으면서 콘크리트 클래스를 교체할 수 있는 유연함을 얻을 수 있는데 이 규칙은 바로 추상화를 통한 유연함을 얻기 위한 규칙이다.
-
-주의할 점은 유연함을 얻는 과정에서 타입\(추상 타입\)이 증가하고 구조도 복잡해지기 때문에 모든 곳에서 인터페이스를 사용해서는 안 된다는 것이다. 이 경우, 불필요하게 프로그램의 복잡도만 증가시킬 수 있다. 인터페이스를 사용해야 할 때는 변화 가능성이 높은 경우에 한해서 사용해야 한다.
-
-따라서 변화 가능성이 높은 콘크리스트 클래스 대신 이를 추상화한 인터페이스를 사용하면 \(다소 구조는 복잡해지지만\) 변경의 유연함이라는 효과를 얻을 수 있지만 변경 가능성이 매우 희박한 클래스에 대해 인터페이스를 만든다면 오히려 프로그램의 구조만 복잡해지고 유연함의 효과는 누릴 수 없는 그런 상황이 발생하게 된다.
-
+```java
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+```

@@ -75,8 +75,8 @@ public <T> T execute(TransactionCallback<T> action)
 ```
 
 * 앞서 템플릿 메서드가 하위 타입에서 재정의할 메서드를 호출하고 있다면
-* TransactionTemplate의 execute\(\) 메서드는 파라미터로 전달받은 action의 메서드를 호출하고 있다.
-* 따라서 TransactionTemplate의 execute\(\) 메서드를 사용하는 코드는 다음과 같이 execute\(\) 메서드를 호출할 때 원하는 기능을 구현한 TransactionCallback 객체를 전달한다.
+* TransactionTemplate의 execute() 메서드는 파라미터로 전달받은 action의 메서드를 호출하고 있다.
+* 따라서 TransactionTemplate의 execute() 메서드를 사용하는 코드는 다음과 같이 execute() 메서드를 호출할 때 원하는 기능을 구현한 TransactionCallback 객체를 전달한다.
 
 ```java
 transactionTemplate.execute(new TransactionCallback<String>() {
@@ -85,4 +85,3 @@ transactionTemplate.execute(new TransactionCallback<String>() {
 		}
 });
 ```
-
