@@ -93,6 +93,7 @@
   * [마무리](study/object/2020-03-10-object-chap-end.md)
 * [객체지향의 사실과 오해](<study/undefined/README (1).md>)
   * [1장 협력하는 객체들의 공동체](study/undefined/1.md)
+  * [2장 이상한 나라의 객체](study/undefined/2.md)
 * [JAVA ORM JPA](study/jpa/README.md)
   * [1장 JPA 소개](study/jpa/2020-04-07-jpa-chap1.md)
   * [2장 JPA 시작](study/jpa/2-jpa.md)
