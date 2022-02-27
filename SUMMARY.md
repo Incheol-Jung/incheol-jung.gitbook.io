@@ -26,6 +26,7 @@
   * [Spring 특징](q-and-a/spring/spring-1.md)
   * [N+1 문제](q-and-a/spring/n+1.md)
   * [OSIV](q-and-a/spring/osiv.md)
+  * [@Valid 동작 원리](q-and-a/spring/valid.md)
   * [Spring Boot 특징](q-and-a/spring/spring-boot.md)
   * [Spring 5 특징](q-and-a/spring/spring-5.md)
   * [JPA vs MyBatis](q-and-a/spring/jpa-vs-mybatis.md)
