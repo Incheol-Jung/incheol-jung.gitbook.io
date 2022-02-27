@@ -204,7 +204,7 @@ description: '@Valid 동작 원리'
           // do something
       }
       ```
-  *   서비스레이어에서 사용하는 예제
+  *   서비스 레이어에서 사용하는 예제
 
       ```sql
       @Service
