@@ -218,7 +218,7 @@ description: '@Valid 동작 원리'
 
 ### 참고
 
-* https://mangkyu.tistory.com/174
-* https://joont92.github.io/spring/HandlerMapping-HandlerAdapter-HandlerInterceptor/
-* https://cprayer.github.io/posts/about-spring-request-mapping-in-servlet-context/
+* [https://mangkyu.tistory.com/174](https://mangkyu.tistory.com/174)
+* [https://joont92.github.io/spring/HandlerMapping-HandlerAdapter-HandlerInterceptor/](https://joont92.github.io/spring/HandlerMapping-HandlerAdapter-HandlerInterceptor/)
+* [https://cprayer.github.io/posts/about-spring-request-mapping-in-servlet-context/](https://cprayer.github.io/posts/about-spring-request-mapping-in-servlet-context/)
 * [https://maenco.tistory.com/entry/Spring-MVC-Argument-Resolver%EC%99%80-ReturnValue-Handler?category=959609](https://maenco.tistory.com/entry/Spring-MVC-Argument-Resolver%EC%99%80-ReturnValue-Handler?category=959609)
