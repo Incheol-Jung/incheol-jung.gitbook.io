@@ -1,124 +1,113 @@
----
-description: lambda와 closure에 대해서 알아보자
----
+# 병렬처리를 이용한 이미지 리사이즈 개선
 
-# 람다와 클로저
+## 병렬처리를 이용한 이미지 리사이즈 개선
 
-![https://codecondo.com/6-javascript-fundamentals-you-need-to-know/lambdas-and-closures/](../../.gitbook/assets/lambdas-and-closures.jpg)
 
-## 람다란 무엇인가?
 
-### 람다 표현식은 메서드로 전달할 수 있는 익명 함수를 단순화한 것이다.
+<figure><img src="../../.gitbook/assets/1 (8).png" alt=""><figcaption></figcaption></figure>
 
-* 익명 : 보통의 메서드와 달리 이름이 없으므로 익명이라 표현한다.
-* 함수 : 람다는 메서드처럼 특정 클래스에 종속되지 않으므로 함수라고 부른다.
-* 전달 : 람다 표현식을 메서드 인수로 전달하거나 변수로 저장할 수 있다.
-* 간경성 : 익명 클래스처럼 많은 자질구레한 코드를 구현할 필요가 없다.
 
-### 람다의 구성 요소
 
-```java
-(Apple a) -> a.getWeight() > 150
+### 원본 이미지 사용
+
+* 현재는 사용자의 원본 이미지를 그대로 S3에 업로드해서 사용해왔다
+* 그렇다보니 네트워크 / 디바이스 성능에 따라 페이지 렌더링 되면서 이미지가 늦게 로드 되는 경우가 많았다
+* 그리고 아이폰의 사진은 고화질이라 3MB 이상인 경우가 많았다
+* 원본 이미지를 그대로 사용하기엔 컨텐츠가 늦게 로드 되다 보니 앱에 대한 퀄리티로 이어졌다
+* 이미지 로드 개선은 다른 방법으로 개선할 수도 있다
+* 스켈레톤 이미지나 프론트에서 자체 캐시를 사용할수도 있었지만 지금 당장 프론트쪽에 업무를 추가할순 없었다..
+
+### 이미지 업로드 개선이 필요하다!
+
+* 현실적으로 지금 당장 빠르게 해결할 방법은 백엔드쪽에서 원본 이미지를 경량화하는 하는수 밖에 없다..
+* 단, 페이지마다 사용하는 이미지 사이즈가 다르기 때문에 4가지 유형으로 리사이즈해서 프론트에서 적절한 유형의 리사이즈 이미지를 사용하도록 한다 (SMALL, MEDIUM, LARGE, XLARGE)
+* 추가적으로 이미지 업로드 기능이 원본 이미지 경량화 로직으로 인해 서비스 사용성에 영향이 있으면 안된다
+
+### 이미지 리사이즈 플로우
+
+
+
+<figure><img src="../../.gitbook/assets/Untitled.png" alt=""><figcaption></figcaption></figure>
+
+
+
+* 기존에 사용하던 이미지 업로드 API는 그대로 유지하되 이미지가 업로드 되면 메시지큐에 리사이즈 요청 메시지를 전송한다
+* 컨슈머는 업로드된 원본 이미지를 확인하고 4가지 유형으로 리사이즈를 수행한다
+* 프론트에서는 규칙에 따라 리사이즈된 이미지를 사용하게 된다
+
+### 이미지 리사이즈 컨슈머 구현 로직
+
+<figure><img src="../../.gitbook/assets/2 (4).png" alt=""><figcaption></figcaption></figure>
+
+#### 1. 사이즈별 이미지 업로드
+
+* 4 가지 유형으로 리사이즈 하여 S3에 업로드 한다
+* 각각의 리사이즈된 이미지는 HashMap에 저장하여 추후에 데이터베이스에 저장할 때 사용된다
+
+#### 2. 리사이즈 이미지 업로드 내역 저장
+
+* 이미지 업로드가 완료되면 S3에 저장한 이미지 경로를 사이즈별로 취합하여 한번에 데이터베이스에 저장한다
+
+## 🤨 성능을 좀 더 개선할 수 없을까?
+
+* 기존 로직은 사이즈 별로 루프문을 순회하면서 순차적으로 원본 이미지를 리사이즈하며 업로드했다
+* 사이즈 별로 업로드 하는 로직은 개별 쓰레드로 독립적으로 수행해도 된다
+* 사이즈 별로 업로드 하는 로직은 병렬로 수행하고 추후 데이터베이스에 저장할 데이터만 취합하여 저장하면 되겠다
+
+### 그럼 수행시간을 측정해보자
+
+
+
+<figure><img src="../../.gitbook/assets/Untitled (3).png" alt=""><figcaption></figcaption></figure>
+
+> 객관적인 데이터를 측정하기 위해 이미지 업로드 로직을 2초 정도 시간을 소요하도록 로직을 수정하였다
+
+#### stream 사용시 (Total 소요시간 : 8초)
+
+```jsx
+Image Resize upload start!!! time : 2022-12-18T20:55:21
+Image Resize upload end!!! time : 2022-12-18T20:55:29
 ```
 
-* 파라미터 리스트
-* 화살표 : 파라미터 리스트와 바디를 구분한다.
-* 바디 : 람다의 반환값에 해당하는 표현식
+#### parallelStream 사용시 (Total 소요시간 : 2초)
 
-### 어디에, 어떻게 람다를 사용할까?
-
-람다 표현식으로 함수형 인터페이스의 추상 메서드 구현을 직접 전달할 수 있으므로 전체 표현식을 함수형 인터페이스의 인스턴스로 취급\(기술적으로 함수형 인터페이스를 concreate 구현한 클래스의 인스턴스\) 할 수 있다.
-
-함수형 인터페이스에 대한 설명
-
-* 하나의 추상 메서드를 지정하는 인터페이스이다.
-* default 메소드는 추상 메소드 범주에 제외되므로 여러개 정의해도 상관없다.
-* 함수형 인터페이스로 명확하게 사용하기 위해서는 @FunctionalInterface를 사용하여 두 개 이상의 추상 메서드를 만들지 못하도록 제한을 둘 수 있다.
-
-### 람다 표현식 장점
-
-* 코드를 간결하게 작성할 수 있다.
-* 보일러 플레이트를 제거하여 로직만 작성하면 되므로 가독성이 향상되었다.
-* 병렬 프로그래밍이 용이하다.
-
-### 람다 표현식 단점
-
-* 디버깅하기 까다롭다.
-* 지나치게 남발하면 코드가 이해하기 어렵고 지저분해질 수 있다.
-
-## 클로저란?
-
-클로저는 클래스 내에 정의한 변수를 람다가 직접 사용하는 것을 의미한다. 더 일반적으로 표현하자면, 자신을 둘러싼 context내의 변수 등에 접근 하는 것을 의미한다. 그래서 간단한 원칙은 람다가 자신의 범위 밖에 있는 변수를 사용하면 그것은 동시에 클로저라는 것이다.
-
-```java
-public class Store {
-    private String storeNo = "9000";
-
-    public void lambdaClosure() {
-        Function<String,Integer> lambdaFunction = i -> {
-						// lambda 내에서 Store 클래스 멤버 변수인 storeNo를 사용!!
-            System.out.println(this.storeNo); 
-            return null;
-        };
-    }
-}
+```jsx
+Image Resize upload start!!! time : 2022-12-18T21:31:54
+Image Resize upload end!!! time : 2022-12-18T21:31:56
 ```
 
-#### 람다가 항상 클로저는 아니지만 클로저는 항상 람다다
+##
 
-클로저를 사용하기 위해서는 외부 변수는 가변적이면 안된다. java 8 이전에서는 불변을 보장하기 위해 final 키워드를 컴파일 단계에서 체크하였지만 java 8 이후부터는 final이 없어도 사용할 수 는 있다. 그러나 람다 내에서 수정한다고 하면 오류 메시지를 확인할 수 있다.
+## 🤯 병렬처리시 주의해야 할 부분은?
 
-![](../../.gitbook/assets/222%20%2816%29.png)
+###
 
-### 클로저는 Java 8 에서부터 적용된 기능인가?
+### 병렬처리가 항상 정답은 아니다!!
 
-그렇지 않다. 클로저는 람다 문법이 존재하지 않았을 때부터 제공하던 기능이었다. 다음의 익명 클래스에서 그 예를 살펴보자.
+* 병렬처리는 목록을 멀티 쓰레드로 병렬처리 하므로 성능적으로 무조건 유용하다고 생각할 수 있다
+* 하지만 이는 잘못된 생각이다
+* 병렬처리는 잘못 사용할 경우 오히려 독이 될수 있다
+* 예를 들어, 병렬처리 하는 로직에서 공유 데이터를 가공하는 경우가 있으면 이는 오히려 성능상 더 느려지는 효과가 나타날 수 있다.
+* 쓰레드간 작업한 데이터를 공유 데이터에 병합하면서 동기화해주는 작업이 생각보다 많은 부하를 발생하게 된다
+* 그리고 또한 단순하게 parallelStream을 사용하게 되면 애플리케이션의 전체적인 성능을 떨어뜨릴수 있게 된다
+* 왜냐하면 자바 애플리케이션은 멀티 쓰레드로 동작하기 때문에 일정량의 쓰레드를 할당하며 사용자 요청을 병렬로 처리한다.
+* 그래서 parallelStream을 사용하게 되면 애플리케이션에서 할당해 놓은 쓰레드를 임의로 끌어쓰기 때문에 실제로 사용자 요청에 대한 처리를 수행할 쓰레드가 부족할 수 있다
 
-```java
-@since Java 1.1!
-void anonymousClassClosure() {
-    Server server = new HttpServer();
-    waitFor(new Condition() {
-        @Override
-        public Boolean isSatisfied() {
-            return !server.isRunning();
-        }
-    });
-}
-```
+### parallelStream 을 사용할때는 쓰레드 그룹을 지정하라!
 
-server 변수는 Condition 인터페이스를 구현한 익명 인스턴스에서 사용되고 있다. 이는 익명 클래스 인스턴스인 동시에 클로저다.
 
-### 익명 클래스와 람다의 클로저는 같은 개념일까?
 
-범위에 따라 다르다. 그러나 일반적으로 클래스 내의 멤버 변수에 대한 접근은 람다에서만 사용 가능하다. 람다의 경우에는 호출한 클래스에 접근이 가능하지만 익명 클래스는 익명 클래스내에서만 접근이 가능하다. 이게 익명 클래스와 람다의 차이점이라고 할 수 있겠다. 그러나 클래스를 직접 사용하면 익명 클래스 내에서도 클래스의 변수를 직접 접근할 수 있다.
+<figure><img src="../../.gitbook/assets/Untitled (1).png" alt=""><figcaption></figcaption></figure>
 
-```java
-public class Store {
-    private String storeNo = "9000";
-    
-    public void anonymousClosure() {
-        String anonymousNo = "1000";
-        Function<String, Integer> anonymousFunction = new Function<String, Integer>() {
-            @Override
-            public Integer apply(String s) {
-								// Store class의 storeNo를 직접 접근할 수 있다. 
-                System.out.println(Store.this.storeNo);
-                return Integer.parseInt(anonymousNo);
-            }
-        };
-    }
-}
-```
+* parallelStream을 사용하게 되면 가용 가능한 쓰레드를 임의로 사용하기 때문에 병렬처리에 사용할 쓰레드 갯수는 지정해서 수행하는게 효율적이다
+* ForkJoinPool을 사용하여 가용할 쓰레드 갯수를 제한할 수 있다.
+* 현재는 이미지 리사이즈 유형만큼만 병렬처리하기 때문에 리사이즈 컬렉션 갯수만큼 쓰레드풀을 지정하였다
 
-## 클로저는 주의해서 사용하자
+<figure><img src="../../.gitbook/assets/Untitled (2).png" alt=""><figcaption></figcaption></figure>
 
-클로저를 사용하게 되면 외부의 영향에 따라 동일한 input에 대해서도 다른 output을 제공하기 때문에 멱등성을 위반하게 된다. 그렇게 되면 진정한 함수형 프로그래밍의 조건을 만족하지 못하게 된다. 함수형 프로그래밍은 일차 함수이면서 멱등성을 유지해야 하고 고차 함수로 이루어질 수 있어야 하기 때문이다.
 
-## 참고
 
-* [https://futurecreator.github.io/2018/08/09/java-lambda-and-closure/](https://futurecreator.github.io/2018/08/09/java-lambda-and-closure/)
-* [https://12bme.tistory.com/361](https://12bme.tistory.com/361)
-* [http://egloos.zum.com/ryukato/v/1160506](http://egloos.zum.com/ryukato/v/1160506)
-* [http://wonwoo.ml/index.php/post/1135](http://wonwoo.ml/index.php/post/1135)
-
+{% hint style="info" %}
+💡 모든 기술은 양면성을 가지고 있다. \
+새로운 기술을 도입하기 전에 항상 공식문서를 확인하거나 다양한 사용 사례를 살펴보고 우리 서비스에 적합한지 확인을 해야 한다
+{% endhint %}
