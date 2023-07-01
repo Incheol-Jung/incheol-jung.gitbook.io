@@ -30,7 +30,7 @@ PR 생성하면서 빌드를 수행하는데 끝날 기미가 보이지 않았�
 
 
 
-<figure><img src="../../.gitbook/assets/3 (4).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/3.png" alt=""><figcaption><p>github.com</p></figcaption></figure>
 
 #### 그렇다..
 
@@ -50,7 +50,7 @@ PR 생성하면서 빌드를 수행하는데 끝날 기미가 보이지 않았�
 
 
 
-<figure><img src="../../.gitbook/assets/4 (4).png" alt=""><figcaption><p><a href="https://brunch.co.kr/@roysday/568">https://brunch.co.kr/@roysday/568</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/4.png" alt=""><figcaption><p><a href="https://brunch.co.kr/@roysday/568">https://brunch.co.kr/@roysday/568</a></p></figcaption></figure>
 
 
 
@@ -60,7 +60,7 @@ PR 생성하면서 빌드를 수행하는데 끝날 기미가 보이지 않았�
 
 <div data-full-width="true">
 
-<figure><img src="../../.gitbook/assets/5 (2).png" alt=""><figcaption><p><a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&#x26;blogId=yean5rang&#x26;logNo=50090277323">https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&#x26;blogId=yean5rang&#x26;logNo=50090277323</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/5 (1).png" alt=""><figcaption><p><a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&#x26;blogId=yean5rang&#x26;logNo=50090277323">https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&#x26;blogId=yean5rang&#x26;logNo=50090277323</a></p></figcaption></figure>
 
 </div>
 
@@ -189,7 +189,7 @@ PR 생성시 빌드할때는 github action을 사용한다
 
 
 
-<figure><img src="../../.gitbook/assets/8 (1).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/8.png" alt=""><figcaption><p>github.com</p></figcaption></figure>
 
 
 
@@ -197,7 +197,7 @@ PR 생성시 빌드할때는 github action을 사용한다
 
 
 
-<figure><img src="../../.gitbook/assets/9 (1).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/9.png" alt=""><figcaption><p>github.com</p></figcaption></figure>
 
 * microsoft에서 보면 해당 사양은 `CPU 2`, `7GB` 메모리라고 되어있다
 
@@ -209,7 +209,7 @@ PR 생성시 빌드할때는 github action을 사용한다
 
 
 
-<figure><img src="../../.gitbook/assets/11 (1).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/11.png" alt=""><figcaption><p>github.com</p></figcaption></figure>
 
 
 
@@ -229,7 +229,7 @@ jobs:
 
 
 
-<figure><img src="../../.gitbook/assets/12 (2).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/12.png" alt=""><figcaption><p>github.com</p></figcaption></figure>
 
 
 

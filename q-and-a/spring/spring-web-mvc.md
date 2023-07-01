@@ -72,7 +72,7 @@ appliation.yml , application.properties파일에 server.servlet.context-path 옵
 
 ### **filter와 interceptor, aop의 수행 시점을 dispatcherServlet를 기준으로 알아보**
 
-![](../../.gitbook/assets/11.png)
+![](<../../.gitbook/assets/11 (1).png>)
 
 * filter : dispatcherServlet 이전과 이후에 동작
 * interceptor : dispatcherServlet과 컨트롤러 사이에 동작

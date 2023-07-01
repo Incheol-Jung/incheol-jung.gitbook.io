@@ -59,7 +59,7 @@ POSTMAN에서 사용하는 URI, Resource를 단순 text로 표현할 수도 있�
 
 글로벌 환경 변수는 특정 환경의 변화와 무관하게 사용되는 전역 변수로 지역 환경 변수가 설정되어 있다고 하더라도 글로벌 변수가 설정되어 있다면 우선순위는 글로벌 환경 변수가 더 높다.&#x20;
 
-![](<../../.gitbook/assets/5 (1).png>)
+![](<../../.gitbook/assets/5 (1) (1).png>)
 
 ### - Interceptor
 
@@ -85,14 +85,14 @@ POSTMAN으로 단순하게 API가 동작하는지에 대한 테스트를 진행�
 &#x20;예를 들어 Response Data의 address 값의 여부를 테스트 케이스에 넣게 된다면 address 값이 없을 경우에는 API 상태 결과값이 200이더라도 에러라는 테스트 케이스 결과 값을 확인할 수 있다. \
 &#x20;또는 Response Data를 이용하여 전역변수 또는 지역변수의 값을 설정할 수도 있다.&#x20;
 
-![](../../.gitbook/assets/8.png)
+![](<../../.gitbook/assets/8 (1).png>)
 
 ### - Pre-scripts
 
 이전에 설명한 Test scnario는 API 호출 이후 시점에 사용되는 기능이라면, Pre-Scripts의 경우에는 API 호출 이전 시점에 사용되는 기능으로 구분할 수 있다.\
 &#x20;예를 들어 파라미터에 현재 날짜를 전송해주어야 한다면 테스트 진행할 때마다 현재 날짜를 텍스트로 입력해주어야 하는 번거로움이 있다. 그러나 이 부분을 pre-script를 사용하여 function으로 구현하였다면 자동으로 파라미터가 현재 날짜로 변경될 것이다.&#x20;
 
-![](../../.gitbook/assets/9.png)
+![](<../../.gitbook/assets/9 (1).png>)
 
 ### - Monitor
 
