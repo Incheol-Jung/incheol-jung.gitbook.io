@@ -1,5 +1,4 @@
 ---
-layout: reference
 title: POSTMAN
 date: '2018-01-03T00:00:00.000Z'
 categories: postman
@@ -26,7 +25,7 @@ Authorization이나 Header, Body를 수정하는건 더더욱 제한이 많다.\
 
 ## POSTMAN 설치
 
-[https://www.getpostman.com/](https://www.getpostman.com) 사이트에서 다운로드 하여 어플리케이션으로 실행할 수 있다.\
+[https://www.getpostman.com/](https://www.getpostman.com/) 사이트에서 다운로드 하여 어플리케이션으로 실행할 수 있다.\
 &#x20;단기적으로 사용한다고 하면 굳이 회원가입없이 바로 사용 가능하다.&#x20;
 
 ![](<../../.gitbook/assets/1 (10).png>)
@@ -67,14 +66,14 @@ POSTMAN에서 사용하는 URI, Resource를 단순 text로 표현할 수도 있�
 Interceptor 기능은 Chrome 브라우저를 이용하여 브라우저에서 발생한 Request 히스토리를 Postman History로 동기화를 해주는 기능이다.\
 &#x20;[https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo](https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo) 에서 확장 프로그램을 설치한 뒤 우측 상단에서 Request Capture를 활성화 시키고 Postman Application에서도 활성화시켜주게 되면 동기화가 이루어진다.&#x20;
 
-![](../../.gitbook/assets/postman-interceptor.png)
+![](<../../.gitbook/assets/postman-interceptor (1).png>)
 
 ### - Collections
 
 Collection 관리를 통해서 크게는 프로젝트 별로 구분할 수 있고 세부적으로는 프로젝트 내부에서 각 모듈이나 기능 별로 분리할 수 있다. \
 &#x20;back-end와 front-end의 작업이 구분되어 있다면 개발 시작전에 collection 규칙을 협의하여 진행하는 것이 효율적이다.&#x20;
 
-![](<../../.gitbook/assets/6 (2) (1).png>)
+![](<../../.gitbook/assets/6 (2) (1) (1).png>)
 
 유료 서비스를 사용하지 않는다면 팀원 간의 collection 공유는 불가능 하므로 작업한 collection을 export/import하여 공유해야 하는 부분이 있다.&#x20;
 

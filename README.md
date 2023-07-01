@@ -4,7 +4,7 @@ description: Better late than naver 🔥
 
 # Intro
 
-![](.gitbook/assets/lego-worlds-listing-thumb-01-ps4-eu-02dec16.png)
+![](<.gitbook/assets/lego-worlds-listing-thumb-01-ps4-eu-02dec16 (1).png>)
 
 ### :sunglasses: Contact
 
@@ -18,4 +18,4 @@ description: Better late than naver 🔥
 
 &#x20; **Github.** [https://github.com/incheol-jung](https://github.com/incheol-jung)
 
-&#x20; **Tech Tree.** [![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/incheol-jung/incheol-jung)
+&#x20; **Tech Tree.** [<img src="http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat" alt="StackShare" data-size="line">](https://stackshare.io/incheol-jung/incheol-jung)

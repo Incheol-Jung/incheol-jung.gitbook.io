@@ -22,7 +22,7 @@ description: 자바 ORM 표준 JPA 프로그래밍 2장을 요약한 내용 입�
 
 개발자는 JPA가 제공하는 표준 문법에 맞추어 JPA를 사용하면 되고, 특정 데이터베이스에 의존적인 SQL은 데이터베이스 방언이 처리해준다.
 
-![](../../.gitbook/assets/2.png)
+![](<../../.gitbook/assets/2 (3).png>)
 
 ### 엔티티 매니저 설정
 
@@ -30,7 +30,7 @@ description: 자바 ORM 표준 JPA 프로그래밍 2장을 요약한 내용 입�
 
 JPA를 시작하려면 우선 `persistence.xml`의 설정 정보를 사용해서 엔티티 매니저 팩토리를 생성해야 한다. 이때 `Persistence` 클래스를 사용하는데 이 클래스는 엔티티 매니저 팩토리를 생성해서 JPA를 사용할 수 있게 준비한다.
 
-```text
+```
 EntityManagerFactory emf = 
 	Persistence.createEntityManagerFactory("jpabook");
 ```
@@ -39,7 +39,7 @@ EntityManagerFactory emf =
 
 #### 엔티티 매니저 생성
 
-```text
+```
 EntityManger em = emf.createEntityManager();
 ```
 
@@ -53,7 +53,7 @@ JPA를 사용하면 항상 트랜잭션 안에서 데이터를 변경해야 한�
 
 하나 이상의 회원 목록을 조회하는 다음 코드를 살펴보자
 
-```text
+```
 //목록 조회
 TypedQuery<Member> query = 
 	em.createQuery("select m from Member m", Member.class);
@@ -68,4 +68,3 @@ JPQL은 데이터베이스 테이블을 전혀 알지 못하고 엔티티 객체
 ### 정리
 
 `JPA`가 반복적인 `JDBC API`와 결과 값 매핑을 처리해준 덕분에 코드량이 상당히 많이 줄어든 것은 물론이고 심지어 SQL도 작성할 필요가 없었다. 하지만 코드량을 줄이고 SQL을 자동 생성하는 것은 JPA가 제공하는 전체 기능 중 일부에 불과하다.
-

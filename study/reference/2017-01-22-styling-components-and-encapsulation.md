@@ -1,5 +1,4 @@
 ---
-layout: reference
 title: CHAPTER 10. Styling components and encapsulation
 date: '2017-01-22T00:00:00.000Z'
 updated: '2017-01-22T00:00:00.000Z'
@@ -110,6 +109,6 @@ inspector에 Chrome이 표시 할 # shadow-root (열려 있음)를 확인할 수
 ## Reference URL
 
 * [Become a NINJA with Angular 2](https://books.ninja-squad.com/public/samples/Become\_a\_ninja\_with\_Angular2\_sample.pdf)
-* [Learn Angular 2](http://learnangular2.com)
+* [Learn Angular 2](http://learnangular2.com/)
 * [Angular 2 Component](https://www.tutorialspoint.com/angular2/)
 * [An Introduction to Angular 2](http://angular-tips.com/blog/2015/05/an-introduction-to-angular-2/)

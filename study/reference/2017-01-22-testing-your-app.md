@@ -1,5 +1,4 @@
 ---
-layout: reference
 title: CHAPTER 12. Testing your app
 date: '2017-01-22T00:00:00.000Z'
 updated: '2017-01-22T00:00:00.000Z'
@@ -510,6 +509,6 @@ $ ('h1')은 요소 (by.css ( 'h1'))를 쓸 경우에 해당하는 단축키 이�
 ## Reference URL
 
 * [Become a NINJA with Angular 2](https://books.ninja-squad.com/public/samples/Become\_a\_ninja\_with\_Angular2\_sample.pdf)
-* [Learn Angular 2](http://learnangular2.com)
+* [Learn Angular 2](http://learnangular2.com/)
 * [Angular 2 Component](https://www.tutorialspoint.com/angular2/)
 * [An Introduction to Angular 2](http://angular-tips.com/blog/2015/05/an-introduction-to-angular-2/)

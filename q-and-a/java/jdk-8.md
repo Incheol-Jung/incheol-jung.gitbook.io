@@ -60,7 +60,7 @@ List<Apple> heavierThan150g = filter(inventory, (Apple a) -> a.getWeight() > 150
 | (str, i) -> str.substring(i)             | String::substring                 |
 | (String s) -> System.out.println(s)      | System.out::println               |
 
-****
+
 
 ## **Stream**
 

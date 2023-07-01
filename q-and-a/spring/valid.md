@@ -8,7 +8,7 @@ description: '@Valid 동작 원리'
 
 * 우선 프로세스를 설명하기 전에 web mvc가 동작하는 원리부터 이해해야 한다.
 
-![https://supawer0728.github.io/2018/04/04/spring-filter-interceptor/](<../../.gitbook/assets/111 (2).jpg>)
+![https://supawer0728.github.io/2018/04/04/spring-filter-interceptor/](../../.gitbook/assets/997bae4d5c8b3f7d10.jpg)
 
 ### Spring Web MVC 과정
 

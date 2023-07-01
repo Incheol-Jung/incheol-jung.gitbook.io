@@ -1,5 +1,4 @@
 ---
-layout: reference
 title: CHAPTER 4. From zero to something
 date: '2017-01-22T00:00:00.000Z'
 updated: '2017-01-22T00:00:00.000Z'
@@ -392,6 +391,6 @@ ng github-pages:deploy
 ## Reference URL
 
 * [Become a NINJA with Angular 2](https://books.ninja-squad.com/public/samples/Become\_a\_ninja\_with\_Angular2\_sample.pdf)
-* [Learn Angular 2](http://learnangular2.com)
+* [Learn Angular 2](http://learnangular2.com/)
 * [Angular 2 Component](https://www.tutorialspoint.com/angular2/)
 * [An Introduction to Angular 2](http://angular-tips.com/blog/2015/05/an-introduction-to-angular-2/)

@@ -1,5 +1,4 @@
 ---
-layout: reference
 title: CHAPTER 2. Diving into TypeScript
 date: '2017-01-22T00:00:00.000Z'
 updated: '2017-01-22T00:00:00.000Z'
@@ -364,6 +363,6 @@ Babel은 클래스 속성도 지원하지만 TypeScript에서 제공하는 유�
 ## Reference URL
 
 * [Become a NINJA with Angular 2](https://books.ninja-squad.com/public/samples/Become\_a\_ninja\_with\_Angular2\_sample.pdf)
-* [Learn Angular 2](http://learnangular2.com)
+* [Learn Angular 2](http://learnangular2.com/)
 * [Angular 2 Component](https://www.tutorialspoint.com/angular2/)
 * [An Introduction to Angular 2](http://angular-tips.com/blog/2015/05/an-introduction-to-angular-2/)
