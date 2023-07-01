@@ -21,7 +21,7 @@ description: '객체지향과 디자인 패턴(최범균 저) 재사용: 상속�
 
     유사한 기능을 확장하는 과정에서 클래스의 개수가 불필요하게 증가할 수 있다.
 
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/442de1e5-0d09-44e2-ba2d-5e05d1d85686/3.png](<../../.gitbook/assets/3 (8).png>)
+    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/442de1e5-0d09-44e2-ba2d-5e05d1d85686/3.png](<../../.gitbook/assets/3 (8) (1).png>)
 *   상속의 오용
 
     잘못된 상속으로 인한 잘못된 메서드를 제공할 수 있다.

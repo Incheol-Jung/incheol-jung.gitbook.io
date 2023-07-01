@@ -16,7 +16,7 @@
 
 
 
-    <figure><img src="../../../.gitbook/assets/1 (4).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/1 (3).png" alt=""><figcaption></figcaption></figure>
 * 생각보다 구체적인 답을 내려주기는 어렵다..
 
 #### 하지만 좋은 코드 리뷰 문화를 만들어갈 수 있는 조건은 몇가지 존재 한다
@@ -35,7 +35,7 @@
 
 ### Q. 좋은 코드 리뷰 상태가 되지 않으면 어떻게 될까?
 
-<figure><img src="../../../.gitbook/assets/3 (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/3 (8).png" alt=""><figcaption></figcaption></figure>
 
 * 리뷰어 들은 많은 변경 내역에 대해 부담을 느끼게 된다
 * 리뷰가 길어지면 다양한 변경 내역이 타겟 브랜치에 쌓이기 때문에 충돌 때문에 머지를 진행하기 어려워진다(심적 부담감..ㅜ)
@@ -44,7 +44,7 @@
 
 * 코드의 변경 흐름을 좌우가 아닌 위에서 아래로 스택을 쌓듯이 보여주면 된다.
 
-<figure><img src="../../../.gitbook/assets/4 (1).jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/4.jpeg" alt=""><figcaption></figcaption></figure>
 
 * 스택을 쌓듯이 변경내역을 쌓게 되면 스택당 쌓이는 변경 내역 크기를 명확하게 볼수 있다
 * 스택당 변경 내역을 확인하니 변경된 코드 목적도 더 분명해진다
@@ -69,7 +69,7 @@
 
 * 변경 내역별로 스택을 쌓아보자
 
-<figure><img src="../../../.gitbook/assets/7 (1).jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/7.jpeg" alt=""><figcaption></figcaption></figure>
 
 * 변경된 내역을 푸시해보자
 

@@ -81,8 +81,8 @@
     * [\[103호\] 코드 리뷰의 또 다른 접근 방법: Pull Requests vs. Stacked Changes](q-and-a/seminar/2022-infcon/103-pull-requests-vs.-stacked-changes.md)
     * [\[105호\] 실전! 멀티 모듈 프로젝트 구조와 설계](q-and-a/seminar/2022-infcon/105.md)
     * [\[105호\] 지금 당장 DevOps를 해야 하는 이유](q-and-a/seminar/2022-infcon/105-devops.md)
-    * [\[102호\] 서버비 0원, 클라우드 큐 도입으로 해냈습니다!](q-and-a/seminar/2022-infcon/102-0.md)
     * [\[102호\] (레거시 시스템) 개편의 기술 - 배달 플랫폼에서 겪은 N번의 개편 경험기](q-and-a/seminar/2022-infcon/102-n.md)
+    * [\[102호\] 서버비 0원, 클라우드 큐 도입으로 해냈습니다!](q-and-a/seminar/2022-infcon/102-0.md)
 
 ## STUDY
 
