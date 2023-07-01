@@ -77,7 +77,7 @@ Collection 관리를 통해서 크게는 프로젝트 별로 구분할 수 있�
 
 유료 서비스를 사용하지 않는다면 팀원 간의 collection 공유는 불가능 하므로 작업한 collection을 export/import하여 공유해야 하는 부분이 있다.&#x20;
 
-![](<../../.gitbook/assets/7 (1).png>)
+![](<../../.gitbook/assets/7 (1) (1).png>)
 
 ### - Test scnario
 
