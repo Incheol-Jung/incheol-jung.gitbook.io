@@ -4,9 +4,7 @@
 
 
 
-<figure><img src="../../.gitbook/assets/1 (8).png" alt=""><figcaption></figcaption></figure>
-
-
+<figure><img src="../../.gitbook/assets/1 (4).png" alt=""><figcaption><p><a href="https://youtu.be/dzrJRLT1RZw">https://youtu.be/dzrJRLT1RZw</a></p></figcaption></figure>
 
 ### 원본 이미지 사용
 
@@ -37,7 +35,7 @@
 
 ### 이미지 리사이즈 컨슈머 구현 로직
 
-<figure><img src="../../.gitbook/assets/2 (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2.png" alt=""><figcaption></figcaption></figure>
 
 #### 1. 사이즈별 이미지 업로드
 
