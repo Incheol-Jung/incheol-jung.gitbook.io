@@ -26,7 +26,7 @@
 
 * bus-refresh API를 호출하는 시점을 github에서 푸시 이벤트가 발생할때 호출하도록 웹훅을 설정하였다
 
-<figure><img src="../../.gitbook/assets/1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 (1).png" alt=""><figcaption></figcaption></figure>
 
 ## 그럼 왜 갱신이 되지 않나?
 
@@ -51,5 +51,3 @@ spring:
 * [https://github.com/spring-cloud/spring-cloud-bus/issues/124#issuecomment-423960553](https://github.com/spring-cloud/spring-cloud-bus/issues/124#issuecomment-423960553)
 * [https://freedeveloper.tistory.com/473](https://freedeveloper.tistory.com/473)
 {% endhint %}
-
-*
