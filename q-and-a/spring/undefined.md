@@ -357,14 +357,14 @@ verify(externalAttachUploadService, times(1)).registerAttach(any(List.class), an
 
 
 
-      <figure><img src="../../.gitbook/assets/2.png" alt=""><figcaption></figcaption></figure>
+      <figure><img src="../../.gitbook/assets/2 (2).png" alt=""><figcaption></figcaption></figure>
   *   브랜치 커버리지
 
       * 조건문에서 true/false의 케이스를 얼마나 충족했는지 측정한다
 
 
 
-      <figure><img src="../../.gitbook/assets/3.png" alt=""><figcaption></figcaption></figure>
+      <figure><img src="../../.gitbook/assets/3 (6).png" alt=""><figcaption></figcaption></figure>
   * 컨디션 커버리지
     * 조건문에서 발생가능한 모든 조건을 얼마나 충족했는지 측정한다
 * jacoco 설정
@@ -411,7 +411,7 @@ verify(externalAttachUploadService, times(1)).registerAttach(any(List.class), an
       ```
 * jacoco 확인 결과(build/reports/jacoco/test/html/index.html)
 
-<figure><img src="../../.gitbook/assets/4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/4 (1).png" alt=""><figcaption></figcaption></figure>
 
 ### github action
 
@@ -419,7 +419,7 @@ verify(externalAttachUploadService, times(1)).registerAttach(any(List.class), an
 * 아니다. 그렇지 않다
 * github action을 통해서 라인 커버리지를 실시간으로 확인할 수 있다
 
-<figure><img src="../../.gitbook/assets/5.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/5 (1).png" alt=""><figcaption></figcaption></figure>
 
 * github action 설정
   *   스텝 추가 (path는 `jacocoTestReport`.`reports`.`xml.destination` 설정과 동일한 경로로 설정한다)

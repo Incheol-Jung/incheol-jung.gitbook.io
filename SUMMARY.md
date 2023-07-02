@@ -31,6 +31,7 @@
   * [OSIV](q-and-a/spring/osiv.md)
   * [@Valid 동작 원리](q-and-a/spring/valid.md)
   * [mybatis @Builder 주의사항](q-and-a/spring/mybatis-builder.md)
+  * [스프링 클라우드 컨피그 갱신 되지 않는 이슈(feat. 서비스 디스커버리)](q-and-a/spring/feat..md)
   * [Spring Boot 특징](q-and-a/spring/spring-boot.md)
   * [Spring 5 특징](q-and-a/spring/spring-5.md)
   * [JPA vs MyBatis](q-and-a/spring/jpa-vs-mybatis.md)
