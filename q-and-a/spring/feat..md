@@ -26,7 +26,7 @@
 
 * bus-refresh API를 호출하는 시점을 github에서 푸시 이벤트가 발생할때 호출하도록 웹훅을 설정하였다
 
-<figure><img src="../../.gitbook/assets/1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 (4).png" alt=""><figcaption></figcaption></figure>
 
 ## 그럼 왜 갱신이 되지 않나?
 

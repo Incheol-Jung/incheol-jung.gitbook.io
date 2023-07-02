@@ -37,9 +37,24 @@ BufferedImage bufferedImage = ImageIO.read(new URL(fileUrl)); // return null???
 // build.gradle
 
 implementation group: 'com.twelvemonkeys.imageio', name: 'imageio-jpeg', version: '3.9.4'
+implementation group: 'com.twelvemonkeys.imageio', name: 'imageio-webp', version: '3.9.4'
+implementation group: 'com.twelvemonkeys.imageio', name: 'imageio-bmp', version: '3.9.4'
+implementation group: 'com.twelvemonkeys.imageio', name: 'imageio-hdr', version: '3.9.4'
+implementation group: 'com.twelvemonkeys.imageio', name: 'imageio-icns', version: '3.9.4'
+implementation group: 'com.twelvemonkeys.imageio', name: 'imageio-iff', version: '3.9.4'
+implementation group: 'com.twelvemonkeys.imageio', name: 'imageio-jpeg', version: '3.9.4'
+implementation group: 'com.twelvemonkeys.imageio', name: 'imageio-pcx', version: '3.9.4'
+implementation group: 'com.twelvemonkeys.imageio', name: 'imageio-pict', version: '3.9.4'
+implementation group: 'com.twelvemonkeys.imageio', name: 'imageio-pnm', version: '3.9.4'
+implementation group: 'com.twelvemonkeys.imageio', name: 'imageio-psd', version: '3.9.4'
+implementation group: 'com.twelvemonkeys.imageio', name: 'imageio-sgi', version: '3.9.4'
+implementation group: 'com.twelvemonkeys.imageio', name: 'imageio-tga', version: '3.9.4'
+implementation group: 'com.twelvemonkeys.imageio', name: 'imageio-thumbsdb', version: '3.9.4'
+implementation group: 'com.twelvemonkeys.imageio', name: 'imageio-tiff', version: '3.9.4'
+implementation group: 'com.twelvemonkeys.imageio', name: 'imageio-xwd', version: '3.9.4'
 ```
 
-{% hint style="info" %}
+{% hint style="success" %}
 출처\
 \
 [https://bestofme-20.tistory.com/353](https://bestofme-20.tistory.com/353)
