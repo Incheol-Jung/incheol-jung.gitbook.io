@@ -75,6 +75,7 @@
   * [DEVOPS](q-and-a/infra/devops.md)
   * [JWT](q-and-a/infra/jwt.md)
   * [MSA](q-and-a/infra/msa.md)
+  * [핀포인트 사용시 주의사항!! (feat 로그 파일 사이즈)](q-and-a/infra/feat.md)
   * [OSI 7 Layer](q-and-a/infra/osi-7-layer-todo.md)
 * [CULTURE](q-and-a/culture/README.md)
   * [AGILE](q-and-a/culture/2018-01-12-introduce-agile.md)
