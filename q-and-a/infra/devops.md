@@ -4,11 +4,11 @@ description: DEVOPS에 대해 알아보자
 
 # DEVOPS
 
-![https://kkhipp.tistory.com/m/188?category=794639](../../.gitbook/assets/img%20%281%29.png)
+![https://kkhipp.tistory.com/m/188?category=794639](<../../.gitbook/assets/img (1).png>)
 
 ## SOFTWARE DEVELOPMENT IS CHANGING
 
-![](../../.gitbook/assets/1%20%2817%29.png)
+![](<../../.gitbook/assets/1 (17).png>)
 
 소프트웨어 개발은 트렌드에 맞춰 진화하며 변화하고 있다.
 
@@ -26,7 +26,7 @@ description: DEVOPS에 대해 알아보자
 
 ## 우리가 새로운 기술을 받아들이는 시점
 
-![](../../.gitbook/assets/2%20%287%29.png)
+![](<../../.gitbook/assets/2 (7).png>)
 
 현재 소프트웨어 개발은 소프트웨어의 기술에 포커스를 맞춰지기 보단 빠르게 변화하는 시장에서 어느 제품이 트렌드에 맞춰 변화하고 있다.
 
@@ -44,7 +44,7 @@ description: DEVOPS에 대해 알아보자
 
 데브옵스에 대한 정의를 구글링을 통해 알아보았다.
 
-![](../../.gitbook/assets/3%20%287%29.png)
+![](<../../.gitbook/assets/3 (7).png>)
 
 ### Devops에 대한 오해를 살펴보자
 
@@ -63,7 +63,7 @@ description: DEVOPS에 대해 알아보자
 
 Devops를 적용하게 되면 실제로 어느정도 개선이 될 수 있을까? Devops로 진행한 업체와 그렇지 않은 업체에 대한 퍼포먼스를 정량적으로 수치화할 경우 코드 배포 율은 46배 증가하였고, 변경 실패율은 7배 감소하였고, 배포환경까지 배포하는 시간은 2555배 단축되었을 뿐만 아니라 버그나 오류에 대한 복구 시간은 2604배나 빨라졌다는 통계를 확인할 수 있다.
 
-![](../../.gitbook/assets/4%20%283%29.png)
+![](<../../.gitbook/assets/4 (3) (1).png>)
 
 ## 결론을 내보자
 
@@ -75,4 +75,3 @@ Devops를 적용하게 되면 실제로 어느정도 개선이 될 수 있을까
 ## 참고
 
 * [https://www.slideshare.net/rockplace/191211-02](https://www.slideshare.net/rockplace/191211-02)
-

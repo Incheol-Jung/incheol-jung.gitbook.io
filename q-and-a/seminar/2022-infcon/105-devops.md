@@ -16,14 +16,14 @@
 * 실력이 좋은 개발자는 많지만 실제로 일정산정을 하는 부분은 어려워하는 개발자도 많다
 * 실제로 아마존은 평균 11.7초 당 한번씩 배포한다고 측정되어진다
 
-<figure><img src="../../../.gitbook/assets/1 (3).jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/1.jpeg" alt=""><figcaption></figcaption></figure>
 
 ### Q. 어떻게 하면 개발과 배포를 빠르게 할수 있을까?
 
 * 공부 열심히 하기(인강, 스터디, 컨퍼런스를 이용한다)
 * 양으로 승부한다(개발자를 많이 채용한다. 하지만.. 대기업만큼 채용이 쉽게 되지는 않는다…ㅜ)
 
-<figure><img src="../../../.gitbook/assets/2 (3).jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/2.jpeg" alt=""><figcaption></figcaption></figure>
 
 * 애자일 및 각종 방법론 도입하기
 * MSA 도입(생각보다 어렵다…ㅜ)
@@ -44,7 +44,7 @@
 
 #### 데브옵스 진화 과정
 
-<figure><img src="../../../.gitbook/assets/4 (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/4 (1).png" alt=""><figcaption></figcaption></figure>
 
 1. 개발자 한명이 IDE를 사용하여 개발한다
 2. 점차 개발자가 투입되면서 코드 형상관리를 도입한다
@@ -62,7 +62,7 @@
 
 ### DevOps를 도입하려면 어떤 과정이 필요한가?
 
-<figure><img src="../../../.gitbook/assets/6 (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/6 (1).png" alt=""><figcaption></figcaption></figure>
 
 * 개발과 배포 사이에는 다양한 과정이 존재 한다
 * 이런 과정 모두가 지연이 되는 요소로 자리 잡고 있으며 개선해나가는 과정이 곧 DevOps라고 할수 있다
@@ -108,7 +108,7 @@
 
 ### DevOps를 지금 당장 해야 하는 이유는 무엇인가?
 
-<figure><img src="../../../.gitbook/assets/7 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/7.png" alt=""><figcaption></figcaption></figure>
 
 * 하루 10분 절약 → 한달이면 200분 → 개발자수 만큼?
 * 데브옵스 과정에서 생각보다 많은 인프라 지식을 배울 수 있다

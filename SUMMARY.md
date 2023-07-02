@@ -30,6 +30,7 @@
   * [테스트 코드 성능 개선기](q-and-a/spring/undefined-1.md)
   * [OSIV](q-and-a/spring/osiv.md)
   * [@Valid 동작 원리](q-and-a/spring/valid.md)
+  * [mybatis @Builder 주의사항](q-and-a/spring/mybatis-builder.md)
   * [Spring Boot 특징](q-and-a/spring/spring-boot.md)
   * [Spring 5 특징](q-and-a/spring/spring-5.md)
   * [JPA vs MyBatis](q-and-a/spring/jpa-vs-mybatis.md)
