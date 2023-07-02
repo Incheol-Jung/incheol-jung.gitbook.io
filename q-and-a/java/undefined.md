@@ -35,7 +35,7 @@
 
 ### 이미지 리사이즈 컨슈머 구현 로직
 
-<figure><img src="../../.gitbook/assets/2 (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2 (4).png" alt=""><figcaption></figcaption></figure>
 
 #### 1. 사이즈별 이미지 업로드
 

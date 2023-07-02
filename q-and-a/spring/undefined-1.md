@@ -18,7 +18,7 @@
 
  
 
-<figure><img src="../../.gitbook/assets/2 (4).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2 (1).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
 
 </div>
 
@@ -30,7 +30,7 @@ PR 생성하면서 빌드를 수행하는데 끝날 기미가 보이지 않았�
 
 
 
-<figure><img src="../../.gitbook/assets/3 (5).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/3 (6).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
 
 #### 그렇다..
 
@@ -173,7 +173,7 @@ You will use _@SpringBootTest_  annotation to create integration tests that invo
 
 <div data-full-width="true">
 
-<figure><img src="../../.gitbook/assets/7.png" alt=""><figcaption><p><a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&#x26;blogId=ja2_01&#x26;logNo=221842728124">https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&#x26;blogId=ja2_01&#x26;logNo=221842728124</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/7 (2).png" alt=""><figcaption><p><a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&#x26;blogId=ja2_01&#x26;logNo=221842728124">https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&#x26;blogId=ja2_01&#x26;logNo=221842728124</a></p></figcaption></figure>
 
 </div>
 
@@ -197,7 +197,7 @@ PR 생성시 빌드할때는 github action을 사용한다
 
 
 
-<figure><img src="../../.gitbook/assets/9 (2).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/9.png" alt=""><figcaption><p>github.com</p></figcaption></figure>
 
 * microsoft에서 보면 해당 사양은 `CPU 2`, `7GB` 메모리라고 되어있다
 
