@@ -1,271 +1,445 @@
-# 테스트 코드 성능 개선기
+# 테스트 코드 어디까지  알아보고 오셨어요?
 
-<div data-full-width="true">
+<figure><img src="../../.gitbook/assets/1.jpg" alt=""><figcaption><p><a href="https://brunch.co.kr/@pi1ercho/9">https://brunch.co.kr/@pi1ercho/9</a></p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/1.gif" alt=""><figcaption><p><a href="https://extmovie.com/movietalk/69993503">https://extmovie.com/movietalk/69993503</a></p></figcaption></figure>
+## 테스트 코드를 작성 해야 하는 이유?
 
-</div>
+#### 코드를 믿을 수 없다
 
-그날은 유난히도 추웠다….
+* 배포하고 돌려본다
+* 에러가 발생하면 재배포해서 다시 돌려본다
+* 기능을 추가하거나 변경할 때마다 이전에 동작한 모든 기능들에 대해서 잘 동작하는지 돌려보면서 확인해본다..
 
-그 녀석을 만난건 유난히도 추웠던 어느날이었다…
+#### 요구사항을 알수 없다
 
-테스트 코드를 도입한지 한달이 넘어가던 시점이었다..
+* 작가 정보를 추가한다
+* 작가 테이블에는 사용자 정보가 존재해야 저장이 가능하다
+* 사용자가 탈퇴후 작가 정보를 추가한다면..?
+* FK 제한이 있어 에러가 발생한다..
 
-<div>
+#### 기능을 변경하거나 확장하기 어렵다
 
-<img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/adc88591-8a17-4b6b-9a5f-49cb375907b8/Untitled.png" alt="">
+* 작가명을 20자에서 30자로 변경하려고 한다
+* 파라미터의 글자수 제한을 변경하였다
+* 그리고 배포하였다..
+* 하지만 디비 스키마는 반영되지 않았다..
+* 배포한 이후에 작가명 수정 API에서 에러가 발생한다…
 
- 
+## 단위 테스트 vs 통합 테스트
 
-<figure><img src="../../.gitbook/assets/2 (3).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
+#### 단위 테스트
 
-</div>
+* 단위 테스트에 대한 기준은 없다. 단위 테스트는 최소한의 범위로 메소드 단위나 클래스 단위로 하는걸 권장한다
+* 메소드나 클래스 단위라면 의존하는 타 클래스는 단위 클래스 범주에서 벗어나는 영역이다
+* 단위 테스트 관점에서 타 클래스의 구현 로직은 관심 밖이다
+* 그러므로 타 클래스나 메서드는 모킹하여 처리한다
 
-여느때 처럼 PR이 올라오고 있었는데…
+#### 통합 테스트
 
-PR 생성하면서 빌드를 수행하는데 끝날 기미가 보이지 않았다..
+* 단위 테스트를 통합한 범위다
+* 단위 테스트에서 의존적인 타 클래스나 메소드도 테스트 범주안에 들어 있다
+* 기능을 테스트하면서 연관된 모든 클래스와 메서드는 통합 테스트 범주에 속한다
 
-그렇게 기다려보니 빌드는 성공하였고 빌드 수행시간이 13분을 육박하였다…
-
-
-
-<figure><img src="../../.gitbook/assets/3 (1).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
-
-#### 그렇다..
-
-이제 PR 하나를 생성하면 최소 13분은 기다려야 리뷰를 할수 있는 상태가 되고 만약 리뷰의 내용을 수정하려면 또 다시 13분을 기다려야 한다…
-
-→ 기능 하나 추가하는 시간이 너무 오래 걸린다..
-
-→ 이렇다보니 테스트 코드를 작성하는것도 부담이 되고 PR을 올리는것조차 부담이 된다..
-
-→ 시간이 오래 걸리니 한번에 많은 기능을 하나의 PR에 묻어가고 싶은 마음이 든다…
-
-→ 하나의 PR에 많은 기능을 넣다보니 리뷰도 원활히 되지 않는다…
-
-→ 리뷰가 원활히 되지 않으니 동적으로 발생하는 오류 사항을 놓치고 만다…
-
-→ 그렇게 우리 서비스는 점차 지뢰 밭이 되고 만다…?
+{% hint style="success" %}
+참고\
+\
+[https://tecoble.techcourse.co.kr/post/2021-05-25-unit-test-vs-integration-test-vs-acceptance-test/](https://tecoble.techcourse.co.kr/post/2021-05-25-unit-test-vs-integration-test-vs-acceptance-test/)
+{% endhint %}
 
 
 
-<figure><img src="../../.gitbook/assets/4 (1).png" alt=""><figcaption><p><a href="https://brunch.co.kr/@roysday/568">https://brunch.co.kr/@roysday/568</a></p></figcaption></figure>
+## mockito
+
+* given 절에는 필요한 데이터를 만들어주는 로직도 있지만, mock 데이터에 대한 메서드 수행 로직을 정의하기도 한다
+* 단위 테스트에서는 의존하는 클래스는 테스트 범주에 벗어나므로 mock 처리하는게 일반적이다
+* 의존하는 클래스나 메서드를 그대로 사용해도 되지만 멱등성을 보장할 수 없고, 만약 단순한 로직이 아닌 network 통신이 필요한 로직이라면 네트워크 상태에 따라서 테스트를 보장할 수 없다
+* 그래서 단위 테스트를 100% 보장하기 위해선 의존하는 클래스에 영향을 받으면 안된다
+* 이를 해결하기 위해 의존하는 클래스를 mock 처리한다
+* mock 처리하는 다양한 라이브러리가 있는데 가장 많이 사용하는 mockito를 사용하기로 했다
+*   mockito에는 다양한 메서드를 제공한다
+
+    * [https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html)
+
+    #### given() vs when()
+
+    * given 절에 Mockito에 when() 메서드를 사용할수도 있고, BDDMockito의 given() 메서드를 사용할 수 있다
+    *   초기에 Mockito 라이브러리는 when()을 제공하였는데, 점차 given이라는 의미와 when() 메서드가 의미상 부합되지 않음을 깨닫고 그 이후에 업데이트된 라이브러리에는 given()이라는 메서드를 제공하게 되었다고 한다. 그래서 기능상 차이는 없을지라도 의미상 given()을 쓰는것을 권장하고 있다
+
+        ```jsx
+        The problem is that current stubbing api with canonical role of when word does not integrate nicely with //given //when //then comments. 
+        It's because stubbing belongs to given component of the test and not to the when component of the test. 
+        Hence BDDMockito class introduces an alias so that you stub method calls with BDDMockito.given(Object) method. 
+        Now it really nicely integrates with the given component of a BDD style test!
+
+        출처 : <https://javadoc.io/static/org.mockito/mockito-core/5.1.0/org/mockito/Mockito.html>
+        ```
+
+## Assert
+
+*   일반적인 테스트 코드 포맷이다
+
+    ```jsx
+    @Test
+    @DisplayName("사용자 아이디가 1인 카테고리 목록은 존재해야 한다")
+    void getList() {
+        // given
+        GetListCategoryParameter parameter = GetListCategoryParameter.builder().targetId(1).build();
+
+        // when
+        List<Category> categories = categoryRepository.getList(parameter);
+
+        // then
+        Assertions.assertFalse(categories.isEmpty());
+    }
+    ```
+* given(), when(), then()을 기준으로 테스트 코드를 구성한다
+  * given() : 테스트에 필요한 데이터를 구성한다
+  * when() : 테스트할 구현 메서드를 구성한다
+  * then() : 구현 메서드 이후에 의도한 대로 데이터가 변경되었는지 구성한다
+* then() 로직에서 다양한 검증 로직을 수행할 수 있는데 일반적으로 Assert를 많이 사용한다
+
+{% hint style="success" %}
+참고\
+\
+[https://velog.io/@ynjch97/JUnit5-JUnit5-구성-어노테이션-Assertions-정리](https://velog.io/@ynjch97/JUnit5-JUnit5-%EA%B5%AC%EC%84%B1-%EC%96%B4%EB%85%B8%ED%85%8C%EC%9D%B4%EC%85%98-Assertions-%EC%A0%95%EB%A6%AC)
+{% endhint %}
+
+##
+
+## DAO 테스트
+
+* dao를 테스트에서 제일 중요한건 데이터 정합성이다
+*   데이터 정합성 테스트 하는 기준은 두 가지 이다
+
+    * 수행하려는 데이터는 데이터베이스 스키마를 유지하였는가?
+    * 수행하려는 데이터는 우리의 의도대로 데이터가 변경되었는가?
+
+    ```jsx
+    @Test
+    @DisplayName("completeYn을 'true'로 하면 조회시 completeYn은 true여야 한다")
+    void updateCompleteYn() {
+        // given
+        UpdateCompleteYnParameter parameter = UpdateCompleteYnParameter.builder().userId(1).completeYn(true).build();
+
+        // when
+        userRepository.updateCompleteYn(parameter);
+
+        // then
+        UserInfo userInfo = userRepository.getUserInfoByUserId(1);
+        Assertions.assertEquals(userInfo.getId(), 1);
+        Assertions.assertEquals(userInfo.isInfoCompleteYn(), true);
+    }
+
+    @Test
+    @DisplayName("completeYn이 true여야 한다")
+    void isCompleteYn() {
+        // given
+        UpdateCompleteYnParameter parameter = UpdateCompleteYnParameter.builder().userId(1).completeYn(true).build();
+        userRepository.updateCompleteYn(parameter);
+
+        // when
+        boolean completeYn = userRepository.isCompleteYn(1);
+
+        // then
+        Assertions.assertTrue(completeYn);
+    }
+    ```
+* 단, 여기서 주의할 점은 dao 테스트 코드를 보면 한 가지 불편한 부분이 보인다
+  * 조회하는 로직을 테스트할 경우 기존에 데이터가 존재한다는 가정하에 결과값을 검증하는 테스트 코드가 있다
+  * 어쩌면 단위 테스트 입장에서는 데이터베이스 또한 외부 모듈로 판단할 수 있다
+  * 데이터베이스 서버가 다운되면 repository 테스트 코드가 실패나기 때문이다
+  * 이를 해결하기 위해서는 프레임워크 내장 데이터베이스(h2)를 사용할 순 있지만 jpa를 사용하지 않는 이상 우리가 사용하는 스키마를 반영하기 위해서는 sql 파일이 필요하고 변경될때마다 동기화해주어야 한다
+  * 그래서 현재는 개발 데이터베이스를 통해서 테스트 로직을 수행하고 있다
+  *   만약 테스트용 디비 구축이 부담스럽다면 docker-compose 플러그인으로 해결할 수 있다
+
+      ```jsx
+      // build.gradle
+
+      classpath "com.avast.gradle:gradle-docker-compose-plugin:0.16.12"
+
+      ...
+
+      apply plugin: 'docker-compose'
+
+      ...
+
+      dockerCompose.isRequiredBy(test) // 테스트 수행시에만 docker-compose 플러그인을 실행시킴
+
+      dockerCompose {
+      		useComposeFiles = ['docker-compose.yml'] // docker-compose 플러그인 실행시 사용할 파일 설정
+      		
+      		captureContainersOutput = true
+      		removeContainers = true
+      		stopContainers = true
+      }
+      ```
+
+      ```jsx
+      // docker-compose.yml
+
+      version: "3"
+
+      services:
+        mariadb:
+          image: mariadb:10.5
+          container_name: mariadb
+          ports:
+            - 3306:3306
+          environment:
+            TZ: Asia/Seoul
+            MYSQL_HOST: localhost
+            MYSQL_PORT: 3306
+            MYSQL_ROOT_PASSWORD: "password"
+            MYSQL_DATABASE: test
+          restart: always
+      ```
+
+## void
+
+* 일반적인 테스트 코드는 메서드를 수행하고 결과값을 비교하여 의도한 대로 구현되었는지 코드를 검증한다
+* 그러나 CUD 로직에는 결과값이 없을 수 있다
+
+#### 그럼 결과값이 없는 메서드는 어떻게 테스트 해야 할까?
+
+* void 형태의 메서드일 경우에 검증할 수 있는 두 가지 방법이 있다
+  1.  테스트할 메서드를 수행하고 조회하는 메서드를 통해서 의도한 대로 수행되었는지 확인한다
+
+      * DAO일 경우에는, 실제로 데이터베이스의 데이터를 변경하여 조회하는 데이터를 사용하여 검증이 가능하지만 DAO를 mock 처리할 경우에는 데이터가 실제로 변경되지 않기때문에 의미가 없을 수 있다
+
+      ```jsx
+      @Test
+      @DisplayName("카테고리 이름을 'TEST_CATEGORY'로 변경하여 조회시 변경된 이름으로 조회되어야 한다")
+      void modify() {
+          // given
+          String testCategoryName = "TEST_CATEGORY";
+          int targetId = 1;
+          int categoryId = 1;
+          ModifyCategoryParameter parameter = ModifyCategoryParameter.builder()
+                  .categoryId(categoryId)
+                  .targetId(targetId)
+                  .categoryName(testCategoryName)
+                  .sortNo(1)
+                  .build();
+
+          // when
+          categoryRepository.modify(parameter);
+
+          // then
+          Category category = categoryRepository.get(GetCategoryParameter.builder()
+                  .targetId(targetId)
+                  .categoryId(categoryId)
+                  .build());
+
+          Assertions.assertEquals(category.getCategoryName(), testCategoryName);
+      }
+      ```
+  2.  데이터는 변경되었다고 가정한다. 의도한 대로 메서드가 수행되었는지 검증한다
+
+      * 올바르지 않은 데이터 인입시 예외 처리가 되었거나 테스트 수행시 의도한 대로 메서드가 수행되었는지 확인한다
+      * mock 클래스의 특정 메서드에서 리턴값이 없을 경우에는 given을 사용할 수 없다
+      * 그때는 doNothing()을 사용하여 목 데이터에게 메서드가 수행되었다고 가정할 수 있다
+
+      ```jsx
+      @Test
+      @DisplayName("카테고리 생성시 respository는 무조건 한번은 호출해야 한다")
+      void insert() {
+          // given
+          InsertCategoryParameter parameter = InsertCategoryParameter.builder().build();
+          doNothing().when(categoryRepository).insert(parameter);
+
+          // when
+          categoryService.insert(parameter);
+
+          // then
+          Mockito.verify(categoryRepository, times(1)).insert(parameter);
+      }
+      ```
+
+{% hint style="success" %}
+참고\
+\
+[https://www.baeldung.com/mockito-void-methods](https://www.baeldung.com/mockito-void-methods)
+{% endhint %}
 
 
 
-## 개선이 시급하다
+## controller 테스트하기
 
+* 컨트롤러의 테스트 목적은 두 가지이다
+  * request에 대한 검증 로직이 구현되었는지?
+  * 공유해준 API SPEC이 맞는지? 또는 API는 RESTFUL한지 확인한다
+* 이를 확인하기 위해 api를 호출해봐야 하는데 우리는 `MockMvc`를 사용하였다
+* MockMvc를 사용하면 postman 없이 테스트 수행하면서 내부적으로 api를 호출해볼 수 있다
 
+### GET method 테스트 하기
 
-<div data-full-width="true">
-
-<figure><img src="../../.gitbook/assets/5 (4).png" alt=""><figcaption><p><a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&#x26;blogId=yean5rang&#x26;logNo=50090277323">https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&#x26;blogId=yean5rang&#x26;logNo=50090277323</a></p></figcaption></figure>
-
-</div>
-
-
-
-### 우선 느려지는 원인에 대해서 파악해보자
-
-* 우리는 현재 단위 테스트만 작성하고 있다
-* 그러므로 참조하는 객체는 모킹처리 하고 타겟 클래스에 대해서만 로직을 검증하고 있다
-* 그런데 테스트 클래스 상단에 @SpringBootTest 어노테이션을 사용하다 보니 애플리케이션 컨텍스트에 있는 모든 bean이 로드되는게 속도 저하가 발생하는 가장 큰 원인이었다
-* 그래서 불필요한 bean은 로드하지 않고 필요한 bean만 사용하도록 개선이 필요하다
-
-#### 데이터 커넥션 회피하기
-
-* 불필요한 bean중에 하나가 데이터 커넥션 풀이다
-* 테스트 코드에 필요한 데이터 커넥션은 DAO 테스트코드에서만 필요하다
-* 그러므로 그 외에 작성된 테스트 코드에서는 DAO가 모킹처리되기 때문에 데이터 커넥션이 필요없다
-* 데이터 커넥션이 필요하지 않는 테스트 클래스에는 데이터 커넥션에 사용하는 bean을 제외시킨다
+* get 메서드는 조회용 API가 대부분이다
+* status code는 200일 경우가 높고, 리턴값이 있을 것이다
+* 체크할것은 두 가지이다
+  * statuscode가 기대한값과 동일한지?
+  * 기대한 결과값인지?
 
 ```jsx
-@EnableAutoConfiguration(exclude= DataSourceAutoConfiguration.class)
+// when
+MvcResult result = mockMvc.perform(get("/artists/trendings")).andExpect(status().isOk()).andReturn();
+byte[] contentAsByteArray = result.getResponse().getContentAsByteArray();
+
+// then
+List<TrendingArtistResponse> artistResponses = objectMapper.readValue(contentAsByteArray, new TypeReference<>() {
+});
+Assertions.assertFalse(artistResponses.isEmpty());
 ```
 
-#### 카프카 커넥션 회피하기
+### POST/PUT/DELETE
 
-* 카프카 컨슈머, 프로듀서에서 사용되는 bean을 제외시킨다
+* CUD 관련 API는 데이터를 변경하는 API일 가능성이 매우 높다
+* status code는 rest api면 존재할 것이다
+  * 201 : 생성시
+  * 202 : 수정시
+  * 200 : 삭제시?
+* response는 존재할수도 있지만 대부분 존재 하지 않을 것이다.
+* 그렇다면 status code만 검증하면 될까?
+* 파라미터 검증도 되었고 status code로 우리가 원하는 로직도 검증되었다
+* 추가로 검증하는 로직은 void 형태 검증에서 사용되었던 times()로 추가되었다
 
 ```jsx
-@EnableAutoConfiguration(exclude= KafkaAutoConfiguration.class)
+// given
+UpdateArtistNameRequest request = UpdateArtistNameRequest.builder()
+        .korNm("정인철")
+        .engNm("incheol")
+        .defaultNameLanguage(ArtistNameDefaultLang.ENG)
+        .build();
+doNothing().when(externalArtistService).updateArtistName(any(UpdateArtistNameRequest.class), eq(1));
+
+// when
+byte[] bytes = objectMapper.writeValueAsBytes(request);
+mockMvc.perform(put("/artists/name").content(bytes).contentType(MediaType.APPLICATION_JSON))
+        .andExpect(status().isOk());
+
+// then
+verify(externalArtistService, times(1)).updateArtistName(any(UpdateArtistNameRequest.class), eq(1));
 ```
 
-#### **@EnableAutoConfiguration 사용시 주의사항**
+### 그렇다면 file 업로드는 어떻게 할까?
 
-\<aside> 💡 **@EnableAutoConfiguration 사용시 주의사항 !!!** 특정 bean을 제외시키면 모든 bean을 로드시키지 못하게 된다. 그래서 로드할 bean을 지정해주어야 한다
-
-`@SpringBootTest(classes = ExternalLoginService.class)`
-
-위와 같이 classes에 로드할 bean 클래스를 지정해주자
-
-\</aside>
-
-#### 서비스 디스커버리 회피하기
-
-* 서비스 디스커버리 연결도 테스트 코드에선 무의미 하다
-* 로컬에선 디스커버리 연결할 필요가 없으니 비활성화 시키자
+* file도 mock 처리가 가능하다
+* MockMultipartFile을 사용하여 내용은 임의의 텍스트로 생성이 가능하다
 
 ```jsx
-// application-local.yml
+// when
+externalArtistService.updatePresentImages(List.of(new MockMultipartFile("images", "TEST".getBytes())), 1);
 
-eureka:
-  client:
-    enabled: false
+// then
+verify(artistService, times(1)).getByUserId(eq(1));
+verify(externalAttachUploadService, times(1)).validateAttachedPresentImages(any(List.class));
+verify(externalAttachUploadService, times(1)).registerAttach(any(List.class), any(ArtyConstant.AmazonFolderType.class), eq(1));
 ```
 
-#### 스프링 클라우드 버스 카프카 회피하기
+{% hint style="success" %}
+참고\
+\
+[https://ykh6242.tistory.com/entry/Spring-Web-MVC-Multipart-요청-다루기](https://ykh6242.tistory.com/entry/Spring-Web-MVC-Multipart-%EC%9A%94%EC%B2%AD-%EB%8B%A4%EB%A3%A8%EA%B8%B0)
+{% endhint %}
+
 
-* 스프링 클라우드 버스를 통해서 프로퍼티를 자동 갱신할 수 있다
-* 하지만 이도 로컬 또는 테스트 코드에선 의미가 없으니 비활성화 시킨다
-* 그러면 카프카 컨슈머 생성도 완전히 회피할 수 있다
 
-```jsx
-// application-local.yml
 
-spring:
-  cloud:
-    bus:
-      enabled: false
-```
 
-#### 콘트롤러 테스트 코드 작성시 @SpringbootTest 사용 지양하기
+## 작성된 테스트 코드는 어떻게 검증 할 수 있을까?
 
-* 우리는 불필요한 bean을 로드하는 것을 최대한 줄여야 한다
-* exclude를 사용해서 제한할수도 있지만, 근본적인 @SpringbootTest 사용을 지양할 수 있다면 별도 제한 설정을 하지 않아도 될것이다
+### jacoco
 
-#### 그럼 @SpringbootTest를 사용하지 않고 어느걸 사용할 수 있을까?
+* jacoco 라이브러리를 사용하면 테스트 커버리지를 확인할 수 있다
+* 테스트 커버리지 종류는 총 세가지로 분류된다
+  *   라인 커버리지
 
-* API 통신에 MockMvc를 사용한다면 @WebMvcTest를 사용할 수 있다
-* @WebMvcTest를 사용하면 애플리케이션에서 있는 모든 bean을 로드하지 않고 web layer에서 필요한 bean들만 로드한다는 것을 알 수 있다
-* 그리고 MockMvc를 사용할 때 주의할 게 있는데, 테스트 코드를 수행해보면 4xx에러가 발생하는것을 알수 있다. 이는 security 제한이 있을 수 있으니 security 설정도 disable 해야 한다
+      * 단순히 라인을 얼마나 커버했는지 측정한다
 
-```jsx
-@WebMvcTest(excludeAutoConfiguration = {SecurityAutoConfiguration.class})
-```
 
-#### @SpringBootTest vs @WebMvcTest
 
-\<aside> 💡 **Difference Between @SpringBootTest and @WebMvcTest**
+      <figure><img src="../../.gitbook/assets/2 (1).png" alt=""><figcaption></figcaption></figure>
+  *   브랜치 커버리지
 
-You will use _@SpringBootTest_  annotation to create integration tests that involve all three layers of your application (i.e. _Web, Service, and Data layer_ ). And you will use _@WebMvcTest_  annotation when you need to create integration tests or unit tests of the [Web MVC](https://www.appsdeveloperblog.com/spring-web-mvc-video-tutorials/)  Layer only (i.e. controllers). Because when using _@WebMvcTest_  annotation dependencies on the Service or Data layer will need to be mocked.
+      * 조건문에서 true/false의 케이스를 얼마나 충족했는지 측정한다
 
-출처 : [https://www.appsdeveloperblog.com/difference-between-springboottest-and-webmvctest/](https://www.appsdeveloperblog.com/difference-between-springboottest-and-webmvctest/)
 
-\</aside>
 
-### 그럼 이제 결과를 한번 볼까나..?
+      <figure><img src="../../.gitbook/assets/3 (6).png" alt=""><figcaption></figcaption></figure>
+  * 컨디션 커버리지
+    * 조건문에서 발생가능한 모든 조건을 얼마나 충족했는지 측정한다
+* jacoco 설정
+  *   import library
 
+      ```jsx
+      //build.gradle
+      plugins {
+          ...
+          id 'jacoco'
+      }
 
+      allprojects {
+          ...
+          apply plugin: 'jacoco'
 
-<figure><img src="../../.gitbook/assets/6 (1).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
+      		jacocoTestReport {
+      		    reports {
+      		        html.enabled true
+      		        csv.enabled true
+      		        xml.enabled true
+      		        xml.destination file("${buildDir}/reports/jacoco/testCoverage/testCoverage.xml")
+      		    }
+      		
+      		    afterEvaluate {
+      		        classDirectories.setFrom(files(classDirectories.files.collect {
+      		            fileTree(dir: it, exclude: [
+      		                    "**/model/*",
+      		                    "**/config/*",
+      		                    "**/enums/*",
+      		                    "**/exception/*",
+      		                    "**/config/*",
+      		                    "**/constant/*",
+      		                    "**/infrastructure/*"
+      		            ])
+      		        }))
+      		    }
+      		
+      		    finalizedBy jacocoTestCoverageVerification
+      		    finalizedBy testCodeCoverageReport
+      		}
+      }
 
+      ```
+* jacoco 확인 결과(build/reports/jacoco/test/html/index.html)
 
+<figure><img src="../../.gitbook/assets/4 (2).png" alt=""><figcaption></figcaption></figure>
 
-9분 50초…?
+### github action
 
-6분 50초도 아니고.. 5분 50초도 아니고… 9분..?
+* 그럼 매번 PR 올릴때 마다 jacoco를 통해서 커버리지를 확인해야 할까?
+* 아니다. 그렇지 않다
+* github action을 통해서 라인 커버리지를 실시간으로 확인할 수 있다
 
-이러려고 수십개의 테스트 파일을 수정하였나….
+<figure><img src="../../.gitbook/assets/5 (3).png" alt=""><figcaption></figcaption></figure>
 
+* github action 설정
+  *   스텝 추가 (path는 `jacocoTestReport`.`reports`.`xml.destination` 설정과 동일한 경로로 설정한다)
 
+      ```jsx
+      - name: Add coverage to PR
+        id: jacoco
+        uses: madrapps/jacoco-report@v1.3
+        with:
+          paths: ${{ github.workspace }}/core/build/reports/jacoco/testCoverage/testCoverage.xml, ${{ github.workspace }}/external-api/build/reports/jacoco/testCoverage/testCoverage.xml
+          token: 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
+          min-coverage-overall: 0
+          min-coverage-changed-files: 60
+      ```
 
-<div data-full-width="true">
+{% hint style="success" %}
+참고\
+\
+[https://github.com/Madrapps/jacoco-report](https://github.com/Madrapps/jacoco-report)
+{% endhint %}
 
-<figure><img src="../../.gitbook/assets/7 (2).png" alt=""><figcaption><p><a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&#x26;blogId=ja2_01&#x26;logNo=221842728124">https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&#x26;blogId=ja2_01&#x26;logNo=221842728124</a></p></figcaption></figure>
 
-</div>
 
-
-
-### 그럼 시선을 돌려 외부 환경을 개선해보자!!!
-
-PR 생성시 빌드할때는 github action을 사용한다
-
-그런데 github 에서는 github action을 수행할때 `runner`의 스펙 사양을 유료로 제공하고 있다
-
-#### 그럼 현재 기본으로 사용하고 있는 runner 사양은 어떻게 되나?
-
-
-
-<figure><img src="../../.gitbook/assets/8.png" alt=""><figcaption><p>github.com</p></figcaption></figure>
-
-
-
-* github에서 기본으로 제공하고 있는 기본 runner의 사양은 Standard\_DS2\_v2로 제공한다고 되어있다
-
-
-
-<figure><img src="../../.gitbook/assets/9.png" alt=""><figcaption><p>github.com</p></figcaption></figure>
-
-* microsoft에서 보면 해당 사양은 `CPU 2`, `7GB` 메모리라고 되어있다
-
-<figure><img src="../../.gitbook/assets/10.png" alt=""><figcaption><p>github.com</p></figcaption></figure>
-
-
-
-#### 그럼 메모리와 core를 올려서 다시 빌드해보자
-
-
-
-<figure><img src="../../.gitbook/assets/11.png" alt=""><figcaption><p>github.com</p></figcaption></figure>
-
-
-
-* core는 16, 메모리는 64GB의 클라우드 환경 runner를 생성하였다
-* runner를 지정하자
-
-```jsx
-jobs:
-  build:
-    name: BUILD
-    runs-on: ubuntu-latest-16-cores // runner의 라벨명을 사용
-```
-
-## 그럼 결과는 어떻게 되었을까?
-
-#### `13분 → 6분대로 속도가 개선된 것을 확인할 수 있다`
-
-
-
-<figure><img src="../../.gitbook/assets/12.png" alt=""><figcaption><p>github.com</p></figcaption></figure>
-
-
-
-#### 여기서 조금만 더 욕심을 내보자면…
-
-* 테스트 코드는 독립적이라 병렬로 처리되면 더 속도를 줄일 수 있을것 같다..
-* junit 5에서는 property를 사용하여 간단하게 병렬 처리를 수행할수 있다
-* 참고 : [https://junit.org/junit5/docs/snapshot/user-guide/](https://junit.org/junit5/docs/snapshot/user-guide/)
-
-```jsx
-// 병렬처리 활성화 여부
-junit.jupiter.execution.parallel.enabled=true
-
-// 병렬처리시 클래스내 메소드를 같은 쓰레드로 돌릴지 여부(same_thread는 같은 쓰레드, concurrent는 다른 쓰레드)
-junit.jupiter.execution.parallel.mode.default=same_thread
-
-// 클래스별 병렬처리는 같은 쓰레드로 수행할지
-junit.jupiter.execution.parallel.mode.classes.default=concurrent
-
-// 병렬처리시 쓰레드 할당 방법(dynimic은 코어당 최대 8개 사용, fixed는 쓰레드 갯수를 지정)
-junit.jupiter.execution.parallel.config.strategy=fixed
-
-// 쓰레드 갯수 지정(dynamic일 경우 최댓값이 1, fixed
-junit.jupiter.execution.parallel.config.fixed.parallelism=3
-```
-
-### 과연 결과는…?
-
-* 시간은 개선되지 않았다..
-* 오히려 core쪽에는 db connection 오류가 발생하여 실패가 나서 병렬로 처리하지 못하였다..
-* 우선은 core 쪽은 병렬 처리 설정을 제거한다
-* external 모듈 쪽은 db connection이 없기 때문에 최대한 병렬처리를 활용해본다
-* core쪽도 병렬 처리를 하면 테스트 코드 수행 시간은 크게 개선될 수 있을것 같다
-* 이부분은 시간을 두고 검토해보자
-* 우선은 지금 시급한 고민부터 해결해보자…
-
-
-
-<figure><img src="../../.gitbook/assets/13.png" alt=""><figcaption><p><a href="https://www.facebook.com/zzalgun.official/photos/a.326482304762666/1133401060737449/?type=3">https://www.facebook.com/zzalgun.official/photos/a.326482304762666/1133401060737449/?type=3</a></p></figcaption></figure>
