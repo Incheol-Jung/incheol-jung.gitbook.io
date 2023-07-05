@@ -4,7 +4,7 @@
 
 
 
-<figure><img src="../../.gitbook/assets/1 (3).png" alt=""><figcaption><p><a href="https://youtu.be/dzrJRLT1RZw">https://youtu.be/dzrJRLT1RZw</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 (3) (3).png" alt=""><figcaption><p><a href="https://youtu.be/dzrJRLT1RZw">https://youtu.be/dzrJRLT1RZw</a></p></figcaption></figure>
 
 ### 원본 이미지 사용
 

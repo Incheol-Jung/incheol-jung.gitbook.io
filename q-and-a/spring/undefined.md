@@ -364,7 +364,7 @@ verify(externalAttachUploadService, times(1)).registerAttach(any(List.class), an
 
 
 
-      <figure><img src="../../.gitbook/assets/3 (3).png" alt=""><figcaption></figcaption></figure>
+      <figure><img src="../../.gitbook/assets/3 (3) (2).png" alt=""><figcaption></figcaption></figure>
   * 컨디션 커버리지
     * 조건문에서 발생가능한 모든 조건을 얼마나 충족했는지 측정한다
 * jacoco 설정
