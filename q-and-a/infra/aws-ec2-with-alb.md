@@ -19,7 +19,7 @@
 ## 🛣 로드 밸런서
 
 {% hint style="info" %}
-💡 로드 밸런서 생성은 사전 작업이 수행되었다는 전제하에 가이드 한 내용입니다. 사전작업 - EC2 인스턴스 생성 - 생성된 인스턴스 내에서 특정 PORT로 애플리케이션 운영된 상태
+로드 밸런서 생성은 사전 작업이 수행되었다는 전제하에 가이드 한 내용입니다. 사전작업 - EC2 인스턴스 생성 - 생성된 인스턴스 내에서 특정 PORT로 애플리케이션 운영된 상태
 {% endhint %}
 
 ### 로드 밸런서 대상 그룹 생성
@@ -45,9 +45,9 @@
 
     <figure><img src="../../.gitbook/assets/4.png" alt=""><figcaption></figcaption></figure>
 
-\<aside> 💡 대상 설정시 PORT의 HEALTH 체크가 통과해야 타겟으로 통과된다. 만약 로그인 처리나 redirect되는 경우가 있다면 해당 PORT를 호출했을때 200 status code가 리턴되도록 별도 조치할 필요가 있다
-
-\</aside>
+{% hint style="info" %}
+💡 대상 설정시 PORT의 HEALTH 체크가 통과해야 타겟으로 통과된다. 만약 로그인 처리나 redirect되는 경우가 있다면 해당 PORT를 호출했을때 200 status code가 리턴되도록 별도 조치할 필요가 있다
+{% endhint %}
 
 ### 로드 밸런서 생성
 
@@ -74,7 +74,7 @@
        <figure><img src="../../.gitbook/assets/8.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-💡 보안그룹에 디폴트값을 그대로 사용하였는데 현재는 80으로 INBOUND 규칙을 허용해서 이슈가 없지만 새로운 VPC나 새로운 보안그룹을 지정한다면 80 인바운드 보안 규칙을 추가하도록 해야 한다
+보안그룹에 디폴트값을 그대로 사용하였는데 현재는 80으로 INBOUND 규칙을 허용해서 이슈가 없지만 새로운 VPC나 새로운 보안그룹을 지정한다면 80 인바운드 보안 규칙을 추가하도록 해야 한다
 {% endhint %}
 
 ## 🧙도메인
