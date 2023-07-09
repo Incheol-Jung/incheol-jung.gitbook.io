@@ -55,23 +55,22 @@
 
 <figure><img src="../../.gitbook/assets/5.png" alt=""><figcaption></figcaption></figure>
 
-1. ‘로드 밸런서 유형 선택’
+2. ‘로드 밸런서 유형 선택’
 
 <figure><img src="../../.gitbook/assets/6.png" alt=""><figcaption></figcaption></figure>
 
-2. 로드 밸런서 정보 입력
+3. 로드 밸런서 정보 입력
    1. 로드 밸런서 이름 작성
    2. 네트워크 매핑
       1. 해당하는 VPC의 서브넷으로 최소 2개이상 설정
-   3.  리스너 PORT 설정
-
-       1. 도메인 기반으로 접근하기 때문에 HTTP 기본 포트인 80으로 사용한다
-
+   3. 리스너 PORT 설정
+      1.  도메인 기반으로 접근하기 때문에 HTTP 기본 포트인 80으로 사용한다
 
 
-       <figure><img src="../../.gitbook/assets/7.png" alt=""><figcaption></figcaption></figure>
 
-       <figure><img src="../../.gitbook/assets/8.png" alt=""><figcaption></figcaption></figure>
+          <figure><img src="../../.gitbook/assets/7.png" alt=""><figcaption></figcaption></figure>
+
+          <figure><img src="../../.gitbook/assets/8.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 보안그룹에 디폴트값을 그대로 사용하였는데 현재는 80으로 INBOUND 규칙을 허용해서 이슈가 없지만 새로운 VPC나 새로운 보안그룹을 지정한다면 80 인바운드 보안 규칙을 추가하도록 해야 한다
