@@ -44,7 +44,7 @@
 
 #### 데브옵스 진화 과정
 
-<figure><img src="../../../.gitbook/assets/4 (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/4 (2) (2).png" alt=""><figcaption></figcaption></figure>
 
 1. 개발자 한명이 IDE를 사용하여 개발한다
 2. 점차 개발자가 투입되면서 코드 형상관리를 도입한다
@@ -53,7 +53,7 @@
 
 #### 데브옵스를 시작하는 과정
 
-<figure><img src="../../../.gitbook/assets/5.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/5 (5).png" alt=""><figcaption></figcaption></figure>
 
 1. 개선하려고 검토한다
 2. 도입을 해서 5분에서 1분으로 빨라졌다

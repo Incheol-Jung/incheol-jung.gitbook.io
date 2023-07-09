@@ -16,7 +16,7 @@
 
 
 
-    <figure><img src="../../../.gitbook/assets/1 (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/1 (2) (2).png" alt=""><figcaption></figcaption></figure>
 * 생각보다 구체적인 답을 내려주기는 어렵다..
 
 #### 하지만 좋은 코드 리뷰 문화를 만들어갈 수 있는 조건은 몇가지 존재 한다
@@ -35,7 +35,7 @@
 
 ### Q. 좋은 코드 리뷰 상태가 되지 않으면 어떻게 될까?
 
-<figure><img src="../../../.gitbook/assets/3 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/3 (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 * 리뷰어 들은 많은 변경 내역에 대해 부담을 느끼게 된다
 * 리뷰가 길어지면 다양한 변경 내역이 타겟 브랜치에 쌓이기 때문에 충돌 때문에 머지를 진행하기 어려워진다(심적 부담감..ㅜ)

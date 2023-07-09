@@ -18,7 +18,7 @@
 
  
 
-<figure><img src="../../.gitbook/assets/2 (1).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2 (1) (2).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
 
 </div>
 
@@ -159,7 +159,7 @@ You will use _@SpringBootTest_  annotation to create integration tests that invo
 
 
 
-<figure><img src="../../.gitbook/assets/6 (1).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/6 (1) (2).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
 
 
 
@@ -173,7 +173,7 @@ You will use _@SpringBootTest_  annotation to create integration tests that invo
 
 <div data-full-width="true">
 
-<figure><img src="../../.gitbook/assets/7.png" alt=""><figcaption><p><a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&#x26;blogId=ja2_01&#x26;logNo=221842728124">https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&#x26;blogId=ja2_01&#x26;logNo=221842728124</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/7 (3).png" alt=""><figcaption><p><a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&#x26;blogId=ja2_01&#x26;logNo=221842728124">https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&#x26;blogId=ja2_01&#x26;logNo=221842728124</a></p></figcaption></figure>
 
 </div>
 
@@ -197,11 +197,11 @@ PR 생성시 빌드할때는 github action을 사용한다
 
 
 
-<figure><img src="../../.gitbook/assets/9 (1).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/9 (1) (2).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
 
 * microsoft에서 보면 해당 사양은 `CPU 2`, `7GB` 메모리라고 되어있다
 
-<figure><img src="../../.gitbook/assets/10.png" alt=""><figcaption><p>github.com</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/10 (1).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
 
 
 
@@ -209,7 +209,7 @@ PR 생성시 빌드할때는 github action을 사용한다
 
 
 
-<figure><img src="../../.gitbook/assets/11.png" alt=""><figcaption><p>github.com</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/11 (2).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
 
 
 
@@ -229,7 +229,7 @@ jobs:
 
 
 
-<figure><img src="../../.gitbook/assets/12.png" alt=""><figcaption><p>github.com</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/12 (1).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
 
 
 

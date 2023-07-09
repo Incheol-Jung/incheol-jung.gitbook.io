@@ -52,7 +52,7 @@ public class TestService {
 
 #### 잘 컨슈밍 되는지 로그를 확인해보자
 
-<figure><img src="../../.gitbook/assets/1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 (2).png" alt=""><figcaption></figcaption></figure>
 
 ### 그럼 exception이 발생하면 어떻게 될까?
 
@@ -112,7 +112,7 @@ public void sendTestMessage() {
 
 * 그리고 컨슈밍되는지 확인해보자
 
-<figure><img src="../../.gitbook/assets/4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/4 (2).png" alt=""><figcaption></figcaption></figure>
 
 * 동일하게 동작하는것을 확인할수 있다
 
