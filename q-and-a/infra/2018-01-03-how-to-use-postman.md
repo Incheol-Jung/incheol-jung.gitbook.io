@@ -43,7 +43,7 @@ POSTMAN은 REST API를 표현할 수 있다. \
 &#x20;즉, URI를 이용해서 제어할 자원을 명시하고\
 &#x20;HTTP를 이용해서 제어명령을 내린다.
 
-![](<../../.gitbook/assets/2 (6).png>)
+![](<../../.gitbook/assets/2 (6) (1).png>)
 
 ### - Variables
 

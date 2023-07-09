@@ -28,22 +28,21 @@
 
 <figure><img src="../../.gitbook/assets/2 (1).png" alt=""><figcaption></figcaption></figure>
 
-1.  ‘기본 구성 정보’를 입력합니다
+2. ‘기본 구성 정보’를 입력합니다
+   1. 대상 유형 : 인스턴스
+   2. 대상 그룹 이름 : 임의로 설정(단, 규칙이 있으면 찾기가 쉬움) TARGET-{ENV}-{NAME} (ex. TARGET-DEV-EXTERNAL-API, TARGET-[I](https://ap-northeast-2.console.aws.amazon.com/ec2/v2/home?region=ap-northeast-2#TargetGroup:targetGroupArn=arn:aws:elasticloadbalancing:ap-northeast-2:705835654601:targetgroup/TARGET-INFRA-JENKINS/ac4da690f08364df)NFRA-JENKINS)
+   3. 프로토콜 : 8080 (인스턴스 내에서 운영중인 실행 PORT 입력)
+   4. VPC : 인스턴스가 존재하는 VPC
 
-    1. 대상 유형 : 인스턴스
-    2. 대상 그룹 이름 : 임의로 설정(단, 규칙이 있으면 찾기가 쉬움) TARGET-{ENV}-{NAME} (ex. TARGET-DEV-EXTERNAL-API, TARGET-[I](https://ap-northeast-2.console.aws.amazon.com/ec2/v2/home?region=ap-northeast-2#TargetGroup:targetGroupArn=arn:aws:elasticloadbalancing:ap-northeast-2:705835654601:targetgroup/TARGET-INFRA-JENKINS/ac4da690f08364df)NFRA-JENKINS)
-    3. 프로토콜 : 8080 (인스턴스 내에서 운영중인 실행 PORT 입력)
-    4. VPC : 인스턴스가 존재하는 VPC
+<figure><img src="../../.gitbook/assets/3.png" alt=""><figcaption></figcaption></figure>
 
-    <figure><img src="../../.gitbook/assets/3.png" alt=""><figcaption></figcaption></figure>
-2.  대상 등록
+3. 대상 등록
+   1. 인스턴스 선택
+   2. ‘아래에 보류 중인 것으로 포함’ 선택
+   3. ‘대상 보기’ 목록에 선택 확인
+   4. ‘대상 그룹 생성’ 선택
 
-    1. 인스턴스 선택
-    2. ‘아래에 보류 중인 것으로 포함’ 선택
-    3. ‘대상 보기’ 목록에 선택 확인
-    4. ‘대상 그룹 생성’ 선택
-
-    <figure><img src="../../.gitbook/assets/4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/4.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 💡 대상 설정시 PORT의 HEALTH 체크가 통과해야 타겟으로 통과된다. 만약 로그인 처리나 redirect되는 경우가 있다면 해당 PORT를 호출했을때 200 status code가 리턴되도록 별도 조치할 필요가 있다
