@@ -68,7 +68,7 @@ public void sendTestMessage() {
 
 #### 메시지 컨슈밍되는지 확인해보자
 
-<figure><img src="../../.gitbook/assets/2 (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2 (7) (2).png" alt=""><figcaption></figcaption></figure>
 
 * exception을 발생했지만 커슈밍된것을 확인할 수 있다
 
@@ -120,7 +120,7 @@ public void sendTestMessage() {
 
 * 실마리는 도먼큐트에 있다
 
-<figure><img src="../../.gitbook/assets/5 (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/5 (3) (2).png" alt=""><figcaption></figcaption></figure>
 
 * 우선 트랜잭션 모드가 아닌 상황에서는 컨슈머는 `unread_committed`과 동일하게 간주한다고 한다
 * 그리고 트랜잭션 모드이고 `read_committed` 일 경우에는 트랜잭션이 시작하면서 보낸 메시지는 보류되고 트랜잭션이 완료되면 오프셋을 확인하여 트랜잭션이 처리되었는지 확인후 받은 메시지를 처리한다고 되어있다

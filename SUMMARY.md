@@ -79,6 +79,7 @@
   * [MSA](q-and-a/infra/msa.md)
   * [핀포인트 사용시 주의사항!! (feat 로그 파일 사이즈)](q-and-a/infra/feat.md)
   * [AWS EC2 도메인 설정 (with ALB)](q-and-a/infra/aws-ec2-with-alb.md)
+  * [람다를 활용한 클라우드 와치 알림 받기](q-and-a/infra/undefined.md)
   * [OSI 7 Layer](q-and-a/infra/osi-7-layer-todo.md)
 * [CULTURE](q-and-a/culture/README.md)
   * [AGILE](q-and-a/culture/2018-01-12-introduce-agile.md)

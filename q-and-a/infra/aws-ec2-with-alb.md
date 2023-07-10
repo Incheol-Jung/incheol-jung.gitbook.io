@@ -52,7 +52,7 @@
 
 1. ‘로드 밸런서 생성’ 선택
 
-<figure><img src="../../.gitbook/assets/5.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/5 (6).png" alt=""><figcaption></figcaption></figure>
 
 2. ‘로드 밸런서 유형 선택’
 
