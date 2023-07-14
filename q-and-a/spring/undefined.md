@@ -357,7 +357,7 @@ verify(externalAttachUploadService, times(1)).registerAttach(any(List.class), an
 
 
 
-      <figure><img src="../../.gitbook/assets/2 (4).png" alt=""><figcaption></figcaption></figure>
+      <figure><img src="../../.gitbook/assets/2 (4) (2).png" alt=""><figcaption></figcaption></figure>
   *   브랜치 커버리지
 
       * 조건문에서 true/false의 케이스를 얼마나 충족했는지 측정한다
