@@ -50,7 +50,7 @@ PR 생성하면서 빌드를 수행하는데 끝날 기미가 보이지 않았�
 
 
 
-<figure><img src="../../.gitbook/assets/4 (1).png" alt=""><figcaption><p><a href="https://brunch.co.kr/@roysday/568">https://brunch.co.kr/@roysday/568</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/4 (1) (2).png" alt=""><figcaption><p><a href="https://brunch.co.kr/@roysday/568">https://brunch.co.kr/@roysday/568</a></p></figcaption></figure>
 
 
 

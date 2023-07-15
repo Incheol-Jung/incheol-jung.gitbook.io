@@ -1,6 +1,6 @@
 # ALB에 SSL 설정하기(feat. ACM)
 
-<figure><img src="../../.gitbook/assets/1.png" alt=""><figcaption><p><a href="https://k21academy.com/amazon-web-services/aws-certificate-manager-acm/">https://k21academy.com/amazon-web-services/aws-certificate-manager-acm/</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 (8).png" alt=""><figcaption><p><a href="https://k21academy.com/amazon-web-services/aws-certificate-manager-acm/">https://k21academy.com/amazon-web-services/aws-certificate-manager-acm/</a></p></figcaption></figure>
 
 * 현재는 가비아를 통해 DNS를 구입해서 ALB를 통해 애플리케이션과 통신하고 있다
 * 일반적으로 웹서버를 구축했다면 SSL 인증서를 도메인 서버에서 발급받아 처리할 것이다
@@ -29,7 +29,7 @@
 
 #### 인증 요청 메일 확인하기
 
-<figure><img src="../../.gitbook/assets/4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/4 (1).png" alt=""><figcaption></figcaption></figure>
 
 * 링크버튼을 누르면 소유권 인증이 완료된다
 
@@ -43,4 +43,4 @@
 
 ## 결과 화면
 
-<figure><img src="../../.gitbook/assets/6.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/6 (6).png" alt=""><figcaption></figcaption></figure>
