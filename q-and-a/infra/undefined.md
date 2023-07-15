@@ -24,7 +24,7 @@
 
 * 지표는 로그 그룹에서 추가할 수 있다
 
-<figure><img src="../../.gitbook/assets/3 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/3 (1) (3).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -94,7 +94,7 @@ private void logError(Exception exception) {
 
 
 
-<figure><img src="../../.gitbook/assets/4 (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/4 (4) (3).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -103,7 +103,7 @@ private void logError(Exception exception) {
 * 람다에는 실행 시점을 설정할수 있는 trigger 옵션을 제공한다
 * trigger에는 AWS 서비스 상품들과 호환하여 다양한 시점에 트리거를 설정할 수 있다
 
-<figure><img src="../../.gitbook/assets/5 (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/5 (3) (3).png" alt=""><figcaption></figcaption></figure>
 
 * AWS 서비스 : CloudWatch
 * 로그 그룹 : 트리거를 받을 로그 그룹
@@ -157,7 +157,7 @@ private void logError(Exception exception) {
 * 메모리를 올리면 이전보다 수행 시간이 단축된다고 되어있어 적용하게 되었다
 * `단, 주의할점은 메모리를 증가하면 비용도 추가되니 적절한 범위를 찾아야 할것이다`
 
-<figure><img src="../../.gitbook/assets/10 (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/10 (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### 람다 재부팅 개선
 

@@ -85,6 +85,7 @@
   * [람다를 활용한 클라우드 와치 알림 받기](q-and-a/infra/undefined.md)
   * [OSI 7 Layer](q-and-a/infra/osi-7-layer-todo.md)
 * [CULTURE](q-and-a/culture/README.md)
+  * [우리는 성장 할수 있을까? (w. 함께 자라기)](q-and-a/culture/w..md)
   * [AGILE](q-and-a/culture/2018-01-12-introduce-agile.md)
 * [SEMINAR](q-and-a/seminar/README.md)
   * [2022 INFCON 후기](q-and-a/seminar/2022-infcon/README.md)

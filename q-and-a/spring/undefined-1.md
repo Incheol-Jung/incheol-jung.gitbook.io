@@ -197,7 +197,7 @@ PR 생성시 빌드할때는 github action을 사용한다
 
 
 
-<figure><img src="../../.gitbook/assets/9 (1) (2).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/9 (1) (2) (1).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
 
 * microsoft에서 보면 해당 사양은 `CPU 2`, `7GB` 메모리라고 되어있다
 
@@ -229,7 +229,7 @@ jobs:
 
 
 
-<figure><img src="../../.gitbook/assets/12 (1).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/12 (1) (2).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
 
 
 

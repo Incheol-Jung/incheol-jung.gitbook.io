@@ -27,7 +27,7 @@
 
 ### Q. 그렇다면 왜 좋은 코드 리뷰를 하지 못할까?
 
-<figure><img src="../../../.gitbook/assets/2 (2).jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/2 (2) (1).jpeg" alt=""><figcaption></figcaption></figure>
 
 * Pull request를 생성하다보면 반영하고 싶은 다양한 태스크 들이 눈에 들어온다
 * 그러다 보면 여러가지 태스크를 하나의 Pull request에 담기는 경우가 많다

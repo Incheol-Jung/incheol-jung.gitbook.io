@@ -14,7 +14,7 @@
   1. 도메인 서버에서 구매한 도메인을 통해서 ALB로 연결한다
   2. ALB는 연결된 타겟으로 요청을 전송하고 결과를 리턴한다
 
-<figure><img src="../../.gitbook/assets/1 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 (1) (3).png" alt=""><figcaption></figcaption></figure>
 
 ## 🛣 로드 밸런서
 
@@ -42,7 +42,7 @@
    3. ‘대상 보기’ 목록에 선택 확인
    4. ‘대상 그룹 생성’ 선택
 
-<figure><img src="../../.gitbook/assets/4 (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/4 (3) (3).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 💡 대상 설정시 PORT의 HEALTH 체크가 통과해야 타겟으로 통과된다. 만약 로그인 처리나 redirect되는 경우가 있다면 해당 PORT를 호출했을때 200 status code가 리턴되도록 별도 조치할 필요가 있다
@@ -56,7 +56,7 @@
 
 2. ‘로드 밸런서 유형 선택’
 
-<figure><img src="../../.gitbook/assets/6 (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/6 (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 3. 로드 밸런서 정보 입력
    1. 로드 밸런서 이름 작성
@@ -69,7 +69,7 @@
 
           <figure><img src="../../.gitbook/assets/7.png" alt=""><figcaption></figcaption></figure>
 
-          <figure><img src="../../.gitbook/assets/8.png" alt=""><figcaption></figcaption></figure>
+          <figure><img src="../../.gitbook/assets/8 (3).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 보안그룹에 디폴트값을 그대로 사용하였는데 현재는 80으로 INBOUND 규칙을 허용해서 이슈가 없지만 새로운 VPC나 새로운 보안그룹을 지정한다면 80 인바운드 보안 규칙을 추가하도록 해야 한다
