@@ -1,11 +1,11 @@
 # 우리는 성장 할수 있을까? (w. 함께 자라기)
 
-
-
 * 이전에 ‘개발바닥’ 유튜브에서 추천해준 책이 한권 있었다
 * ‘함께 자라기’라는 책이었는데 읽어보니 좋은 내용들이 많아서 팀원들에게 공유하고자 정리해보았다
 
-<figure><img src="../../.gitbook/assets/1 (1).png" alt=""><figcaption><p><a href="https://www.yes24.com/Product/Goods/109056601">https://www.yes24.com/Product/Goods/109056601</a></p></figcaption></figure>
+
+
+<figure><img src="../../.gitbook/assets/1 (1).png" alt="" width="375"><figcaption><p><a href="https://www.yes24.com/Product/Goods/109056601">https://www.yes24.com/Product/Goods/109056601</a></p></figcaption></figure>
 
 
 
@@ -19,9 +19,13 @@
 
 
 
-<figure><img src="../../.gitbook/assets/2 (2).jpeg" alt=""><figcaption><p>https://blog.naver.com/cutsong/221932735592</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2 (2).jpeg" alt="" width="563"><figcaption><p>https://blog.naver.com/cutsong/221932735592</p></figcaption></figure>
+
+##
 
 ## 🤔 경력이랑 실력은 비례하는가?
+
+
 
 <figure><img src="../../.gitbook/assets/3 (1).png" alt=""><figcaption><p>https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0002835986</p></figcaption></figure>
 
@@ -35,7 +39,9 @@
 
 ### 시간은 실력을 대변해주지 않는다
 
-<figure><img src="../../.gitbook/assets/4 (4).png" alt=""><figcaption><p>http://www.yes24.com/Product/Goods/3719907</p></figcaption></figure>
+
+
+<figure><img src="../../.gitbook/assets/4 (4).png" alt="" width="375"><figcaption><p>http://www.yes24.com/Product/Goods/3719907</p></figcaption></figure>
 
 
 
@@ -70,7 +76,9 @@
 
 ## 😎 어떻게 해야 더 효과를 얻을 수 있을까?
 
-{% file src="../../.gitbook/assets/7.mp4" %}
+
+
+<figure><img src="../../.gitbook/assets/111.gif" alt=""><figcaption><p><a href="https://post.naver.com/viewer/postView.nhn?volumeNo=30992666&#x26;memberNo=22723288">https://post.naver.com/viewer/postView.nhn?volumeNo=30992666&#x26;memberNo=22723288</a></p></figcaption></figure>
 
 ### 🧳 자신이 이미 갖고 있는 것들을 잘 활용하라
 
@@ -100,7 +108,9 @@
 
 ### 미하이 칙센트미하이의 몰입 이론을 보면 좀더 이해가 쉽다
 
-<figure><img src="../../.gitbook/assets/8.png" alt=""><figcaption></figcaption></figure>
+
+
+<figure><img src="../../.gitbook/assets/8.png" alt="" width="494"><figcaption></figcaption></figure>
 
 
 
@@ -111,7 +121,9 @@
 
 ### 제자리걸음에서 벗어나기
 
-<figure><img src="../../.gitbook/assets/9 (1).png" alt=""><figcaption></figcaption></figure>
+
+
+<figure><img src="../../.gitbook/assets/9 (1).png" alt="" width="563"><figcaption></figcaption></figure>
 
 ### 🔆 a1 실력 낮추기
 
@@ -182,12 +194,18 @@
 * 최고만 공유 → 여러개의 디자인을 만들고 그중 가장 잘한걸 공유
 * 복수개 공유 → 여러 개의 디자인을 만들고 그걸 모두 공유
 
-\<aside> 💡 SVI(Subjective Value Inventory) 측정 항목
+{% hint style="info" %}
+💡 SVI(Subjective Value Inventory) 측정 항목\
+\
+
 
 * 당신의 동료는 당신에게 전체적으로 어떤 인상을 주었는가?
 * 이 인터랙션을 한 결과로 동료와의 관계에 대해 얼마나 만족하게 되었나?
 * 이 인터랙션에서 당신은 동료를 신뢰하게 되었는가?
-* 이 인터랙션이 향후 이 동료와 함께 할 인터랙션에 대해 토대를 마련해 주었는가? \</aside>
+* 이 인터랙션이 향후 이 동료와 함께 할 인터랙션에 대해 토대를 마련해 주었는가?
+{% endhint %}
+
+
 
 ### 공유 조건별 신뢰도 변화 실험 결과
 
