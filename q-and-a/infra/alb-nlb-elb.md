@@ -2,7 +2,7 @@
 
 ## ALB, NLB,ELB 차이는?
 
-<figure><img src="../../.gitbook/assets/1.png" alt=""><figcaption><p>https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 (7).png" alt=""><figcaption><p>https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html</p></figcaption></figure>
 
 
 

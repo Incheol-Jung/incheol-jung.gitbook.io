@@ -2,9 +2,9 @@
 description: Stereo Type에 대해서 알아보자
 ---
 
-# Stereo Type\(스테레오 타입\)
+# Stereo Type(스테레오 타입)
 
-![Spring&#xC758; &#xB300;&#xD45C;&#xC801;&#xC778; Stereo type](../../.gitbook/assets/1%20%287%29.png)
+![Spring의 대표적인 Stereo type](<../../.gitbook/assets/1 (7) (1).png>)
 
 ## StereoType이란?
 
@@ -52,7 +52,7 @@ public @interface Component {
 
 ### @Bean과 @Component는 어떤 차이가 있는가?
 
-* @Component는 클래스 상단에 적으며 그 default로 클래스 이름이 bean의 이름이 된다. 또한 spring에서 자동으로 찾고\(@ComponentScan 사용\) 관리해주는 bean이다.
+* @Component는 클래스 상단에 적으며 그 default로 클래스 이름이 bean의 이름이 된다. 또한 spring에서 자동으로 찾고(@ComponentScan 사용) 관리해주는 bean이다.
 * @Bean은 @Configuration으로 선언된 클래스 내에 있는 메소드를 정의할 때 사용한다. 이 메소드가 반환하는 객체가 bean이 되며 default로 메소드 이름이 bean의 이름이 된다.
 
 ## @Controller
@@ -141,7 +141,7 @@ public @interface Service { ... }
 
 ## @Repository
 
-검사 되지 않은 예외\(DAO 메소드에서 발생\)를 Spring DataAccessException으로 변환 할 수 있게 해준다.
+검사 되지 않은 예외(DAO 메소드에서 발생)를 Spring DataAccessException으로 변환 할 수 있게 해준다.
 
 ```java
 *
@@ -229,6 +229,4 @@ public @interface Configuration {
 * [https://www.baeldung.com/spring-component-repository-service](https://www.baeldung.com/spring-component-repository-service)
 * [https://c10106.tistory.com/1720](https://c10106.tistory.com/1720)
 * [https://mangkyu.tistory.com/75](https://mangkyu.tistory.com/75)
-
-
 

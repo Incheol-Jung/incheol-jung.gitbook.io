@@ -17,7 +17,7 @@
 
 ## 주제를 던져보자
 
-<figure><img src="../../.gitbook/assets/3 (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/3 (2) (3).png" alt=""><figcaption></figcaption></figure>
 
 
 
