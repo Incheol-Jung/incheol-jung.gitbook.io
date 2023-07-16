@@ -14,7 +14,7 @@
 
 ## 더 이상 배우려 하지 않는 개발자 : Expert Beginner의 등장
 
-<figure><img src="../../.gitbook/assets/1.png" alt=""><figcaption><p><a href="https://brunch.co.kr/@pi1ercho/9">https://brunch.co.kr/@pi1ercho/9</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 (11).png" alt=""><figcaption><p><a href="https://brunch.co.kr/@pi1ercho/9">https://brunch.co.kr/@pi1ercho/9</a></p></figcaption></figure>
 
 
 
