@@ -16,7 +16,7 @@ description: '객체지향과 디자인 패턴(최범균 저) 재사용: 상속�
 
     상속 계층을 따라 상위 클래스의 변경이 하위 클래스에 영향을 주기 떄문에, 최악의 경우 상위 클래스의 변화가 모든 하위 클래스에 영향을 줄 수 있다.
 
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1a8a0153-5894-4f76-b90e-312a37174399/2.png](<../../.gitbook/assets/2 (8).png>)
+    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1a8a0153-5894-4f76-b90e-312a37174399/2.png](<../../.gitbook/assets/2 (8) (1).png>)
 *   클래스의 불필요한 증가
 
     유사한 기능을 확장하는 과정에서 클래스의 개수가 불필요하게 증가할 수 있다.

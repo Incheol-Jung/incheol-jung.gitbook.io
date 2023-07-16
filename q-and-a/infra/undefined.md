@@ -20,7 +20,7 @@
 * 여기서 우선 클라우드와치 알림 설정을 간단히 설명하자면 아래와 같다
 * 로그에 특정 패턴을 통해서 사용자가 지정한 주기에 특정 패턴의 로그가 몇번 왔는지에 따라서 메일로 알림을 수신할 수 있다(현재 설정은 1초당 통합 1개라도 오면 받을수 있게 설정해두었다)
 
-<figure><img src="../../.gitbook/assets/2 (7) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2 (7).png" alt=""><figcaption></figcaption></figure>
 
 * 지표는 로그 그룹에서 추가할 수 있다
 

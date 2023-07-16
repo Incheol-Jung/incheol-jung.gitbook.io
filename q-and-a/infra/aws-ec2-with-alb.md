@@ -14,7 +14,7 @@
   1. 도메인 서버에서 구매한 도메인을 통해서 ALB로 연결한다
   2. ALB는 연결된 타겟으로 요청을 전송하고 결과를 리턴한다
 
-<figure><img src="../../.gitbook/assets/1 (1) (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 (1) (3).png" alt=""><figcaption></figcaption></figure>
 
 ## 🛣 로드 밸런서
 

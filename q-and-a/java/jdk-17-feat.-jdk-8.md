@@ -1,4 +1,4 @@
-# JDK 17일 사용한 이유(feat. JDK 8 이후 훓어보기)
+# JDK 17일 사용한 이유(feat. JDK 8 이후 훑어보기)
 
 <figure><img src="../../.gitbook/assets/1 (1).png" alt=""><figcaption><p><a href="https://www.geeksforgeeks.org/jdk-17-new-features-in-java-17/">https://www.geeksforgeeks.org/jdk-17-new-features-in-java-17/</a></p></figcaption></figure>
 
@@ -8,7 +8,7 @@
 
 ### 가장 중요했던건 유지보수 기간을 살펴보는것이었다
 
-<figure><img src="../../.gitbook/assets/2 (7).png" alt=""><figcaption><p>https://access.redhat.com/articles/1299013</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2 (8).png" alt=""><figcaption><p>https://access.redhat.com/articles/1299013</p></figcaption></figure>
 
 * JDK 11 버전은 23년에 개발을 시작한다면 당장 1년뒤에 서포트기간이 종료되었다
 * 그래서 그나마 서포트 기간이 4년이나 길게 남아 있는 JDK 17이 안정적이라 판단했다
