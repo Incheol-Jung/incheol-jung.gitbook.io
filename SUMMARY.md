@@ -7,6 +7,7 @@
 * [JAVA](q-and-a/java/README.md)
   * [JVM](q-and-a/java/jvm.md)
   * [String, StringBuffer, StringBuilder](q-and-a/java/string-stringbuffer-stringbuilder.md)
+  * [JDK 17일 사용한 이유(feat. JDK 8 이후 훓어보기)](q-and-a/java/jdk-17-feat.-jdk-8.md)
   * [스택 오버 플로우(SOF)](q-and-a/java/stw.md)
   * [블럭킹 | 논블럭킹 | 동기 | 비동기](q-and-a/java/or-or-or.md)
   * [병렬처리를 이용한 이미지 리사이즈 개선](q-and-a/java/undefined.md)

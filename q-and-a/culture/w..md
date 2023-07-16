@@ -5,7 +5,7 @@
 
 
 
-<figure><img src="../../.gitbook/assets/1 (1).png" alt="" width="375"><figcaption><p><a href="https://www.yes24.com/Product/Goods/109056601">https://www.yes24.com/Product/Goods/109056601</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 (1) (3).png" alt="" width="375"><figcaption><p><a href="https://www.yes24.com/Product/Goods/109056601">https://www.yes24.com/Product/Goods/109056601</a></p></figcaption></figure>
 
 
 
