@@ -16,7 +16,7 @@
 * 실력이 좋은 개발자는 많지만 실제로 일정산정을 하는 부분은 어려워하는 개발자도 많다
 * 실제로 아마존은 평균 11.7초 당 한번씩 배포한다고 측정되어진다
 
-<figure><img src="../../../.gitbook/assets/1.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/1 (4).jpeg" alt=""><figcaption></figcaption></figure>
 
 ### Q. 어떻게 하면 개발과 배포를 빠르게 할수 있을까?
 
@@ -53,7 +53,7 @@
 
 #### 데브옵스를 시작하는 과정
 
-<figure><img src="../../../.gitbook/assets/5 (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/5 (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. 개선하려고 검토한다
 2. 도입을 해서 5분에서 1분으로 빨라졌다
@@ -62,7 +62,7 @@
 
 ### DevOps를 도입하려면 어떤 과정이 필요한가?
 
-<figure><img src="../../../.gitbook/assets/6 (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/6 (2) (2).png" alt=""><figcaption></figcaption></figure>
 
 * 개발과 배포 사이에는 다양한 과정이 존재 한다
 * 이런 과정 모두가 지연이 되는 요소로 자리 잡고 있으며 개선해나가는 과정이 곧 DevOps라고 할수 있다

@@ -8,7 +8,7 @@
 
 ## 코드리뷰
 
-<figure><img src="../../.gitbook/assets/2 (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2 (4) (3).png" alt=""><figcaption></figcaption></figure>
 
 * 코드리뷰를 하다가 루프문안에 continue를 호출하는 로직이 있었다
 * 개인적으론 continue나 break를 사용하는 로직은 일반적인 프로세스를 사용자가 임의로 컨트롤하는 로직이라 지양하는 편이다
@@ -38,7 +38,7 @@
 
 
 
-<figure><img src="../../.gitbook/assets/4 (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/4 (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 

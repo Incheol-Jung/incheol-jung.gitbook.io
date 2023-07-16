@@ -30,7 +30,7 @@ PR 생성하면서 빌드를 수행하는데 끝날 기미가 보이지 않았�
 
 
 
-<figure><img src="../../.gitbook/assets/3 (4).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/3 (4) (2).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
 
 #### 그렇다..
 

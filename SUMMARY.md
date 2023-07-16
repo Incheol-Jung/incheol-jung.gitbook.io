@@ -53,6 +53,7 @@
   * [SQL vs NoSQL](q-and-a/db/sql-vs-nosql.md)
   * [DB 교착상태](q-and-a/db/rdb.md)
   * [Isolation level](q-and-a/db/isolation-level.md)
+  * [\[MySQL\] 이모지 저장은 어떻게 하면 좋을까?](q-and-a/db/mysql.md)
   * [SQL Hint](q-and-a/db/sql-hint.md)
   * [JOIN](q-and-a/db/join.md)
 * [ARCHITECTURE](q-and-a/architecture/README.md)
