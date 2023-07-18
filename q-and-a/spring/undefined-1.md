@@ -269,3 +269,42 @@ junit.jupiter.execution.parallel.config.fixed.parallelism=3
 
 
 <figure><img src="../../.gitbook/assets/13.png" alt=""><figcaption><p><a href="https://www.facebook.com/zzalgun.official/photos/a.326482304762666/1133401060737449/?type=3">https://www.facebook.com/zzalgun.official/photos/a.326482304762666/1133401060737449/?type=3</a></p></figcaption></figure>
+
+
+
+## 추가 업데이트 내용(2023/07/10)
+
+* 모든 빈 설정을 비활성화 하였더라도 가장 좋은건 application context를 로드 하지 않는것이다
+* 기존에 작업한 bean들은 생성자 주입 방식이므로 mock으로 주입받은 서비스 객체를 생성하면 애플리케이션 컨텍스트 자체를 실행시키지 않아도 된다
+
+```jsx
+// @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = ExternalAddressService.class)
+// @EnableAutoConfiguration(exclude= DataSourceAutoConfiguration.class)
+@ExtendWith(MockitoExtension.class)
+class ExternalAddressServiceTest {
+    @Mock
+    AddressService addressService;
+
+    // @Autowired
+    ExternalAddressService externalAddressService;
+
+    @BeforeEach
+    void setup() {
+        externalAddressService = new ExternalAddressService(addressService);
+    }
+
+    @Test
+    @DisplayName("주소는 조회되어야 한다")
+    void getAddress() {
+        // given
+        String keyword = "영등포구";
+        given(addressService.getAddress(keyword)).willReturn(List.of(Address.builder().build()));
+
+        // when
+        List<AddressResponse> addresses = externalAddressService.getAddress(keyword);
+
+        // then
+        Assertions.assertNotNull(addresses);
+    }
+}
+```
