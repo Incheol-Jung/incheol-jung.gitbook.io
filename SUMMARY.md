@@ -36,6 +36,7 @@
   * [스프링 클라우드 컨피그 갱신 되지 않는 이슈(feat. 서비스 디스커버리)](q-and-a/spring/feat..md)
   * [ImageIO.read 동작하지 않는 경우](q-and-a/spring/imageio.read.md)
   * [카프카 transaction 처리는 어떻게 해야할까?](q-and-a/spring/transaction.md)
+  * [redisson trylock 내부로직 살펴보기](q-and-a/spring/redisson-trylock.md)
   * [Spring Boot 특징](q-and-a/spring/spring-boot.md)
   * [Spring 5 특징](q-and-a/spring/spring-5.md)
   * [JPA vs MyBatis](q-and-a/spring/jpa-vs-mybatis.md)
