@@ -27,14 +27,15 @@
 RLock lock = redissonClient.getLock(key.toString());
 
 try {
-		// 락 획득을 시도한다(20초동안 시도를 할 예정이며 획득할 경우 1초안에 해제할 예정이다)
+    // 락 획득을 시도한다(20초동안 시도를 할 예정이며 획득할 경우 1초안에 해제할 예정이다)
     boolean available = lock.tryLock(20, 1, TimeUnit.SECONDS);
 
     if (!available) {
         System.out.println("lock 획득 실패");
         return;
     }
-		// 트랜잭션 로직
+    
+    // 트랜잭션 로직(ex. orderService.createOrder(), stockService.increase())
 
 } catch (InterruptedException e) {
     throw new RuntimeException(e);
