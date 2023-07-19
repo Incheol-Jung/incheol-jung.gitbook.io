@@ -1,9 +1,5 @@
 # redisson trylock 내부로직 살펴보기
 
-
-
-## redisson trylock 내부로직 살펴보기
-
 <figure><img src="../../.gitbook/assets/redisson.png" alt=""><figcaption><p>https://opengraph.githubassets.com/c90eb78f30bf36acd86efd3a6d4093807ca77c6f8aa26f27630af6e2e17f3f76/redisson/redisson</p></figcaption></figure>
 
 ##
@@ -14,7 +10,11 @@
 * 레디스 분산락은 서로 다른 프로세스가 서로 베타적인 방식으로 공유 리소스와 함께 작동해야 하는 많은 환경에서 매우 유용한 기본 기능이다
 * 자바 언어 이외에 ruby, python, php 등 다양한 클라이언트 라이브러리가 존재한다
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a4bffefe-23bc-45a7-a889-99e26574794c/Untitled.png)
+
+
+<figure><img src="../../.gitbook/assets/2 (3).png" alt=""><figcaption><p><a href="https://redis.io/docs/manual/patterns/distributed-locks/">https://redis.io/docs/manual/patterns/distributed-locks/</a></p></figcaption></figure>
+
+##
 
 ## 그렇다면 분산락을 구현하는 로직은 어떻게 될까?
 
@@ -43,7 +43,7 @@ try {
 }
 ```
 
-## 락을 점유하는 tryRock은 어떻게 구현되어 있나?
+## 락을 점유를 시도하는 tryRock은 어떻게 구현되어 있나?
 
 ### 전체 코드
 

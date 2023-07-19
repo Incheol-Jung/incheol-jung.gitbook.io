@@ -10,7 +10,7 @@
 
 ## ACM(AWS Certificate Manager)
 
-<figure><img src="../../.gitbook/assets/2 (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2 (3) (3).png" alt=""><figcaption></figcaption></figure>
 
 * ACM은 웹사이트에 필요한 SSL/TLS 인증서 및 키를 통합 관리할 수 있는 서비스이다
 
