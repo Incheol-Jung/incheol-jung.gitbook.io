@@ -126,7 +126,7 @@ public boolean tryLock(long waitTime, long leaseTime, TimeUnit unit) throws Inte
 }
 ```
 
-#### 1. lock 획득을 시도한다
+### 1. lock 획득을 시도한다
 
 * 획득한 lock의 유지시간을 확인하고 null이면 획득이 가능하다고 판단한다
 
@@ -140,7 +140,7 @@ if (ttl == null) {
 }
 ```
 
-#### 2. waitTime이 초과되었는지 확인한다
+### 2. waitTime이 초과되었는지 확인한다
 
 * lock 에 대한 점유시간이 아직 남아있다면 다시 lock에 대한 획득을 시도하기 이전에 waitTime(lock 획득 시간)이 초과되지는 않았는지 확인한다
 * 만약 이미 초과되었다면 lock 획득은 실패로 리턴한다
@@ -154,7 +154,7 @@ if (time <= 0) {
 }
 ```
 
-#### 3. 고유 Thread Id를 채널로 구독하여 lock이 available할때까지 대기한다
+### 3. 고유 Thread Id를 채널로 구독하여 lock이 available할때까지 대기한다
 
 * CompleteFuture.get() 메서드를 호출하여 thread id로 구독한 채널로 lock 획득이 유효할때까지 대기한다
 * 만약에 사용자가 설정한 waitTime을 초과할 경우 TimeoutException이 발생하여 lock 획득에 실패한다
@@ -205,7 +205,7 @@ public T get(long timeout, TimeUnit unit)
 }
 ```
 
-#### 4. waitTime 이전까지 무한루프를 수행하면서 lock 점유시간을 한번 더 확인한다
+### 4. waitTime 이전까지 무한루프를 수행하면서 lock 점유시간을 한번 더 확인한다
 
 * lock을 획득하여 아직 점유 유효시간이 남아있는지 한번 더 체크한다
 
@@ -223,7 +223,7 @@ while (true) {
 	...
 ```
 
-#### 5. thread id로 구독한 객체로 유효시간 또는 남은시간까지 lock이 avaliable한지 구독한다
+### 5. thread id로 구독한 객체로 유효시간 또는 남은시간까지 lock이 avaliable한지 구독한다
 
 * ttl은 이전에 lock이 점유되어 남아있던 시간을 의미한다
 * time은 시도할 수 있는 남은 시간을 의미한다
@@ -238,7 +238,7 @@ if (ttl >= 0 && ttl < time) {
 }
 ```
 
-#### 6. lock을 시도할 수 있는 시간이 남아있는지 체크한다
+### 6. lock을 시도할 수 있는 시간이 남아있는지 체크한다
 
 ```jsx
 time -= System.currentTimeMillis() - currentTime;
