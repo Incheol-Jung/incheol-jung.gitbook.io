@@ -1,5 +1,5 @@
 ---
-description: Better late than naver 🔥
+description: nothing happens if you do nothing ⏰
 ---
 
 # Intro
