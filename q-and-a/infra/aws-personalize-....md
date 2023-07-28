@@ -6,17 +6,20 @@
 * AWS Personalize 의 가장 매력적인 부분은 사용자가 머신러닝 구현 기술에 대한 이해가 없어도 몇 가지 설정만으로 머신러닝 기술을 사용할 수 있다는 점이다
 * 그리고 단순히 추천을 해주는게 아닌 서비스 특성에 맞는 추천 시스템을 제공할 수 있다는 점이 장점이라고 할수 있다 (영상/커머스/사용자 커스텀)
 
+<figure><img src="../../.gitbook/assets/1 (14).png" alt=""><figcaption></figcaption></figure>
+
 ## AWS 사용사례
 
-*   AWS Personalize 가이드 페이지를 살펴보면 실제로 많은 고객사들이 사용한 사례를 살펴볼 수 있다
+* AWS Personalize 가이드 페이지를 살펴보면 실제로 많은 고객사들이 사용한 사례를 살펴볼 수 있다
+  * 배달의 민족은 AWS Personalize를 사용하여 기존 클릭수를 24% 증가시키고 추천을 통한 작품 만족도도 15% 증가하는 결과를 얻었다고 한다
+  * Brandi는 AWS Personalize를 도입한 이후에 클릭수가 8.6K → 9.8K까지 증가하였고, 방문자마다 상품 클릭률도 15% 정도 증가되었다는 성과를 공유하였다
+  * 롯데마트는 AWS Personalize 도입 이후에 쿠폰 사용량이 2개 이상 증가하고 신제품 구매 빈도가 1.7배 증가하였다고 한다
 
-    * 배달의 민족은 AWS Personalize를 사용하여 기존 클릭수를 24% 증가시키고 추천을 통한 작품 만족도도 15% 증가하는 결과를 얻었다고 한다
-    * Brandi는 AWS Personalize를 도입한 이후에 클릭수가 8.6K → 9.8K까지 증가하였고, 방문자마다 상품 클릭률도 15% 정도 증가되었다는 성과를 공유하였다
-    * 롯데마트는 AWS Personalize 도입 이후에 쿠폰 사용량이 2개 이상 증가하고 신제품 구매 빈도가 1.7배 증가하였다고 한다
+{% hint style="info" %}
+💡 AWS Personalize 사용사례
 
-    \<aside> 💡 AWS Personalize 사용사례 : [https://aws.amazon.com/ko/blogs/korea/category/artificial-intelligence/amazon-personalize/](https://aws.amazon.com/ko/blogs/korea/category/artificial-intelligence/amazon-personalize/)
-
-    \</aside>
+[https://aws.amazon.com/ko/blogs/korea/category/artificial-intelligence/amazon-personalize/](https://aws.amazon.com/ko/blogs/korea/category/artificial-intelligence/amazon-personalize/)
+{% endhint %}
 
 ## 우리가 제공하고 싶은 기능은 무엇인가?
 
@@ -50,7 +53,7 @@
 
 ## AWS Personalize를 어떻게 구성하면 좋을까?
 
-![퍼스널라이즈\_프로세스.drawio.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/16f1601b-49ef-415e-89c7-0ebffd21a78a/%E1%84%91%E1%85%A5%E1%84%89%E1%85%B3%E1%84%82%E1%85%A5%E1%86%AF%E1%84%85%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8C%E1%85%B3\_%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%89%E1%85%A6%E1%84%89%E1%85%B3.drawio.png)
+<figure><img src="../../.gitbook/assets/2 (11).png" alt=""><figcaption></figcaption></figure>
 
 ### 집계 데이터 수집하기
 
@@ -122,9 +125,11 @@
   * 월 비용 : 2,410 UDS(대략 250만원)
 * 초기에 사용자 유입이 많지는 않은데 Personalize를 도입해서 기대하는 효과를 볼수 있는 환경이 아니라면 도입 시기를 늦추는게 좋을 듯 하다 (체감상 비용 부담이 많이 된다..ㅜㅜ)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b3ba00be-c4e4-4536-aad1-90350ec5434e/Untitled.png)
 
-## 결론
+
+<figure><img src="../../.gitbook/assets/3 (9).png" alt=""><figcaption></figcaption></figure>
+
+## AWS Personalize를 사용해보며 내린 결론
 
 * AWS Personalize를 처음에 적극 도입하려던 이유는 10분 이내에 개인화 추천 시스템을 구축할 수 있다는 장점이었다
 * 실제로도 몇번의 클릭으로 바로 구축할수는 있었다.
