@@ -145,16 +145,15 @@
 ```jsx
 public void test() throws InterruptedException {
   ArrayList list = new ArrayList();
-    try {
-      for(int i=0; i < 250000; i++) {
-        list.add(new int[10000000]); // 리스트에 배열을 추가한다
-        System.out.println(i);
-        Thread.sleep(1);
-      }
-    } catch (Exception e) {
-      e.printStackTrace();
+  try {
+    for(int i=0; i < 250000; i++) {
+      list.add(new int[10000000]); // 리스트에 배열을 추가한다
+      System.out.println(i);
+      Thread.sleep(1);
     }
-    System.out.println("test");
+  } catch (Exception e) {
+    e.printStackTrace();
+  }
 }
 ```
 
