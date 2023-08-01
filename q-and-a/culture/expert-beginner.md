@@ -72,7 +72,7 @@
 
 ## 🛫 가시적 성과와 성장의 구속
 
-<figure><img src="../../.gitbook/assets/4.png" alt=""><figcaption><p><a href="https://miro.medium.com/v2/resize:fit:640/format:webp/1*nvdTzMFmNsRiNe6IoU97IQ.jpeg">https://miro.medium.com/v2/resize:fit:640/format:webp/1*nvdTzMFmNsRiNe6IoU97IQ.jpeg</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/4 (7).png" alt=""><figcaption><p><a href="https://miro.medium.com/v2/resize:fit:640/format:webp/1*nvdTzMFmNsRiNe6IoU97IQ.jpeg">https://miro.medium.com/v2/resize:fit:640/format:webp/1*nvdTzMFmNsRiNe6IoU97IQ.jpeg</a></p></figcaption></figure>
 
 ### 기술 습득의 이론
 
@@ -107,7 +107,7 @@
 
 ### The Expert Beginner
 
-<figure><img src="../../.gitbook/assets/6.png" alt=""><figcaption><p><a href="https://e.kakao.com/t/self-rationalization">https://e.kakao.com/t/self-rationalization</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/6 (8).png" alt=""><figcaption><p><a href="https://e.kakao.com/t/self-rationalization">https://e.kakao.com/t/self-rationalization</a></p></figcaption></figure>
 
 * Expert Beginner 단계는 학습자가 큰 그림을 보지 못하는 단계 중에서 가장 마지막에 있다
 * 다르게 말하면 학습자는 자신이 Expert 라고 착각할 수 있는 단계인 것이다

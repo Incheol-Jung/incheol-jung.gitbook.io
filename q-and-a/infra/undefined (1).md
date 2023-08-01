@@ -26,7 +26,7 @@
 * 그런데 만약 프로듀서가 스케일 아웃되어 하나의 브로커에서 감당할 수 없는 상태일 경우, 우리가 선택할 수 있는 선택지는 파티션이다
 * 파티션을 통해서 토픽에 대해 병렬로 처리된다면 그만큼 가용성을 증대시킬 수 있다
 
-<figure><img src="../../.gitbook/assets/2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2 (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 파티션은 정답이 아닐 수 있다
 

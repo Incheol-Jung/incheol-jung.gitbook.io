@@ -187,7 +187,7 @@ public void test() throws InterruptedException {
 
 
 
-    <figure><img src="../../.gitbook/assets/4 (7).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/4 (7) (1).png" alt=""><figcaption></figcaption></figure>
 * Leak Suspect 리포트를 확인해본다
 *   메모리 영역에 76% 차지하는 int\[]가 생성되었다고 한다
 
@@ -198,7 +198,7 @@ public void test() throws InterruptedException {
 
 
 
-    <figure><img src="../../.gitbook/assets/6 (8).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/6 (8) (1).png" alt=""><figcaption></figcaption></figure>
 *   메모리를 차지하는 객체는 확인되었고 stacktrace를 통해서 에러가 발생하는 시작점을 확인할수 있다
 
 

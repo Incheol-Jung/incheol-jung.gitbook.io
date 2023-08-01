@@ -1,6 +1,6 @@
 # \[MySQL] 이모지 저장은 어떻게 하면 좋을까?
 
-<figure><img src="../../.gitbook/assets/1.jpeg" alt=""><figcaption><p><a href="https://m.blog.naver.com/poupille/221333032078">https://m.blog.naver.com/poupille/221333032078</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 (5).jpeg" alt=""><figcaption><p><a href="https://m.blog.naver.com/poupille/221333032078">https://m.blog.naver.com/poupille/221333032078</a></p></figcaption></figure>
 
 ## 이모지는 어떻게 구분할까?
 

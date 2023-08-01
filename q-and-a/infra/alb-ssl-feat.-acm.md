@@ -16,7 +16,7 @@
 
 ### 인증서 생성
 
-<figure><img src="../../.gitbook/assets/3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/3 (2).png" alt=""><figcaption></figcaption></figure>
 
 * 인증서를 생성하기에 앞서 필수 조건이 있다
 * 도메인은 사전에 구매해야 하고 도메인을 구매한 계정의 이메일을 확인할 수 있어야 한다

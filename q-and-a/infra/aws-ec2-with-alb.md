@@ -26,7 +26,7 @@
 
 1. ‘대상 그룹 생성’ 버튼을 클릭합니다
 
-<figure><img src="../../.gitbook/assets/2 (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2 (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 2. ‘기본 구성 정보’를 입력합니다
    1. 대상 유형 : 인스턴스
@@ -34,7 +34,7 @@
    3. 프로토콜 : 8080 (인스턴스 내에서 운영중인 실행 PORT 입력)
    4. VPC : 인스턴스가 존재하는 VPC
 
-<figure><img src="../../.gitbook/assets/3 (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/3 (2) (4).png" alt=""><figcaption></figcaption></figure>
 
 3. 대상 등록
    1. 인스턴스 선택
