@@ -94,13 +94,15 @@ PR 생성하면서 빌드를 수행하는데 끝날 기미가 보이지 않았�
 
 #### **@EnableAutoConfiguration 사용시 주의사항**
 
-\<aside> 💡 **@EnableAutoConfiguration 사용시 주의사항 !!!** 특정 bean을 제외시키면 모든 bean을 로드시키지 못하게 된다. 그래서 로드할 bean을 지정해주어야 한다
+{% hint style="info" %}
+**@EnableAutoConfiguration 사용시 주의사항 !!!**&#x20;
+
+특정 bean을 제외시키면 모든 bean을 로드시키지 못하게 된다. 그래서 로드할 bean을 지정해주어야 한다
 
 `@SpringBootTest(classes = ExternalLoginService.class)`
 
 위와 같이 classes에 로드할 bean 클래스를 지정해주자
-
-\</aside>
+{% endhint %}
 
 #### 서비스 디스커버리 회피하기
 
