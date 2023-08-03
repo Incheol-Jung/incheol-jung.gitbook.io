@@ -92,8 +92,6 @@ PR 생성하면서 빌드를 수행하는데 끝날 기미가 보이지 않았�
 @EnableAutoConfiguration(exclude= KafkaAutoConfiguration.class)
 ```
 
-#### **@EnableAutoConfiguration 사용시 주의사항**
-
 {% hint style="info" %}
 **@EnableAutoConfiguration 사용시 주의사항 !!!**&#x20;
 
@@ -147,15 +145,22 @@ spring:
 @WebMvcTest(excludeAutoConfiguration = {SecurityAutoConfiguration.class})
 ```
 
-#### @SpringBootTest vs @WebMvcTest
+
 
 {% hint style="info" %}
-**Difference Between @SpringBootTest and @WebMvcTest**
+#### @WebMvcTest를 사용하면 차이가 있나?
+
+WebMvcTest를 사용하면 Web MVC 계층에 필요한 bean들만 로드하게 된다. \
+ex) @RestController, @ControllerAdvice, Filter, Interceptor, WebMvcConfigurer, HandlerMethodArgumentResolver 등이 있다.&#x20;
+
+
 
 You will use _@SpringBootTest_  annotation to create integration tests that involve all three layers of your application (i.e. _Web, Service, and Data layer_ ). And you will use _@WebMvcTest_  annotation when you need to create integration tests or unit tests of the [Web MVC](https://www.appsdeveloperblog.com/spring-web-mvc-video-tutorials/)  Layer only (i.e. controllers). Because when using _@WebMvcTest_  annotation dependencies on the Service or Data layer will need to be mocked.
 
 출처 : [https://www.appsdeveloperblog.com/difference-between-springboottest-and-webmvctest/](https://www.appsdeveloperblog.com/difference-between-springboottest-and-webmvctest/)
 {% endhint %}
+
+###
 
 ### 그럼 이제 결과를 한번 볼까나..?
 
