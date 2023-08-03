@@ -149,13 +149,13 @@ spring:
 
 #### @SpringBootTest vs @WebMvcTest
 
-\<aside> 💡 **Difference Between @SpringBootTest and @WebMvcTest**
+{% hint style="info" %}
+**Difference Between @SpringBootTest and @WebMvcTest**
 
 You will use _@SpringBootTest_  annotation to create integration tests that involve all three layers of your application (i.e. _Web, Service, and Data layer_ ). And you will use _@WebMvcTest_  annotation when you need to create integration tests or unit tests of the [Web MVC](https://www.appsdeveloperblog.com/spring-web-mvc-video-tutorials/)  Layer only (i.e. controllers). Because when using _@WebMvcTest_  annotation dependencies on the Service or Data layer will need to be mocked.
 
 출처 : [https://www.appsdeveloperblog.com/difference-between-springboottest-and-webmvctest/](https://www.appsdeveloperblog.com/difference-between-springboottest-and-webmvctest/)
-
-\</aside>
+{% endhint %}
 
 ### 그럼 이제 결과를 한번 볼까나..?
 
