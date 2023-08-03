@@ -4,17 +4,17 @@ description: '@Controlleradvice, @ExceptionHandler에 대해 알아보자'
 
 # @Controlleradvice, @ExceptionHandler
 
-![https://velog.io/@hanblueblue/Spring-ExceptionHandler](../../.gitbook/assets/image%20%283%29.png)
+![https://velog.io/@hanblueblue/Spring-ExceptionHandler](<../../.gitbook/assets/image (3).png>)
 
 ## 예외처리
 
 > 예외가 발생하면 어떻게 처리하면 좋을까?
 
-#### 보통 예외는 4가지 방법으로 처리할 수 있다.
+#### 보통 예외는 3 가지 방법으로 처리할 수 있다.
 
-* 예외 복구 : 예외가 발생하면 예외 상황에 대해 알맞게 처리하여 복구한다. ex\) try, catch
-* 예외 회피 : 예외를 직접 처리하지 않고 예외를 상위 메소드에 위임한다. ex\) throw
-* 예외 전환 : 예외를 위임하되 발생한 예외를 그대로 위임하는 것이 아닌 적절한 예외로 전환하여 위임한다. ex\) restTemplate.doExecute
+* 예외 복구 : 예외가 발생하면 예외 상황에 대해 알맞게 처리하여 복구한다. ex) try, catch
+* 예외 회피 : 예외를 직접 처리하지 않고 예외를 상위 메소드에 위임한다. ex) throw
+* 예외 전환 : 예외를 위임하되 발생한 예외를 그대로 위임하는 것이 아닌 적절한 예외로 전환하여 위임한다. ex) restTemplate.doExecute
 
 #### 이번에 살펴볼 내용은 예외 복구에 대한 내용이다.
 
@@ -57,7 +57,7 @@ public class PersonController {
 
 그러면 api를 실행해서 어떻게 리턴되는지 살펴보자.
 
-![](../../.gitbook/assets/111%20%285%29.png)
+![](<../../.gitbook/assets/111 (5).png>)
 
 nullPointerException Handle!!! 문구를 확인한 것으로 Exception이 정상적으로 catch 된것을 확인할 수 있다.
 
@@ -93,7 +93,7 @@ public class PersonController {
 
 그런 다음에 /exception2를 호출해보자.
 
-![](../../.gitbook/assets/222%20%285%29.png)
+![](<../../.gitbook/assets/222 (5).png>)
 
 이렇듯 다중 Exception도 하나의 ExceptionHandler에서 처리할 수 있는 것을 확인할 수 있다.
 
@@ -103,7 +103,7 @@ ExceptionHandler 뿐만 아니라 콘트롤러 내에서 공통으로 구현할 
 
 ### @InitBinder
 
-Controller로 들어오는 요청에 대해 추가적인 기능\(데이터 변환 또는 검증\)을 지원한다.
+Controller로 들어오는 요청에 대해 추가적인 기능(데이터 변환 또는 검증)을 지원한다.
 
 만약에 Person이라는 객체를 Get 요청 시 파라미터 모델로 넘기고 싶다고 해보자. registerDate는 날짜 형식으로 사용할 수 있어야 한다.
 
@@ -131,7 +131,7 @@ public String register(Person person){
 
 단순 String을 date format으로 변경하고 싶을 경우엔 문자열이 date의 어떤 포맷으로 넘겨줄지 알아야 한다. 그러나 현재는 아무런 설정이 되어 있지 않으므로 date 형식으로 변환하는 과정에서 에러가 발생하였다.
 
-![](../../.gitbook/assets/333%20%285%29.png)
+![](<../../.gitbook/assets/333 (5).png>)
 
 그렇다면 @InitBinder를 사용해서 변환해보자.
 
@@ -145,7 +145,7 @@ public void InitBinder(WebDataBinder dataBinder) {
 
 @InitBinder를 설정한 후에 다시 api를 호출해보자.
 
-![](../../.gitbook/assets/444%20%283%29.png)
+![](<../../.gitbook/assets/444 (3).png>)
 
 정상적으로 date format으로 변경되는것을 확인할 수 있다. 이는 @InitBinder를 사용하는 단편적인 예로 @InitBinder를 사용하지 않고 Person 클래스의 registerDate필드에 `@DateTimeFormat(pattern = "yyyy-MM-dd")` 를 사용해도 date 포맷으로 변경 가능하다. 개인적으로는 이 어노테이션은 데이터 포맷 변경 보다는 검증 처리에 더 많이 사용하는 것 같다.
 
@@ -193,7 +193,7 @@ public class PersonController {
 
 view 페이지에는 msg를 서버에서 받아와서 사용하도록 구성하였다. 그런 다음에 결과 페이지를 확인해보자.
 
-![](../../.gitbook/assets/555%20%282%29.png)
+![](<../../.gitbook/assets/555 (2).png>)
 
 msg 변수 값이 셋팅되어 있는 것을 확인할 수 있다. 이처럼 modelattribute를 사용하면 view 페이지에 전달해준 데이터가 자동으로 셋팅되도록 기능을 제공한다.
 
@@ -269,9 +269,9 @@ public class PersonController {
 
 컨트롤러내에서는 Exception만 발생시키고 Exception을 처리하는 로직은 존재하지 않는다. 공통으로 Exception을 처리해주는지 api를 호출해보자.
 
-![](../../.gitbook/assets/666%20%282%29.png)
+![](<../../.gitbook/assets/666 (2).png>)
 
-![](../../.gitbook/assets/777%20%281%29.png)
+![](<../../.gitbook/assets/777 (1).png>)
 
 동일하게 Exception 처리에 대한 메시지를 전달해주는 것을 확인할 수 있다. @ExceptionHandler 뿐만 아니라 @InitBinder, @ModelAttribute 또한 사용할 수 있다.
 
@@ -308,7 +308,7 @@ public class ControllerSupport {
 
 그리고 다시 api를 호출해보자.
 
-![](../../.gitbook/assets/888%20%282%29.png)
+![](<../../.gitbook/assets/888 (2).png>)
 
 이제는 에러 메시지와 함께 성격에 맞는 status code를 내어주는 것을 확인할 수 있다.
 
@@ -359,4 +359,3 @@ public class SetterMonitor implements ThrowsAdvice {
 * [https://springboot.tistory.com/33](https://springboot.tistory.com/33)
 * [https://pupupee9.tistory.com/m/52?category=796566](https://pupupee9.tistory.com/m/52?category=796566)
 * [https://joont92.github.io/spring/모델-바인딩과-검증/](https://joont92.github.io/spring/%EB%AA%A8%EB%8D%B8-%EB%B0%94%EC%9D%B8%EB%94%A9%EA%B3%BC-%EA%B2%80%EC%A6%9D/)
-
