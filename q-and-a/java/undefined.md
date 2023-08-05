@@ -162,7 +162,7 @@ public class TestThread {
 
 <div align="left">
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 </div>
 
@@ -211,14 +211,40 @@ ForkJoinPool의 종료 시점은 쓰레드 당 60초 이후에 반납된다
 * 그러나 static으로 설정할 때 중요한건 size 설정이다
 * 특정 쓰레드만 수행되기 때문에 size를 너무 적게 설정하면 해당 기능의 수행시간이 딜레이 될 수 있다
 
-
-
 ```java
 
 // size는 트래픽을 고려하여 신중히 결정할것!!
 private static ForkJoinPool forkJoinPool = new ForkJoinPool(8);
 
 ```
+
+### 실제로 static과 지역변수로 설정했을때 실행시간은 얼마나 차이가 날까?
+
+#### Jmeter를 활용한 테스트
+
+> 테스트 선행 조건
+>
+> 1초 마다 5번씩 2개의 요청을 호출한다
+>
+> ForkJoinPool 사이즈는 2개로 고정하였다
+
+#### 지역변수로 수행했을때 결과
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+#### 전역변수로 수행했을때 결과
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+#### 차이 비교
+
+
+
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+* 지역변수로 설정했을땐 평균 2.8초 소요되었고, 전역변수로 설정했을땐 4초 이상이었다
+* 사이즈를 적게 잡은것도 있지만 차이를 보여주기 위해 일부로 적게 설정하였다
+* 이처럼 사이즈에 따라서 성능에 영향을 줄수 있으니 주의해야 한다!!
 
 
 

@@ -14,7 +14,7 @@ description: JVM에 대해 알아보자
 
 ## JVM 구성
 
-![](../../.gitbook/assets/image%20%282%29.png)
+![](<../../.gitbook/assets/image (2) (1).png>)
 
 ### class loader
 
@@ -23,31 +23,31 @@ description: JVM에 대해 알아보자
 
 ### execution engine
 
-* 클래스 로더에 의해 메모리에 적재된 클래스\(바이트 코드\)들을 기계어로 변경해 명령어 단위로 실행하는 역할을 한다.
+* 클래스 로더에 의해 메모리에 적재된 클래스(바이트 코드)들을 기계어로 변경해 명령어 단위로 실행하는 역할을 한다.
 
 ### garbage collector
 
 * Heap 메모리 영역에 생성된 객체들 중에 참조되지 않는 객체들을 탐색 후 제거하는 역할을 한다.
 * GC가 수행되는 동안 GC를 수행하는 쓰레드가 아닌 다른 모든 쓰레드가 일시정지된다.
-* 특히 Fulll GC가 일어나서 수 초간 모든 쓰레드가 정지\(STW\)한다면 장애로 이어지는 치명적인 문제가 생길 수 있다.
+* 특히 Fulll GC가 일어나서 수 초간 모든 쓰레드가 정지(STW)한다면 장애로 이어지는 치명적인 문제가 생길 수 있다.
 
 ### runtime data area
 
 ![](../../.gitbook/assets/jvm-runtime-data-area.jpg)
 
-* 개별 스레드에서 관리 
-  * PC Register : 쓰레드가 실행되는 부분의 주소와 명령을 저장하는 영역 
-  * JVM Stack : 지역 변수, 파라미터, 리턴 값, 연산에 사용되는 임시 값이 생성되는 영역 
-  * Native Method Stack : 자바 외 언어로 작성된 네이티브 코드를 위한 메모리 영역\(C/C++ 코드\) 
+* 개별 스레드에서 관리&#x20;
+  * PC Register : 쓰레드가 실행되는 부분의 주소와 명령을 저장하는 영역&#x20;
+  * JVM Stack : 지역 변수, 파라미터, 리턴 값, 연산에 사용되는 임시 값이 생성되는 영역&#x20;
+  * Native Method Stack : 자바 외 언어로 작성된 네이티브 코드를 위한 메모리 영역(C/C++ 코드)&#x20;
 * 공유 스레드에서 관리
-  * Method Area : 클래스 멤버 변수의 이름, 데이터 타입, final 클래스 변수 
-  * Heap Area : new 키워드로 생성된 객체와 배열이 생성되는 영역, \( jdk 8 이상 : static 변수, string 상수 풀\)
+  * Method Area : 클래스 멤버 변수의 이름, 데이터 타입, final 클래스 변수&#x20;
+  * Heap Area : new 키워드로 생성된 객체와 배열이 생성되는 영역, ( jdk 8 이상 : static 변수, string 상수 풀)
 
 {% hint style="danger" %}
 **Primitive 배열을 선언할 경우, 엘리먼트는 어느 영역에 존재하는가?**
 
-원시타입일 경우 무조건 스택 메모리에 적재된다고 생각하는 분들이 많은데 원시타입의 배열일 경우,   
-배열의 주소는 스택 메모리에 적재되고 원시타입이더라도 엘리먼트는 힙 메모리에 적재 된다. 
+원시타입일 경우 무조건 스택 메모리에 적재된다고 생각하는 분들이 많은데 원시타입의 배열일 경우, \
+배열의 주소는 스택 메모리에 적재되고 원시타입이더라도 엘리먼트는 힙 메모리에 적재 된다.&#x20;
 {% endhint %}
 
 ## JVM 역할
@@ -57,8 +57,8 @@ description: JVM에 대해 알아보자
 #### JVM 실행 과정
 
 1. 프로그램이 실행되면 JVM은 OS로부터 이 프로그램이 필요로 하는 메모리를 할당 받는다. JVM은 이 메모리를 용도에 따라 여러 영역으로 나누어 관리한다.
-2. 자바 컴파일러\(javac\)가 자바소스\(.java\)코드를 읽어 들여 자바 바이트코드\(.class\)로 변환시킨다.
-3. 이 변경된 Class 파일들을 Class Loader를 통해 JVM 메모리영역\(Runtime Data Areas\) 영역으로 로딩한다.
+2. 자바 컴파일러(javac)가 자바소스(.java)코드를 읽어 들여 자바 바이트코드(.class)로 변환시킨다.
+3. 이 변경된 Class 파일들을 Class Loader를 통해 JVM 메모리영역(Runtime Data Areas) 영역으로 로딩한다.
 4. 로딩된 class파일들은 Execution engine을 통해 해석된다.
 5. 해석된 바이트코드는 Runtime Data Areas에 배치되어 실질적인 수행이 이루어지게된다.이러한 실행과정속에서 JVM은 필요에 따라 Thread Synchronization과 GC같은 관리 작업을 수행한다.
 
@@ -69,29 +69,29 @@ description: JVM에 대해 알아보자
 {% hint style="info" %}
 **자바 메모리 영역**
 
-* 메소드 영역 : 클래스 메타 데이터\(Field 이름, Field 타입, Class 이름 등등\)
-* 스택 영역 : 기본형 데이터, 로컬 변수\(참조형일 경우 주소값만 저장됨\)가 저장되는 영역
+* 메소드 영역 : 클래스 메타 데이터(Field 이름, Field 타입, Class 이름 등등)
+* 스택 영역 : 기본형 데이터, 로컬 변수(참조형일 경우 주소값만 저장됨)가 저장되는 영역
 * 힙 영역 : 참조형 데이터가 저장되는 영역
 {% endhint %}
 
 {% hint style="warning" %}
 **static 데이터는 어느 메모리 영역에 존재하는가?**
 
-Java 8 이전에는 Method Area를 Permgen\(permanant Generation Space\)에 할당하였다. Static data는 애플리케이션이 생성되면 영구적으로 메모리에 올라가기 때문에 String Constant Pool이나 Static 배열 오용으로 인한 OutOfMemory 이슈가 발생하였다. \(Perm 영역은 JVM에 의해 크기가 강제되던 영역이다\)
+Java 8 이전에는 Method Area를 Permgen(permanant Generation Space)에 할당하였다. Static data는 애플리케이션이 생성되면 영구적으로 메모리에 올라가기 때문에 String Constant Pool이나 Static 배열 오용으로 인한 OutOfMemory 이슈가 발생하였다. (Perm 영역은 JVM에 의해 크기가 강제되던 영역이다)
 
-Java 8 이후부터는 PermGen 영역이 Metaspace 영역으로 변경되면서 기존에 관리되던 Static 데이터나 String Constant Pool은 Heap 메모리로 이동하게 되었고 클래스의 메타 데이터만 Metaspace로 이동하게 되었다. Metaspace 영역은 네이티브 메모리에서 관리하므로 -XX:MaxPermSize를 통해서 관리되는 데이터 양에 따라 유동적으로 관리할 수 있게 되었다. 
+Java 8 이후부터는 PermGen 영역이 Metaspace 영역으로 변경되면서 기존에 관리되던 Static 데이터나 String Constant Pool은 Heap 메모리로 이동하게 되었고 클래스의 메타 데이터만 Metaspace로 이동하게 되었다. Metaspace 영역은 네이티브 메모리에서 관리하므로 -XX:MaxPermSize를 통해서 관리되는 데이터 양에 따라 유동적으로 관리할 수 있게 되었다.&#x20;
 {% endhint %}
 
-#### GC 동작 원리 \(Pararrel GC 기준\)
+#### GC 동작 원리 (Pararrel GC 기준)
 
 ![](../../.gitbook/assets/22296f3c58ff0ca120.jpg)
 
-1. 힙 메모리 영역은 young generation\(eden, survivor1, survivor2\) , old generation, permanent generation 으로 나누어 진다.
-2. 데이터는 young generation\(eden → survivor1 → survivor2\) → old generation 순으로 데이터가 참조되는 기준으로 옮겨진다.
+1. 힙 메모리 영역은 young generation(eden, survivor1, survivor2) , old generation, permanent generation 으로 나누어 진다.
+2. 데이터는 young generation(eden → survivor1 → survivor2) → old generation 순으로 데이터가 참조되는 기준으로 옮겨진다.
 3. young generation에서 발생하는 gc를 minor gc 라고 하고, old generation에서 발생하는 gc를 major gc로 부른다.
 4. minor gc는 메모리를 많이 차지하지 않고, major gc에서 메모리를 많이 차지하게 된다. 대부분의 gc를 튜닝하는 경우는 major gc에서 발생한다.
 
-## 참고 
+## 참고&#x20;
 
 * [https://velog.io/@litien/JVM-구조](https://velog.io/@litien/JVM-%EA%B5%AC%EC%A1%B0)
 * [https://12bme.tistory.com/57](https://12bme.tistory.com/57)
@@ -102,4 +102,3 @@ Java 8 이후부터는 PermGen 영역이 Metaspace 영역으로 변경되면서 
 * [https://johngrib.github.io/wiki/java8-why-permgen-removed/](https://johngrib.github.io/wiki/java8-why-permgen-removed/)
 * [https://javainterviewgoal.blogspot.com/2019/07/what-is-jdk-jre-and-jvm.html](https://javainterviewgoal.blogspot.com/2019/07/what-is-jdk-jre-and-jvm.html)
 * [https://www.programcreek.com/2013/04/jvm-run-time-data-areas/](https://www.programcreek.com/2013/04/jvm-run-time-data-areas/)
-
