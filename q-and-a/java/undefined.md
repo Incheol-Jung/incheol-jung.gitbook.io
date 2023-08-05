@@ -91,7 +91,9 @@ Image Resize upload end!!! time : 2022-12-18T21:31:56
 * 왜냐하면 자바 애플리케이션은 멀티 쓰레드로 동작하기 때문에 일정량의 쓰레드를 할당하며 사용자 요청을 병렬로 처리한다.
 * 그래서 parallelStream을 사용하게 되면 애플리케이션에서 할당해 놓은 쓰레드를 임의로 끌어쓰기 때문에 실제로 사용자 요청에 대한 처리를 수행할 쓰레드가 부족할 수 있다
 
-### parallelStream 을 사용할때는 쓰레드 그룹을 지정하라!
+
+
+### parallelStream 을 사용할때는 쓰레드풀을 지정하라!
 
 
 
@@ -103,9 +105,121 @@ Image Resize upload end!!! time : 2022-12-18T21:31:56
 
 <figure><img src="../../.gitbook/assets/Untitled (2).png" alt=""><figcaption></figcaption></figure>
 
+## 커스텀 쓰레드 풀을 지정하면 되지 않을까?
+
+* parallelStream은 기본적으로 글로벌 FolkJoinPool 쓰레드를 사용한다
+
+> For applications that require separate or custom pools, a `ForkJoinPool` may be constructed with a given target parallelism level; by default, equal to the number of available processors.\
+> \
+> 출처 : [https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ForkJoinPool.html](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ForkJoinPool.html)
+
+* 그렇기 때문에 커스텀 쓰레드풀을 생성해서 수행해도 동작하지 않는다
+* 그래도 눈으로 보는게 좋으니 실제로 확인해보자!
+* 우선 커스텀 쓰레드풀을 생성한다
+
+```java
+@Configuration
+public class ResizeThreadPoolConfigure {
+	@Bean(name = "testThreadPoolTaskExecutor")
+	public Executor resizeThreadPoolTaskExecutor() {
+		ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();
+		taskExecutor.setCorePoolSize(3);
+		taskExecutor.setMaxPoolSize(20);
+		taskExecutor.setQueueCapacity(15);
+		taskExecutor.setThreadNamePrefix("CUSTOM_RESIZE_THREAD-");
+		taskExecutor.initialize();
+		return taskExecutor;
+	}
+}
+```
+
+* 그럼 커스텀으로 생성한 쓰레드풀로 병렬스트림을 수행해보자
+* 1부터 4까지 병렬 스트림으로 요소당 1초 인터벌을 두었다
+
+```java
+
+@Component
+public class TestThread {
+	@Autowired
+	@Qualifier("testThreadPoolTaskExecutor")
+	Executor executor;
+
+	public void test() {
+		executor.execute(() -> IntStream.rangeClosed(1, 4)
+			.parallel()
+			.peek(i -> {
+				try {
+					TimeUnit.SECONDS.sleep(1);
+				} catch (InterruptedException e) {
+					throw new RuntimeException(e);
+				}
+			}).forEach(i -> log.info("ParallelStream() -> {}", i)));
+	}
+}
+```
+
+* 결과를 확인해보자
+
+<div align="left">
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+</div>
+
+* 커스텀 쓰레드풀로 실행된건 하나 뿐이었고 나머지는 commonPool의 ForkJoinPool 쓰레드를 사용한것을 확인할 수 있다
+
+
+
+### 그럼 ForkJoinPool을 어디에 선언해야 하는가?
+
+* ForkJoinPool을 지역변수로 설정할 수도 있고 static으로 설정할 수도 있다
+
+```java
+public void test() throws ExecutionException, InterruptedException {
+	ForkJoinPool forkJoinPool = new ForkJoinPool(2);
+	forkJoinPool.submit(() -> IntStream.rangeClosed(1, 4)
+		.parallel()
+		.peek(i -> {
+			try {
+				TimeUnit.SECONDS.sleep(1);
+			} catch (InterruptedException e) {
+				throw new RuntimeException(e);
+			}
+		}).forEach(i -> log.info("ParallelStream() -> {}", i))).get();
+	forkJoinPool.shutdown();
+}
+```
+
+* 그런데 지역변수로 설정한다는건 결국 ForkJoinPool 쓰레드가 생성되기 때문에 트래픽이 많을 경우 그 만큼 가용할 수 있는 쓰레드는 줄어들게 된다
+
+{% hint style="info" %}
+로컬에 생성한 ForkJoinPool은 shutdown을 수행해야 한다!
+
+\
+ForkJoinPool의 종료 시점은 쓰레드 당 60초 이후에 반납된다
+
+만약 new ForkJoinPool(4) 으로 생성하였다면 4초 이후에 활성화된 쓰레드가 반납된다
+
+그렇기 때문에 동시에 트래픽이 몰려서 지역변수로 ForkJoinPool을 생성하게 된다면 가용할 수 있는 쓰레드가 없을수도 있다. 그러므로 자동으로 반납되기 전에 shutdown()을 사용해서 쓰레드를 종료시키는게 중요하다\
+
+
+참고 : [https://meetup.nhncloud.com/posts/291](https://meetup.nhncloud.com/posts/291)
+{% endhint %}
+
+* 그리고 우리가 쓰레드 그룹을 생성하는건, 애플리케이션에서 수행되는 쓰레드 가용성을 보장하기 위해서이다
+* 그러므로 static으로 설정하는게 우리가 의도한 목적과 일치할 수 있다
+* 그러나 static으로 설정할 때 중요한건 size 설정이다
+* 특정 쓰레드만 수행되기 때문에 size를 너무 적게 설정하면 자칫 애플리케이션 수행시간이 딜레이 될 수 있다
+
+```java
+
+private static ForkJoinPool forkJoinPool = new ForkJoinPool(8);
+
+```
+
 
 
 {% hint style="info" %}
-💡 모든 기술은 양면성을 가지고 있다. \
+💡 **모든 기술은 양면성을 가지고 있다.** \
 새로운 기술을 도입하기 전에 항상 공식문서를 확인하거나 다양한 사용 사례를 살펴보고 우리 서비스에 적합한지 확인을 해야 한다
 {% endhint %}
