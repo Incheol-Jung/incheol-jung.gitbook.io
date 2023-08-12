@@ -13,6 +13,7 @@
   * [병렬처리를 이용한 이미지 리사이즈 개선](q-and-a/java/undefined.md)
   * [heap dump 분석하기 (feat. OOM)](q-and-a/java/heap-dump-feat.-oom.md)
   * [G1 GC vs Z GC](q-and-a/java/g1-gc-vs-z-gc.md)
+  * [JIT COMPILER](q-and-a/java/jit-compiler.md)
   * [ENUM](q-and-a/java/enum.md)
   * [STATIC](q-and-a/java/static.md)
   * [Thread(쓰레드)](q-and-a/java/thread.md)

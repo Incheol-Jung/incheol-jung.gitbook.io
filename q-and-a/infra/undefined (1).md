@@ -7,7 +7,7 @@
 
 ### 메시지 저장 방식
 
-<figure><img src="../../.gitbook/assets/1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 (2).png" alt=""><figcaption></figcaption></figure>
 
 * 발송한 메시지를 브로커에 전달한다
 * 컨슈머는 브로커에 적재된 메시지를 소비한다

@@ -52,7 +52,7 @@ public class TestService {
 
 #### 잘 컨슈밍 되는지 로그를 확인해보자
 
-<figure><img src="../../.gitbook/assets/1 (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 그럼 exception이 발생하면 어떻게 될까?
 
