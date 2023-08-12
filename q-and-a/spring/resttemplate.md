@@ -89,7 +89,7 @@ protected <T> T doExecute(URI url, @Nullable HttpMethod method, @Nullable Reques
 
 ### ClientHttpRequestFactory 구현체 중 어느걸 사용해야 하지?
 
-<figure><img src="../../.gitbook/assets/2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2 (1).png" alt=""><figcaption></figcaption></figure>
 
 * 구현체 종류는 상당히 다양하다 그중에서 우리는 커넥션 풀을 설정해야 하기 때문에 HttpComponentsClientHttpRequestFactory 클래스를 사용할 예정이다.
 * HttpComponentsClientHttpRequestFactory 객체를 생성하고 httpClient에 필요한 쓰레드 갯수를 설정할 수 있다
@@ -224,7 +224,7 @@ ResponseEntity<String> response = restTemplate.exchange("<http://example.com/api
 * 기본 설정과 모든 설정을 다 했을 경우 JMeter를 통해서 execute time을 측정해보겠다
 * 1000개의 요청을 1초단위로 5번 수행하여 총 5000개의 요청을 수행하도록 하였다
 
-<figure><img src="../../.gitbook/assets/4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/4 (1).png" alt=""><figcaption></figcaption></figure>
 
 * 그리고 통신하는 과정에서 4초라는 지연시간을 주어 조금 더 극적인 효과를 볼수 있도록 하였다
 * 아무설정 하지 않았을 경우엔 평균 49.8/sec의 속도를 보여주었고 다행히 에러는 발생하지는 않았다

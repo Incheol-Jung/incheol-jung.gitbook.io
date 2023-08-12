@@ -29,7 +29,7 @@
 
 #### 인증 요청 메일 확인하기
 
-<figure><img src="../../.gitbook/assets/4 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/4 (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 링크버튼을 누르면 소유권 인증이 완료된다
 

@@ -26,7 +26,7 @@
 
 1. ‘대상 그룹 생성’ 버튼을 클릭합니다
 
-<figure><img src="../../.gitbook/assets/2 (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2 (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 2. ‘기본 구성 정보’를 입력합니다
    1. 대상 유형 : 인스턴스
