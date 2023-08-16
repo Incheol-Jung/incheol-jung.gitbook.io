@@ -132,7 +132,7 @@ public boolean tryLock(long waitTime, long leaseTime, TimeUnit unit) throws Inte
 
 ### 1. lock 획득을 시도한다
 
-* 획득한 lock의 유지시간을 확인하고 null이면 획득이 가능하다고 판단한다
+* 획득을 시도하려는 lock의 유지시간을 확인한다
 * 아래에서 tryAcuiqre 로직을 더 살펴보겠지만 우선 ttl값이 null이면 lock을 점유했다고 간주한다
 
 ```jsx
