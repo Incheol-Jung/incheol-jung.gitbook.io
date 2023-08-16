@@ -216,7 +216,7 @@ public void test() throws InterruptedException {
 
 
 
-    <figure><img src="../../.gitbook/assets/9 (4).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/9 (4) (1).png" alt=""><figcaption></figcaption></figure>
 *   쓰레드 탭에서는 어느 코드라인에서 어떤 객체에서 OOM이 발생했는지 확인할 수 있다
 
 

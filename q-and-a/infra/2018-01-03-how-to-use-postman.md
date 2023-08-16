@@ -77,7 +77,7 @@ Collection 관리를 통해서 크게는 프로젝트 별로 구분할 수 있�
 
 유료 서비스를 사용하지 않는다면 팀원 간의 collection 공유는 불가능 하므로 작업한 collection을 export/import하여 공유해야 하는 부분이 있다.&#x20;
 
-![](<../../.gitbook/assets/7 (1) (1).png>)
+![](<../../.gitbook/assets/7 (1) (1) (1).png>)
 
 ### - Test scnario
 
@@ -85,7 +85,7 @@ POSTMAN으로 단순하게 API가 동작하는지에 대한 테스트를 진행�
 &#x20;예를 들어 Response Data의 address 값의 여부를 테스트 케이스에 넣게 된다면 address 값이 없을 경우에는 API 상태 결과값이 200이더라도 에러라는 테스트 케이스 결과 값을 확인할 수 있다. \
 &#x20;또는 Response Data를 이용하여 전역변수 또는 지역변수의 값을 설정할 수도 있다.&#x20;
 
-![](<../../.gitbook/assets/8 (1) (1).png>)
+![](<../../.gitbook/assets/8 (1) (1) (1).png>)
 
 ### - Pre-scripts
 

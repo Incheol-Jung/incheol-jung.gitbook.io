@@ -166,7 +166,7 @@ You will use _@SpringBootTest_  annotation to create integration tests that invo
 
 
 
-<figure><img src="../../.gitbook/assets/6 (1) (2).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/6 (1) (2) (1).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
 
 
 
@@ -196,7 +196,7 @@ PR 생성시 빌드할때는 github action을 사용한다
 
 
 
-<figure><img src="../../.gitbook/assets/8 (1).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/8 (1) (1).png" alt=""><figcaption><p>github.com</p></figcaption></figure>
 
 
 

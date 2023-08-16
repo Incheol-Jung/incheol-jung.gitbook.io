@@ -108,7 +108,7 @@
 
 ### DevOps를 지금 당장 해야 하는 이유는 무엇인가?
 
-<figure><img src="../../../.gitbook/assets/7 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/7 (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 하루 10분 절약 → 한달이면 200분 → 개발자수 만큼?
 * 데브옵스 과정에서 생각보다 많은 인프라 지식을 배울 수 있다

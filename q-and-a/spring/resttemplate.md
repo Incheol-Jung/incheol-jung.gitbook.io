@@ -89,7 +89,7 @@ protected <T> T doExecute(URI url, @Nullable HttpMethod method, @Nullable Reques
 
 ### ClientHttpRequestFactory 구현체 중 어느걸 사용해야 하지?
 
-<figure><img src="../../.gitbook/assets/2 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2 (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 구현체 종류는 상당히 다양하다 그중에서 우리는 커넥션 풀을 설정해야 하기 때문에 HttpComponentsClientHttpRequestFactory 클래스를 사용할 예정이다.
 * HttpComponentsClientHttpRequestFactory 객체를 생성하고 httpClient에 필요한 쓰레드 갯수를 설정할 수 있다
@@ -165,7 +165,7 @@ return new RestTemplate(factory);
 * 서버측에선 커넥션을 종료했는데 클라이언트에서 해당 커넥션을 종료하지 않은 상황에 해당 커넥션을 다시 이용하려고 시도하는 경우 문제가 될 수 있다. 이를 half-closed connection이라 일컫는다
 * 그래서 클라이언트도 커넥션을 맺었더라도 일정시간 이후엔 서버에서 내려주는 keep-alive 값에 의존하지 않고 자체적으로 유효한 커넥션을 해제할 수 있어야 한다
 
-<figure><img src="../../.gitbook/assets/3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/3 (1).png" alt=""><figcaption></figcaption></figure>
 
 #### 클라이언트에서는 어떻게 자체적으로 유효시간을 해제할 수 있을까?
 
@@ -224,18 +224,18 @@ ResponseEntity<String> response = restTemplate.exchange("<http://example.com/api
 * 기본 설정과 모든 설정을 다 했을 경우 JMeter를 통해서 execute time을 측정해보겠다
 * 1000개의 요청을 1초단위로 5번 수행하여 총 5000개의 요청을 수행하도록 하였다
 
-<figure><img src="../../.gitbook/assets/4 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/4 (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 그리고 통신하는 과정에서 4초라는 지연시간을 주어 조금 더 극적인 효과를 볼수 있도록 하였다
 * 아무설정 하지 않았을 경우엔 평균 49.8/sec의 속도를 보여주었고 다행히 에러는 발생하지는 않았다
 
 
 
-<figure><img src="../../.gitbook/assets/5.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/5 (1).png" alt=""><figcaption></figcaption></figure>
 
 * 두번째는 14.7/sec의 속도로 대략 1/3정도 속도가 개선된것을 확인할 수 있다
 
-<figure><img src="../../.gitbook/assets/6.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/6 (1).png" alt=""><figcaption></figcaption></figure>
 
 ## 결론
 

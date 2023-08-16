@@ -1,6 +1,6 @@
 # JDK 17일 사용한 이유(feat. JDK 8 이후 훑어보기)
 
-<figure><img src="../../.gitbook/assets/1 (1).png" alt=""><figcaption><p><a href="https://www.geeksforgeeks.org/jdk-17-new-features-in-java-17/">https://www.geeksforgeeks.org/jdk-17-new-features-in-java-17/</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 (1) (2).png" alt=""><figcaption><p><a href="https://www.geeksforgeeks.org/jdk-17-new-features-in-java-17/">https://www.geeksforgeeks.org/jdk-17-new-features-in-java-17/</a></p></figcaption></figure>
 
 ## 새로운 프로젝트를 들어가면서 JDK 버전을 고려하게 됐다
 

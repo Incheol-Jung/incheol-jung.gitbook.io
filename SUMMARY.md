@@ -34,6 +34,7 @@
   * [테스트 코드 어디까지  알아보고 오셨어요?](q-and-a/spring/undefined.md)
   * [테스트 코드 성능 개선기](q-and-a/spring/undefined-1.md)
   * [RestTemplate 사용시 주의사항](q-and-a/spring/resttemplate.md)
+  * [동시성 해결하기(feat. TMI 주의)](q-and-a/spring/feat.-tmi.md)
   * [OSIV](q-and-a/spring/osiv.md)
   * [@Valid 동작 원리](q-and-a/spring/valid.md)
   * [mybatis @Builder 주의사항](q-and-a/spring/mybatis-builder.md)
