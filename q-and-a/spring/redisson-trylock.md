@@ -49,6 +49,10 @@ try {
 ### 전체 코드
 
 * 전체 코드를 확인하고 아래는 각 단계별 수행하는 내용에 대해서 추가적으로 설명하려고 한다
+* redisson은 일반적으로 lettuce로 동시성을 해결하기 위한 차선책으로 많이 제시된다
+* 그 이유는 재시도가 필요한 경우에 lettuce는 직접 스핀락으로 구현해서 락 점유를 시도하기 때문이다
+* redisson은 스핀락으로 락을 점유하지 않고 pub/sub 구조로 레디스에 부하를 줄인다고 이야기하지만 실제 내부 로직을 살펴보면 스핀락 개념이 아예 없지는 않다
+* redisson 구현의 특징은 lua script와 세마포어의 사용이라고 할 수 있다
 
 ```jsx
 @Override
@@ -129,6 +133,7 @@ public boolean tryLock(long waitTime, long leaseTime, TimeUnit unit) throws Inte
 ### 1. lock 획득을 시도한다
 
 * 획득한 lock의 유지시간을 확인하고 null이면 획득이 가능하다고 판단한다
+* 아래에서 tryAcuiqre 로직을 더 살펴보겠지만 우선 ttl값이 null이면 lock을 점유했다고 간주한다
 
 ```jsx
 // 1. 락 획득을 시도한다
@@ -139,6 +144,34 @@ if (ttl == null) {
     return true;
 }
 ```
+
+* tryAcquire 내부 로직을 살펴보면 lua script를 사용해서 setnx를 실행하는 것을 확인할 수 있다
+
+```java
+<T> RFuture<T> tryLockInnerAsync(long waitTime, long leaseTime, TimeUnit unit, long threadId, RedisStrictCommand<T> command) {
+    return evalWriteAsync(getRawName(), LongCodec.INSTANCE, command,
+            "if (redis.call('exists', KEYS[1]) == 0) then " +
+                    "redis.call('hincrby', KEYS[1], ARGV[2], 1); " +
+                    "redis.call('pexpire', KEYS[1], ARGV[1]); " +
+                    "return nil; " +
+                    "end; " +
+                    "if (redis.call('hexists', KEYS[1], ARGV[2]) == 1) then " +
+                    "redis.call('hincrby', KEYS[1], ARGV[2], 1); " +
+                    "redis.call('pexpire', KEYS[1], ARGV[1]); " +
+                    "return nil; " +
+                    "end; " +
+                    "return redis.call('pttl', KEYS[1]);",
+            Collections.singletonList(getRawName()), unit.toMillis(leaseTime), getLockName(threadId));
+}
+```
+
+1-1. exists 명령어를 수행해서 있으면 키에 대한 값을 1 증가시키고, ttl 시간을 설정하고 null을 리턴한다
+
+1-2. 그리고 없으면 한번더 없으면 setnx 명령어를 수행해서 존재하지 않으면 1-1번 과정을 수행한다
+
+1-3. 만약 이미 존재한다면 존재하는 ttl 값을 리턴한다
+
+
 
 ### 2. waitTime이 초과되었는지 확인한다
 
@@ -158,6 +191,8 @@ if (time <= 0) {
 
 * CompleteFuture.get() 메서드를 호출하여 thread id로 구독한 채널로 lock 획득이 유효할때까지 대기한다
 * 만약에 사용자가 설정한 waitTime을 초과할 경우 TimeoutException이 발생하여 lock 획득에 실패한다
+* 여기서 중요한 점은 subscribe 내부에는 세마포어를 사용해서 공유자원에 대한 점유를 수행한다는 것이다
+* 세마포어를 사용하여 공유자원을 점유하기 때문에 스핀락 보다는 레디스 I/O에 대한 부하를 줄일 수 있다
 
 ```jsx
 // 3. threadId를 채널로 구독하여 waitTime까지 대기한다.(block 처리)
@@ -175,6 +210,40 @@ try {
     }
     acquireFailed(waitTime, unit, threadId);
     return false;
+}
+```
+
+* subscribe 내부 로직을 간단히 살펴보면 세마포어를 사용하는 것을 확인할 수 있다
+
+```java
+public CompletableFuture<E> subscribe(String entryName, String channelName) {
+    AsyncSemaphore semaphore = service.getSemaphore(new ChannelName(channelName));
+    CompletableFuture<E> newPromise = new CompletableFuture<>();
+
+    semaphore.acquire(() -> {
+        if (newPromise.isDone()) {
+            semaphore.release();
+            return;
+        }
+
+        E entry = entries.get(entryName);
+        if (entry != null) {
+            entry.acquire();
+            semaphore.release();
+            entry.getPromise().whenComplete((r, e) -> {
+                if (e != null) {
+                    newPromise.completeExceptionally(e);
+                    return;
+                }
+                newPromise.complete(r);
+            });
+            return;
+        }
+
+        E value = createEntry(newPromise);
+        value.acquire();
+		
+				...
 }
 ```
 
