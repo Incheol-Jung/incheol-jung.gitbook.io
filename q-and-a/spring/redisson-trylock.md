@@ -274,6 +274,18 @@ public T get(long timeout, TimeUnit unit)
 }
 ```
 
+
+
+{% hint style="info" %}
+**redisson은 왜 세마포어를 사용했는가?**
+
+공식문서를 살펴 보면 세마포어를 사용한 이유를 파악할 수 있다. 레디스는 싱글 쓰레드로 동작하기 때문에 공유 자원에 대해서 쓰레드 세이프하게 동작하기 위해 동기화 매커니즘을 수행하기 위한 용도로 사용되었다고 설명하고 있다
+
+공식문서 참고 : [https://redisson.org/glossary/java-semaphore.html](https://redisson.org/glossary/java-semaphore.html)
+{% endhint %}
+
+
+
 ### 4. waitTime 이전까지 무한루프를 수행하면서 lock 점유시간을 한번 더 확인한다
 
 * lock을 획득하여 아직 점유 유효시간이 남아있는지 한번 더 체크한다
