@@ -21,6 +21,10 @@
 * 구현 자체는 간단하다
 * 획득하고자 하는 이름의 락을 정의하고 유효 시간까지 락 획득을 시도하게 된다
 * 만약 유효 시간이 지나면 락 획득은 실패하게 된다
+* 단 여기서 주의할 점은 unlock할 경우에, 해당 세션에서 잠금을 생성한 락인지 확인해야 한다
+* 그렇지 않으면 다른 세션에서 수행중인 잠금이 해제될수도 있다
+  * isLocked() : 잠금이 되었는지 확인
+  * isHeldByCurrentThread() : 해당 세션에서 잠금을 생성했는지 확인
 
 ```jsx
 // 특정 이름으로 락 정의 
@@ -40,7 +44,9 @@ try {
 } catch (InterruptedException e) {
     throw new RuntimeException(e);
 } finally {
-    lock.unlock();
+    if (lock.isLocked() && lock.isHeldByCurrentThread()) {
+        lock.unlock();
+    }
 }
 ```
 
