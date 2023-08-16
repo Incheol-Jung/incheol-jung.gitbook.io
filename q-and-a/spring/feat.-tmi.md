@@ -1,7 +1,5 @@
 # 동시성 해결하기(feat. TMI 주의)
 
-## 데이터베이스 트랜잭션 특성
-
 * 동시성 해결하기에 앞서 `트랜잭션`의 특징을 간단히 살펴보자.
 * 자세한 내용은 다음 링크를 통해서 알수 있다 ([데이터베이스 격리수준](https://incheol-jung.gitbook.io/docs/q-and-a/db/isolation-level))
 
