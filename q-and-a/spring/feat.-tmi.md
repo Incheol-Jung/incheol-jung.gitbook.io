@@ -68,7 +68,7 @@ LOCK TABLES TB_SETTLEMENT_DETAIL READ;
 
 #### 결과 화면
 
-<figure><img src="../../.gitbook/assets/1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 대기중인 락 조회
 
@@ -88,7 +88,7 @@ WHERE 4201 <= settlement_detail_id AND settlement_detail_id <= 4203 FOR UPDATE;
 
 #### 결과화면
 
-<figure><img src="../../.gitbook/assets/2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2 (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -123,7 +123,7 @@ LOCK TABLES TB_SETTLEMENT_DETAIL READ;
 
 #### 결과화면
 
-<figure><img src="../../.gitbook/assets/3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/3 (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 프로세스 조회
 
@@ -144,7 +144,7 @@ values (1, 1000, 1,false,now());
 
 #### 결과화면
 
-<figure><img src="../../.gitbook/assets/4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/4 (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 락으로 인해 대기중인 쿼리 중지
 
@@ -202,7 +202,7 @@ SELECT * FROM TB_PRODUCT WHERE product_id = 1 FOR UPDATE // X LOCK
 
 #### 결과화면
 
-<figure><img src="../../.gitbook/assets/5.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/5 (1).png" alt=""><figcaption></figcaption></figure>
 
 ### gap lock(갭 락)
 

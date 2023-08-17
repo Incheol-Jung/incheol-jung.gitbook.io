@@ -36,6 +36,7 @@
   * [RestTemplate 사용시 주의사항](q-and-a/spring/resttemplate.md)
   * [동시성 해결하기(feat. TMI 주의)](q-and-a/spring/feat.-tmi.md)
   * [redisson trylock 내부로직 살펴보기](q-and-a/spring/redisson-trylock.md)
+  * [DB 트래픽 분산시키기(feat. Routing Datasource)](q-and-a/spring/db-feat.-routing-datasource.md)
   * [OSIV](q-and-a/spring/osiv.md)
   * [@Valid 동작 원리](q-and-a/spring/valid.md)
   * [mybatis @Builder 주의사항](q-and-a/spring/mybatis-builder.md)

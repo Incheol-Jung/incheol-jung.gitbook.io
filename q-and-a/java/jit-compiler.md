@@ -1,6 +1,6 @@
 # JIT COMPILER
 
-<figure><img src="../../.gitbook/assets/1 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ![https://static.javatpoint.com/core/images/jit-in-java2.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0ca85283-9464-459c-922f-8493f6eea4e7/1.png)
 
@@ -10,7 +10,7 @@
 
 ## jit compiler는 무엇인가?
 
-<figure><img src="../../.gitbook/assets/2 (1).png" alt=""><figcaption><p><a href="https://www.scientecheasy.com/wp-content/uploads/2021/03/java-jvm-architecture.png">https://www.scientecheasy.com/wp-content/uploads/2021/03/java-jvm-architecture.png</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2 (1) (1).png" alt=""><figcaption><p><a href="https://www.scientecheasy.com/wp-content/uploads/2021/03/java-jvm-architecture.png">https://www.scientecheasy.com/wp-content/uploads/2021/03/java-jvm-architecture.png</a></p></figcaption></figure>
 
 
 
@@ -76,7 +76,7 @@
 
 
 
-<figure><img src="../../.gitbook/assets/4 (1).png" alt=""><figcaption><p><a href="https://devtechfactory.com/blogs/CodeCache.png">https://devtechfactory.com/blogs/CodeCache.png</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/4 (1) (1).png" alt=""><figcaption><p><a href="https://devtechfactory.com/blogs/CodeCache.png">https://devtechfactory.com/blogs/CodeCache.png</a></p></figcaption></figure>
 
 
 

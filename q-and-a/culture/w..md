@@ -27,7 +27,7 @@
 
 
 
-<figure><img src="../../.gitbook/assets/3 (1) (1).png" alt=""><figcaption><p>https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0002835986</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/3 (1) (1) (1).png" alt=""><figcaption><p>https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0002835986</p></figcaption></figure>
 
 
 
