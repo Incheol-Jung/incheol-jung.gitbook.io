@@ -94,7 +94,7 @@
   * [핀포인트 사용시 주의사항!! (feat 로그 파일 사이즈)](q-and-a/infra/feat.md)
   * [AWS EC2 도메인 설정 (with ALB)](q-and-a/infra/aws-ec2-with-alb.md)
   * [ALB에 SSL 설정하기(feat. ACM)](q-and-a/infra/alb-ssl-feat.-acm.md)
-  * [람다를 활용한 클라우드 와치 알림 받기](q-and-a/infra/undefined-2.md)
+  * [람다를 활용한 클라우드 와치 알림 받기](q-and-a/infra/undefined.md)
   * [AWS Personalize 적용 후기… 😰](q-and-a/infra/aws-personalize-....md)
   * [CloudFront를 활용한 S3 성능 및 비용 개선](q-and-a/infra/cloudfront-s3.md)
 * [CULTURE](q-and-a/culture/README.md)

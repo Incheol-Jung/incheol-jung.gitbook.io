@@ -7,27 +7,31 @@
 
 
 
-## 레지스트리 서버에 서비스 등록
+## 클라이언트 레지스트리 서버에 등록
 
-*   레지스트리 서버에 등록할 클라이언트에 eureka 라이브러리를 추가한다
+* 우선, 레지스트리 서버는 이미 운영중인 가정하에 클라이언트 설정만 확인해보겠다
+*   레지스트리 서버에 등록할 클라이언트에 `eureka` 라이브러리를 추가한다
 
     ```java
     // build.gradle
 
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
     ```
-*   레지스트리 정보를 클라이언트에 설정하면 클라이언트는 레지스트리 서버에 주기적으로 **Heartbeat API**를 호출하며 상태를 주기적으로 전달하게 업데이트되게 된다. `(spring.application.name이 레지스트리에 등록될 서비스 이름이 된다)`
+*   레지스트리 정보를 클라이언트에 설정하면 클라이언트는 레지스트리 서버에 주기적으로 **Heartbeat API**를 호출하며 상태를 주기적으로 전달하게 업데이트되게 된다. \
+    `(spring.application.name이 레지스트리에 등록될 서비스 이름이 된다)`
 
-    ```java
-    // application.yml
 
-    spring:
-      application:
-        name: api-external-service // 레지스트리에 등록할 서비스 이름을 의미한다
-      cloud:
-        config:
-          uri: <http://13.124.31.0:8888> // 레지스트리 서버 정보를 입력한다
-    ```
+
+```java
+// application.yml
+
+spring:
+  application:
+    name: api-external-service // 레지스트리에 등록할 서비스 이름을 의미한다
+  cloud:
+    config:
+      uri: <http://13.124.31.0:8888> // 레지스트리 서버 정보를 입력한다
+```
 
 
 
@@ -68,21 +72,18 @@
 
     ```java
     eureka:
-      client:
-        register-with-eureka: false
-        fetch-registry: false
       server:
         eviction-interval-timer-in-ms: 10000
     ```
 
 
 
-### 레지스트리 서버는 **leaseExpirationDurationInSeconds만 주의하면 될까?**
+### 레지스트리 서버는 **evictionIntervalTimerInMs 만 주의하면 될까?**
 
 * 아니다. 레지스트리 서버는 클라이언트 등록 과정에 네트워크 이슈가 있지만, 실제 API 호출하는데에는 이슈가 없을 경우를 고려하여 자체적으로 이전에 기록한 클라이언트 접속 정보를 유지하는 경우가 있다
 * 이는 `enableselfpreservation` 값을 true로 하였을때, 일정 클라이언트 손실에 대해서 자가 보존 모드로 들어가게 된다
-* 그리고 자가 보존 모드가 되는 기준은 `renewalPercentThreshold` \*\*\*\*\*\*수치 이하일 경우에 전환하게 된다(모든 클라이언트에 대해서 heartbeat의 손실률에 대한 기준이다)
-* 그리고 자가 보존 모드로 전환을 검토하는 계산 주기는 `renewalThresholdUpdateIntervalMs` 값에 의해 주기가 정해진다. 기본값은 15분으로 설정되어 있다
+* 그리고 자가 보존 모드가 되는 기준은 `renewalPercentThreshold` 수치 이하일 경우에 전환하게 된다(모든 클라이언트에 대해서 `heartbeat`의 손실률에 대한 기준이다)
+* 그리고 자가 보존 모드로 전환을 검토하는 계산 주기는 `renewalThresholdUpdateIntervalMs` 값에 의해 주기가 정해진다. 기본값은 `15분`으로 설정되어 있다
 * 운영 환경에서는 대부분 자가 보존 모드를 켜둔 상태로 운영하는것을 권장한다
 * 자가 보존 모드에 대해서는 추후에 알아보기로 하고 우선은 클라이언트 상태 체크 주기에 대해서만 살펴보겠다
 
@@ -105,12 +106,12 @@
     ```
 2. 서비스를 shutdown 시킨다
 3. 3초 이후에 다른 서비스에서 서비스 디스커버리를 통해서 shutdown한 서비스를 호출 했을때, 등록된 서비스가 없다고 나오는지, 실제로 호출하게 되는지 확인해보자
-   1.  만약 등록된 서비스가 없다면 `‘No servers available’`이라는 내용의 문구를 확인할 수 있다
+   1.  만약 등록된 서비스가 없다면 `‘No servers available ...’`이라는 내용의 문구를 확인할 수 있다
 
 
 
        <figure><img src="../../.gitbook/assets/2 (14).png" alt=""><figcaption></figcaption></figure>
-   2.  만약 등록된 서비스가 있는데, 호출이 정상적으로 되지 않는다면 `‘Connection refused’` 라는 내용의 문구를 확인할 수 있다
+   2.  만약 등록된 서비스가 있는데, 호출이 정상적으로 되지 않는다면 `‘Connection refused ...’` 라는 내용의 문구를 확인할 수 있다
 
 
 
@@ -125,7 +126,7 @@
 
 * 레지스트리 서버에 서비스를 등록하고 주기적으로 상태를 확인하는 설정은 클라이언트에 독립적으로 설정할 수 있다 (**evictionIntervalTimerInMs, leaseExpirationDurationInSeconds)**
 * 그러나 레지스트리 서버에 클라이언트가 해지되었다고 하더라도 등록정보가 캐시될 수 있으니 캐시 주기를 잘 살펴 봐야 한다
-* 그리고 레지스트리 서버에는 자가 보존 모드가 존재하니, 일정시간동안 다양한 이슈로 인해 레지스트리 서버에 heartbeat를 호출하지 않아도 클라이언트가 유지될 수 있으니 이 부분도 주의깊게 사용이 필요하다
+* 그리고 레지스트리 서버에는 자가 보존 모드가 존재하니, 일정시간동안 다양한 이슈로 인해 레지스트리 서버에 `heartbeat`를 호출하지 않아도 클라이언트가 유지될 수 있으니 이 부분도 주의깊게 사용이 필요하다
 
 ## 참고
 
