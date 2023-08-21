@@ -82,6 +82,7 @@
   * [GIT](q-and-a/infra/2018-01-07-github.md)
   * [DOCKER](q-and-a/infra/2018-01-16-nodejs-14st.md)
   * [카프카 찍먹하기 1부](q-and-a/infra/1.md)
+  * [카프카 찍먹하기 2부 (feat. 프로듀서)](q-and-a/infra/2-feat..md)
   * [JENKINS](q-and-a/infra/jenkins.md)
   * [POSTMAN](q-and-a/infra/2018-01-03-how-to-use-postman.md)
   * [DNS 동작 원리](q-and-a/infra/dns.md)
