@@ -47,7 +47,7 @@
 
 ### 일반적인 DataSource를 통해서 쿼리를 수행하는 과정
 
-<figure><img src="../../.gitbook/assets/1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 (1).png" alt=""><figcaption></figcaption></figure>
 
 * sqlSessionTemplate은 PlatformTransactionManager를 사용한다
 * PlatformTransactionManager는 인터페이스로 실제로 사용하는 구현 객체는DataSourceTransactionManager를 사용한다
@@ -55,7 +55,7 @@
 
 ### 그럼 동적으로 DataSource를 변경하려면 어떻게 해야할까?
 
-<figure><img src="../../.gitbook/assets/2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2 (1).png" alt=""><figcaption></figcaption></figure>
 
 *   트랜잭션 수행시 동적으로 Datasource를 정의하기 위해서는 PlatformTransactionManager를 재정의해야 한다
 

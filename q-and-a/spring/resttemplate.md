@@ -89,7 +89,7 @@ protected <T> T doExecute(URI url, @Nullable HttpMethod method, @Nullable Reques
 
 ### ClientHttpRequestFactory 구현체 중 어느걸 사용해야 하지?
 
-<figure><img src="../../.gitbook/assets/2 (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2 (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 구현체 종류는 상당히 다양하다 그중에서 우리는 커넥션 풀을 설정해야 하기 때문에 HttpComponentsClientHttpRequestFactory 클래스를 사용할 예정이다.
 * HttpComponentsClientHttpRequestFactory 객체를 생성하고 httpClient에 필요한 쓰레드 갯수를 설정할 수 있다
