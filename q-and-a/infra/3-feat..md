@@ -50,8 +50,7 @@
 ### 자동 커밋
 
 * 만약 enable.auto.commit이 true라고 한다면 자동 커밋 주기를 설정해야 한다
-* [auto.commit.interval.ms](http://auto.commit.interval.ms) : 자동 커밋 주기
-  * 기본값은 5초이다
+* [auto.commit.interval.ms](http://auto.commit.interval.ms) : 자동 커밋 주기 (기본값 : 5초)
 
 ### 수동 커밋
 
@@ -122,11 +121,17 @@
   * 만약 소비할 메시지 사이즈가 커져 max.poll.interval.ms를 초과할 경우, max.poll.records 사이즈를 축소하여 리밸런싱 되지 않도록 해야 한다
   * max.poll.records 사이즈를 줄일수록 처리할 수 있는 데이터는 적겠지만, 수행시간은 빠르다
 
-\<aside> 💡 MANUAL\_IMMEDIATE, MANUAL 차이는 무엇인가??
+
+
+{% hint style="info" %}
+**MANUAL\_IMMEDIATE, MANUAL 차이는 무엇인가??**\
+\
+
 
 * 우선 둘다 수동으로 커밋하는 방식이다
 * 차이는 MANUAL의 경우에는 우선 메시지를 폴링하고 커밋을 한 이후에 다음 폴링을 하게되면 이전에 폴링한 오프셋까지 커밋이 된다. 그러므로 BATCH와 로직은 동일하다
-* MANUAL\_IMMEDIATE 은 다음 폴링까지 확인하지 않고 현재까지 폴링한 오프셋까지 바로 커밋된다 \</aside>
+* MANUAL\_IMMEDIATE 은 다음 폴링까지 확인하지 않고 현재까지 폴링한 오프셋까지 바로 커밋된다&#x20;
+{% endhint %}
 
 
 
@@ -156,8 +161,19 @@
 
 
 
+> 카프카 찍먹을 3부까지 진행하면서 최범균님 영상을 참고를 많이 하였습니다
+>
+> 덕분에 기본적인 설정이나 고려사항 등을 인지할 수 있어서 감사하다는 내용을 글 말미에 작성하고 싶었습니다
+>
+> 실제로는 뵙지는 못했지만 올려주신 영상으로 도움이 많이 되고 있습니다
+>
+> 감사합니다!!!!
+
+
+
 ## 참고
 
+* [https://youtu.be/xqrIDHbGjOY?si=PGF5PhNaWfSSJnv3](https://youtu.be/xqrIDHbGjOY?si=PGF5PhNaWfSSJnv3)
 * [https://docs.spring.io/spring-kafka/reference/html/#committing-offsets](https://docs.spring.io/spring-kafka/reference/html/#committing-offsets)
 * [https://d2.naver.com/helloworld/0974525](https://d2.naver.com/helloworld/0974525)
 * [https://hanseom.tistory.com/174](https://hanseom.tistory.com/174)
