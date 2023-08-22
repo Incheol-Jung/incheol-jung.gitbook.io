@@ -68,6 +68,16 @@
 * MANUAL : AcknowledgingMessageListener 또는 BatchAcknowledgingMessageListener를 리스너를 사용해서 커밋 메서드를 수행할 경우, 다음 메시지를 poll할 경우에 이전에 poll 한 메시지의 오프셋까지 커밋된다
 * MANUAL\_IMMEDIATE : AcknowledgingMessageListener 또는 BatchAcknowledgingMessageListener를 리스너를 사용해서 커밋 메서드를 수행할 경우, 즉시 읽은 오프셋까지 커밋된다
 
+{% hint style="info" %}
+**MANUAL\_IMMEDIATE, MANUAL 차이는 무엇인가??**\
+\
+
+
+* 우선 둘다 수동으로 커밋하는 방식이다
+* 차이는 MANUAL의 경우에는 우선 메시지를 폴링하고 커밋을 한 이후에 다음 폴링을 하게되면 이전에 폴링한 오프셋까지 커밋이 된다. 그러므로 BATCH와 로직은 동일하다
+* MANUAL\_IMMEDIATE 은 다음 폴링까지 확인하지 않고 현재까지 폴링한 오프셋까지 바로 커밋된다&#x20;
+{% endhint %}
+
 
 
 ## 컨슈머 조회에 영향을 주는 주요 설정
@@ -122,16 +132,6 @@
   * max.poll.records 사이즈를 줄일수록 처리할 수 있는 데이터는 적겠지만, 수행시간은 빠르다
 
 
-
-{% hint style="info" %}
-**MANUAL\_IMMEDIATE, MANUAL 차이는 무엇인가??**\
-\
-
-
-* 우선 둘다 수동으로 커밋하는 방식이다
-* 차이는 MANUAL의 경우에는 우선 메시지를 폴링하고 커밋을 한 이후에 다음 폴링을 하게되면 이전에 폴링한 오프셋까지 커밋이 된다. 그러므로 BATCH와 로직은 동일하다
-* MANUAL\_IMMEDIATE 은 다음 폴링까지 확인하지 않고 현재까지 폴링한 오프셋까지 바로 커밋된다&#x20;
-{% endhint %}
 
 
 
