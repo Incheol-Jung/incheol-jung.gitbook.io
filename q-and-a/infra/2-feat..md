@@ -15,18 +15,18 @@
 
 ### Sender의 역할
 
-* 메시지를 배치로 모으거나 브로커에 전송하는 로직은 별도 쓰레드로 동작하기 때문에 동시에 일어난다
+* 메시지를 배치로 모으거나 브로커에 전송하는 로직은 별도 쓰레드로 동작하기 때문에 동시에 수행한다
 * 메시지를 배치 단위로 모으는 기준은 크게 두가지로 구분할 수 있다
-  * batch.size : 배치크기,배치가 다 차면 바로 전송(기본값 : 16384KB)
+  * batch.size : 배치크기, 설정한 배치크기를 충족하면 바로 전송(기본값 : 16384KB)
   * [linger.ms](http://linger.ms) : 전송대기 시간
     * 기본값은 0으로 send() 수행 즉시, 바로 호출된다
     * 대기시간이 없으면 배치를 바로 전송한다
     * 대기 시간을 주면 그만큼 기다렸다가 배치 사이즈만큼 쌓였을 경우에 전송한다
-* send() 메서드는 기본적으로 비동기 방식이다. 그래서 만약 동기 방식으로 호출하려면 Future 객체의 get() 메서드를 호출해야 하며, get() 메서드를 호출하게 되면 배치 단위로 메시지를 전송할 수 없다
+* send() 메서드는 기본적으로 비동기 방식이다. 그래서 만약 동기 방식으로 호출하려면 Future 객체의 get() 메서드를 호출해야 하며, get() 메서드는 즉시 전송되는 방식이라 배치 단위로 메시지를 전송할 수 없다
 
 
 
-## 전송시 고려해야할 사항
+## 메시지 발송시 고려해야할 사항
 
 ### 예외 처리
 
@@ -78,6 +78,18 @@
   * `min.insync.replies` : ack가 all 일때 성공했다고 응답할 수 있는 동기화된 리플리카 최소 갯수를 지정할 수 있다. (리더 포함 갯수이다)
   * min.insync.replies 설정시 주의해야 할 점은 리더 + 팔로워 갯수 합계를 설정하게 되면 팔로워중 하나만 장애가 발생해도 응답을 받지 못했다고 간주하게 되어 장애가 발생할 수 있다. (그러므로 전체 갯수에서 -2,-3 정도로 여유롭게 설정하는게 카프카를 안전하게 운영할 수 있다)
 
+{% hint style="info" %}
+**카프카 3.0이후부터는 ack = all이 기본값이다**
+
+
+
+이론상으론 ack = all일 경우에는 팔로워 브로커들이 메시지를 저장했는지 확인하기 때문에 지양하였지만, `max.in.flight.requests.per.connection` 값을 3이상으로 설정하면 하나의 커넥션에 더 많은 메시지를 전송할 수 있으므로 여러 메시지에 대해서 브로커의 응답을 받을 수 있으니 성능상 크게 차이가 없다는 결과를 도출하였다고 한다. 그런데 `max.in.flight.requests.per.connection` 값을 1보다 큰 값으로 할 경우, 메시지 전송 실패시 순서가 변경될수도 있으니 주의해야 할 필요가 있다.
+
+참고 : [https://blog.voidmainvoid.net/507](https://blog.voidmainvoid.net/507)
+{% endhint %}
+
+
+
 ### 프로듀서 에러유형
 
 * 프로듀서에서 발생할 수 있는 에러유형은 시점에 따라 크게 두가지로 구분할 수 있다
@@ -89,16 +101,38 @@
   * max.in.flight.requests.per.connection
     * 한 커넥션에서 전송할 수 있는 최대 전송중인 요청 개수이다
     * 1로 설정하면 실패시 재시도해도 순서가 보장된다
-* 리더 브로커가 다운되었을 때 → 팔로워가 승격되는 과정을 거침(순단 발생)
+
+{% hint style="info" %}
+**enable.idempotence은 무슨 속성일까?**
+
+
+
+브로커로 전달할 때 PID와 시퀀스 넘버를 함께 전달해서 재전송시에도 브로커는 PID와 시퀀스 넘버를 확인하여 동일한 메시지로 인지하여 중복으로 메시지를 소비하지 않도록 예방할 수 있다
+{% endhint %}
+
+*   리더 브로커가 다운되었을 때 → 팔로워가 승격되는 과정을 거침(순단 발생)
+
+    * 내부적으로 재시도를 시도한다
+
+
+* #### 프로듀서 설정
+  * retries : 메시지를 재시도하는 횟수(기본값 MAX\_INT)
+  * [retry.backoff.ms](http://retry.backoff.ms) : 재시도 사이에 대기하는 시간(기본값 : 100)
+  * [request.timeout.ms](http://request.timeout.ms) : 브로커의 응답을 기다리는 최대 시간(기본값 : 30초)
+  * [delivery.timeout.ms](http://delivery.timeout.ms) : send 이후에 성공 또는 실패를 보고하는 시간(기본값 : 2분)
 *   브로커 설정 메시지 크기 한도 초과
 
     * 프로듀서 및 브로커 설정을 수정해서 해결할 수 있다
+
+
 
     #### 프로듀서 설정
 
     * max.request.size : 프로듀서가 브로커에 요청할 때 보낼 수 있는 최대 크기(기본값 1MB)
     * buffer.memory : 프로듀서가 버퍼에 사용할 총메모리의 양(기본값 32MB)
     * [request.timeout.ms](http://request.timeout.ms) : 프로듀서가 요청 후 브로커의 응답을 대기하는 최대 시간(기본값 30초)
+
+
 
     #### 브로커 설정
 
@@ -122,3 +156,6 @@
 
 * [https://youtu.be/geMtm17ofPY?si=XMxf6gZEFTS3Phrr](https://youtu.be/geMtm17ofPY?si=XMxf6gZEFTS3Phrr)
 * [https://always-kimkim.tistory.com/entry/kafka-operations-settings-concerned-when-the-message-has-more-than-1-mb](https://always-kimkim.tistory.com/entry/kafka-operations-settings-concerned-when-the-message-has-more-than-1-mb)
+* [https://soft.plusblog.co.kr/14](https://soft.plusblog.co.kr/14)
+* [https://blog.voidmainvoid.net/507](https://blog.voidmainvoid.net/507)
+* [https://magpienote.tistory.com/251](https://magpienote.tistory.com/251)
