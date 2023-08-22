@@ -68,7 +68,7 @@ LOCK TABLES TB_SETTLEMENT_DETAIL READ;
 
 #### 결과 화면
 
-<figure><img src="../../.gitbook/assets/1 (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 대기중인 락 조회
 

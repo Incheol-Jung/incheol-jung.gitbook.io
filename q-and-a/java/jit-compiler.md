@@ -1,6 +1,6 @@
 # JIT COMPILER
 
-<figure><img src="../../.gitbook/assets/1 (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ![https://static.javatpoint.com/core/images/jit-in-java2.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0ca85283-9464-459c-922f-8493f6eea4e7/1.png)
 

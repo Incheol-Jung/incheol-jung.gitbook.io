@@ -47,7 +47,7 @@
 
 ### 일반적인 DataSource를 통해서 쿼리를 수행하는 과정
 
-<figure><img src="../../.gitbook/assets/1 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * sqlSessionTemplate은 PlatformTransactionManager를 사용한다
 * PlatformTransactionManager는 인터페이스로 실제로 사용하는 구현 객체는DataSourceTransactionManager를 사용한다
