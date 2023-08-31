@@ -68,7 +68,7 @@
 * 다시 지금의 점수를 내기 위해서는 아마 꽤 오랜 시간이 걸릴 것이다
 * 나는 한동안 이것을 부정했다
 
-<figure><img src="../../.gitbook/assets/4.jpg" alt="" width="438"><figcaption></figcaption></figure>
+
 
 ## 🛫 가시적 성과와 성장의 구속
 
