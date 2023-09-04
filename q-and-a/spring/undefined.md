@@ -56,23 +56,28 @@
 * 그래서 단위 테스트를 100% 보장하기 위해선 의존하는 클래스에 영향을 받으면 안된다
 * 이를 해결하기 위해 의존하는 클래스를 mock 처리한다
 * mock 처리하는 다양한 라이브러리가 있는데 가장 많이 사용하는 mockito를 사용하기로 했다
-*   mockito에는 다양한 메서드를 제공한다
+* mockito에는 다양한 메서드를 제공한다
+  * [https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html)
 
-    * [https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html)
+{% hint style="info" %}
+#### given() vs when()
 
-    #### given() vs when()
+* given 절에 Mockito에 when() 메서드를 사용할수도 있고, BDDMockito의 given() 메서드를 사용할 수 있다
+*   초기에 Mockito 라이브러리는 when()을 제공하였는데, 점차 given이라는 의미와 when() 메서드가 의미상 부합되지 않음을 깨닫고 그 이후에 업데이트된 라이브러리에는 given()이라는 메서드를 제공하게 되었다고 한다. 그래서 기능상 차이는 없을지라도 의미상 given()을 쓰는것을 권장하고 있다\
+    &#x20;
 
-    * given 절에 Mockito에 when() 메서드를 사용할수도 있고, BDDMockito의 given() 메서드를 사용할 수 있다
-    *   초기에 Mockito 라이브러리는 when()을 제공하였는데, 점차 given이라는 의미와 when() 메서드가 의미상 부합되지 않음을 깨닫고 그 이후에 업데이트된 라이브러리에는 given()이라는 메서드를 제공하게 되었다고 한다. 그래서 기능상 차이는 없을지라도 의미상 given()을 쓰는것을 권장하고 있다
+    ```
+    The problem is that current stubbing api with canonical role of when word does not integrate nicely with 
+    //given //when //then comments. 
+    It's because stubbing belongs to given component of the test and not to the when component of the test. 
+    Hence BDDMockito class introduces an alias so that you stub method calls with BDDMockito.given(Object) method. 
+    Now it really nicely integrates with the given component of a BDD style test!
 
-        ```jsx
-        The problem is that current stubbing api with canonical role of when word does not integrate nicely with //given //when //then comments. 
-        It's because stubbing belongs to given component of the test and not to the when component of the test. 
-        Hence BDDMockito class introduces an alias so that you stub method calls with BDDMockito.given(Object) method. 
-        Now it really nicely integrates with the given component of a BDD style test!
+    출처 : <https://javadoc.io/static/org.mockito/mockito-core/5.1.0/org/mockito/Mockito.html>
+    ```
+{% endhint %}
 
-        출처 : <https://javadoc.io/static/org.mockito/mockito-core/5.1.0/org/mockito/Mockito.html>
-        ```
+
 
 ## Assert
 
