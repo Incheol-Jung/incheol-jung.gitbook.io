@@ -237,7 +237,9 @@ WHERE settlement_detail_id BETWEEN 4547 AND 4549 FOR UPDATE;
 
 <figure><img src="../../.gitbook/assets/7.png" alt=""><figcaption></figcaption></figure>
 
-## MYSQL은 repeatable read 단계에서도 Phantom read가 발생하지 않는다??
+## 넥스트 키 락은 보통 어디에서 사용하지???
+
+* MYSQL에서 repeatable read 단계에서도 Phantom read가 발생하지 않는 이유가 넥스트 키 락 덕분이다
 
 {% hint style="info" %}
 **Phantom read란??**
