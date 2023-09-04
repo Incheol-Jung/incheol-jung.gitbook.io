@@ -24,7 +24,7 @@
   * [Optional](q-and-a/java/optional.md)
   * [람다와 클로저](q-and-a/java/undefined-1.md)
   * [Exception(예외)](q-and-a/java/exception.md)
-  * [Garbage Collecter](q-and-a/java/garbage-collecter.md)
+  * [Garbage Collector](q-and-a/java/garbage-collecter.md)
   * [Collection](q-and-a/java/collection.md)
   * [Call by Value & Call by Reference](q-and-a/java/call-by-value-and-call-by-reference.md)
   * [제네릭(Generic)](q-and-a/java/generic.md)
