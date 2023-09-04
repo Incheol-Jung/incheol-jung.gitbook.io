@@ -367,7 +367,7 @@ entityManager.find(Student.class, studentId, LockModeType.OPTIMISTIC);
 
 #### ORM - MYBATIS
 
-* `ORM`을 `mybatis`를 사용한다면 직접 구현해야 한다
+* `ORM`을 `mybatis`로 사용한다면 직접 구현해야 한다
 * `version` 필드를 추가하여 데이터를 조회하고 수정시 version 정보가 동일한지 확인한다
 *   업데이트 이후에 반영된 column 갯수가 0개인지 확인하고 서비스에 필요한 예외처리를 구현한다
 
