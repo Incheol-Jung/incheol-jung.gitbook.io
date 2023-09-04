@@ -50,6 +50,8 @@ hashCode는 기본적으로 객체의 고유의 값을 표기할 때 사용한�
 
 hashcode는 native method로 구현되어 있어 실제로는 cpp 파일을 확인해야 한다. jvm.cpp를 살펴보면 제공하는 전략을 확인할 수 있다.
 
+(참고 : [https://hg.openjdk.org/jdk9/jdk9/hotspot/file/fc7e94cb7485/src/share/vm/runtime/globals.hpp#l1198](https://hg.openjdk.org/jdk9/jdk9/hotspot/file/fc7e94cb7485/src/share/vm/runtime/globals.hpp#l1198))
+
 ```java
 // hashCode() generation :
 //
@@ -127,21 +129,19 @@ OpenJDK 8의 경우 5번을 사용한다.
 ```java
 #define RUNTIME_FLAGS(develop, develop_pd, product, product_pd, diagnostic, experimental, notproduct, manageable, product_rw, lp64_product) \\
 // ..
-develop(bool, InlineObjectHash, true,                                     \\
-        "Inline Object::hashCode() native that is known to be part "      \\
-        "of base library DLL")                                            \\
-product(intx, hashCode, 5,                                                \\
-        "(Unstable) select hashCode generation algorithm")                \\
+develop(bool, InlineObjectHash, true,                                     
+        "Inline Object::hashCode() native that is known to be part "      
+        "of base library DLL")                                            
+product(intx, hashCode, 5, "(Unstable) select hashCode generation algorithm")                
 ```
 
 JDK 6,7은 0번 전략을 사용한다.
 
 ```java
-develop(bool, InlineObjectHash, true,                                     \\
-        "inline Object::hashCode() native that is known to be part "      \\
-        "of base library DLL")                                            \\
-product(intx, hashCode, 0,                                                \\
-        "(Unstable) select hashCode generation algorithm" )               \\
+develop(bool, InlineObjectHash, true,                                     
+        "inline Object::hashCode() native that is known to be part "      
+        "of base library DLL")                                            
+product(intx, hashCode, 0, "(Unstable) select hashCode generation algorithm" )               
 ```
 
 ## equals()
