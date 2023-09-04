@@ -1,9 +1,5 @@
 # heap dump 분석하기 (feat. OOM)
 
-## heap dump 분석하기 (feat. OOM)
-
-
-
 <figure><img src="../../.gitbook/assets/1 (15).png" alt=""><figcaption></figcaption></figure>
 
 ## heap dump 파일은 무엇이지?
