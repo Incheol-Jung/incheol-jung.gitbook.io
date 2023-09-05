@@ -154,7 +154,7 @@ if (ttl == null) {
 * tryAcquire 내부 로직을 살펴보면 lua script를 사용해서 setnx를 실행하는 것을 확인할 수 있다
 
 ```java
-<T> RFuture<T> tryLockInnerAsync(long waitTime, long leaseTime, TimeUnit unit, long threadId, RedisStrictCommand<T> command) {
+ㅌddsadsadsa<T> RFuture<T> tryLockInnerAsync(long waitTime, long leaseTime, TimeUnit unit, long threadId, RedisStrictCommand<T> command) {
     return evalWriteAsync(getRawName(), LongCodec.INSTANCE, command,
             "if (redis.call('exists', KEYS[1]) == 0) then " +
                     "redis.call('hincrby', KEYS[1], ARGV[2], 1); " +
@@ -168,14 +168,39 @@ if (ttl == null) {
                     "end; " +
                     "return redis.call('pttl', KEYS[1]);",
             Collections.singletonList(getRawName()), unit.toMillis(leaseTime), getLockName(threadId));
+            redis.call('exists', KEYS[1]) == 0
 }
 ```
 
-1-1. exists 명령어를 수행해서 있으면 키에 대한 값을 1 증가시키고, ttl 시간을 설정하고 null을 리턴한다
+1. ```
+   if (redis.call('exists', KEYS[1]) == 0) then 
+   redis.call('hincrby', KEYS[1], ARGV[2], 1);
+   redis.call('pexpire', KEYS[1], ARGV[1]);
+   return nil;
+   end;
 
-1-2. 그리고 없으면 한번더 없으면 setnx 명령어를 수행해서 존재하지 않으면 1-1번 과정을 수행한다
+   LOCK KEY가 존재하는지 확인한다(없으면 0, 있으면 1)
+   LOCK KEY가 존재하지 않으면 LOCK KEY와 현재 쓰레드 아이디를 기반으로 값을 1 증가시켜준다
+   LOCK KEY에 유효시간을 설정한다
+   null 값을 리턴한다
+   ```
+2. ```
+   if (redis.call('hexists', KEYS[1], ARGV[2]) == 1) then
+   redis.call('hincrby', KEYS[1], ARGV[2], 1);
+   redis.call('pexpire', KEYS[1], ARGV[1]);
+   return nil;
+   end;
 
-1-3. 만약 이미 존재한다면 존재하는 ttl 값을 리턴한다
+   해시맵 기반으로 LOCK KEY와 쓰레드 아이디로 존재하면 0이고, 존재하지 않으면 저장하고 1을 리턴한다
+   LOCK KEY가 존재하지 않으면 LOCK KEY와 현재 쓰레드 아이디를 기반으로 값을 1 증가시켜준다
+   LOCK KEY에 유효시간을 설정한다
+   null 값을 리턴한다
+   ```
+3. ```
+   return redis.call('pttl', KEYS[1]);
+
+   위의 조건들이 모두 false 이면 현재 LOCK KEY의 존재하는 TTL 시간을 리턴한다
+   ```
 
 
 
@@ -192,6 +217,8 @@ if (time <= 0) {
     return false;
 }
 ```
+
+
 
 ### 3. 고유 Thread Id를 채널로 구독하여 lock이 available할때까지 대기한다
 
