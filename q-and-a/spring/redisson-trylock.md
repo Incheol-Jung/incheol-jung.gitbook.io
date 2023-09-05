@@ -179,10 +179,10 @@ if (ttl == null) {
    return nil;
    end;
 
-   LOCK KEY가 존재하는지 확인한다(없으면 0, 있으면 1)
-   LOCK KEY가 존재하지 않으면 LOCK KEY와 현재 쓰레드 아이디를 기반으로 값을 1 증가시켜준다
-   LOCK KEY에 유효시간을 설정한다
-   null 값을 리턴한다
+   // LOCK KEY가 존재하는지 확인한다(없으면 0, 있으면 1)
+   // LOCK KEY가 존재하지 않으면 LOCK KEY와 현재 쓰레드 아이디를 기반으로 값을 1 증가시켜준다
+   // LOCK KEY에 유효시간을 설정한다
+   // null 값을 리턴한다
    ```
 2. ```
    if (redis.call('hexists', KEYS[1], ARGV[2]) == 1) then
@@ -191,15 +191,15 @@ if (ttl == null) {
    return nil;
    end;
 
-   해시맵 기반으로 LOCK KEY와 쓰레드 아이디로 존재하면 0이고, 존재하지 않으면 저장하고 1을 리턴한다
-   LOCK KEY가 존재하지 않으면 LOCK KEY와 현재 쓰레드 아이디를 기반으로 값을 1 증가시켜준다
-   LOCK KEY에 유효시간을 설정한다
-   null 값을 리턴한다
+   // 해시맵 기반으로 LOCK KEY와 쓰레드 아이디로 존재하면 0이고, 존재하지 않으면 저장하고 1을 리턴한다
+   // LOCK KEY가 존재하지 않으면 LOCK KEY와 현재 쓰레드 아이디를 기반으로 값을 1 증가시켜준다
+   // LOCK KEY에 유효시간을 설정한다
+   // null 값을 리턴한다
    ```
 3. ```
    return redis.call('pttl', KEYS[1]);
 
-   위의 조건들이 모두 false 이면 현재 LOCK KEY의 존재하는 TTL 시간을 리턴한다
+   // 위의 조건들이 모두 false 이면 현재 존재하는 LOCK KEY의 TTL 시간을 리턴한다
    ```
 
 
