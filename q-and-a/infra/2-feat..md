@@ -90,11 +90,11 @@
 
 
 
-### 프로듀서 에러유형
+## 프로듀서 에러유형
 
 * 프로듀서에서 발생할 수 있는 에러유형은 시점에 따라 크게 두가지로 구분할 수 있다
 
-#### 전송 과정 실패
+### 전송 과정 실패
 
 * 브로커에 전송 타임 아웃시간이 만료되었을 때 → 재시도 호출하게 됨
   * enable.idempotence를 중복 전송될 가능성을 줄일 수 있다
@@ -110,40 +110,40 @@
 브로커로 전달할 때 PID와 시퀀스 넘버를 함께 전달해서 재전송시에도 브로커는 PID와 시퀀스 넘버를 확인하여 동일한 메시지로 인지하여 중복으로 메시지를 소비하지 않도록 예방할 수 있다
 {% endhint %}
 
-*   리더 브로커가 다운되었을 때 → 팔로워가 승격되는 과정을 거침(순단 발생)
+* 리더 브로커가 다운되었을 때 → 팔로워가 승격되는 과정을 거침(순단 발생)
+  * 내부적으로 재시도를 시도한다
 
-    * 내부적으로 재시도를 시도한다
+#### 프로듀서 설정
 
-
-* #### 프로듀서 설정
-  * retries : 메시지를 재시도하는 횟수(기본값 MAX\_INT)
-  * [retry.backoff.ms](http://retry.backoff.ms) : 재시도 사이에 대기하는 시간(기본값 : 100)
-  * [request.timeout.ms](http://request.timeout.ms) : 브로커의 응답을 기다리는 최대 시간(기본값 : 30초)
-  * [delivery.timeout.ms](http://delivery.timeout.ms) : send 이후에 성공 또는 실패를 보고하는 시간(기본값 : 2분)
-*   브로커 설정 메시지 크기 한도 초과
-
-    * 프로듀서 및 브로커 설정을 수정해서 해결할 수 있다
+* retries : 메시지를 재시도하는 횟수(기본값 MAX\_INT)
+* [retry.backoff.ms](http://retry.backoff.ms) : 재시도 사이에 대기하는 시간(기본값 : 100)
+* [request.timeout.ms](http://request.timeout.ms) : 브로커의 응답을 기다리는 최대 시간(기본값 : 30초)
+* [delivery.timeout.ms](http://delivery.timeout.ms) : send 이후에 성공 또는 실패를 보고하는 시간(기본값 : 2분)
 
 
 
-    #### 프로듀서 설정
+#### 브로커 설정 메시지 크기 한도 초과
 
-    * max.request.size : 프로듀서가 브로커에 요청할 때 보낼 수 있는 최대 크기(기본값 1MB)
-    * buffer.memory : 프로듀서가 버퍼에 사용할 총메모리의 양(기본값 32MB)
-    * [request.timeout.ms](http://request.timeout.ms) : 프로듀서가 요청 후 브로커의 응답을 대기하는 최대 시간(기본값 30초)
+* 프로듀서 및 브로커 설정을 수정해서 해결할 수 있다
+
+#### 프로듀서 설정
+
+* max.request.size : 프로듀서가 브로커에 요청할 때 보낼 수 있는 최대 크기(기본값 1MB)
+* buffer.memory : 프로듀서가 버퍼에 사용할 총메모리의 양(기본값 32MB)
+* [request.timeout.ms](http://request.timeout.ms) : 프로듀서가 요청 후 브로커의 응답을 대기하는 최대 시간(기본값 30초)
+
+#### 브로커 설정
+
+* message.max.bytes : 레코드 배치 최대 사이즈(기본값 1MB)
+* fetch.max.bytes : fetch 요청에 따라 반환할 최대 바이트 수(기본값 55MB)
+* log.segment.bytes : 각 세그먼트 파일의 크기(기본값 1GB)
+* [request.timeout.ms](http://request.timeout.ms) : 요청하고 응답까지 대기하는 최대 시간(기본값 30초)
+* replica.fetch.max.bytes : 복제 과정에서 fetch 시도할 수 있는 최대 바이트 수(기본값 1MB)
+* replica.fetch.response.max.bytes : 전체 fetch 응답의 최대 바이트 수(기본값 10MB)
 
 
 
-    #### 브로커 설정
-
-    * message.max.bytes : 레코드 배치 최대 사이즈(기본값 1MB)
-    * fetch.max.bytes : fetch 요청에 따라 반환할 최대 바이트 수(기본값 55MB)
-    * log.segment.bytes : 각 세그먼트 파일의 크기(기본값 1GB)
-    * [request.timeout.ms](http://request.timeout.ms) : 요청하고 응답까지 대기하는 최대 시간(기본값 30초)
-    * replica.fetch.max.bytes : 복제 과정에서 fetch 시도할 수 있는 최대 바이트 수(기본값 1MB)
-    * replica.fetch.response.max.bytes : 전체 fetch 응답의 최대 바이트 수(기본값 10MB)
-
-#### 전송 전 실패
+### 전송 전 실패
 
 * 직렬화 과정에서 실패하였을 때
   * try/catch로 예외처리 한다
