@@ -48,7 +48,7 @@ web.xml에 등록된 dispatcherServlet의 \<url-pattern>이 '/'와 같이 해당
 ```
 
 {% hint style="info" %}
-**스프링 부트는 url pattern을 어떻게 설정할 수 있을까?**\
+**Q3. 스프링 부트는 url pattern을 어떻게 설정할 수 있을까?**\
 \
 appliation.yml , application.properties파일에 server.servlet.context-path 옵션으로 지정할 수 있다.
 {% endhint %}
@@ -56,7 +56,7 @@ appliation.yml , application.properties파일에 server.servlet.context-path 옵
 * DispatcherServlet은 가로챈 정보를 HandlerMapping 에게 보내 해당 요청을 처리할 수 있는 Controller를 찾아낸다. HandlerMapping이 컨트롤러를 찾아내는 전략은 BeanNamUrlHandlerMapping과 DefaultAnnotationHandlerMapping이 기본 전략이다.
 
 {% hint style="info" %}
-**Q3. HandlerMapping이 컨트롤러를 찾는 다른 전략은 무엇이 있는가?**
+**Q4. HandlerMapping이 컨트롤러를 찾는 다른 전략은 무엇이 있는가?**
 
 1. DefaultAnnotationHandlerMapping : @RequestMapping 이라는 애노테이션을 컨트롤러 클래스나 메소드에 직접 부여하고 이를 이용해 매핑하는 전략이다.
 2. BeanNameUrlHandlerMapping : 빈정의 태그에서 name attribute에 선언된 URL과 class attribute에 정의된 Controller를 매핑하는 방식으로 동작한다.
@@ -64,8 +64,9 @@ appliation.yml , application.properties파일에 server.servlet.context-path 옵
 4. SimpleUrlHandlerMapping : Ant-Style 패턴 매칭을 지원하며, 하나의 Controller에 여러 URL을 mapping 할 수 있다.
 {% endhint %}
 
-* 컨트롤러 작업 수행
-* 컨트롤러는 요청을 응답받을 View의 이름을 리턴하게 된다. 그때 View 이름을 ViewResolver가 먼저 받아 해당하는 View가 존재하는지 검색한다.
+* HandlerMapping을 통해 선택된 컨트롤러 객체를 DispatcherServlet에게 전달하면 DispatcherServlet은 HandlerAdapter에게 타겟 컨트롤러에게 작업을 요청한다
+* 요청 받은 컨트롤러는 비즈니스 로직을 수행한다
+* 컨트롤러는 요청을 응답받을 ModelAndView 객체를 변환해서 DispatcherServlet에게 리턴하게 된다. 그때 View를 찾기 위해 DispatcherServlet은 ViewResolver에게 요청하여 View를 검색한다.
 * 컨트롤러에서 보내온 View 이름을 토대로 처리 View를 검색한다.
 * 이 결과를 다시 DispatcherServlet 에게 보낸다.
 * DispatcherServlet은 최종 결과를 클라이언트에 전송한다.
