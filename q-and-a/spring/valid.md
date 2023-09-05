@@ -1,5 +1,5 @@
 ---
-description: '@Valid 동작 원리'
+description: '@Valid 동작 원리를 알아보자'
 ---
 
 # @Valid 동작 원리
