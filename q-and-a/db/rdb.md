@@ -24,11 +24,11 @@ description: 데이터베이스에서 발생할 수 있는 Lock 에 대해서 �
 
 #### 무결성 제약 조건이란?
 
-데이터베이스에 들어있는 데이터의 정확성\(일관성\)을 보장하기 위해 부정확한 자료가 데이터베이스 내에 저장되는 것을 방지하기 위한 제약 조건을 의미한다.
+데이터베이스에 들어있는 데이터의 정확성(일관성)을 보장하기 위해 부정확한 자료가 데이터베이스 내에 저장되는 것을 방지하기 위한 제약 조건을 의미한다.
 
 ### 무결성 종류
 
-#### 개체 무결성\(entity\)
+#### 개체 무결성(entity)
 
 * 기본키는 null 값이 될 수 없다.
 
@@ -39,7 +39,7 @@ description: 데이터베이스에서 발생할 수 있는 Lock 에 대해서 �
 #### 도메인 무결성
 
 * 특정 속성의 값은 그 속성이 정의된 도메인에 속한 값 이어야 한다.
-* 학년을 나타내는 필드가 있을 경우 그 학교는 1학년에서 3학년 까지만 있다고 하면 해당 필드의 값은 1~3까지만 유효해야 한다는 조건이다.
+* 학년을 나타내는 필드가 있을 경우 그 학교는 1학년에서 3학년 까지만 있다고 하면 해당 필드의 값은 1\~3까지만 유효해야 한다는 조건이다.
 
 #### 키 무결성
 
@@ -55,25 +55,23 @@ description: 데이터베이스에서 발생할 수 있는 Lock 에 대해서 �
 
 ## Lock 종류
 
-### Shared Lock\(S\)
+### Shared Lock(S)
 
 여러 트랜잭션에서 데이터를 읽을 경우에만 가능하며 여러 트랜잭션에서 동시에 하나의 데이터를 읽을 수 있다. 트랜잭션간의 공유 락을 생성할 수 있다. 그러나 공유 락이 설정되어 있는 동안에는 다른 트랜잭션이 데이터를 변경할 수 없다. 즉, 공유 락은 다른 베타적 잠금을 허용하지 않으며 호환되지 않는다.
 
-```text
+```
 SELECT * FROM USER WHERE USERID = 1 LOCK IN SHARE MODE
 ```
 
-### Exclusive Lock\(X\)
+### Exclusive Lock(X)
 
 베타적 락은 동시에 여러 트랜잭션이 한 리소스에 엑세스할 수 없게 된다. 오직 하나의 트랜잭션만 해당 리소스를 점유할 수 있으며 수정이 가능하다.
 
-### Update Lock\(U\)
+수정 시에 베타적 락을 걸기 전 리소스를 읽기 위해 거는 락이다. 공유 락과 호환된다
 
-수정 시에 베타적 락을 걸기 전 리소스를 읽기 위해 거는 락이다. 공유 락과 호환된다.
+그러나 exclusive Lock을 걸었다고 해서 Shared Lock이 아닌 Select 쿼리에서는 일반적으로 잠금하지 않는다
 
-트랜잭션이 리소스를 수정하면 업데이트 잠금이 베타적 락으로 변환되고 그렇지 않으면 잠금이 공유 락으로 변환된다. 그러나 업데이트 락을 하더라도 교착상태를 완전히 방지할 수는 없다. 그것은 모든 RDBMS에서도 동일하다.
-
-```text
+```
 SELECT * FROM USER WHERE USERID = 1 FOR UPDATE
 ```
 
@@ -110,4 +108,3 @@ SELECT * FROM USER WHERE USERID = 1 FOR UPDATE
 * [https://suhwan.dev/2019/06/09/transaction-isolation-level-and-lock/](https://suhwan.dev/2019/06/09/transaction-isolation-level-and-lock/)
 * [https://kuaaan.tistory.com/97](https://kuaaan.tistory.com/97)
 * [https://allaboutmoon.tistory.com/221](https://allaboutmoon.tistory.com/221)
-
