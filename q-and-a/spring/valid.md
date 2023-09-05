@@ -90,23 +90,23 @@ description: '@Valid 동작 원리를 알아보자'
 
     ```jsx
     rivate List<HandlerMethodArgumentResolver> getDefaultArgumentResolvers() {
-    		List<HandlerMethodArgumentResolver> resolvers = new ArrayList<>(30);
-
-    		// Annotation-based argument resolution
-    		resolvers.add(new RequestParamMethodArgumentResolver(getBeanFactory(), false));
-    		resolvers.add(new RequestParamMapMethodArgumentResolver());
-    		resolvers.add(new PathVariableMethodArgumentResolver());
-    		resolvers.add(new PathVariableMapMethodArgumentResolver());
-    		resolvers.add(new MatrixVariableMethodArgumentResolver());
-    		resolvers.add(new MatrixVariableMapMethodArgumentResolver());
-    		resolvers.add(new ServletModelAttributeMethodProcessor(false));
-    		resolvers.add(new RequestResponseBodyMethodProcessor(getMessageConverters(), this.requestResponseBodyAdvice));
-    		resolvers.add(new RequestPartMethodArgumentResolver(getMessageConverters(), this.requestResponseBodyAdvice));
-    		resolvers.add(new RequestHeaderMethodArgumentResolver(getBeanFactory()));
-    		resolvers.add(new RequestHeaderMapMethodArgumentResolver());
-    		resolvers.add(new ServletCookieValueMethodArgumentResolver(getBeanFactory()));
-    		
-    		...
+        List<HandlerMethodArgumentResolver> resolvers = new ArrayList<>(30);
+        
+        // Annotation-based argument resolution
+        resolvers.add(new RequestParamMethodArgumentResolver(getBeanFactory(), false));
+        resolvers.add(new RequestParamMapMethodArgumentResolver());
+        resolvers.add(new PathVariableMethodArgumentResolver());
+        resolvers.add(new PathVariableMapMethodArgumentResolver());
+        resolvers.add(new MatrixVariableMethodArgumentResolver());
+        resolvers.add(new MatrixVariableMapMethodArgumentResolver());
+        resolvers.add(new ServletModelAttributeMethodProcessor(false));
+        resolvers.add(new RequestResponseBodyMethodProcessor(getMessageConverters(), this.requestResponseBodyAdvice));
+        resolvers.add(new RequestPartMethodArgumentResolver(getMessageConverters(), this.requestResponseBodyAdvice));
+        resolvers.add(new RequestHeaderMethodArgumentResolver(getBeanFactory()));
+        resolvers.add(new RequestHeaderMapMethodArgumentResolver());
+        resolvers.add(new ServletCookieValueMethodArgumentResolver(getBeanFactory()));
+        
+        ...
     }
     ```
 * 그중에는 RequestResponseBodyMethodProcessor 빈도 등록되는것을 확인할 수 있다.
@@ -127,17 +127,17 @@ description: '@Valid 동작 원리를 알아보자'
 
     ```jsx
     @Nullable
-    	protected HandlerExecutionChain getHandler(HttpServletRequest request) throws Exception {
-    		if (this.handlerMappings != null) {
-    			for (HandlerMapping mapping : this.handlerMappings) {
-    				HandlerExecutionChain handler = mapping.getHandler(request);
-    				if (handler != null) {
-    					return handler;
-    				}
+    protected HandlerExecutionChain getHandler(HttpServletRequest request) throws Exception {
+    	if (this.handlerMappings != null) {
+    		for (HandlerMapping mapping : this.handlerMappings) {
+    			HandlerExecutionChain handler = mapping.getHandler(request);
+    			if (handler != null) {
+    				return handler;
     			}
     		}
-    		return null;
     	}
+    	return null;
+    }
     ```
 *   그럼 handle()을 호출하여 추상화된 AbstractHandlerMethodAdapter 객체는 Handler와 관련되어 있는 Adapter 객체를 호출하게 된다.
 
@@ -147,33 +147,33 @@ description: '@Valid 동작 원리를 알아보자'
 
     // AbstractHandlerMethodAdapter.handler
     public final ModelAndView handle(HttpServletRequest request, HttpServletResponse response, Object handler)
-    			throws Exception {
+    		throws Exception {
 
-    		return handleInternal(request, response, (HandlerMethod) handler);
-    	}
+    	return handleInternal(request, response, (HandlerMethod) handler);
+    }
     ```
 *   그렇게 확인된 RequestMappingHandlerAdaper 객체는 interceptor 과정을 거치고 나서 등록된 request 유형에 따라 argumentResolver를 호출하게 된다.
 
     ```jsx
     // RequestMappingHandlerAdaper
     public Object resolveArgument(MethodParameter parameter, @Nullable ModelAndViewContainer mavContainer,
-    			NativeWebRequest webRequest, @Nullable WebDataBinderFactory binderFactory) throws Exception {
+    		NativeWebRequest webRequest, @Nullable WebDataBinderFactory binderFactory) throws Exception {
 
-    		HandlerMethodArgumentResolver resolver = getArgumentResolver(parameter);
-    		if (resolver == null) {
-    			throw new IllegalArgumentException("Unsupported parameter type [" +
-    					parameter.getParameterType().getName() + "]. supportsParameter should be called first.");
-    		}
-    		return resolver.resolveArgument(parameter, mavContainer, webRequest, binderFactory);
+    	HandlerMethodArgumentResolver resolver = getArgumentResolver(parameter);
+    	if (resolver == null) {
+    		throw new IllegalArgumentException("Unsupported parameter type [" +
+    				parameter.getParameterType().getName() + "]. supportsParameter should be called first.");
     	}
+    	return resolver.resolveArgument(parameter, mavContainer, webRequest, binderFactory);
+    }
     ```
 *   RequestResponseBodyMethodProcessor.resolverArgument() 메소드를 호출하게 되는데
 
     ```jsx
     public Object resolveArgument(MethodParameter parameter, @Nullable ModelAndViewContainer mavContainer,
-    			NativeWebRequest request, @Nullable WebDataBinderFactory binderFactory) throws Exception {
-    		...
-    		validateIfApplicable(binder, parameter);
+    		NativeWebRequest request, @Nullable WebDataBinderFactory binderFactory) throws Exception {
+    	...
+    	validateIfApplicable(binder, parameter);
     }
     ```
 * 그 안에는 AbstreacMessageConverterMethodArgumentResolver.validateIfApplicable 메소드를 호출하는 영역이 있는데 해당 로직에 valid 어노테이션에 대한 로직이 있는 것을 확인할 수 있다.
