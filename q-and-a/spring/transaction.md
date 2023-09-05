@@ -43,7 +43,7 @@ public void handleDevice(TestMessage message) {
 @RequiredArgsConstructor
 public class TestService {
 
-		@Transactional
+    @Transactional
     public void sendTestMessage() {
         kafkaTestProducerService.sendMessage("Hello World!! Incheol~~~~~");
     }
@@ -79,12 +79,12 @@ public void sendTestMessage() {
 
 ```jsx
 @Bean
-    public ConsumerFactory<String, Object> multiTypeConsumerFactory() {
-        HashMap<String, Object> props = new HashMap<>();
-        ...
-        props.put(ConsumerConfig.ISOLATION_LEVEL_CONFIG, READ_COMMITTED);
-        return new DefaultKafkaConsumerFactory<>(props);
-    }
+public ConsumerFactory<String, Object> multiTypeConsumerFactory() {
+    HashMap<String, Object> props = new HashMap<>();
+    ...
+    props.put(ConsumerConfig.ISOLATION_LEVEL_CONFIG, READ_COMMITTED);
+    return new DefaultKafkaConsumerFactory<>(props);
+}
 ```
 
 #### 오잉? 그럼 기본 설정은 어떻게 되어있지?
