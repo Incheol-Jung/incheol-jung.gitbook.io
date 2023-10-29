@@ -154,7 +154,7 @@ if (ttl == null) {
 * tryAcquire 내부 로직을 살펴보면 lua script를 사용해서 setnx를 실행하는 것을 확인할 수 있다
 
 ```java
-ㅌddsadsadsa<T> RFuture<T> tryLockInnerAsync(long waitTime, long leaseTime, TimeUnit unit, long threadId, RedisStrictCommand<T> command) {
+<T> RFuture<T> tryLockInnerAsync(long waitTime, long leaseTime, TimeUnit unit, long threadId, RedisStrictCommand<T> command) {
     return evalWriteAsync(getRawName(), LongCodec.INSTANCE, command,
             "if (redis.call('exists', KEYS[1]) == 0) then " +
                     "redis.call('hincrby', KEYS[1], ARGV[2], 1); " +
